@@ -13966,7 +13966,7 @@ var app = (function () {
         .attr('class', 'logit-circle')
         .attr('id', `logit-circle-${selectedI}`)
         .attr('cx', centerX)
-        .attr('cy', nodeCoordinate$2[curLayerIndex - 1][selectedI].y + nodeLength$5 / 2)
+        .attr('cy', nodeCoordinate$2[curLayerIndex][selectedI].y + nodeLength$5 / 2)
         .attr('r', logitRadius)
         .style('fill', layerColorScales$5.logit(logitColorScale(logits[selectedI])))
         .style('cursor', 'crosshair')
@@ -13990,8 +13990,8 @@ var app = (function () {
         .attr('class', `logit-output-edge-${selectedI}`)
         .attr('x1', intermediateX2 - moveX + plusSymbolRadius$1 * 2)
         .attr('x2', softmaxX)
-        .attr('y1', nodeCoordinate$2[curLayerIndex - 1][selectedI].y + nodeLength$5 / 2)
-        .attr('y2', nodeCoordinate$2[curLayerIndex - 1][selectedI].y + nodeLength$5 / 2)
+        .attr('y1', nodeCoordinate$2[curLayerIndex][selectedI].y + nodeLength$5 / 2)
+        .attr('y2', nodeCoordinate$2[curLayerIndex][selectedI].y + nodeLength$5 / 2)
         .style('fill', 'none')
         .style('stroke', '#EAEAEA')
         .style('stroke-width', '1.2')
@@ -14029,33 +14029,32 @@ var app = (function () {
             .style('opacity', 0);
 
           // Hack: now show all edges, only draw 1/3 of the actual edges
-          for (let f = 0; f < flattenLength; f += 3) {
-            let loopFactors = [0, 9];
-            loopFactors.forEach(l => {
-              let factoredF = f + l * flattenLength;
+          // for (let f = 0; f < flattenLength; f += 3) {
+          //   let loopFactors = [0, 9];
+          //   loopFactors.forEach(l => {
+          //     let factoredF = f + l * flattenLength;
         
-              // Flatten -> output
-              linkData.push({
-                source: {x: intermediateX1 + pixelWidth + 3 - moveX,
-                  y:  l === 0 ? topY + f * pixelHeight : bottomY + f * pixelHeight},
-                target: {x: intermediateX2 - moveX,
-                  y: nodeCoordinate$2[curLayerIndex][curI].y + nodeLength$5 / 2},
-                index: factoredF,
-                weight: cnn$2.flatten[factoredF].outputLinks[curI].weight,
-                color: '#F1F1F1',
-                width: 0.5,
-                opacity: 1,
-                class: `softmax-edge-${curI}`
-              });
-            });
-          }
+          //     // Flatten -> output
+          //     linkData.push({
+          //       source: {x: intermediateX1 + pixelWidth + 3 - moveX,
+          //         y:  l === 0 ? topY + f * pixelHeight : bottomY + f * pixelHeight},
+          //       target: {x: intermediateX2 - moveX,
+          //         y: nodeCoordinate[curLayerIndex][curI].y + nodeLength / 2},
+          //       index: factoredF,
+          //       weight: cnn.flatten[factoredF].outputLinks[curI].weight,
+          //       color: '#F1F1F1',
+          //       width: 0.5,
+          //       opacity: 1,
+          //       class: `softmax-edge-${curI}`
+          //     });
+          //   });
+          // }
 
           // Draw middle rect to logits
-          for (let vi = 0; vi < cnn$2[layerIndexDict['output']].length - 2; vi++) {
+          for (let vi = 0; vi < cnn$2[curLayerIndex-1].length; vi++) {
             linkData.push({
-              source: {x: intermediateX1 + pixelWidth + 3 - moveX,
-                y: topY + flattenLength * pixelHeight + middleGap * (vi + 1) +
-                middleRectHeight * (vi + 0.5)},
+              source: {x: intermediateX1 + 1.5 * nodeLength$5 - moveX,
+                y: nodeCoordinate$2[curLayerIndex-1][vi].y + nodeLength$5 / 2},
               target: {x: intermediateX2 - moveX,
                 y: nodeCoordinate$2[curLayerIndex][curI].y + nodeLength$5 / 2},
               index: -1,
@@ -14167,7 +14166,7 @@ var app = (function () {
           .attr('class', 'logit-circle')
           .attr('id', `logit-circle-${curI}`)
           .attr('cx', centerX)
-          .attr('cy', nodeCoordinate$2[curLayerIndex - 1][curI].y + nodeLength$5 / 2)
+          .attr('cy', nodeCoordinate$2[curLayerIndex][curI].y + nodeLength$5 / 2)
           .attr('r', 7)
           .style('fill', layerColorScales$5.logit(logitColorScale(logits[curI])))
           .style('stroke', intermediateColor$2)
@@ -14190,7 +14189,7 @@ var app = (function () {
           .duration(opacityDuration)
           .style('opacity', 1);
 
-        if ((selectedI < 3 && curI == 9) || (selectedI >= 3 && curI == 0)) {
+        if ((selectedI < 3 && curI == 14) || (selectedI >= 3 && curI == 0)) {
           // Show the hover text
           softmaxDetailAnnotation.select('.softmax-detail-hover-annotation')
             .transition('softmax-edge')
@@ -14263,7 +14262,7 @@ var app = (function () {
         colorScale: layerColorScales$5.logit,
         x: intermediateX2 + plusSymbolRadius$1 * 2 - moveX + 5,
         y: svgPaddings$3.top + vSpaceAroundGap$3 * (10) + vSpaceAroundGap$3 + 
-          nodeLength$5 * 10
+          nodeLength$5 * 15
       });
 
       // Draw logit layer label
@@ -14359,7 +14358,12 @@ var app = (function () {
       // Also move all layers on the left
       for (let i = curLayerIndex - 1; i >= 0; i--) {
         let curLayer = svg$4.select(`g#cnn-layer-group-${i}`);
-        let previousX = +curLayer.select('image').attr('x');
+        let previousX;
+        if(i === 5){
+          previousX = +curLayer.select('circle.dense-circle').attr('cx') - nodeLength$5 / 2;
+        }else {
+          previousX = +curLayer.select('image').attr('x');
+        }
         let newX = isInSoftmax ? previousX + moveX : previousX - moveX;
         moveLayerX({
           layerIndex: i,
@@ -14544,10 +14548,10 @@ var app = (function () {
             });
 
             // Add annotation for the logit circle
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 15; i++) {
               softmaxDetailAnnotation.append('text')
                 .attr('x', centerX)
-                .attr('y', nodeCoordinate$2[curLayerIndex - 1][i].y + nodeLength$5 / 2 + 8)
+                .attr('y', nodeCoordinate$2[curLayerIndex][i].y + nodeLength$5 / 2 + 8)
                 .attr('class', 'annotation-text softmax-detail-text')
                 .attr('id', `logit-text-${i}`)
                 .style('text-anchor', 'middle')
@@ -14561,10 +14565,10 @@ var app = (function () {
               .style('opacity', 0);
 
             textX = centerX + 50;
-            textY = nodeCoordinate$2[curLayerIndex - 1][0].y + nodeLength$5 / 2;
+            textY = nodeCoordinate$2[curLayerIndex][0].y + nodeLength$5 / 2;
 
             if (selectedI < 3) {
-              textY = nodeCoordinate$2[curLayerIndex - 1][9].y + nodeLength$5 / 2;
+              textY = nodeCoordinate$2[curLayerIndex][14].y + nodeLength$5 / 2;
             }
 
             // Add annotation to prompt user to check the logit value
@@ -15049,29 +15053,29 @@ var app = (function () {
         .text('softmax');
 
       // Draw the layer label
-      // let layerLabel = intermediateLayer.append('g')
-      //   .attr('class', 'layer-label')
-      //   .classed('hidden', detailedMode)
-      //   .attr('transform', () => {
-      //     let x = leftX + nodeLength + (4 * hSpaceAroundGap * gapRatio +
-      //       pixelWidth) / 2;
-      //     let y = (svgPaddings.top + vSpaceAroundGap) / 2 + 5;
-      //     return `translate(${x}, ${y})`;
-      //   })
-      //   .style('cursor', 'help')
-      //   .on('click', () => {
-      //     d3.event.stopPropagation();
-      //     // Scroll to the article element
-      //     document.querySelector(`#article-flatten`).scrollIntoView({ 
-      //       behavior: 'smooth' 
-      //     });
-      //   });
+      let layerLabel = intermediateLayer.append('g')
+        .attr('class', 'layer-label')
+        .classed('hidden', detailedMode$2)
+        .attr('transform', () => {
+          let x = leftX + nodeLength$5 + (4 * hSpaceAroundGap$2 * gapRatio$2 +
+            pixelWidth) / 2;
+          let y = (svgPaddings$3.top + vSpaceAroundGap$3) / 2 + 5;
+          return `translate(${x}, ${y})`;
+        })
+        .style('cursor', 'help')
+        .on('click', () => {
+          d3.event.stopPropagation();
+          // Scroll to the article element
+          document.querySelector(`#article-flatten`).scrollIntoView({ 
+            behavior: 'smooth' 
+          });
+        });
       
-      // layerLabel.append('text')
-      //   .style('dominant-baseline', 'middle')
-      //   .style('opacity', 0.8)
-      //   .style('font-weight', 800)
-      //   .text('flatten');
+      layerLabel.append('text')
+        .style('dominant-baseline', 'middle')
+        .style('opacity', 0.8)
+        .style('font-weight', 800)
+        .text('flatten');
 
       let svgHeight = Number(d3.select('#cnn-svg').style('height').replace('px', '')) + 150;
       let scroll = new SmoothScroll('a[href*="#"]', {offset: -svgHeight});
@@ -15380,7 +15384,7 @@ var app = (function () {
         .attr('class', 'overlay')
         .style('fill', 'url(#overlay-gradient-left)')
         .style('stroke', 'none')
-        .attr('width', leftX + svgPaddings$3.left - (leftGap * 2) + 3)
+        .attr('width', leftX + svgPaddings$3.left - (leftGap * 2) + 5)
         .attr('height', height + svgPaddings$3.top + svgPaddings$3.bottom)
         .attr('x', -svgPaddings$3.left)
         .attr('y', 0)
@@ -15392,7 +15396,7 @@ var app = (function () {
         .style('stroke', 'none')
         .attr('width', totalLength)
         .attr('height', height + svgPaddings$3.top + svgPaddings$3.bottom)
-        .attr('x', nodeCoordinate$2[curLayerIndex][0].x + nodeLength$5)
+        .attr('x', nodeCoordinate$2[curLayerIndex][0].x + nodeLength$5 + 5)
         .attr('y', 0)
         .style('opacity', 0);
       
@@ -15789,8 +15793,8 @@ var app = (function () {
         .attr('class', 'softmax-symbol')
         .attr('transform', `translate(${softmaxX}, ${symbolY})`)
         .style('pointer-event', 'all')
-        .style('cursor', 'pointer')
-        .on('click', () => softmaxClicked(softmaxArg));
+        .style('cursor', 'pointer');
+        // .on('click', () => softmaxClicked(softmaxArg));
       
       softmaxSymbol.append('rect')
         .attr('x', 0)
@@ -15803,12 +15807,12 @@ var app = (function () {
         .attr('fill', '#FAFAFA');
       
       softmaxSymbol.append('text')
-        .attr('x', 5)
+        .attr('x', 15)
         .attr('y', 1)
         .style('dominant-baseline', 'middle')
-        .style('font-size', '12px')
+        .style('font-size', '14px')
         .style('opacity', 0.5)
-        .text('softmax');
+        .text('relu');
 
       // Draw the layer label
       let layerLabel = intermediateLayer.append('g')
@@ -16030,28 +16034,28 @@ var app = (function () {
       let softmaxAnnotation = intermediateLayerAnnotation.append('g')
         .attr('class', 'softmax-annotation');
       
-      softmaxAnnotation.append('text')
-        .attr('x', softmaxX + softmaxWidth / 2)
-        .attr('y', softmaxTextY)
-        .attr('class', 'annotation-text')
-        .style('dominant-baseline', 'baseline')
-        .style('text-anchor', 'middle')
-        .style('font-weight', 700)
-        .text('Click ')
-        .append('tspan')
-        .attr('dx', 1)
-        .style('font-weight', 400)
-        .text('to learn more');
+      // softmaxAnnotation.append('text')
+      //   .attr('x', softmaxX + softmaxWidth / 2)
+      //   .attr('y', softmaxTextY)
+      //   .attr('class', 'annotation-text')
+      //   .style('dominant-baseline', 'baseline')
+      //   .style('text-anchor', 'middle')
+      //   .style('font-weight', 700)
+      //   .text('Click ')
+      //   .append('tspan')
+      //   .attr('dx', 1)
+      //   .style('font-weight', 400)
+      //   .text('to learn more');
 
-      drawArrow({
-        group: softmaxAnnotation,
-        sx: softmaxX + softmaxWidth / 2 - 5,
-        sy: softmaxTextY + 4,
-        tx: softmaxX + softmaxWidth / 2,
-        ty: symbolY - plusSymbolRadius$1 - 4,
-        dr: 50,
-        hFlip: true
-      });
+      // drawArrow({
+      //   group: softmaxAnnotation,
+      //   sx: softmaxX + softmaxWidth / 2 - 5,
+      //   sy: softmaxTextY + 4,
+      //   tx: softmaxX + softmaxWidth / 2,
+      //   ty: symbolY - plusSymbolRadius - 4,
+      //   dr: 50,
+      //   hFlip: true
+      // });
 
       // Add annotation for the flatten layer
       let flattenAnnotation = intermediateLayerAnnotation.append('g')
@@ -16569,11 +16573,10 @@ var app = (function () {
     	let div6;
     	let svg_1;
     	let t15;
-    	let t16;
     	let div8;
     	let current_block_type_index;
     	let if_block;
-    	let t17;
+    	let t16;
     	let current;
     	let mounted;
     	let dispose;
@@ -16585,7 +16588,6 @@ var app = (function () {
     		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
     	}
 
-    	const article = new Article({ $$inline: true });
     	const if_block_creators = [create_if_block$4, create_if_block_1, create_if_block_2, create_if_block_3];
     	const if_blocks = [];
 
@@ -16655,11 +16657,9 @@ var app = (function () {
     			div6 = element("div");
     			svg_1 = svg_element("svg");
     			t15 = space();
-    			create_component(article.$$.fragment);
-    			t16 = space();
     			div8 = element("div");
     			if (if_block) if_block.c();
-    			t17 = space();
+    			t16 = space();
     			create_component(modal.$$.fragment);
     			attr_dev(img, "class", "custom-image svelte-1t9jxuh");
     			if (img.src !== (img_src_value = "/assets/img/plus.svg")) attr_dev(img, "src", img_src_value);
@@ -16738,7 +16738,7 @@ var app = (function () {
     			attr_dev(div7, "class", "overview svelte-1t9jxuh");
     			add_location(div7, file$g, 1510, 0, 49924);
     			attr_dev(div8, "id", "detailview");
-    			add_location(div8, file$g, 1604, 0, 52710);
+    			add_location(div8, file$g, 1604, 0, 52719);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -16790,15 +16790,13 @@ var app = (function () {
     			append_dev(div6, svg_1);
     			/*div7_binding*/ ctx[25](div7);
     			insert_dev(target, t15, anchor);
-    			mount_component(article, target, anchor);
-    			insert_dev(target, t16, anchor);
     			insert_dev(target, div8, anchor);
 
     			if (~current_block_type_index) {
     				if_blocks[current_block_type_index].m(div8, null);
     			}
 
-    			insert_dev(target, t17, anchor);
+    			insert_dev(target, t16, anchor);
     			mount_component(modal, target, anchor);
     			current = true;
 
@@ -16921,13 +16919,11 @@ var app = (function () {
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(article.$$.fragment, local);
     			transition_in(if_block);
     			transition_in(modal.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(article.$$.fragment, local);
     			transition_out(if_block);
     			transition_out(modal.$$.fragment, local);
     			current = false;
@@ -16937,15 +16933,13 @@ var app = (function () {
     			destroy_each(each_blocks, detaching);
     			/*div7_binding*/ ctx[25](null);
     			if (detaching) detach_dev(t15);
-    			destroy_component(article, detaching);
-    			if (detaching) detach_dev(t16);
     			if (detaching) detach_dev(div8);
 
     			if (~current_block_type_index) {
     				if_blocks[current_block_type_index].d();
     			}
 
-    			if (detaching) detach_dev(t17);
+    			if (detaching) detach_dev(t16);
     			destroy_component(modal, detaching);
     			mounted = false;
     			run_all(dispose);
