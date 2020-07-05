@@ -58,7 +58,7 @@
 
   <div id="logo">
     <div id="logo-text">
-      CNN Explainer
+      UnboxAI
     </div>
 
 		<svg width="510px" height="50px">
@@ -80,26 +80,4 @@
 			</g>
 		</svg>
   </div>
-
-	<div class="icons">
-	
-		<div class="icon" title="Research paper">
-			<a target="_blank" href="http://zijie.wang/redirect/cnn-explainer/">
-				<img src="PUBLIC_URL/assets/img/pdf.png" alt="pdf icon"/>
-			</a>
-		</div>
-
-		<div class="icon" title="Demo video">
-			<a target="_blank" href="https://youtu.be/HnWIHWFbuUQ">
-				<img src="PUBLIC_URL/assets/img/youtube.png" alt="youtube icon"/>
-			</a>
-		</div>
-
-		<div class="icon" title="Open-source code">
-			<a target="_blank" href="https://github.com/poloclub/cnn-explainer">
-				<img src="PUBLIC_URL/assets/img/github.png" alt="github icon"/>
-			</a>
-		</div>
-
-	</div>
 </div>
