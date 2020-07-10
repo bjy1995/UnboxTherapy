@@ -1,6 +1,6 @@
 <script>
 	import HyperparameterView from '../detail-view/Hyperparameterview.svelte';
-  import Youtube from './Youtube.svelte';
+  // import Youtube from './Youtube.svelte';
 
 	let softmaxEquation = `$$\\text{Softmax}(x_{i}) = \\frac{\\exp(x_i)}{\\sum_j \\exp(x_j)}$$`;
 	let reluEquation = `$$\\text{ReLU}(x) = \\max(0,x)$$`;
@@ -262,9 +262,9 @@
         <small>(2:29-2:54)</small>
       </li>
     </ul>
-    <div class="video">
+    <!-- <div class="video">
       <Youtube videoId="HnWIHWFbuUQ" playerId="demo_video" bind:this={currentPlayer}/>
-    </div>
+    </div> -->
 
     <h2>How is CNN Explainer implemented?</h2>
     <p>
