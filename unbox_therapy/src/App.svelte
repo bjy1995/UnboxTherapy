@@ -54,7 +54,7 @@
         <a href="/cnn" use:link rel="prefetch">CNN</a>
       </li>
       <li>
-        <a href="blog">RNN</a>
+        <a target="_blank" href="/dist/indexnn.html">NN</a>
       </li>
     </ul>
   </div>
