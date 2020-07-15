@@ -50,15 +50,21 @@
   <div class="page_header">
     <a href="/" class="home_icon" rel="prefetch">Home</a>
     <ul class="menu_ul">
+
       <li>
-        <a href="/cnn" use:link rel="prefetch">卷积神经网络</a>
+        <a target="_blank" href="/dt/index.html">决策树</a>
       </li>
       <li>
         <a target="_blank" href="/dist/indexnn.html">神经网络</a>
       </li>
       <li>
-        <a target="_blank" href="/dt/index.html">决策树</a>
+        <a target="_blank" href="/">KNN</a>
       </li>
+      <li>
+        <a href="/cnn" use:link rel="prefetch">卷积神经网络</a>
+      </li>
+
+
     </ul>
   </div>
 
