@@ -1,6 +1,6 @@
 <script>
   import Knn from './Knn.svelte'
-  import Tree from './Tree.svelte'
+  import NN1 from './Graph1_view.svelte'
 </script>
 <style>
   h1,
@@ -97,220 +97,144 @@
     border-top: solid 200px #fff;
     margin-top: -200px;
   }
+  .picture1 {
+    width: 200px;
+    height: 200px;
+    background-image: url("tmp/Picture1.png");
+    background-size: 100% auto;
+    color: transparent !important;
+  }
 </style>
-
-<div class="left_tree">
-  <ul>
-    <li>
-      <a href="#Zero">Let’s get started!</a>
-    </li>
-    <li>
-      <a href="#One">1. Building Blocks: Neurons</a>
-    </li>
-    <li>
-      <a href="#One1">1.1 A Simple Example</a>
-    </li>
-    <li>
-    <a href="#One2">1.2 Coding a Neuron</a>
-    </li>
-    <li>
-    <a href="#Two">2. Combining Neurons into a Neural Network</a>
-    </li>
-    <li>
-    <a href="Two1">2.1 An Example:Feedforward</a>
-    </li>
-  </ul>
-</div>
 
 <div class="right_content">
   <div class="name_md extra" id="Zero"></div>
   <div>
-    <h1 class="Content-module--content__title--2nRHa ">
-      Machine Learning for Beginners: An Introduction to Neural Networks
-    </h1>
-    <h2 class="Content-module--content__subtitle--34jJU">
-      A simple explanation of how they work and how to implement one from
-      scratch in Python.
+    <h2 class="Content-module--content__title--2nRHa ">
+      0.序章--情节介绍
     </h2>
     <div class="Content-module--content__spacer--2kN9Y" />
-    <p>
-      Here’s something that might surprise you:
-      <strong>neural networks aren’t that complicated!</strong>
-      The term “neural network” gets used as a buzzword a lot, but in reality
-      they’re often much simpler than people imagine.
-    </p>
-    <p>
-      <strong>
-        This post is intended for complete beginners and assumes ZERO prior
-        knowledge of machine learning
-      </strong>
-      . We’ll understand how neural networks work while implementing one from
-      scratch in Python.
-    </p>
-    <p>Let’s get started!</p>
+    <h5>
+      学校组织去植物园春游，一片特别好看的蓝紫色的花海映入你眼帘，像一只只穿梭在绿草中的美丽蝴蝶。你看到牌上的介绍说：这是鸢尾花，常见的有三大类山鸢尾 (Iris-setosa)，变色鸢尾(Iris-versicolor)和维吉尼亚鸢尾(Iris-virginica)。他们有着形状与色彩相似的花瓣和萼片。
+你观察到有一块集中的部分的鸢尾有较大的花瓣，而它旁边的一块的花瓣却很小。你想搞清楚他们究竟属于哪一类鸢尾花，于是你上网搜索，发现网上说可以根据一些特征值来刻画事物的某些方面的特点，比如通过花萼的长、花萼的宽、花瓣的长和花瓣的宽来辨别他们。于是你测量了一些花的长和宽。
+    </h5>
   </div>
 
-  <div class="name_md extra" id="One"><h2>1. Building Blocks: Neurons</h2></div>
+  <!-- More -->
+  <div class="more">
+    <!-- <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">keyboard_arrow_down</i></button> -->
+    <button class="mdl-button mdl-js-button mdl-button--fab">
+      <i class="material-icons">keyboard_arrow_down</i>
+    </button>
+  </div>
+  <div class="name_md extra" id="One"><h2>1. 遇到分类问题</h2></div>
   <div>
-    <p>
-      First, we have to talk about neurons, the basic unit of a neural network.
-      <strong>
-        A neuron takes inputs, does some math with them, and produces one output
-      </strong>
-      . Here’s what a 2-input neuron looks like:
-    </p>
-    <p>photo。。。emmm....可以交互吗</p>
-    <p>
-      3 things are happening here. First, each input is multiplied by a weight:
-      <span class="inline-square" style="background-color:rgb(200, 0, 0)" />
-    </p>
-    <span class="katex-display">
-      <span class="katex">
-        <span class="katex-mathml">
-          <math>
-            <semantics>
-              <mrow>
-                <msub>
-                  <mi>x</mi>
-                  <mn>1</mn>
-                </msub>
-                <mo>→</mo>
-                <msub>
-                  <mi>x</mi>
-                  <mn>1</mn>
-                </msub>
-                <mo>∗</mo>
-                <msub>
-                  <mi>w</mi>
-                  <mn>1</mn>
-                </msub>
-              </mrow>
-              <annotation encoding="application/x-tex">
-                x_1 \rightarrow x_1 * w_1
-              </annotation>
-            </semantics>
-          </math>
-        </span>
-        <span class="katex-html" aria-hidden="true">
-          <span class="base">
-            <span
-              class="strut"
-              style="height:0.58056em;vertical-align:-0.15em" />
-            <span class="mord">
-              <span class="mord mathdefault">x</span>
-              <span class="msupsub">
-                <span class="vlist-t vlist-t2">
-                  <span class="vlist-r">
-                    <span class="vlist" style="height:0.30110799999999993em">
-                      <span
-                        style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em">
-                        <span class="pstrut" style="height:2.7em" />
-                        <span class="sizing reset-size6 size3 mtight">
-                          <span class="mord mtight">1</span>
-                        </span>
-                      </span>
-                    </span>
-                    <span class="vlist-s">​</span>
-                  </span>
-                  <span class="vlist-r">
-                    <span class="vlist" style="height:0.15em">
-                      <span />
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-            <span class="mspace" style="margin-right:0.2777777777777778em" />
-            <span class="mrel">→</span>
-            <span class="mspace" style="margin-right:0.2777777777777778em" />
-          </span>
-          <span class="base">
-            <span
-              class="strut"
-              style="height:0.61528em;vertical-align:-0.15em" />
-            <span class="mord">
-              <span class="mord mathdefault">x</span>
-              <span class="msupsub">
-                <span class="vlist-t vlist-t2">
-                  <span class="vlist-r">
-                    <span class="vlist" style="height:0.30110799999999993em">
-                      <span
-                        style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em">
-                        <span class="pstrut" style="height:2.7em" />
-                        <span class="sizing reset-size6 size3 mtight">
-                          <span class="mord mtight">1</span>
-                        </span>
-                      </span>
-                    </span>
-                    <span class="vlist-s">​</span>
-                  </span>
-                  <span class="vlist-r">
-                    <span class="vlist" style="height:0.15em">
-                      <span />
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </span>
-        </span>
-      </span>
-    </span>
+    <h5>
+      你观察到有一块集中的部分的鸢尾有较大的花瓣，而它旁边的一块的花瓣却很小。你想搞清楚他们究竟属于哪一类鸢尾花，于是你上网搜索，发现网上说可以根据一些特征值来刻画事物的某些方面的特点，比如通过花萼的长、花萼的宽、花瓣的长和花瓣的宽来辨别他们。于是你测量了一些花的长和宽。
+    </h5>
+   
+    <h5>***********************一些鸢尾花图片***********************</h5>
   </div>
 
-  <div class="name_md extra" id="One1"><h3>1.1 A Simple Example</h3></div>
+    <!-- More -->
+  <div class="more">
+    <!-- <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">keyboard_arrow_down</i></button> -->
+    <button class="mdl-button mdl-js-button mdl-button--fab">
+      <i class="material-icons">keyboard_arrow_down</i>
+    </button>
+  </div>
+
+  <div class="name_md extra" id="One"><h2>2.决策树-简单分析</h2></div>
+  <h5>
+    网上说宽大于2cm，长大于5cm的可能是山鸢尾。而小于的可能是变色鸢尾，你发现了很多这样的判断，
+    你想把他们整理一下，于是你借鉴树的结构将他们分成了这种判断：
+  </h5>
   <div>
-    <p>
-      Assume we have a 2-input neuron that uses the sigmoid activation function
-      and has the following parameters:
-    </p>
-    <span class="katex-display">
-      <span class="katex">
-        <span class="katex-mathml">
-          <math>
-            <semantics>
-              <mrow>
-                <mi>w</mi>
-                <mo>=</mo>
-                <mo stretchy="false">[</mo>
-                <mn>0</mn>
-                <mo separator="true">,</mo>
-                <mn>1</mn>
-                <mo stretchy="false">]</mo>
-              </mrow>
-              <annotation encoding="application/x-tex">w = [0, 1]</annotation>
-            </semantics>
-          </math>
-        </span>
-        <span class="katex-html" aria-hidden="true">
-          <span class="base">
-            <span class="strut" style="height:0.43056em;vertical-align:0em" />
-            <span class="mord mathdefault" style="margin-right:0.02691em">
-              w
-            </span>
-            <span class="mspace" style="margin-right:0.2777777777777778em" />
-            <span class="mrel">=</span>
-            <span class="mspace" style="margin-right:0.2777777777777778em" />
-          </span>
-          <span class="base">
-            <span class="strut" style="height:1em;vertical-align:-0.25em" />
-            <span class="mopen">[</span>
-            <span class="mord">0</span>
-            <span class="mpunct">,</span>
-            <span class="mspace" style="margin-right:0.16666666666666666em" />
-            <span class="mord">1</span>
-            <span class="mclose">]</span>
-          </span>
-        </span>
-      </span>
-    </span>
+    <a target="_blank" href="/dt/index.html">尝试下决策树吧</a>
+  </div>
+
+  <!-- More -->
+  <div class="more">
+    <!-- <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">keyboard_arrow_down</i></button> -->
+    <button class="mdl-button mdl-js-button mdl-button--fab">
+      <i class="material-icons">keyboard_arrow_down</i>
+    </button>
+  </div>
+
+  <div class="name_md extra" id="One"><h2>3.初步构造分类器</h2></div>
+  <div>
+  <h5>
+      然后你又换了一种思路
+      你将花瓣的长作为x轴，花瓣的宽作为y轴，在坐标轴上画出了他们的分布。
+
+    </h5>
+    <h5>***************一些样简单交互*********************</h5>
+    <NN1 />
+    <h5>
+      这就是人工智能中的分类问题。
+那么我们要怎么分开他们呢 你想到了用一条直线来分开他们。在直线上方的属于山鸢尾，在直线下方的属于变色鸢尾。这样的方式叫作分类器
+但是你也发现了，这里有无数直线都可以的可能来讲他们分开。你想到现在大家都在谈用计算机来帮我们完成一些任务，那么要怎么才能让分类器自己学习得到分类直线呢。
+试一试：
+    </h5>
+    <li>
+        <a target="_blank" href="/dist/indexnn.html">尝试下神经网络吧</a>
+    </li>
+  </div>
+
+    <!-- More -->
+  <div class="more">
+    <!-- <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">keyboard_arrow_down</i></button> -->
+    <button class="mdl-button mdl-js-button mdl-button--fab">
+      <i class="material-icons">keyboard_arrow_down</i>
+    </button>
+  </div>
+
+  <div class="name_md extra" id="One"><h2>4. KNN</h2></div>
+  <div>
+    <h5>
+      你觉得这样好像还不错。于是你在更远处的一块地，发现那里的鸢尾花好像和前面两种也有不同之处，它们长得更高，更细长。
+      于是你认为植物园的工作人员们可能将某一类鸢尾花集中地种在了某一块地方，于是你测量更多的数据重新绘制了一张坐标图。
+      但是新的问题来了，要怎么判断中间一些点的种类到底是什么呢。
+      于是你想到了一句谚语：“近朱者赤近墨者黑。”
+      试一试：
+    </h5>
+    <li>
+        <a target="_blank" href="/dt/index.html">尝试下KNN吧</a>
+    </li>
   </div>
 
   <div id='knnss'>
     <Knn />
   </div>
 
-  <div id='dicision-tree'>
-    <Tree />
+<div class="name_md extra" id="One"><h2>5.CNN-一气呵成</h2></div>
+  <div>
+    <h5>
+      然后你发现这几种方法各有好坏，也有不足。
+而且测量起来特别麻烦。
+你想到了我们都在用的一些识别植物的APP，于是你打开了一个软件，拍了一张照片，立马就将它分为了山鸢尾花。这是怎么一回事呢。
+这个又用的哪些特征呢。
+这个和上面的方法有什么不同之处呢。
+试一试：
+
+    </h5>
+    <li>
+        <a target="_blank" href="/cnn">尝试下CNN吧</a>
+    </li>
   </div>
+
+  <!-- More -->
+  <div class="more">
+    <!-- <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">keyboard_arrow_down</i></button> -->
+    <button class="mdl-button mdl-js-button mdl-button--fab">
+      <i class="material-icons">keyboard_arrow_down</i>
+    </button>
+  </div>
+
+  <div class="name_md extra" id="One"><h2>6.不同模型比较</h2></div>
+  <div>
+    <h5>
+      *****************一些交互***********************
+    </h5>
+  </div>
+
 </div>

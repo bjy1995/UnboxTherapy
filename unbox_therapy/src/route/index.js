@@ -8,5 +8,6 @@ export const routes = {
   '/': home2,
   '/cnn': Explainer,
   '/knn': Knn,
-  '/tree': Tree
+  '/tree': Tree,
+  '/old': home
 }

@@ -536,7 +536,7 @@
               <h2 class="el__heading">Section 1</h2>
           </div>
           <div class="el__content">
-            <a href="/knn" use:link rel="prefetch">
+            <a href="/old" use:link rel="prefetch">
               <div class="el__text">Enter Section 1</div>
             </a>
             <div class="el__close-btn"></div>
