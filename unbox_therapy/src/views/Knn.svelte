@@ -276,6 +276,12 @@
 </script>
 
 <style>
+    #knn{
+        width: 100%;
+        padding: 0;
+        margin: auto;
+    }
+
 	.box {
 		width: 150px;
 		border: 1px solid #aaa;
@@ -315,8 +321,7 @@
     }
 </style>
 
-
-<div class="knn">
+<div id="knn">
     <div id="top-legends" class="clearfix">
         <div style="float: left; margin-right: 5px;">
             <div class="ui-numHiddenLayers" style="float: left; margin-right: 15px;">

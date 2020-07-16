@@ -134,6 +134,7 @@
         //     .attr("transform", function(d) { return `translate(${source.x0}, ${source.y0})`})
         //     .on("click", function(d) { toggle(d.data); update(d.data); });
         const nodeEnter = node.enter().append("g")
+            .attr("class", "node")
             .attr("transform", d => `translate(${source.y0},${source.x0})`)
             .attr("fill-opacity", 0)
             .attr("stroke-opacity", 0)
@@ -208,7 +209,7 @@
         // const links = treeRoot.links();
         // var link = vis.selectAll("path.link")
         //     .data(links, function(d) { return d.target.id; });
-        const link = gLink.selectAll("path")
+        let link = gLink.selectAll("path")
             .data(links, d => d.target.id);
 
         // Enter any new links at the parent's previous position.
@@ -224,11 +225,13 @@
         //     .style("stroke-width", function(d) {return link_stoke_scale(d.target.data.samples);})
         //     .style("stroke", stroke_callback);
         const linkEnter = link.enter().append("path")
+            .attr("class", "link")
             .attr("d", d => {
             const o = {x: source.x0, y: source.y0};
             return diagonal({source: o, target: o});
             });
 
+        // link = gLink.selectAll("path");
         // Transition links to their new position.
         // link.transition()
         //     .duration(duration)
@@ -237,7 +240,8 @@
         //     .style("stroke", stroke_callback);
         link.merge(linkEnter).transition()
             .attr("d", diagonal)          
-            .style("stroke", stroke_callback);
+            .style("stroke", stroke_callback)
+            .style("stroke-width", "5");
 
         // Transition exiting nodes to the parent's new position.
         // link.exit().transition()
@@ -247,11 +251,13 @@
         //         return diagonal({source: o, target: o});
         //     })
         //     .remove();
-        link.exit().transition().remove()
+        
+        link.exit().transition()
             .attr("d", d => {
             const o = {x: source.x, y: source.y};
             return diagonal({source: o, target: o});
-            });
+            }).remove();
+
 
         // Stash the old positions for transition.
         nodes.forEach(function(d) {
@@ -380,13 +386,11 @@
 
 <style type="text/css">
 
-    .body {
-    font-family: "Helvetica Neue", Helvetica;
-    }
-
-    .hint {
-    font-size: 12px;
-    color: #999;
+    #body {
+        width: 100%;
+        padding: 0;
+        margin: auto;
+        font-family: "Helvetica Neue", Helvetica;
     }
 
     .node rect {

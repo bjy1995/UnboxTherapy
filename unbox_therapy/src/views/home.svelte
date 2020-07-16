@@ -1,5 +1,6 @@
 <script>
   import Knn from './Knn.svelte'
+  import Tree from './Tree.svelte'
 </script>
 <style>
   h1,
@@ -306,9 +307,10 @@
   </div>
 
   <div id='knnss'>
-    <p>
-      测试测试111
-    </p>
     <Knn />
+  </div>
+
+  <div id='dicision-tree'>
+    <Tree />
   </div>
 </div>

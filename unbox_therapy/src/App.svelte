@@ -11,6 +11,7 @@
   #app-page .content {
     padding-top: 90px;
     height: 100%;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   }
   #app-page .page_header {
     position: fixed;
