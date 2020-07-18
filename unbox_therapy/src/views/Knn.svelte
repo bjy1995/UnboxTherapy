@@ -1,25 +1,27 @@
 <script>
     import { onMount } from 'svelte';
+    import { link } from "svelte-spa-router";
     let outdata;
     let sortdata;
     var kdata;
-    const color = {"apple": 'red', "blueberry":'steelblue', "watermelon":'green'}
-    const arrcolor = ['red', 'steelblue', 'green']
-    const labels = ["apple", "blueberry", "watermelon"]
+    const color = {"山鸢尾": 'red', "杂色鸢尾":'steelblue', "维吉尼亚鸢尾":'green'};
+    const en2ch = {"Iris-setosa": "山鸢尾", "Iris-versicolor":"杂色鸢尾", "Iris-virginica":"维吉尼亚鸢尾"};
+    const arrcolor = ['red', 'steelblue', 'green'];
+    const labels = ["山鸢尾", "杂色鸢尾", "维吉尼亚鸢尾"];
     const margin = {top: 20, right: 10, bottom: 10, left: 40};
     const height = 280;
     const width = 500;
     const r = 3.5;
-    let counts = {"apple": 0, "blueberry": 0, "watermelon": 0}
-    let testlabel = ""
-    let k = 6;
+    let counts = {"山鸢尾": 0, "杂色鸢尾": 0, "维吉尼亚鸢尾": 0};
+    let testlabel = "";
+    let k = 15;
     let svg;
     let xAxis;
     let yAxis;
     let y, ry;
     let x, rx;
     let point = {};
-    let link;
+    let svglink;
     let strlegend;
 
     
@@ -27,49 +29,59 @@
         strlegend = swatches({
             color: d3.scaleOrdinal(labels, arrcolor)
         })
-        const data = await d3.csv("PUBLIC_URL/assets/data/test.csv");
+        const data = await d3.csv("PUBLIC_URL/assets/data/Iris.csv");
         // const data = d3.csvParse(await FileAttachment("PUBLIC_URL/assets/data/us-population-state-age.csv").text(), d3.autoType);
         // const ages = data.columns.slice(1);
         // for (const d of data) d.total = d3.sum(ages, age => d[age]);
         // outdata = ages.flatMap(age => data.map(d => ({name: d.name, age, value: d[age] / d.total})));
 
         const newlabels = data.columns.slice(1);
-        outdata = data.map(d => ({x: d.x, y: d.y, label: labels[d.label - 1]}));
+        outdata = data.map(d => ({x: d.SepalLengthCm * 10, y: d.PetalLengthCm * 10, label: en2ch[d.Species]}));
 
         y = d3.scaleLinear()
             .domain(d3.extent(outdata, d => d.y))
-            .rangeRound([margin.top, height - margin.bottom]);
+            .range([margin.top, height - margin.bottom]);
 
         ry = d3.scaleLinear()
             .domain([margin.top, height - margin.bottom])
-            .rangeRound(d3.extent(outdata, d => d.y));
+            .range(d3.extent(outdata, d => d.y));
 
         x = d3.scaleLinear()
             .domain(d3.extent(outdata, d => d.x))
-            .rangeRound([margin.left + 10, width - margin.right]);  
+            .range([margin.left + 10, width - margin.right]);  
  
         rx = d3.scaleLinear()
             .domain([margin.left + 10, width - margin.right])
-            .rangeRound(d3.extent(outdata, d => d.x));    
+            .range(d3.extent(outdata, d => d.x));    
 
         yAxis = g => g.attr("transform", `translate(${margin.left},0)`)
-            .call(d3.axisLeft(y))
+            .call(d3.axisLeft(y).ticks(10))
             .call(g => g.selectAll(".tick line").clone().attr("stroke-opacity", 0.1).attr("x2", width - margin.right - margin.left))
             .call(g => g.selectAll(".domain").remove());
 
         xAxis = g => g.attr("transform", `translate(0,${margin.top})`)
-            .call(d3.axisTop(x))
+            .call(d3.axisTop(x).ticks(20))
             .call(g => g.selectAll(".tick line").clone().attr("stroke-opacity", 0.1).attr("y2", height - margin.bottom - margin.top))
-            .call(g => g.selectAll(".domain").remove());
+            .call(g => g.selectAll(".domain").remove())
 
         svg = d3.select('#knn-svg')
         .attr("viewBox", [0, 0, width, height]);
 
-        svg.append("g")
-            .call(xAxis);
 
         svg.append("g")
+            .call(xAxis);
+        svg.append("text")
+            .attr("transform", `translate(${5},${height - 10})`)
+            .style("font-size", "10px")
+            .text("花萼长度（mm)");   
+        
+        svg.append("g")
             .call(yAxis);
+
+        svg.append("text")
+            .attr("transform", `translate(${width - 80},${margin.top + 10})`)
+            .style("font-size", "10px")
+            .text("花瓣长度（mm)");   
 
         svg.append("g")
             .attr("class", "tcircles")
@@ -83,14 +95,14 @@
             .attr("cx", d => x(d.x))
             .attr("cy", d => y(d.y))
             .append("title")
-            .text(d => `label: ${d.label}  (${(d.x)},  ${d.y})`);
+            .text(d => `品种: ${d.label}  位置:(${(d.x)},  ${d.y})`);
 
         const circles = d3.range(1).map(i => ({
-            x: 50,
-            y: 50,
+            x: 56,
+            y: 25,
         }));
-        point.x = 50;
-        point.y = 50;
+        point.x = 56;
+        point.y = 25;
         svg.append('g')
             .selectAll("circle")
             .data(circles)
@@ -111,7 +123,7 @@
             return distance1 - distance2;
         })
         kdata = sortdata.slice(0, k);
-        link = svg.insert("g", ".tcircles")
+        svglink = svg.insert("g", ".tcircles")
             .attr("id", "lines")
             .selectAll("line")
             .data(kdata)
@@ -127,8 +139,8 @@
         d3.select("#add-layers").on("click", () => {
             k++;
             let diff = 1;
-            if (k > 10) {
-                k = 10;
+            if (k > 30) {
+                k = 30;
                 diff = 0;
             }
             d3.select("#num-k").text("k = " + k);
@@ -156,8 +168,8 @@
         });
         kdata = sortdata.slice(0, k);
         if(diff > 0){
-            link = d3.select("#lines").selectAll("line");
-            link.data(kdata)
+            svglink = d3.select("#lines").selectAll("line");
+            svglink.data(kdata)
             .enter()
             .append('line')
             .transition()
@@ -170,8 +182,8 @@
             .attr("y2", d => y(d.y));
 
         }else if(diff < 0){
-            link = d3.select("#lines").selectAll("line");
-            link.data(kdata)
+            svglink = d3.select("#lines").selectAll("line");
+            svglink.data(kdata)
             .exit()
             .transition()
             .duration(100)
@@ -184,7 +196,7 @@
             .attr("y2", d => y(d.y));
 
         }else{
-            link.data(kdata)
+            svglink.data(kdata)
             .transition()
             .duration(1000)
             .attr("x1", x(point.x))
@@ -197,7 +209,7 @@
     }
 
     function dragstarted(d){
-        link = d3.select("#lines").selectAll("line");
+        svglink = d3.select("#lines").selectAll("line");
         d3.select(this).attr("stroke", "black");
     }
 
@@ -205,7 +217,7 @@
         d3.select(this).raise().attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
         point.x = rx(d3.event.x)
         point.y = ry(d3.event.y)
-        link.data(kdata)
+        svglink.data(kdata)
             .attr("x1", x(point.x))
             .attr("y1", y(point.y))
             .attr("x2", d => x(d.x))
@@ -228,7 +240,7 @@
     }
 
     function countlabelnums(){
-        counts = {"apple": 0, "blueberry": 0, "watermelon": 0};
+        counts = {"山鸢尾": 0, "杂色鸢尾": 0, "维吉尼亚鸢尾": 0};
         for(let i=0; i<k; ++i){
             counts[kdata[i].label] += 1;
         }
@@ -276,10 +288,28 @@
 </script>
 
 <style>
+    #article{
+        margin-top:60px;
+        margin-bottom: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 78ch;
+    }
     #knn{
+        position:relative;
         width: 100%;
-        padding: 0;
-        margin: auto;
+        height: 680px;
+        margin-bottom: 10px;
+        font-family: "Helvetica", "Arial", sans-serif;
+        background-color: #f7f7f7;
+    }
+    #foot{
+        position:relative;
+        border-top: solid 1px #eee;
+        color: #ccc;
+        font-weight: 300;
+        padding: 20px 0;
+        height: 10px;
     }
 
 	.box {
@@ -290,11 +320,14 @@
 		padding: 1em;
 		margin: 0 0 0.5em 0;
         position:absolute;
-        left: 880px;
-        top:-598px;
+        left: 1235px;
+        top:-568px;
         border-radius: 5px;
 	}
     .box1 {
+        position:relative;
+        left:20%;
+        top:30px;
 		width: 880px;
 		border: 1px solid #aaa;
 		border-radius: 2px;
@@ -302,8 +335,12 @@
 		padding: 1em;
 		margin: 0 0 0.5em 0;
         border-radius: 5px;
+        background: white;
 	}
     .clearfix{
+        position:relative;
+        left:20%;
+        top:30px;
         width: 880px;
 		border: 1px solid #aaa;
 		border-radius: 2px;
@@ -311,6 +348,7 @@
 		padding: 1em;
 		margin: 0 0 0.5em 0;
         border-radius: 5px;
+        background: white;
     }
     .clearfix:after {
         content: '.';
@@ -319,7 +357,43 @@
         clear: both;
         visibility: hidden;
     }
+    .return {
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        font-size: 20px;
+        color: steelblue;
+    }
+
 </style>
+
+<article id="article">
+    <div id="One"><h1>Section: KNN</h1></div>
+    <div>
+        <h5>
+            故事内容（待补充）  
+        </h5>
+    </div>
+    <div class="l--body">
+      <h2>什么是KNN?</h2>
+      <p>KNN 为K最近邻算法（K-Nearest Neighbor）的英文简称, 它的算法思想简单来说就是如果一个样本在特征空间中的K个最相似（即特征空间中最邻近）的样本中的大多数属于某一个类别，则该样本也属于这个类别。在这里我们用欧式距离定义特征之间的相似度，距离越近，两个样本的相似度越高。</p>
+      <div class="hide-controls"></div>
+    </div>
+
+    <div class="l--body">
+      <h2>KNN算法的可视化</h2>
+      <p>将鸢尾花数据根据花萼长度及花瓣长度绘制在坐标轴中，其中每一点都代表一个已知的样本，且图像中两点之间的距离便代表了它们之间的相似度。</p>
+      <p>当有一个未知品种的鸢尾花时，根据它的两个特征将之绘制在图中，便可以找到它的K个最近邻。</p>
+      <div class="hide-controls"></div>
+    </div>
+
+    <div class="l--body">
+      <h2>尝试一下</h2>
+      <p>小明根据要求绘制好了可视化图像，并将未知品种的鸢尾花以黄点标注在了图中。</p>
+      <p>拖动黄点试试吧，右上角会显示此时样本的预测类别，以及距离最近的K个样本的种类数目。</p>
+    </div>
+</article>
+
 
 <div id="knn">
     <div id="top-legends" class="clearfix">
@@ -351,3 +425,9 @@
         </div>
     </div>
 </div>
+
+<footer id="foot">
+    <a href="/" use:link rel="prefetch">
+        <div class="return">返回</div>
+    </a>
+</footer>

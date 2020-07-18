@@ -1374,18 +1374,18 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[27] = list[i];
-    	child_ctx[29] = i;
+    	child_ctx[28] = list[i];
+    	child_ctx[30] = i;
     	return child_ctx;
     }
 
-    // (347:16) {#each labels as label, i}
+    // (421:16) {#each labels as label, i}
     function create_each_block(ctx) {
     	let p;
-    	let t0_value = /*label*/ ctx[27] + "";
+    	let t0_value = /*label*/ ctx[28] + "";
     	let t0;
     	let t1;
-    	let t2_value = /*counts*/ ctx[0][/*label*/ ctx[27]] + "";
+    	let t2_value = /*counts*/ ctx[0][/*label*/ ctx[28]] + "";
     	let t2;
 
     	const block = {
@@ -1394,7 +1394,7 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = text(" : ");
     			t2 = text(t2_value);
-    			add_location(p, file, 347, 20, 11277);
+    			add_location(p, file, 421, 20, 13453);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1403,7 +1403,7 @@ var app = (function () {
     			append_dev(p, t2);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*counts*/ 1 && t2_value !== (t2_value = /*counts*/ ctx[0][/*label*/ ctx[27]] + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*counts*/ 1 && t2_value !== (t2_value = /*counts*/ ctx[0][/*label*/ ctx[28]] + "")) set_data_dev(t2, t2_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
@@ -1414,14 +1414,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(347:16) {#each labels as label, i}",
+    		source: "(421:16) {#each labels as label, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (345:18)                   
+    // (419:18)                   
     function fallback_block(ctx) {
     	let p;
     	let t0;
@@ -1447,7 +1447,7 @@ var app = (function () {
 
     			each_1_anchor = empty();
     			set_style(p, "font-size", "25px");
-    			add_location(p, file, 345, 16, 11167);
+    			add_location(p, file, 419, 16, 13343);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1499,7 +1499,7 @@ var app = (function () {
     		block,
     		id: fallback_block.name,
     		type: "fallback",
-    		source: "(345:18)                   ",
+    		source: "(419:18)                   ",
     		ctx
     	});
 
@@ -1507,121 +1507,276 @@ var app = (function () {
     }
 
     function create_fragment$1(ctx) {
-    	let div6;
-    	let div2;
-    	let div1;
+    	let article;
     	let div0;
+    	let h1;
+    	let t1;
+    	let div1;
+    	let h5;
+    	let t3;
+    	let div3;
+    	let h20;
+    	let t5;
+    	let p0;
+    	let t7;
+    	let div2;
+    	let t8;
+    	let div5;
+    	let h21;
+    	let t10;
+    	let p1;
+    	let t12;
+    	let p2;
+    	let t14;
+    	let div4;
+    	let t15;
+    	let div6;
+    	let h22;
+    	let t17;
+    	let p3;
+    	let t19;
+    	let p4;
+    	let t21;
+    	let div13;
+    	let div9;
+    	let div8;
+    	let div7;
     	let button0;
     	let i0;
-    	let t1;
+    	let t23;
     	let button1;
     	let i1;
-    	let t3;
+    	let t25;
     	let span;
-    	let t4;
+    	let t26;
     	let html_tag;
-    	let t5;
-    	let div5;
-    	let div3;
+    	let t27;
+    	let div12;
+    	let div10;
     	let svg_1;
-    	let t6;
-    	let div4;
+    	let t28;
+    	let div11;
+    	let t29;
+    	let footer;
+    	let a;
+    	let div14;
+    	let link_action;
     	let current;
+    	let mounted;
+    	let dispose;
     	const default_slot_template = /*$$slots*/ ctx[5].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[4], null);
     	const default_slot_or_fallback = default_slot || fallback_block(ctx);
 
     	const block = {
     		c: function create() {
-    			div6 = element("div");
-    			div2 = element("div");
-    			div1 = element("div");
+    			article = element("article");
     			div0 = element("div");
+    			h1 = element("h1");
+    			h1.textContent = "Section: KNN";
+    			t1 = space();
+    			div1 = element("div");
+    			h5 = element("h5");
+    			h5.textContent = "故事内容（待补充）";
+    			t3 = space();
+    			div3 = element("div");
+    			h20 = element("h2");
+    			h20.textContent = "什么是KNN?";
+    			t5 = space();
+    			p0 = element("p");
+    			p0.textContent = "KNN 为K最近邻算法（K-Nearest Neighbor）的英文简称, 它的算法思想简单来说就是如果一个样本在特征空间中的K个最相似（即特征空间中最邻近）的样本中的大多数属于某一个类别，则该样本也属于这个类别。在这里我们用欧式距离定义特征之间的相似度，距离越近，两个样本的相似度越高。";
+    			t7 = space();
+    			div2 = element("div");
+    			t8 = space();
+    			div5 = element("div");
+    			h21 = element("h2");
+    			h21.textContent = "KNN算法的可视化";
+    			t10 = space();
+    			p1 = element("p");
+    			p1.textContent = "将鸢尾花数据根据花萼长度及花瓣长度绘制在坐标轴中，其中每一点都代表一个已知的样本，且图像中两点之间的距离便代表了它们之间的相似度。";
+    			t12 = space();
+    			p2 = element("p");
+    			p2.textContent = "当有一个未知品种的鸢尾花时，根据它的两个特征将之绘制在图中，便可以找到它的K个最近邻。";
+    			t14 = space();
+    			div4 = element("div");
+    			t15 = space();
+    			div6 = element("div");
+    			h22 = element("h2");
+    			h22.textContent = "尝试一下";
+    			t17 = space();
+    			p3 = element("p");
+    			p3.textContent = "小明根据要求绘制好了可视化图像，并将未知品种的鸢尾花以黄点标注在了图中。";
+    			t19 = space();
+    			p4 = element("p");
+    			p4.textContent = "拖动黄点试试吧，右上角会显示此时样本的预测类别，以及距离最近的K个样本的种类数目。";
+    			t21 = space();
+    			div13 = element("div");
+    			div9 = element("div");
+    			div8 = element("div");
+    			div7 = element("div");
     			button0 = element("button");
     			i0 = element("i");
     			i0.textContent = "add";
-    			t1 = space();
+    			t23 = space();
     			button1 = element("button");
     			i1 = element("i");
     			i1.textContent = "remove";
-    			t3 = space();
+    			t25 = space();
     			span = element("span");
-    			t4 = space();
-    			t5 = space();
-    			div5 = element("div");
-    			div3 = element("div");
+    			t26 = space();
+    			t27 = space();
+    			div12 = element("div");
+    			div10 = element("div");
     			svg_1 = svg_element("svg");
-    			t6 = space();
-    			div4 = element("div");
+    			t28 = space();
+    			div11 = element("div");
     			if (default_slot_or_fallback) default_slot_or_fallback.c();
+    			t29 = space();
+    			footer = element("footer");
+    			a = element("a");
+    			div14 = element("div");
+    			div14.textContent = "返回";
+    			add_location(h1, file, 370, 18, 11575);
+    			attr_dev(div0, "id", "One");
+    			add_location(div0, file, 370, 4, 11561);
+    			add_location(h5, file, 372, 8, 11623);
+    			add_location(div1, file, 371, 4, 11608);
+    			add_location(h20, file, 377, 6, 11714);
+    			add_location(p0, file, 378, 6, 11738);
+    			attr_dev(div2, "class", "hide-controls");
+    			add_location(div2, file, 379, 6, 11897);
+    			attr_dev(div3, "class", "l--body");
+    			add_location(div3, file, 376, 4, 11685);
+    			add_location(h21, file, 383, 6, 11979);
+    			add_location(p1, file, 384, 6, 12005);
+    			add_location(p2, file, 385, 6, 12085);
+    			attr_dev(div4, "class", "hide-controls");
+    			add_location(div4, file, 386, 6, 12143);
+    			attr_dev(div5, "class", "l--body");
+    			add_location(div5, file, 382, 4, 11950);
+    			add_location(h22, file, 390, 6, 12225);
+    			add_location(p3, file, 391, 6, 12246);
+    			add_location(p4, file, 392, 6, 12297);
+    			attr_dev(div6, "class", "l--body");
+    			add_location(div6, file, 389, 4, 12196);
+    			attr_dev(article, "id", "article");
+    			attr_dev(article, "class", "svelte-1myt82y");
+    			add_location(article, file, 369, 0, 11533);
     			attr_dev(i0, "class", "material-icons");
-    			add_location(i0, file, 328, 20, 10534);
+    			add_location(i0, file, 402, 20, 12710);
     			attr_dev(button0, "id", "add-layers");
     			attr_dev(button0, "class", "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab");
-    			add_location(button0, file, 327, 16, 10418);
+    			add_location(button0, file, 401, 16, 12594);
     			attr_dev(i1, "class", "material-icons");
-    			add_location(i1, file, 331, 20, 10731);
+    			add_location(i1, file, 405, 20, 12907);
     			attr_dev(button1, "id", "remove-layers");
     			attr_dev(button1, "class", "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab");
-    			add_location(button1, file, 330, 16, 10612);
-    			attr_dev(div0, "class", "ui-numHiddenLayers");
-    			set_style(div0, "float", "left");
-    			set_style(div0, "margin-right", "15px");
-    			add_location(div0, file, 326, 12, 10327);
+    			add_location(button1, file, 404, 16, 12788);
+    			attr_dev(div7, "class", "ui-numHiddenLayers");
+    			set_style(div7, "float", "left");
+    			set_style(div7, "margin-right", "15px");
+    			add_location(div7, file, 400, 12, 12503);
     			attr_dev(span, "id", "num-k");
     			set_style(span, "float", "left");
     			set_style(span, "margin-right", "5px");
     			set_style(span, "font-size", "25px");
-    			add_location(span, file, 334, 12, 10828);
-    			set_style(div1, "float", "left");
-    			set_style(div1, "margin-right", "5px");
-    			add_location(div1, file, 325, 8, 10268);
+    			add_location(span, file, 408, 12, 13004);
+    			set_style(div8, "float", "left");
+    			set_style(div8, "margin-right", "5px");
+    			add_location(div8, file, 399, 8, 12444);
     			html_tag = new HtmlTag(null);
-    			attr_dev(div2, "id", "top-legends");
-    			attr_dev(div2, "class", "clearfix svelte-a0frtn");
-    			add_location(div2, file, 324, 4, 10219);
+    			attr_dev(div9, "id", "top-legends");
+    			attr_dev(div9, "class", "clearfix svelte-1myt82y");
+    			add_location(div9, file, 398, 4, 12395);
     			attr_dev(svg_1, "id", "knn-svg");
-    			add_location(svg_1, file, 341, 12, 11034);
-    			attr_dev(div3, "class", "box1 svelte-a0frtn");
-    			add_location(div3, file, 340, 8, 11001);
-    			attr_dev(div4, "class", "box svelte-a0frtn");
-    			set_style(div4, "position", "relative");
-    			add_location(div4, file, 343, 8, 11084);
-    			attr_dev(div5, "id", "knn-graph");
-    			add_location(div5, file, 339, 4, 10971);
-    			attr_dev(div6, "id", "knn");
-    			attr_dev(div6, "class", "svelte-a0frtn");
-    			add_location(div6, file, 323, 0, 10199);
+    			add_location(svg_1, file, 415, 12, 13210);
+    			attr_dev(div10, "class", "box1 svelte-1myt82y");
+    			add_location(div10, file, 414, 8, 13177);
+    			attr_dev(div11, "class", "box svelte-1myt82y");
+    			set_style(div11, "position", "relative");
+    			add_location(div11, file, 417, 8, 13260);
+    			attr_dev(div12, "id", "knn-graph");
+    			add_location(div12, file, 413, 4, 13147);
+    			attr_dev(div13, "id", "knn");
+    			attr_dev(div13, "class", "svelte-1myt82y");
+    			add_location(div13, file, 397, 0, 12375);
+    			attr_dev(div14, "class", "return svelte-1myt82y");
+    			add_location(div14, file, 430, 8, 13641);
+    			attr_dev(a, "href", "/");
+    			attr_dev(a, "rel", "prefetch");
+    			add_location(a, file, 429, 4, 13595);
+    			attr_dev(footer, "id", "foot");
+    			attr_dev(footer, "class", "svelte-1myt82y");
+    			add_location(footer, file, 428, 0, 13571);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div6, anchor);
-    			append_dev(div6, div2);
-    			append_dev(div2, div1);
-    			append_dev(div1, div0);
-    			append_dev(div0, button0);
-    			append_dev(button0, i0);
-    			append_dev(div0, t1);
-    			append_dev(div0, button1);
-    			append_dev(button1, i1);
-    			append_dev(div1, t3);
-    			append_dev(div1, span);
-    			append_dev(div2, t4);
-    			html_tag.m(/*strlegend*/ ctx[2], div2);
-    			append_dev(div6, t5);
-    			append_dev(div6, div5);
-    			append_dev(div5, div3);
-    			append_dev(div3, svg_1);
-    			append_dev(div5, t6);
+    			insert_dev(target, article, anchor);
+    			append_dev(article, div0);
+    			append_dev(div0, h1);
+    			append_dev(article, t1);
+    			append_dev(article, div1);
+    			append_dev(div1, h5);
+    			append_dev(article, t3);
+    			append_dev(article, div3);
+    			append_dev(div3, h20);
+    			append_dev(div3, t5);
+    			append_dev(div3, p0);
+    			append_dev(div3, t7);
+    			append_dev(div3, div2);
+    			append_dev(article, t8);
+    			append_dev(article, div5);
+    			append_dev(div5, h21);
+    			append_dev(div5, t10);
+    			append_dev(div5, p1);
+    			append_dev(div5, t12);
+    			append_dev(div5, p2);
+    			append_dev(div5, t14);
     			append_dev(div5, div4);
+    			append_dev(article, t15);
+    			append_dev(article, div6);
+    			append_dev(div6, h22);
+    			append_dev(div6, t17);
+    			append_dev(div6, p3);
+    			append_dev(div6, t19);
+    			append_dev(div6, p4);
+    			insert_dev(target, t21, anchor);
+    			insert_dev(target, div13, anchor);
+    			append_dev(div13, div9);
+    			append_dev(div9, div8);
+    			append_dev(div8, div7);
+    			append_dev(div7, button0);
+    			append_dev(button0, i0);
+    			append_dev(div7, t23);
+    			append_dev(div7, button1);
+    			append_dev(button1, i1);
+    			append_dev(div8, t25);
+    			append_dev(div8, span);
+    			append_dev(div9, t26);
+    			html_tag.m(/*strlegend*/ ctx[2], div9);
+    			append_dev(div13, t27);
+    			append_dev(div13, div12);
+    			append_dev(div12, div10);
+    			append_dev(div10, svg_1);
+    			append_dev(div12, t28);
+    			append_dev(div12, div11);
 
     			if (default_slot_or_fallback) {
-    				default_slot_or_fallback.m(div4, null);
+    				default_slot_or_fallback.m(div11, null);
     			}
 
+    			insert_dev(target, t29, anchor);
+    			insert_dev(target, footer, anchor);
+    			append_dev(footer, a);
+    			append_dev(a, div14);
     			current = true;
+
+    			if (!mounted) {
+    				dispose = action_destroyer(link_action = link.call(null, a));
+    				mounted = true;
+    			}
     		},
     		p: function update(ctx, [dirty]) {
     			if (!current || dirty & /*strlegend*/ 4) html_tag.p(/*strlegend*/ ctx[2]);
@@ -1646,8 +1801,14 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div6);
+    			if (detaching) detach_dev(article);
+    			if (detaching) detach_dev(t21);
+    			if (detaching) detach_dev(div13);
     			if (default_slot_or_fallback) default_slot_or_fallback.d(detaching);
+    			if (detaching) detach_dev(t29);
+    			if (detaching) detach_dev(footer);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -1698,35 +1859,35 @@ var app = (function () {
     	var kdata;
 
     	const color = {
-    		"apple": "red",
-    		"blueberry": "steelblue",
-    		"watermelon": "green"
+    		"山鸢尾": "red",
+    		"杂色鸢尾": "steelblue",
+    		"维吉尼亚鸢尾": "green"
+    	};
+
+    	const en2ch = {
+    		"Iris-setosa": "山鸢尾",
+    		"Iris-versicolor": "杂色鸢尾",
+    		"Iris-virginica": "维吉尼亚鸢尾"
     	};
 
     	const arrcolor = ["red", "steelblue", "green"];
-    	const labels = ["apple", "blueberry", "watermelon"];
+    	const labels = ["山鸢尾", "杂色鸢尾", "维吉尼亚鸢尾"];
     	const margin = { top: 20, right: 10, bottom: 10, left: 40 };
-
-    	let counts = {
-    		"apple": 0,
-    		"blueberry": 0,
-    		"watermelon": 0
-    	};
-
+    	let counts = { "山鸢尾": 0, "杂色鸢尾": 0, "维吉尼亚鸢尾": 0 };
     	let testlabel = "";
-    	let k = 6;
+    	let k = 15;
     	let svg;
     	let xAxis;
     	let yAxis;
     	let y, ry;
     	let x, rx;
     	let point = {};
-    	let link;
+    	let svglink;
     	let strlegend;
 
     	onMount(async () => {
     		$$invalidate(2, strlegend = swatches({ color: d3.scaleOrdinal(labels, arrcolor) }));
-    		const data = await d3.csv("/assets/data/test.csv");
+    		const data = await d3.csv("/assets/data/Iris.csv");
 
     		// const data = d3.csvParse(await FileAttachment("/assets/data/us-population-state-age.csv").text(), d3.autoType);
     		// const ages = data.columns.slice(1);
@@ -1735,24 +1896,26 @@ var app = (function () {
     		const newlabels = data.columns.slice(1);
 
     		outdata = data.map(d => ({
-    			x: d.x,
-    			y: d.y,
-    			label: labels[d.label - 1]
+    			x: d.SepalLengthCm * 10,
+    			y: d.PetalLengthCm * 10,
+    			label: en2ch[d.Species]
     		}));
 
-    		y = d3.scaleLinear().domain(d3.extent(outdata, d => d.y)).rangeRound([margin.top, height - margin.bottom]);
-    		ry = d3.scaleLinear().domain([margin.top, height - margin.bottom]).rangeRound(d3.extent(outdata, d => d.y));
-    		x = d3.scaleLinear().domain(d3.extent(outdata, d => d.x)).rangeRound([margin.left + 10, width - margin.right]);
-    		rx = d3.scaleLinear().domain([margin.left + 10, width - margin.right]).rangeRound(d3.extent(outdata, d => d.x));
-    		yAxis = g => g.attr("transform", `translate(${margin.left},0)`).call(d3.axisLeft(y)).call(g => g.selectAll(".tick line").clone().attr("stroke-opacity", 0.1).attr("x2", width - margin.right - margin.left)).call(g => g.selectAll(".domain").remove());
-    		xAxis = g => g.attr("transform", `translate(0,${margin.top})`).call(d3.axisTop(x)).call(g => g.selectAll(".tick line").clone().attr("stroke-opacity", 0.1).attr("y2", height - margin.bottom - margin.top)).call(g => g.selectAll(".domain").remove());
+    		y = d3.scaleLinear().domain(d3.extent(outdata, d => d.y)).range([margin.top, height - margin.bottom]);
+    		ry = d3.scaleLinear().domain([margin.top, height - margin.bottom]).range(d3.extent(outdata, d => d.y));
+    		x = d3.scaleLinear().domain(d3.extent(outdata, d => d.x)).range([margin.left + 10, width - margin.right]);
+    		rx = d3.scaleLinear().domain([margin.left + 10, width - margin.right]).range(d3.extent(outdata, d => d.x));
+    		yAxis = g => g.attr("transform", `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(10)).call(g => g.selectAll(".tick line").clone().attr("stroke-opacity", 0.1).attr("x2", width - margin.right - margin.left)).call(g => g.selectAll(".domain").remove());
+    		xAxis = g => g.attr("transform", `translate(0,${margin.top})`).call(d3.axisTop(x).ticks(20)).call(g => g.selectAll(".tick line").clone().attr("stroke-opacity", 0.1).attr("y2", height - margin.bottom - margin.top)).call(g => g.selectAll(".domain").remove());
     		svg = d3.select("#knn-svg").attr("viewBox", [0, 0, width, height]);
     		svg.append("g").call(xAxis);
+    		svg.append("text").attr("transform", `translate(${5},${height - 10})`).style("font-size", "10px").text("花萼长度（mm)");
     		svg.append("g").call(yAxis);
-    		svg.append("g").attr("class", "tcircles").attr("fill", "none").attr("pointer-events", "all").selectAll("circle").data(outdata).join("circle").attr("stroke", d => color[d.label]).attr("r", r).attr("cx", d => x(d.x)).attr("cy", d => y(d.y)).append("title").text(d => `label: ${d.label}  (${d.x},  ${d.y})`);
-    		const circles = d3.range(1).map(i => ({ x: 50, y: 50 }));
-    		point.x = 50;
-    		point.y = 50;
+    		svg.append("text").attr("transform", `translate(${width - 80},${margin.top + 10})`).style("font-size", "10px").text("花瓣长度（mm)");
+    		svg.append("g").attr("class", "tcircles").attr("fill", "none").attr("pointer-events", "all").selectAll("circle").data(outdata).join("circle").attr("stroke", d => color[d.label]).attr("r", r).attr("cx", d => x(d.x)).attr("cy", d => y(d.y)).append("title").text(d => `品种: ${d.label}  位置:(${d.x},  ${d.y})`);
+    		const circles = d3.range(1).map(i => ({ x: 56, y: 25 }));
+    		point.x = 56;
+    		point.y = 25;
     		svg.append("g").selectAll("circle").data(circles).join("circle").attr("fill", "yellow").attr("stroke", "#C4C400").attr("r", r).attr("cx", d => x(d.x)).attr("cy", d => y(d.y)).call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
     		sortdata = outdata;
 
@@ -1763,15 +1926,15 @@ var app = (function () {
     		});
 
     		kdata = sortdata.slice(0, k);
-    		link = svg.insert("g", ".tcircles").attr("id", "lines").selectAll("line").data(kdata).join("line").attr("stroke", d => color[d.label]).style("opacity", 0.5).attr("x1", x(point.x)).attr("y1", y(point.y)).attr("x2", d => x(d.x)).attr("y2", d => y(d.y));
+    		svglink = svg.insert("g", ".tcircles").attr("id", "lines").selectAll("line").data(kdata).join("line").attr("stroke", d => color[d.label]).style("opacity", 0.5).attr("x1", x(point.x)).attr("y1", y(point.y)).attr("x2", d => x(d.x)).attr("y2", d => y(d.y));
     		d3.select("#num-k").text("k = " + k);
 
     		d3.select("#add-layers").on("click", () => {
     			k++;
     			let diff = 1;
 
-    			if (k > 10) {
-    				k = 10;
+    			if (k > 30) {
+    				k = 30;
     				diff = 0;
     			}
 
@@ -1805,18 +1968,18 @@ var app = (function () {
     		kdata = sortdata.slice(0, k);
 
     		if (diff > 0) {
-    			link = d3.select("#lines").selectAll("line");
-    			link.data(kdata).enter().append("line").transition().duration(1000).attr("stroke", d => color[d.label]).style("opacity", 0.5).attr("x1", x(point.x)).attr("y1", y(point.y)).attr("x2", d => x(d.x)).attr("y2", d => y(d.y));
+    			svglink = d3.select("#lines").selectAll("line");
+    			svglink.data(kdata).enter().append("line").transition().duration(1000).attr("stroke", d => color[d.label]).style("opacity", 0.5).attr("x1", x(point.x)).attr("y1", y(point.y)).attr("x2", d => x(d.x)).attr("y2", d => y(d.y));
     		} else if (diff < 0) {
-    			link = d3.select("#lines").selectAll("line");
-    			link.data(kdata).exit().transition().duration(100).remove().attr("stroke", d => color[d.label]).style("opacity", 0.5).attr("x1", x(point.x)).attr("y1", y(point.y)).attr("x2", d => x(d.x)).attr("y2", d => y(d.y));
+    			svglink = d3.select("#lines").selectAll("line");
+    			svglink.data(kdata).exit().transition().duration(100).remove().attr("stroke", d => color[d.label]).style("opacity", 0.5).attr("x1", x(point.x)).attr("y1", y(point.y)).attr("x2", d => x(d.x)).attr("y2", d => y(d.y));
     		} else {
-    			link.data(kdata).transition().duration(1000).attr("x1", x(point.x)).attr("y1", y(point.y)).attr("x2", d => x(d.x)).attr("y2", d => y(d.y)).attr("stroke", d => color[d.label]).style("opacity", 0.5);
+    			svglink.data(kdata).transition().duration(1000).attr("x1", x(point.x)).attr("y1", y(point.y)).attr("x2", d => x(d.x)).attr("y2", d => y(d.y)).attr("stroke", d => color[d.label]).style("opacity", 0.5);
     		}
     	}
 
     	function dragstarted(d) {
-    		link = d3.select("#lines").selectAll("line");
+    		svglink = d3.select("#lines").selectAll("line");
     		d3.select(this).attr("stroke", "black");
     	}
 
@@ -1824,7 +1987,7 @@ var app = (function () {
     		d3.select(this).raise().attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
     		point.x = rx(d3.event.x);
     		point.y = ry(d3.event.y);
-    		link.data(kdata).attr("x1", x(point.x)).attr("y1", y(point.y)).attr("x2", d => x(d.x)).attr("y2", d => y(d.y));
+    		svglink.data(kdata).attr("x1", x(point.x)).attr("y1", y(point.y)).attr("x2", d => x(d.x)).attr("y2", d => y(d.y));
     	}
 
     	function dragended(d) {
@@ -1846,11 +2009,7 @@ var app = (function () {
     	}
 
     	function countlabelnums() {
-    		$$invalidate(0, counts = {
-    			"apple": 0,
-    			"blueberry": 0,
-    			"watermelon": 0
-    		});
+    		$$invalidate(0, counts = { "山鸢尾": 0, "杂色鸢尾": 0, "维吉尼亚鸢尾": 0 });
 
     		for (let i = 0; i < k; ++i) {
     			$$invalidate(0, counts[kdata[i].label] += 1, counts);
@@ -1882,10 +2041,12 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		onMount,
+    		link,
     		outdata,
     		sortdata,
     		kdata,
     		color,
+    		en2ch,
     		arrcolor,
     		labels,
     		margin,
@@ -1903,7 +2064,7 @@ var app = (function () {
     		x,
     		rx,
     		point,
-    		link,
+    		svglink,
     		strlegend,
     		drawklines,
     		dragstarted,
@@ -1928,7 +2089,7 @@ var app = (function () {
     		if ("x" in $$props) x = $$props.x;
     		if ("rx" in $$props) rx = $$props.rx;
     		if ("point" in $$props) point = $$props.point;
-    		if ("link" in $$props) link = $$props.link;
+    		if ("svglink" in $$props) svglink = $$props.svglink;
     		if ("strlegend" in $$props) $$invalidate(2, strlegend = $$props.strlegend);
     	};
 
