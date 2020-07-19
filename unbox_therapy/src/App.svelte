@@ -45,9 +45,9 @@
 
 <div id="app-page">
   <div class="page_header">
-    <a href="/" target="_blank" rel="prefetch" style="font-size: 50px;">UnboxAI</a>
+    <a href="/" use:link rel="prefetch" style="font-size: 50px;">UnboxAI</a>
     
-    <ul class="menu_ul">
+    <!-- <ul class="menu_ul">
       <li>
         <a target="_blank" href="/dt/index.html">决策树</a>
       </li>
@@ -60,9 +60,7 @@
       <li>
         <a href="/cnn" use:link rel="prefetch">卷积神经网络</a>
       </li>
-
-
-    </ul>
+    </ul> -->
   </div>
 
   <div class="content">

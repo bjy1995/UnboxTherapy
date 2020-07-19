@@ -50,28 +50,34 @@
   });
 </script>
 
-<div>
-  <br />
-  <h3 style="color: #555;text-align: left;font-weight:300;font-size:20px">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学校组织去植物园春游，一片特别好看的蓝紫色的花海映入你眼帘，像一只只穿梭在绿草中的美丽蝴蝶。你看到牌上的介绍说：这是鸢尾花，常见的有三大类:
-    <br />
-    <span>
-      <i>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;山鸢尾
-        (Iris-setosa)，变色鸢尾(Iris-versicolor)和维吉尼亚鸢尾(Iris-virginica)
-      </i>
-    </span>
-    <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;他们有着形状与色彩相似的花瓣和萼片。你观察到有一块集中的部分的鸢尾有较大的花瓣，而它旁边的一块的花瓣却很小。你想搞清楚他们究竟属于哪一类鸢尾花，
-    <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;于是你上网搜索，发现网上说可以根据一些特征值来刻画事物的某些方面的特点，比如通过
-    花萼的长、花萼的宽、花瓣的长和花瓣的宽来辨别他们。
-    <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;让我们从section1开始吧！
-  </h3>
+<style>
+  #begin{
+    margin-top:60px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 78ch;
+  }
+  .t{
+    font-size: 20px;
+  }
+  .flower{
+    color: steelblue;
+  }
+</style>
+
+
+<div id='begin'>
+  <div id="one"><h1>序言</h1></div>
+  <div id='article'>
+      <p class="t">学校组织去植物园春游，一片特别好看的蓝紫色的花海映入你眼帘，像一只只穿梭在绿草中的美丽蝴蝶。</p>
+      <p class="t">你看到牌上的介绍说：这是鸢尾花，常见的有三大类:<b class='flower'>山鸢尾</b >(Iris-setosa)，<b class='flower'>变色鸢尾</b>(Iris-versicolor)和<b class='flower'>维吉尼亚鸢尾</b>(Iris-virginica)</p>
+      <p class="t">它们有着形状与色彩相似的花瓣和萼片。你观察到有一块集中的部分的鸢尾有较大的花瓣，而它旁边的一块的花瓣却很小。你想搞清楚它们究竟属于哪一类鸢尾花，</p>
+      <p class="t">于是你上网搜索，发现网上说可以根据一些特征值来刻画事物的某些方面的特点，比如通过花萼的长、花萼的宽、花瓣的长和花瓣的宽来辨别他们。</p>
+      <p class="t"><b>让我们从section1开始吧！</b></p>
+  </div>
 </div>
+
 <div class={selected > 0 ? 'cont s--el-active' : dynamiccss}>
   <!-- cont inner start -->
   <div class="cont__inner">
