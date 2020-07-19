@@ -15,7 +15,7 @@
   }
   #app-page .page_header {
     position: fixed;
-    height: 90px;
+    height: 62px;
     top: 0;
     left: 0;
     width: 100%;
@@ -26,18 +26,14 @@
     background: white;
     z-index: 100;
     box-shadow: 0 -0.4rem 0.9rem 0.2rem rgba(0, 0, 0, 0.5);
+    background-color: #37474f;
   }
   #app-page .page_header a {
     text-decoration: none;
     cursor: pointer;
-    color: black;
-  }
-  .home_icon {
-    width: 60px;
-    height: 60px;
-    background-image: url("Unbox.png");
-    background-size: 100% auto;
-    color: transparent !important;
+    color: #f6f6f6;
+    font-size: 15px;
+    font-weight: 500;
   }
   .menu_ul {
     width: 300px;
@@ -49,9 +45,9 @@
 
 <div id="app-page">
   <div class="page_header">
-    <a href="/" class="home_icon" rel="prefetch">Home</a>
+    <a href="/" target="_blank" rel="prefetch" style="font-size: 50px;">UnboxAI</a>
+    
     <ul class="menu_ul">
-
       <li>
         <a target="_blank" href="/dt/index.html">决策树</a>
       </li>
@@ -73,3 +69,4 @@
     <Router {routes} />
   </div>
 </div>
+
