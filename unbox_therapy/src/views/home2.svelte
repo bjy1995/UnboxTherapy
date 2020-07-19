@@ -87,7 +87,7 @@
         <div class="el__inner">
           <div class="el__bg" />
           <div class="el__preview-cont">
-            <h2 class="el__heading">Section 1</h2>
+            <h2 class="el__heading" style="color:#f6f6f6">Section 1</h2>
           </div>
           <div class="el__content">
             <a href="/old" use:link rel="prefetch">
@@ -111,7 +111,7 @@
         <div class="el__inner">
           <div class="el__bg" />
           <div class="el__preview-cont">
-            <h2 class="el__heading">Section 2</h2>
+            <h2 class="el__heading"style="color:#f6f6f6">Section 2</h2>
           </div>
           <div class="el__content">
             <a href="/knn" use:link rel="prefetch">
@@ -135,7 +135,7 @@
         <div class="el__inner">
           <div class="el__bg" />
           <div class="el__preview-cont">
-            <h2 class="el__heading">Section 3</h2>
+            <h2 class="el__heading"style="color:#f6f6f6">Section 3</h2>
           </div>
           <div class="el__content">
             <a href="/tree" use:link rel="prefetch">
@@ -159,7 +159,7 @@
         <div class="el__inner">
           <div class="el__bg" />
           <div class="el__preview-cont">
-            <h2 class="el__heading">Section 4</h2>
+            <h2 class="el__heading"style="color:#f6f6f6">Section 4</h2>
           </div>
           <div class="el__content">
             <a href="/cnn" use:link rel="prefetch">
@@ -183,7 +183,7 @@
         <div class="el__inner">
           <div class="el__bg" />
           <div class="el__preview-cont">
-            <h2 class="el__heading">Section 5</h2>
+            <h2 class="el__heading"style="color:#f6f6f6">Section 5</h2>
           </div>
           <div class="el__content">
             <a href="/" use:link rel="prefetch">
