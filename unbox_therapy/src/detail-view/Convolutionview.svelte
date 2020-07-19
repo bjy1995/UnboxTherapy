@@ -131,7 +131,7 @@
       <div class="control-pannel">
 
         <div class="title-text">
-          Convolution
+          卷积过程
         </div>
 
         <div class="buttons">
@@ -162,7 +162,7 @@
       <div class="annotation">
         <img src='PUBLIC_URL/assets/img/pointer.svg' alt='pointer icon'>
         <div class="annotation-text">
-          <span style="font-weight:600">Hover over</span> the matrices to change kernel position.
+          <span style="font-weight:600">悬停鼠标</span> 在矩阵中来查看对应位置的计算过程.
         </div>
       </div>
 

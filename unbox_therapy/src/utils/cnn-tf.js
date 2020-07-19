@@ -1,7 +1,7 @@
 /* global tf */
 
 // Network input image size
-const networkInputSize = 28;
+const networkInputSize = 32;
 
 // Enum of node types
 const nodeType = {
@@ -137,7 +137,7 @@ const constructCNNFromOutputs = (allOutputs, model, inputImageTensor) => {
         for (let i = 0; i < outputs.length; i++) {
           let node = new Node(layer.name, i, curLayerType, biases[i],
             outputs[i]);
-          if(layer.name === 'dense_9'){
+          if(layer.name === 'dense_23'){
             node = new Node('output', i, curLayerType, biases[i],
               outputs[i]);
           }
@@ -315,7 +315,7 @@ const cropCentralSquare = (arr) => {
  */
 const imageDataTo3DTensor = (imageData, width, height, normalize=true) => {
   // Create array placeholder for the 3d array
-  let imageArray = tf.fill([width, height, 1], 0).arraySync();
+  let imageArray = tf.fill([width, height, 3], 0).arraySync();
 
   // Iterate through the data to fill out channel arrays above
   for (let i = 0; i < imageData.length; i++) {
@@ -326,7 +326,7 @@ const imageDataTo3DTensor = (imageData, width, height, normalize=true) => {
       column = width === height ? pixelIndex % width
                               : Math.floor(pixelIndex / width);
     
-    if (channelIndex < 1) { 
+    if (channelIndex < 3) { 
       let curEntry  = imageData[i];
       // Normalize the original pixel value from [0, 255] to [0, 1]
       if (normalize) {

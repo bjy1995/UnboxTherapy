@@ -737,7 +737,7 @@ const drawIntermediateLayer = (curLayerIndex, leftX, rightX, rightStart,
     .attr('class', 'layer-intermediate-label layer-label')
     .attr('transform', () => {
       let x = intermediateX1 + nodeLength / 2;
-      let y = (svgPaddings.top + vSpaceAroundGap) / 2 + 5;
+      let y = (svgPaddings.top) / 2 + 10;
       return `translate(${x}, ${y})`;
     })
     .classed('hidden', detailedMode)
@@ -746,13 +746,13 @@ const drawIntermediateLayer = (curLayerIndex, leftX, rightX, rightStart,
     .style('dominant-baseline', 'middle')
     .style('font-weight', 800)
     .style('opacity', '0.8')
-    .text('intermediate');
+    .text('临时层');
   
   intermediateLayer.append('g')
     .attr('class', 'animation-control')
     .attr('transform', () => {
       let x = intermediateX1 + nodeLength / 2;
-      let y = (svgPaddings.top + vSpaceAroundGap) / 2 - 4;
+      let y = (svgPaddings.top) / 2 - 4;
       return `translate(${x}, ${y})`;
     })
     .on('click', () => animationButtonClicked(curLayerIndex))
@@ -769,7 +769,7 @@ const drawIntermediateLayer = (curLayerIndex, leftX, rightX, rightStart,
     .attr('class', 'layer-intermediate-label layer-detailed-label')
     .attr('transform', () => {
       let x = intermediateX1 + nodeLength / 2;
-      let y = (svgPaddings.top + vSpaceAroundGap) / 2 - 5;
+      let y = (svgPaddings.top) / 2 + 5 ;
       return `translate(${x}, ${y})`;
     })
     .classed('hidden', !detailedMode)
@@ -779,7 +779,7 @@ const drawIntermediateLayer = (curLayerIndex, leftX, rightX, rightStart,
     .style('opacity', '0.7')
     .style('font-weight', 800)
     .append('tspan')
-    .text('intermediate')
+    .text('临时层')
     .append('tspan')
     .style('font-size', '8px')
     .style('font-weight', 'normal')
@@ -900,13 +900,13 @@ const drawIntermediateLayerAnnotation = (arg) => {
   
   slideText.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text('Slide kernel over input channel');
+    .text('滑动kernel得到');
 
   slideText.append('tspan')
     .attr('x', sliderX)
     .attr('dy', '1em')
     .style('dominant-baseline', 'hanging')
-    .text('to get intermediate result');
+    .text('对应的临时层中的结果');
 
   // slideText.append('tspan')
   //   .attr('x', sliderX)
@@ -919,12 +919,12 @@ const drawIntermediateLayerAnnotation = (arg) => {
     .attr('dy', '1.2em')
     .style('dominant-baseline', 'hanging')
     .style('font-weight', 700)
-    .text('Click ');
+    .text('点击');
   
   slideText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .style('font-weight', 400)
-    .text('to learn more')
+    .text('查看计算细节')
 
   drawArrow({
     group: group,
@@ -947,25 +947,25 @@ const drawIntermediateLayerAnnotation = (arg) => {
 
   slideText2.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text('Each input chanel');
+    .text('每个输入通道');
 
   slideText2.append('tspan')
     .attr('x', sliderX)
     .attr('dy', '1em')
     .style('dominant-baseline', 'hanging')
-    .text('gets a different kernel');
+    .text('对应一个不同的kernel');
 
   slideText2.append('tspan')
     .attr('x', sliderX)
     .attr('dy', '1.3em')
     .style('font-weight', 700)
     .style('dominant-baseline', 'hanging')
-    .text('Hover over ');
+    .text('将鼠标悬停在左侧kernel');
 
   slideText2.append('tspan')
     .style('font-weight', 400)
     .style('dominant-baseline', 'hanging')
-    .text('to see value!')
+    .text('查看kernel的值')
 
   drawArrow({
     group: group,
@@ -1006,13 +1006,13 @@ const drawIntermediateLayerAnnotation = (arg) => {
   
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text('Add up all intermediate');
+    .text('将所有通道的临时层对应位置的值相加');
   
   plusText.append('tspan')
     .attr('x', textX)
     .attr('dy', '1em')
     .style('dominant-baseline', 'hanging')
-    .text('results and then add bias');
+    .text('在加上偏移值得到对应位置的输出');
   
   if (i === 9) {
     drawArrow({
@@ -1201,7 +1201,7 @@ export const drawConv1 = (curLayerIndex, d, i, width, height,
   let leftX = nodeCoordinate[curLayerIndex - 1][0].x;
 
   // Record the left x position for dynamic detial view positioning
-  intermediateLayerPosition['conv2d_8'] = targetX + nodeLength;
+  intermediateLayerPosition['conv2d_22'] = targetX + nodeLength;
   intermediateLayerPositionStore.set(intermediateLayerPosition);
 
   // Hide the edges
@@ -1472,7 +1472,7 @@ export const drawConv3 = (curLayerIndex, d, i, width, height,
   let intermediateGap = (hSpaceAroundGap * gapRatio * 2) / 3;
 
   // Record the left x position for dynamic detial view positioning
-  intermediateLayerPosition['conv2d_9'] = targetX + nodeLength;
+  intermediateLayerPosition['conv2d_23'] = targetX + nodeLength;
   intermediateLayerPositionStore.set(intermediateLayerPosition);
 
   // Hide the edges

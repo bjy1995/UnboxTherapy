@@ -80,13 +80,22 @@ let layerIndexDict1 = {
   'max_pool_2': 10,
   'output': 11
 }
+  // const layerIndexDict = {
+  //   'input': 0,
+  //   'conv2d_8': 1,
+  //   'max_pooling2d_8': 2,
+  //   'conv2d_9': 3,
+  //   'max_pooling2d_9': 4,
+  //   'dense_8': 5,
+  //   'output': 6,
+  // }
   const layerIndexDict = {
     'input': 0,
-    'conv2d_8': 1,
-    'max_pooling2d_8': 2,
-    'conv2d_9': 3,
-    'max_pooling2d_9': 4,
-    'dense_8': 5,
+    'conv2d_22': 1,
+    'max_pooling2d_21': 2,
+    'conv2d_23': 3,
+    'max_pooling2d_22': 4,
+    'dense_22': 5,
     'output': 6,
   }
 let hasInitialized = false;
@@ -1398,7 +1407,7 @@ export const drawOutFlatten = (curLayerIndex, d, i, width, height) => {
     .attr('transform', () => {
       let x = leftX + nodeLength + (4 * hSpaceAroundGap * gapRatio +
         pixelWidth) / 2;
-      let y = (svgPaddings.top + vSpaceAroundGap) / 2 + 5;
+      let y = (svgPaddings.top) / 2 + 5;
       return `translate(${x}, ${y})`;
     })
     .style('cursor', 'help')
@@ -1414,7 +1423,7 @@ export const drawOutFlatten = (curLayerIndex, d, i, width, height) => {
     .style('dominant-baseline', 'middle')
     .style('opacity', 0.8)
     .style('font-weight', 800)
-    .text('flatten');
+    .text('拉平为一维向量');
 
   let svgHeight = Number(d3.select('#cnn-svg').style('height').replace('px', '')) + 150;
   let scroll = new SmoothScroll('a[href*="#"]', {offset: -svgHeight});
@@ -1547,7 +1556,7 @@ export const drawOutFlatten = (curLayerIndex, d, i, width, height) => {
   
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text('Add up all products');
+    .text('将所有乘积相加');
   
   plusText.append('tspan')
     .attr('x', textX)
@@ -1558,7 +1567,7 @@ export const drawOutFlatten = (curLayerIndex, d, i, width, height) => {
   plusText.append('tspan')
     .style('fill', '#66a3c8')
     .style('dominant-baseline', 'hanging')
-    .text('element');
+    .text('输出');
 
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
@@ -1567,7 +1576,7 @@ export const drawOutFlatten = (curLayerIndex, d, i, width, height) => {
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .style('fill', '#b58946')
-    .text('weight');
+    .text('权重');
 
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
@@ -1577,12 +1586,12 @@ export const drawOutFlatten = (curLayerIndex, d, i, width, height) => {
     .attr('x', textX)
     .attr('dy', '1em')
     .style('dominant-baseline', 'hanging')
-    .text('and then ');
+    .text('之后再加上 ');
 
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .style('fill', '#479d94')
-    .text('bias');
+    .text('偏移量');
   
   drawArrow({
     group: plusAnnotation,
@@ -1618,11 +1627,11 @@ export const drawOutFlatten = (curLayerIndex, d, i, width, height) => {
     .style('dominant-baseline', 'baseline')
     .style('text-anchor', 'middle')
     .style('font-weight', 700)
-    .text('Click ')
+    .text('点击 ')
     .append('tspan')
     .attr('dx', 1)
     .style('font-weight', 400)
-    .text('to learn more');
+    .text('查看细节');
 
   drawArrow({
     group: softmaxAnnotation,
@@ -2160,7 +2169,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
     .attr('transform', () => {
       let x = leftX + nodeLength + (4 * hSpaceAroundGap * gapRatio +
         pixelWidth) / 2;
-      let y = (svgPaddings.top + vSpaceAroundGap) / 2 + 5;
+      let y = (svgPaddings.top) / 2 + 5;
       return `translate(${x}, ${y})`;
     })
     .style('cursor', 'help')
@@ -2184,7 +2193,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
   let detailedLabelGroup = intermediateLayer.append('g')
     .attr('transform', () => {
       let x = intermediateX1 + pixelWidth / 2;
-      let y = (svgPaddings.top + vSpaceAroundGap) / 2 - 5;
+      let y = (svgPaddings.top) / 2 + 5;
       return `translate(${x}, ${y})`;
     })
     .attr('class', 'layer-detailed-label')
@@ -2197,8 +2206,8 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
       scroll.animateScroll(anchor);
     });
   
-  detailedLabelGroup.append('title')
-    .text('Move to article section');
+  // detailedLabelGroup.append('title')
+  //   .text('Move to article section');
 
   let detailedLabelText = detailedLabelGroup.append('text')
     .style('text-anchor', 'middle')
@@ -2206,11 +2215,11 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
     .style('opacity', '0.7')
     .style('font-weight', 800)
     .append('tspan')
-    .text('flatten');
+    .text('Flatten');
   
-  let dimension = cnn[layerIndexDict['max_pooling2d_9']].length * 
-    cnn[layerIndexDict['max_pooling2d_9']][0].output.length *
-    cnn[layerIndexDict['max_pooling2d_9']][0].output[0].length;
+  let dimension = cnn[layerIndexDict['max_pooling2d_22']].length * 
+    cnn[layerIndexDict['max_pooling2d_22']][0].output.length *
+    cnn[layerIndexDict['max_pooling2d_22']][0].output[0].length;
   
 
   detailedLabelText.append('tspan')
@@ -2309,7 +2318,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
   
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text('Add up all products');
+    .text('将所有乘积相加');
   
   plusText.append('tspan')
     .attr('x', textX)
@@ -2320,7 +2329,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
   plusText.append('tspan')
     .style('fill', '#66a3c8')
     .style('dominant-baseline', 'hanging')
-    .text('element');
+    .text('输出');
 
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
@@ -2329,7 +2338,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .style('fill', '#b58946')
-    .text('weight');
+    .text('权重');
 
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
@@ -2339,12 +2348,12 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
     .attr('x', textX)
     .attr('dy', '1em')
     .style('dominant-baseline', 'hanging')
-    .text('and then ');
+    .text('之后再加上 ');
 
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .style('fill', '#479d94')
-    .text('bias');
+    .text('偏移量');
   
   drawArrow({
     group: plusAnnotation,
@@ -2413,25 +2422,25 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
   let tempTspan = flattenText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .style('font-weight', 700)
-    .text('Hover over ');
+    .text('悬停 ');
   
   tempTspan.append('tspan')
     .attr('dx', 1)
     .style('font-weight', 400)
     .style('dominant-baseline', 'hanging')
-    .text('matrix to');
+    .text('在矩阵上');
   
   flattenText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .attr('x', textX)
     .attr('dy', '1em')
-    .text('see how it is flattened');
+    .text('可以看到在拉平为一维向量后');
   
   flattenText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .attr('x', textX)
     .attr('dy', '1em')
-    .text('into a 1D array!');
+    .text('对应的值');
 
   drawArrow({
     group: flattenAnnotation,
@@ -2455,19 +2464,19 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
 
   middleText.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text('Same flattening');
+    .text('对所有的节点');
   
   middleText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .attr('x', textX)
     .attr('dy', '1em')
-    .text('operation for');
+    .text('都重复一遍');
 
   middleText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .attr('x', textX)
     .attr('dy', '1em')
-    .text('each neuron');
+    .text('拉平操作');
 
   drawArrow({
     group: flattenAnnotation,

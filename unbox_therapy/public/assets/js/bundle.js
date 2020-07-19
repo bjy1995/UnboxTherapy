@@ -140,19 +140,6 @@ var app = (function () {
     function set_style(node, key, value, important) {
         node.style.setProperty(key, value, important ? 'important' : '');
     }
-    function select_option(select, value) {
-        for (let i = 0; i < select.options.length; i += 1) {
-            const option = select.options[i];
-            if (option.__value === value) {
-                option.selected = true;
-                return;
-            }
-        }
-    }
-    function select_value(select) {
-        const selected_option = select.querySelector(':checked') || select.options[0];
-        return selected_option && selected_option.__value;
-    }
     function toggle_class(element, name, toggle) {
         element.classList[toggle ? 'add' : 'remove'](name);
     }
@@ -498,10 +485,6 @@ var app = (function () {
             dispatch_dev("SvelteDOMRemoveAttribute", { node, attribute });
         else
             dispatch_dev("SvelteDOMSetAttribute", { node, attribute, value });
-    }
-    function prop_dev(node, property, value) {
-        node[property] = value;
-        dispatch_dev("SvelteDOMSetProperty", { node, property, value });
     }
     function set_data_dev(text, data) {
         data = '' + data;
@@ -5749,7 +5732,7 @@ var app = (function () {
     		c: function create() {
     			div1 = element("div");
     			div0 = element("div");
-    			t0 = text("Input (");
+    			t0 = text("输入 (");
     			t1 = text(t1_value);
     			t2 = text(", ");
     			t3 = text(t3_value);
@@ -5764,7 +5747,7 @@ var app = (function () {
     			t8 = space();
     			div4 = element("div");
     			div3 = element("div");
-    			t9 = text("Output (");
+    			t9 = text("输出 (");
     			t10 = text(t10_value);
     			t11 = text(", ");
     			t12 = text(t12_value);
@@ -5776,11 +5759,11 @@ var app = (function () {
     			attr_dev(div1, "class", "column has-text-centered svelte-gz7a6i");
     			add_location(div1, file$9, 105, 0, 4082);
     			attr_dev(div2, "class", "column has-text-centered svelte-gz7a6i");
-    			add_location(div2, file$9, 114, 0, 4530);
+    			add_location(div2, file$9, 114, 0, 4527);
     			attr_dev(div3, "class", "header-text");
-    			add_location(div3, file$9, 122, 2, 5083);
+    			add_location(div3, file$9, 122, 2, 5080);
     			attr_dev(div4, "class", "column has-text-centered svelte-gz7a6i");
-    			add_location(div4, file$9, 121, 0, 5041);
+    			add_location(div4, file$9, 121, 0, 5038);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -6299,7 +6282,7 @@ var app = (function () {
     			div9 = element("div");
     			div5 = element("div");
     			div0 = element("div");
-    			div0.textContent = "Convolution";
+    			div0.textContent = "卷积过程";
     			t1 = space();
     			div4 = element("div");
     			div1 = element("div");
@@ -6318,39 +6301,39 @@ var app = (function () {
     			t6 = space();
     			div7 = element("div");
     			span = element("span");
-    			span.textContent = "Hover over";
-    			t8 = text(" the matrices to change kernel position.");
+    			span.textContent = "悬停鼠标";
+    			t8 = text(" 在矩阵中来查看对应位置的计算过程.");
     			attr_dev(div0, "class", "title-text svelte-1j8mhv0");
     			add_location(div0, file$a, 132, 8, 2965);
     			attr_dev(i0, "class", "fas fa-info-circle");
-    			add_location(i0, file$a, 138, 12, 3171);
+    			add_location(i0, file$a, 138, 12, 3164);
     			attr_dev(div1, "class", "control-button svelte-1j8mhv0");
     			attr_dev(div1, "title", "Jump to article section");
-    			add_location(div1, file$a, 137, 10, 3073);
+    			add_location(div1, file$a, 137, 10, 3066);
     			attr_dev(div2, "class", "play-button control-button svelte-1j8mhv0");
     			attr_dev(div2, "title", "Play animation");
-    			add_location(div2, file$a, 141, 10, 3237);
+    			add_location(div2, file$a, 141, 10, 3230);
     			attr_dev(i1, "class", "fas control-icon fa-times-circle");
-    			add_location(i1, file$a, 148, 12, 3603);
+    			add_location(i1, file$a, 148, 12, 3596);
     			attr_dev(div3, "class", "delete-button control-button svelte-1j8mhv0");
     			attr_dev(div3, "title", "Close");
-    			add_location(div3, file$a, 147, 10, 3509);
+    			add_location(div3, file$a, 147, 10, 3502);
     			attr_dev(div4, "class", "buttons svelte-1j8mhv0");
-    			add_location(div4, file$a, 136, 8, 3040);
+    			add_location(div4, file$a, 136, 8, 3033);
     			attr_dev(div5, "class", "control-pannel svelte-1j8mhv0");
     			add_location(div5, file$a, 130, 6, 2925);
     			attr_dev(div6, "class", "container is-centered svelte-1j8mhv0");
-    			add_location(div6, file$a, 153, 6, 3709);
+    			add_location(div6, file$a, 153, 6, 3702);
     			if (img.src !== (img_src_value = "/assets/img/pointer.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "pointer icon");
     			attr_dev(img, "class", "svelte-1j8mhv0");
-    			add_location(img, file$a, 162, 8, 4112);
+    			add_location(img, file$a, 162, 8, 4105);
     			set_style(span, "font-weight", "600");
-    			add_location(span, file$a, 164, 10, 4227);
+    			add_location(span, file$a, 164, 10, 4220);
     			attr_dev(div7, "class", "annotation-text");
-    			add_location(div7, file$a, 163, 8, 4186);
+    			add_location(div7, file$a, 163, 8, 4179);
     			attr_dev(div8, "class", "annotation svelte-1j8mhv0");
-    			add_location(div8, file$a, 161, 6, 4078);
+    			add_location(div8, file$a, 161, 6, 4071);
     			attr_dev(div9, "class", "box svelte-1j8mhv0");
     			add_location(div9, file$a, 128, 4, 2898);
     			attr_dev(div10, "class", "container svelte-1j8mhv0");
@@ -7683,7 +7666,7 @@ var app = (function () {
     		c: function create() {
     			div1 = element("div");
     			div0 = element("div");
-    			t0 = text("Input (");
+    			t0 = text("输入 (");
     			t1 = text(t1_value);
     			t2 = text(", ");
     			t3 = text(t3_value);
@@ -7700,7 +7683,7 @@ var app = (function () {
     			t9 = space();
     			div4 = element("div");
     			div3 = element("div");
-    			t10 = text("Output (");
+    			t10 = text("输出 (");
     			t11 = text(t11_value);
     			t12 = text(", ");
     			t13 = text(t13_value);
@@ -7711,13 +7694,13 @@ var app = (function () {
     			add_location(div0, file$d, 99, 2, 3821);
     			attr_dev(div1, "class", "column has-text-centered svelte-gz7a6i");
     			add_location(div1, file$d, 98, 0, 3779);
-    			add_location(span, file$d, 107, 2, 4210);
+    			add_location(span, file$d, 107, 2, 4207);
     			attr_dev(div2, "class", "column has-text-centered svelte-gz7a6i");
-    			add_location(div2, file$d, 106, 0, 4168);
+    			add_location(div2, file$d, 106, 0, 4165);
     			attr_dev(div3, "class", "header-text");
-    			add_location(div3, file$d, 118, 2, 4671);
+    			add_location(div3, file$d, 118, 2, 4668);
     			attr_dev(div4, "class", "column has-text-centered svelte-gz7a6i");
-    			add_location(div4, file$d, 117, 0, 4629);
+    			add_location(div4, file$d, 117, 0, 4626);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8190,7 +8173,7 @@ var app = (function () {
     			div9 = element("div");
     			div5 = element("div");
     			div0 = element("div");
-    			div0.textContent = "Max Pooling";
+    			div0.textContent = "最大值池化";
     			t1 = space();
     			div4 = element("div");
     			div1 = element("div");
@@ -8209,39 +8192,39 @@ var app = (function () {
     			t6 = space();
     			div7 = element("div");
     			span = element("span");
-    			span.textContent = "Hover over";
-    			t8 = text(" the matrices to change kernel position.");
+    			span.textContent = "悬停鼠标";
+    			t8 = text(" 在矩阵中来查看对应位置的计算过程.");
     			attr_dev(div0, "class", "title-text svelte-kahisg");
     			add_location(div0, file$e, 160, 8, 3757);
     			attr_dev(i0, "class", "fas fa-info-circle");
-    			add_location(i0, file$e, 167, 12, 3965);
+    			add_location(i0, file$e, 167, 12, 3959);
     			attr_dev(div1, "class", "control-button svelte-kahisg");
     			attr_dev(div1, "title", "Jump to article section");
-    			add_location(div1, file$e, 166, 10, 3867);
+    			add_location(div1, file$e, 166, 10, 3861);
     			attr_dev(div2, "class", "play-button control-button svelte-kahisg");
     			attr_dev(div2, "title", "Play animation");
-    			add_location(div2, file$e, 170, 10, 4031);
+    			add_location(div2, file$e, 170, 10, 4025);
     			attr_dev(i1, "class", "fas control-icon fa-times-circle");
-    			add_location(i1, file$e, 177, 12, 4397);
+    			add_location(i1, file$e, 177, 12, 4391);
     			attr_dev(div3, "class", "delete-button control-button svelte-kahisg");
     			attr_dev(div3, "title", "Close");
-    			add_location(div3, file$e, 176, 10, 4303);
+    			add_location(div3, file$e, 176, 10, 4297);
     			attr_dev(div4, "class", "buttons svelte-kahisg");
-    			add_location(div4, file$e, 164, 8, 3832);
+    			add_location(div4, file$e, 164, 8, 3826);
     			attr_dev(div5, "class", "control-pannel svelte-kahisg");
     			add_location(div5, file$e, 158, 6, 3711);
     			attr_dev(div6, "class", "container is-centered is-vcentered svelte-kahisg");
-    			add_location(div6, file$e, 183, 6, 4505);
+    			add_location(div6, file$e, 183, 6, 4499);
     			if (img.src !== (img_src_value = "/assets/img/pointer.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "pointer icon");
     			attr_dev(img, "class", "svelte-kahisg");
-    			add_location(img, file$e, 191, 8, 4853);
+    			add_location(img, file$e, 191, 8, 4847);
     			set_style(span, "font-weight", "600");
-    			add_location(span, file$e, 193, 12, 4972);
+    			add_location(span, file$e, 193, 12, 4966);
     			attr_dev(div7, "class", "annotation-text");
-    			add_location(div7, file$e, 192, 10, 4929);
+    			add_location(div7, file$e, 192, 10, 4923);
     			attr_dev(div8, "class", "annotation svelte-kahisg");
-    			add_location(div8, file$e, 190, 6, 4819);
+    			add_location(div8, file$e, 190, 6, 4813);
     			attr_dev(div9, "class", "box svelte-kahisg");
     			add_location(div9, file$e, 156, 4, 3684);
     			attr_dev(div10, "class", "container svelte-kahisg");
@@ -8590,8 +8573,8 @@ var app = (function () {
     	let i1;
     	let t1;
     	let div3;
-    	let t2;
     	let i2;
+    	let t2;
     	let t3;
     	let t4;
     	let t5;
@@ -8620,11 +8603,11 @@ var app = (function () {
     			i1 = element("i");
     			t1 = space();
     			div3 = element("div");
-    			t2 = text("Softmax Score for ");
     			i2 = element("i");
-    			t3 = text("\"");
-    			t4 = text(/*outputName*/ ctx[0]);
-    			t5 = text("\"");
+    			t2 = text("\"");
+    			t3 = text(/*outputName*/ ctx[0]);
+    			t4 = text("\"");
+    			t5 = text(" 的Softmax概率结果");
     			t6 = space();
     			svg_1 = svg_element("svg");
     			t7 = space();
@@ -8633,8 +8616,8 @@ var app = (function () {
     			t8 = space();
     			div4 = element("div");
     			span = element("span");
-    			span.textContent = "Hover over";
-    			t10 = text(" the numbers to highlight logit circles.");
+    			span.textContent = "悬停鼠标";
+    			t10 = text(" 高亮对应值的计算路径.");
     			attr_dev(i0, "class", "fas fa-info-circle");
     			add_location(i0, file$f, 261, 8, 7124);
     			attr_dev(div0, "class", "control-button svelte-1uac4ng");
@@ -8647,24 +8630,24 @@ var app = (function () {
     			add_location(div1, file$f, 264, 6, 7182);
     			attr_dev(div2, "class", "buttons svelte-1uac4ng");
     			add_location(div2, file$f, 259, 4, 7001);
-    			add_location(i2, file$f, 270, 24, 7404);
+    			add_location(i2, file$f, 270, 6, 7386);
     			attr_dev(div3, "class", "title-text svelte-1uac4ng");
     			add_location(div3, file$f, 269, 4, 7354);
     			attr_dev(svg_1, "id", "softmax-svg");
     			attr_dev(svg_1, "width", "470");
     			attr_dev(svg_1, "height", "105");
     			attr_dev(svg_1, "class", "svelte-1uac4ng");
-    			add_location(svg_1, file$f, 273, 4, 7445);
+    			add_location(svg_1, file$f, 273, 4, 7440);
     			if (img.src !== (img_src_value = "/assets/img/pointer.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "pointer icon");
     			attr_dev(img, "class", "svelte-1uac4ng");
-    			add_location(img, file$f, 276, 6, 7533);
+    			add_location(img, file$f, 276, 6, 7528);
     			set_style(span, "font-weight", "600");
-    			add_location(span, file$f, 278, 8, 7644);
+    			add_location(span, file$f, 278, 8, 7639);
     			attr_dev(div4, "class", "annotation-text");
-    			add_location(div4, file$f, 277, 6, 7605);
+    			add_location(div4, file$f, 277, 6, 7600);
     			attr_dev(div5, "class", "annotation svelte-1uac4ng");
-    			add_location(div5, file$f, 275, 4, 7501);
+    			add_location(div5, file$f, 275, 4, 7496);
     			attr_dev(div6, "class", "box svelte-1uac4ng");
     			add_location(div6, file$f, 257, 2, 6976);
     			attr_dev(div7, "class", "container");
@@ -8684,11 +8667,11 @@ var app = (function () {
     			append_dev(div1, i1);
     			append_dev(div6, t1);
     			append_dev(div6, div3);
-    			append_dev(div3, t2);
     			append_dev(div3, i2);
+    			append_dev(i2, t2);
     			append_dev(i2, t3);
     			append_dev(i2, t4);
-    			append_dev(i2, t5);
+    			append_dev(div3, t5);
     			append_dev(div6, t6);
     			append_dev(div6, svg_1);
     			append_dev(div6, t7);
@@ -8710,7 +8693,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*outputName*/ 1) set_data_dev(t4, /*outputName*/ ctx[0]);
+    			if (dirty & /*outputName*/ 1) set_data_dev(t3, /*outputName*/ ctx[0]);
     		},
     		i: noop,
     		o: noop,
@@ -9099,7 +9082,7 @@ var app = (function () {
     			div7 = element("div");
     			header = element("header");
     			p = element("p");
-    			p.textContent = "Add Input Image";
+    			p.textContent = "自定义输入图片";
     			t2 = space();
     			button0 = element("button");
     			t3 = space();
@@ -9123,7 +9106,7 @@ var app = (function () {
     			i1 = element("i");
     			t9 = space();
     			span2 = element("span");
-    			span2.textContent = "Upload";
+    			span2.textContent = "上传图片";
     			t11 = space();
     			footer = element("footer");
     			div5 = element("div");
@@ -9131,10 +9114,10 @@ var app = (function () {
     			t13 = space();
     			div6 = element("div");
     			button1 = element("button");
-    			button1.textContent = "Cancel";
+    			button1.textContent = "取消";
     			t15 = space();
     			button2 = element("button");
-    			button2.textContent = "Add";
+    			button2.textContent = "确定";
     			t17 = space();
     			img = element("img");
     			attr_dev(div0, "class", "modal-background");
@@ -9143,54 +9126,54 @@ var app = (function () {
     			add_location(p, file$g, 155, 8, 3581);
     			attr_dev(button0, "class", "delete");
     			attr_dev(button0, "aria-label", "close");
-    			add_location(button0, file$g, 156, 8, 3638);
+    			add_location(button0, file$g, 156, 8, 3630);
     			attr_dev(header, "class", "modal-card-head svelte-1o5lxfe");
     			add_location(header, file$g, 154, 6, 3539);
     			attr_dev(input0, "class", "input small-font svelte-1o5lxfe");
     			attr_dev(input0, "type", "url");
-    			attr_dev(input0, "placeholder", "Paste URL of image...");
-    			add_location(input0, file$g, 164, 12, 3910);
+    			attr_dev(input0, "placeholder", "输入图片的网址链接...");
+    			add_location(input0, file$g, 164, 12, 3902);
     			attr_dev(i0, "class", "fas fa-link");
-    			add_location(i0, file$g, 169, 14, 4113);
+    			add_location(i0, file$g, 169, 14, 4096);
     			attr_dev(span0, "class", "icon small-font is-left svelte-1o5lxfe");
-    			add_location(span0, file$g, 168, 12, 4059);
+    			add_location(span0, file$g, 168, 12, 4042);
     			attr_dev(div1, "class", "control has-icons-left svelte-1o5lxfe");
     			toggle_class(div1, "is-loading", /*showLoading*/ ctx[3]);
-    			add_location(div1, file$g, 161, 10, 3814);
+    			add_location(div1, file$g, 161, 10, 3806);
     			attr_dev(div2, "class", "or-label svelte-1o5lxfe");
-    			add_location(div2, file$g, 174, 10, 4195);
+    			add_location(div2, file$g, 174, 10, 4178);
     			attr_dev(input1, "class", "file-input");
     			attr_dev(input1, "type", "file");
     			attr_dev(input1, "name", "image");
     			attr_dev(input1, "accept", ".png,.jpeg,.tiff,.jpg,.png");
-    			add_location(input1, file$g, 178, 14, 4313);
+    			add_location(input1, file$g, 178, 14, 4296);
     			attr_dev(i1, "class", "fas fa-upload");
-    			add_location(i1, file$g, 184, 18, 4606);
+    			add_location(i1, file$g, 184, 18, 4589);
     			attr_dev(span1, "class", "file-icon");
-    			add_location(span1, file$g, 183, 16, 4562);
+    			add_location(span1, file$g, 183, 16, 4545);
     			attr_dev(span2, "class", "file-label");
-    			add_location(span2, file$g, 186, 16, 4678);
+    			add_location(span2, file$g, 186, 16, 4661);
     			attr_dev(span3, "class", "file-cta small-font svelte-1o5lxfe");
-    			add_location(span3, file$g, 182, 14, 4510);
+    			add_location(span3, file$g, 182, 14, 4493);
     			attr_dev(label, "class", "file-label");
-    			add_location(label, file$g, 177, 12, 4271);
+    			add_location(label, file$g, 177, 12, 4254);
     			attr_dev(div3, "class", "file");
-    			add_location(div3, file$g, 176, 10, 4239);
+    			add_location(div3, file$g, 176, 10, 4222);
     			attr_dev(div4, "class", "field svelte-1o5lxfe");
-    			add_location(div4, file$g, 160, 8, 3783);
+    			add_location(div4, file$g, 160, 8, 3775);
     			attr_dev(section, "class", "modal-card-body");
-    			add_location(section, file$g, 159, 6, 3740);
+    			add_location(section, file$g, 159, 6, 3732);
     			attr_dev(div5, "class", "error-message svelte-1o5lxfe");
     			toggle_class(div5, "hidden", !/*errorInfo*/ ctx[5].show);
-    			add_location(div5, file$g, 199, 8, 4909);
+    			add_location(div5, file$g, 199, 8, 4890);
     			attr_dev(button1, "class", "button is-smaller svelte-1o5lxfe");
-    			add_location(button1, file$g, 205, 10, 5077);
+    			add_location(button1, file$g, 205, 10, 5058);
     			attr_dev(button2, "class", "button is-success is-smaller svelte-1o5lxfe");
-    			add_location(button2, file$g, 210, 10, 5203);
+    			add_location(button2, file$g, 210, 10, 5180);
     			attr_dev(div6, "class", "button-container");
-    			add_location(div6, file$g, 204, 8, 5035);
+    			add_location(div6, file$g, 204, 8, 5016);
     			attr_dev(footer, "class", "modal-card-foot svelte-1o5lxfe");
-    			add_location(footer, file$g, 197, 6, 4865);
+    			add_location(footer, file$g, 197, 6, 4846);
     			attr_dev(div7, "class", "modal-card svelte-1o5lxfe");
     			add_location(div7, file$g, 153, 4, 3507);
     			attr_dev(div8, "class", "modal");
@@ -9200,7 +9183,7 @@ var app = (function () {
     			set_style(img, "display", "none");
     			attr_dev(img, "id", "vali-image");
     			attr_dev(img, "alt", "hidden image");
-    			add_location(img, file$g, 223, 2, 5459);
+    			add_location(img, file$g, 223, 2, 5435);
     			attr_dev(div9, "class", "modal-component");
     			add_location(div9, file$g, 144, 0, 3287);
     		},
@@ -12404,7 +12387,7 @@ var app = (function () {
     /* global tf */
 
     // Network input image size
-    const networkInputSize = 28;
+    const networkInputSize = 32;
 
     // Enum of node types
     const nodeType = {
@@ -12540,7 +12523,7 @@ var app = (function () {
             for (let i = 0; i < outputs.length; i++) {
               let node = new Node(layer.name, i, curLayerType, biases[i],
                 outputs[i]);
-              if(layer.name === 'dense_9'){
+              if(layer.name === 'dense_23'){
                 node = new Node('output', i, curLayerType, biases[i],
                   outputs[i]);
               }
@@ -12718,7 +12701,7 @@ var app = (function () {
      */
     const imageDataTo3DTensor = (imageData, width, height, normalize=true) => {
       // Create array placeholder for the 3d array
-      let imageArray = tf.fill([width, height, 1], 0).arraySync();
+      let imageArray = tf.fill([width, height, 3], 0).arraySync();
 
       // Iterate through the data to fill out channel arrays above
       for (let i = 0; i < imageData.length; i++) {
@@ -12729,7 +12712,7 @@ var app = (function () {
           column = width === height ? pixelIndex % width
                                   : Math.floor(pixelIndex / width);
         
-        if (channelIndex < 1) { 
+        if (channelIndex < 3) { 
           let curEntry  = imageData[i];
           // Normalize the original pixel value from [0, 255] to [0, 1]
           if (normalize) {
@@ -12858,8 +12841,9 @@ var app = (function () {
       kernelRectLength: 8/3,
       gapRatio: 4,
       overlayRectOffset: 12,
-      classLists: ['1', '2', '3', '4', '5',
-        '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+      // classLists: ['1', '2', '3', '4', '5',
+      //   '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+      classLists: ["山鸢尾", "杂色鸢尾", "维吉尼亚鸢尾"]
     };
 
     // Configs
@@ -12963,7 +12947,7 @@ var app = (function () {
       // Create links backward (starting for the first conv layer)
       for (let l = 1; l < cnn.length; l++) {
         for (let n = 0; n < cnn[l].length; n++) {
-          let isOutput = cnn[l][n].layerName === 'dense_8';
+          let isOutput = cnn[l][n].layerName === 'dense_22';
           let curTarget = getInputKnot(nodeCoordinate[l][n]);
           for (let p = 0; p < cnn[l][n].inputLinks.length; p++) {
             // Specially handle output layer (since we are ignoring the flatten)
@@ -13020,6 +13004,17 @@ var app = (function () {
     const gapRatio = overviewConfig.gapRatio;
     const classLists = overviewConfig.classLists;
     const formater = d3.format('.4f');
+    const layernameDict = {
+      'input': '输入层',
+      'conv2d_22': '卷积层',
+      'max_pooling2d_21': '池化层',
+      'conv2d_23': '卷积层',
+      'max_pooling2d_22': '池化层',
+      'dense_22': '全连接层',
+      'output': '输出层',
+    };
+
+
 
     // Shared variables
     let svg$1 = undefined;
@@ -13316,7 +13311,7 @@ var app = (function () {
             //   .attr('x', left)
             //   .attr('y', (d, i) => nodeCoordinate[l][i].y + 10)
             //   .text(d => `(${d3.format('.4f')(d.output)})`);
-        } else if(curLayer[0].layerName === 'dense_8'){
+        } else if(curLayer[0].layerName === 'dense_22'){
             let colorScale = layerColorScales$2.conv;
             nodeGroups.append('circle')
             .attr('class', 'dense-circle')
@@ -13381,14 +13376,14 @@ var app = (function () {
 
       // Add layer label
       let layerNames = cnn.map(d => {
-        if (d[0].layerName === 'output' || d[0].layerName === 'dense_8') {
+        if (d[0].layerName === 'output' || d[0].layerName === 'dense_22') {
           return {
-            name: d[0].layerName,
+            name: layernameDict[d[0].layerName],
             dimension: `(${d.length})`
           }
         } else {
           return {
-            name: d[0].layerName,
+            name: layernameDict[d[0].layerName],
             dimension: `(${d[0].output.length}, ${d[0].output.length}, ${d.length})`
           }
         }
@@ -13406,7 +13401,7 @@ var app = (function () {
         .classed('hidden', !detailedMode)
         .attr('transform', (d, i) => {
           let x = nodeCoordinate[i][0].x + nodeLength$2 / 2;
-          let y = (svgPaddings.top + vSpaceAroundGap) / 2 - 6;
+          let y = (svgPaddings.top) / 2;
           return `translate(${x}, ${y})`;
         })
         .style('cursor', d => d.name.includes('output') ? 'default' : 'help')
@@ -13523,32 +13518,32 @@ var app = (function () {
         .style('dominant-baseline', 'hanging')
         .style('text-anchor', 'middle');
       
-      // redChannel.append('tspan')
-      //   .style('dominant-baseline', 'hanging')
-      //   .style('fill', '#C95E67')
-      //   .text('Red');
-      
       redChannel.append('tspan')
         .style('dominant-baseline', 'hanging')
-        .text(' Input');
-
-      // inputAnnotation.append('text')
-      //   .attr('x', nodeCoordinate[0][1].x + nodeLength / 2)
-      //   .attr('y', nodeCoordinate[0][1].y + nodeLength + 5)
-      //   .attr('class', 'annotation-text')
+        .style('fill', '#C95E67')
+        .text('Red');
+      
+      // redChannel.append('tspan')
       //   .style('dominant-baseline', 'hanging')
-      //   .style('text-anchor', 'middle')
-      //   .style('fill', '#3DB665')
-      //   .text('Green');
+      //   .text(' Input');
 
-      // inputAnnotation.append('text')
-      //   .attr('x', nodeCoordinate[0][2].x + nodeLength / 2)
-      //   .attr('y', nodeCoordinate[0][2].y + nodeLength + 5)
-      //   .attr('class', 'annotation-text')
-      //   .style('dominant-baseline', 'hanging')
-      //   .style('text-anchor', 'middle')
-      //   .style('fill', '#3F7FBC')
-      //   .text('Blue');
+      inputAnnotation.append('text')
+        .attr('x', nodeCoordinate[0][1].x + nodeLength$2 / 2)
+        .attr('y', nodeCoordinate[0][1].y + nodeLength$2 + 5)
+        .attr('class', 'annotation-text')
+        .style('dominant-baseline', 'hanging')
+        .style('text-anchor', 'middle')
+        .style('fill', '#3DB665')
+        .text('Green');
+
+      inputAnnotation.append('text')
+        .attr('x', nodeCoordinate[0][2].x + nodeLength$2 / 2)
+        .attr('y', nodeCoordinate[0][2].y + nodeLength$2 + 5)
+        .attr('class', 'annotation-text')
+        .style('dominant-baseline', 'hanging')
+        .style('text-anchor', 'middle')
+        .style('fill', '#3F7FBC')
+        .text('Blue');
     };
 
     /**
@@ -13744,9 +13739,7 @@ var app = (function () {
     // Shared variables
     let svg$2 = undefined;
     svgStore.subscribe( value => {svg$2 = value;} );
-
-    let vSpaceAroundGap$1 = undefined;
-    vSpaceAroundGapStore.subscribe( value => {vSpaceAroundGap$1 = value;} );
+    vSpaceAroundGapStore.subscribe( value => {} );
 
     /**
      * Move one layer horizontally
@@ -13824,7 +13817,7 @@ var app = (function () {
         .duration(duration)
         .attr('transform', () => {
           let x = targetX + nodeLength$3 / 2;
-          let y = (svgPaddings$1.top + vSpaceAroundGap$1) / 2 + 5;
+          let y = (svgPaddings$1.top) / 2 + 5;
           return `translate(${x}, ${y})`;
         })
         .on('end', onEndFunc);
@@ -13836,7 +13829,7 @@ var app = (function () {
         .duration(duration)
         .attr('transform', () => {
           let x = targetX + nodeLength$3 / 2;
-          let y = (svgPaddings$1.top + vSpaceAroundGap$1) / 2 - 6;
+          let y = (svgPaddings$1.top) / 2 + 5;
           return `translate(${x}, ${y})`;
         })
         .on('end', onEndFunc);
@@ -14033,8 +14026,8 @@ var app = (function () {
     let svg$3 = undefined;
     svgStore.subscribe( value => {svg$3 = value;} );
 
-    let vSpaceAroundGap$2 = undefined;
-    vSpaceAroundGapStore.subscribe( value => {vSpaceAroundGap$2 = value;} );
+    let vSpaceAroundGap$1 = undefined;
+    vSpaceAroundGapStore.subscribe( value => {vSpaceAroundGap$1 = value;} );
 
     let hSpaceAroundGap$1 = undefined;
     hSpaceAroundGapStore.subscribe( value => {hSpaceAroundGap$1 = value;} );
@@ -14734,7 +14727,7 @@ var app = (function () {
         .attr('class', 'layer-intermediate-label layer-label')
         .attr('transform', () => {
           let x = intermediateX1 + nodeLength$4 / 2;
-          let y = (svgPaddings$2.top + vSpaceAroundGap$2) / 2 + 5;
+          let y = (svgPaddings$2.top) / 2 + 10;
           return `translate(${x}, ${y})`;
         })
         .classed('hidden', detailedMode$1)
@@ -14743,13 +14736,13 @@ var app = (function () {
         .style('dominant-baseline', 'middle')
         .style('font-weight', 800)
         .style('opacity', '0.8')
-        .text('intermediate');
+        .text('临时层');
       
       intermediateLayer.append('g')
         .attr('class', 'animation-control')
         .attr('transform', () => {
           let x = intermediateX1 + nodeLength$4 / 2;
-          let y = (svgPaddings$2.top + vSpaceAroundGap$2) / 2 - 4;
+          let y = (svgPaddings$2.top) / 2 - 4;
           return `translate(${x}, ${y})`;
         })
         .on('click', () => animationButtonClicked(curLayerIndex))
@@ -14766,7 +14759,7 @@ var app = (function () {
         .attr('class', 'layer-intermediate-label layer-detailed-label')
         .attr('transform', () => {
           let x = intermediateX1 + nodeLength$4 / 2;
-          let y = (svgPaddings$2.top + vSpaceAroundGap$2) / 2 - 5;
+          let y = (svgPaddings$2.top) / 2 + 5 ;
           return `translate(${x}, ${y})`;
         })
         .classed('hidden', !detailedMode$1)
@@ -14776,7 +14769,7 @@ var app = (function () {
         .style('opacity', '0.7')
         .style('font-weight', 800)
         .append('tspan')
-        .text('intermediate')
+        .text('临时层')
         .append('tspan')
         .style('font-size', '8px')
         .style('font-weight', 'normal')
@@ -14897,13 +14890,13 @@ var app = (function () {
       
       slideText.append('tspan')
         .style('dominant-baseline', 'hanging')
-        .text('Slide kernel over input channel');
+        .text('滑动kernel得到');
 
       slideText.append('tspan')
         .attr('x', sliderX)
         .attr('dy', '1em')
         .style('dominant-baseline', 'hanging')
-        .text('to get intermediate result');
+        .text('对应的临时层中的结果');
 
       // slideText.append('tspan')
       //   .attr('x', sliderX)
@@ -14916,12 +14909,12 @@ var app = (function () {
         .attr('dy', '1.2em')
         .style('dominant-baseline', 'hanging')
         .style('font-weight', 700)
-        .text('Click ');
+        .text('点击');
       
       slideText.append('tspan')
         .style('dominant-baseline', 'hanging')
         .style('font-weight', 400)
-        .text('to learn more');
+        .text('查看计算细节');
 
       drawArrow({
         group: group,
@@ -14944,25 +14937,25 @@ var app = (function () {
 
       slideText2.append('tspan')
         .style('dominant-baseline', 'hanging')
-        .text('Each input chanel');
+        .text('每个输入通道');
 
       slideText2.append('tspan')
         .attr('x', sliderX)
         .attr('dy', '1em')
         .style('dominant-baseline', 'hanging')
-        .text('gets a different kernel');
+        .text('对应一个不同的kernel');
 
       slideText2.append('tspan')
         .attr('x', sliderX)
         .attr('dy', '1.3em')
         .style('font-weight', 700)
         .style('dominant-baseline', 'hanging')
-        .text('Hover over ');
+        .text('将鼠标悬停在左侧kernel');
 
       slideText2.append('tspan')
         .style('font-weight', 400)
         .style('dominant-baseline', 'hanging')
-        .text('to see value!');
+        .text('查看kernel的值');
 
       drawArrow({
         group: group,
@@ -15003,13 +14996,13 @@ var app = (function () {
       
       plusText.append('tspan')
         .style('dominant-baseline', 'hanging')
-        .text('Add up all intermediate');
+        .text('将所有通道的临时层对应位置的值相加');
       
       plusText.append('tspan')
         .attr('x', textX)
         .attr('dy', '1em')
         .style('dominant-baseline', 'hanging')
-        .text('results and then add bias');
+        .text('在加上偏移值得到对应位置的输出');
       
       if (i === 9) {
         drawArrow({
@@ -15198,7 +15191,7 @@ var app = (function () {
       let leftX = nodeCoordinate$1[curLayerIndex - 1][0].x;
 
       // Record the left x position for dynamic detial view positioning
-      intermediateLayerPosition['conv2d_8'] = targetX + nodeLength$4;
+      intermediateLayerPosition['conv2d_22'] = targetX + nodeLength$4;
       intermediateLayerPositionStore.set(intermediateLayerPosition);
 
       // Hide the edges
@@ -15278,7 +15271,7 @@ var app = (function () {
         width: 2 * nodeLength$4 + intermediateGap,
         isInput: true,
         x: leftX,
-        y: svgPaddings$2.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
+        y: svgPaddings$2.top + vSpaceAroundGap$1 * (10) + vSpaceAroundGap$1 + 
           nodeLength$4 * 10 - 25
       });
 
@@ -15290,7 +15283,7 @@ var app = (function () {
         group: intermediateLayer,
         width: 2 * nodeLength$4 + intermediateGap,
         x: nodeCoordinate$1[curLayerIndex - 1][0].x,
-        y: svgPaddings$2.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
+        y: svgPaddings$2.top + vSpaceAroundGap$1 * (10) + vSpaceAroundGap$1 + 
           nodeLength$4 * 10
       });
 
@@ -15302,7 +15295,7 @@ var app = (function () {
         group: intermediateLayer,
         width: 2 * nodeLength$4 + intermediateGap,
         x: targetX + nodeLength$4 - (2 * nodeLength$4 + intermediateGap),
-        y: svgPaddings$2.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
+        y: svgPaddings$2.top + vSpaceAroundGap$1 * (10) + vSpaceAroundGap$1 + 
           nodeLength$4 * 10,
         gradientAppendingName: 'kernelColorGradient',
         colorScale: layerColorScales$4.weight,
@@ -15420,7 +15413,7 @@ var app = (function () {
         group: intermediateLayer,
         width: 2 * nodeLength$4 + intermediateGap,
         x: leftX,
-        y: svgPaddings$2.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
+        y: svgPaddings$2.top + vSpaceAroundGap$1 * (10) + vSpaceAroundGap$1 + 
           nodeLength$4 * 10
       });
 
@@ -15432,7 +15425,7 @@ var app = (function () {
         group: intermediateLayer,
         width: 2 * nodeLength$4 + intermediateGap,
         x: targetX + nodeLength$4 - (2 * nodeLength$4 + intermediateGap),
-        y: svgPaddings$2.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
+        y: svgPaddings$2.top + vSpaceAroundGap$1 * (10) + vSpaceAroundGap$1 + 
           nodeLength$4 * 10,
         gradientAppendingName: 'kernelColorGradient',
         colorScale: layerColorScales$4.weight,
@@ -15469,7 +15462,7 @@ var app = (function () {
       let intermediateGap = (hSpaceAroundGap$1 * gapRatio$1 * 2) / 3;
 
       // Record the left x position for dynamic detial view positioning
-      intermediateLayerPosition['conv2d_9'] = targetX + nodeLength$4;
+      intermediateLayerPosition['conv2d_23'] = targetX + nodeLength$4;
       intermediateLayerPositionStore.set(intermediateLayerPosition);
 
       // Hide the edges
@@ -15556,7 +15549,7 @@ var app = (function () {
         width: 2 * nodeLength$4 + intermediateGap,
         minMax: finalMinMax,
         x: leftX,
-        y: svgPaddings$2.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
+        y: svgPaddings$2.top + vSpaceAroundGap$1 * (10) + vSpaceAroundGap$1 + 
           nodeLength$4 * 15
       });
 
@@ -15568,7 +15561,7 @@ var app = (function () {
         group: intermediateLayer,
         width: 2 * nodeLength$4 + intermediateGap,
         x: targetX + nodeLength$4 - (2 * nodeLength$4 + intermediateGap),
-        y: svgPaddings$2.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
+        y: svgPaddings$2.top + vSpaceAroundGap$1 * (10) + vSpaceAroundGap$1 + 
           nodeLength$4 * 15,
         gradientAppendingName: 'kernelColorGradient',
         colorScale: layerColorScales$4.weight,
@@ -15690,7 +15683,7 @@ var app = (function () {
         minMax: finalMinMax,
         width: 2 * nodeLength$4 + intermediateGap,
         x: leftX,
-        y: svgPaddings$2.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
+        y: svgPaddings$2.top + vSpaceAroundGap$1 * (10) + vSpaceAroundGap$1 + 
           nodeLength$4 * 10
       });
 
@@ -15702,7 +15695,7 @@ var app = (function () {
         group: intermediateLayer,
         width: 2 * nodeLength$4 + intermediateGap,
         x: targetX + nodeLength$4 - (2 * nodeLength$4 + intermediateGap),
-        y: svgPaddings$2.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
+        y: svgPaddings$2.top + vSpaceAroundGap$1 * (10) + vSpaceAroundGap$1 + 
           nodeLength$4 * 10,
         gradientAppendingName: 'kernelColorGradient',
         colorScale: layerColorScales$4.weight,
@@ -15735,8 +15728,8 @@ var app = (function () {
     let svg$4 = undefined;
     svgStore.subscribe( value => {svg$4 = value;} );
 
-    let vSpaceAroundGap$3 = undefined;
-    vSpaceAroundGapStore.subscribe( value => {vSpaceAroundGap$3 = value;} );
+    let vSpaceAroundGap$2 = undefined;
+    vSpaceAroundGapStore.subscribe( value => {vSpaceAroundGap$2 = value;} );
 
     let hSpaceAroundGap$2 = undefined;
     hSpaceAroundGapStore.subscribe( value => {hSpaceAroundGap$2 = value;} );
@@ -15770,13 +15763,22 @@ var app = (function () {
 
     let detailedMode$2 = undefined;
     detailedModeStore.subscribe( value => {detailedMode$2 = value;} );
+      // const layerIndexDict = {
+      //   'input': 0,
+      //   'conv2d_8': 1,
+      //   'max_pooling2d_8': 2,
+      //   'conv2d_9': 3,
+      //   'max_pooling2d_9': 4,
+      //   'dense_8': 5,
+      //   'output': 6,
+      // }
       const layerIndexDict = {
         'input': 0,
-        'conv2d_8': 1,
-        'max_pooling2d_8': 2,
-        'conv2d_9': 3,
-        'max_pooling2d_9': 4,
-        'dense_8': 5,
+        'conv2d_22': 1,
+        'max_pooling2d_21': 2,
+        'conv2d_23': 3,
+        'max_pooling2d_22': 4,
+        'dense_22': 5,
         'output': 6,
       };
     let hasInitialized = false;
@@ -16271,7 +16273,7 @@ var app = (function () {
         gradientGap: 0.1,
         colorScale: layerColorScales$5.logit,
         x: intermediateX2 + plusSymbolRadius$1 * 2 - moveX + 5,
-        y: svgPaddings$3.top + vSpaceAroundGap$3 * (10) + vSpaceAroundGap$3 + 
+        y: svgPaddings$3.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
           nodeLength$5 * 15
       });
 
@@ -16281,7 +16283,7 @@ var app = (function () {
         .classed('hidden', detailedMode$2)
         .attr('transform', () => {
           let x = centerX;
-          let y = (svgPaddings$3.top + vSpaceAroundGap$3) / 2 + 5;
+          let y = (svgPaddings$3.top + vSpaceAroundGap$2) / 2 + 5;
           return `translate(${x}, ${y})`;
         });
 
@@ -16483,15 +16485,15 @@ var app = (function () {
 
             // Add annotation for the logit layer label
             textX = centerX + 45;
-            textY = (svgPaddings$3.top + vSpaceAroundGap$3) / 2 + 5;
+            textY = (svgPaddings$3.top + vSpaceAroundGap$2) / 2 + 5;
             let arrowTX = centerX + 20;
-            let arrowTY = (svgPaddings$3.top + vSpaceAroundGap$3) / 2 + 5;
+            let arrowTY = (svgPaddings$3.top + vSpaceAroundGap$2) / 2 + 5;
 
             softmaxDetailAnnotation.append('g')
               .attr('class', 'layer-detailed-label')
               .attr('transform', () => {
                 let x = centerX;
-                let y = (svgPaddings$3.top + vSpaceAroundGap$3) / 2 - 5;
+                let y = (svgPaddings$3.top + vSpaceAroundGap$2) / 2 - 5;
                 return `translate(${x}, ${y})`;
               })
               .classed('hidden', !detailedMode$2)
@@ -16515,7 +16517,7 @@ var app = (function () {
             softmaxDetailAnnotation.append('text')
               .attr('class', 'annotation-text')
               .attr('x', textX)
-              .attr('y', (svgPaddings$3.top + vSpaceAroundGap$3) / 2 + 3)
+              .attr('y', (svgPaddings$3.top + vSpaceAroundGap$2) / 2 + 3)
               .style('text-anchor', 'start')
               .text('Before')
               .append('tspan')
@@ -16538,7 +16540,7 @@ var app = (function () {
             softmaxDetailAnnotation.append('text')
               .attr('class', 'annotation-text')
               .attr('x', nodeCoordinate$2[layerIndexDict['output']][0].x - 35)
-              .attr('y', (svgPaddings$3.top + vSpaceAroundGap$3) / 2 + 3)
+              .attr('y', (svgPaddings$3.top + vSpaceAroundGap$2) / 2 + 3)
               .style('text-anchor', 'end')
               .text('After')
               .append('tspan')
@@ -16926,7 +16928,7 @@ var app = (function () {
 
       // Compute the middle gap
       let middleGap = 5;
-      let middleRectHeight = (10 * nodeLength$5 + (10 - 1) * vSpaceAroundGap$3 - 5 * (8 + 1)) / 8;
+      let middleRectHeight = (10 * nodeLength$5 + (10 - 1) * vSpaceAroundGap$2 - 5 * (8 + 1)) / 8;
 
 
       // Draw the plus operation symbol
@@ -17069,7 +17071,7 @@ var app = (function () {
         .attr('transform', () => {
           let x = leftX + nodeLength$5 + (4 * hSpaceAroundGap$2 * gapRatio$2 +
             pixelWidth) / 2;
-          let y = (svgPaddings$3.top + vSpaceAroundGap$3) / 2 + 5;
+          let y = (svgPaddings$3.top) / 2 + 5;
           return `translate(${x}, ${y})`;
         })
         .style('cursor', 'help')
@@ -17085,7 +17087,7 @@ var app = (function () {
         .style('dominant-baseline', 'middle')
         .style('opacity', 0.8)
         .style('font-weight', 800)
-        .text('flatten');
+        .text('拉平为一维向量');
 
       let svgHeight = Number(d3.select('#cnn-svg').style('height').replace('px', '')) + 150;
       let scroll = new SmoothScroll('a[href*="#"]', {offset: -svgHeight});
@@ -17166,7 +17168,7 @@ var app = (function () {
         group: intermediateLayer,
         width: intermediateGap + nodeLength$5 - 3,
         x: leftX,
-        y: svgPaddings$3.top + vSpaceAroundGap$3 * (10) + vSpaceAroundGap$3 + 
+        y: svgPaddings$3.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
           nodeLength$5 * 15
       });
 
@@ -17218,7 +17220,7 @@ var app = (function () {
       
       plusText.append('tspan')
         .style('dominant-baseline', 'hanging')
-        .text('Add up all products');
+        .text('将所有乘积相加');
       
       plusText.append('tspan')
         .attr('x', textX)
@@ -17229,7 +17231,7 @@ var app = (function () {
       plusText.append('tspan')
         .style('fill', '#66a3c8')
         .style('dominant-baseline', 'hanging')
-        .text('element');
+        .text('输出');
 
       plusText.append('tspan')
         .style('dominant-baseline', 'hanging')
@@ -17238,7 +17240,7 @@ var app = (function () {
       plusText.append('tspan')
         .style('dominant-baseline', 'hanging')
         .style('fill', '#b58946')
-        .text('weight');
+        .text('权重');
 
       plusText.append('tspan')
         .style('dominant-baseline', 'hanging')
@@ -17248,12 +17250,12 @@ var app = (function () {
         .attr('x', textX)
         .attr('dy', '1em')
         .style('dominant-baseline', 'hanging')
-        .text('and then ');
+        .text('之后再加上 ');
 
       plusText.append('tspan')
         .style('dominant-baseline', 'hanging')
         .style('fill', '#479d94')
-        .text('bias');
+        .text('偏移量');
       
       drawArrow({
         group: plusAnnotation,
@@ -17289,11 +17291,11 @@ var app = (function () {
         .style('dominant-baseline', 'baseline')
         .style('text-anchor', 'middle')
         .style('font-weight', 700)
-        .text('Click ')
+        .text('点击 ')
         .append('tspan')
         .attr('dx', 1)
         .style('font-weight', 400)
-        .text('to learn more');
+        .text('查看细节');
 
       drawArrow({
         group: softmaxAnnotation,
@@ -17630,7 +17632,7 @@ var app = (function () {
 
       // Compute the middle gap
       let middleGap = 5;
-      let middleRectHeight = (10 * nodeLength$5 + (10 - 1) * vSpaceAroundGap$3 -
+      let middleRectHeight = (10 * nodeLength$5 + (10 - 1) * vSpaceAroundGap$2 -
         pixelHeight * flattenLength * 2 - 5 * (8 + 1)) / 8;
 
       // Add middle nodes
@@ -17831,7 +17833,7 @@ var app = (function () {
         .attr('transform', () => {
           let x = leftX + nodeLength$5 + (4 * hSpaceAroundGap$2 * gapRatio$2 +
             pixelWidth) / 2;
-          let y = (svgPaddings$3.top + vSpaceAroundGap$3) / 2 + 5;
+          let y = (svgPaddings$3.top) / 2 + 5;
           return `translate(${x}, ${y})`;
         })
         .style('cursor', 'help')
@@ -17855,7 +17857,7 @@ var app = (function () {
       let detailedLabelGroup = intermediateLayer.append('g')
         .attr('transform', () => {
           let x = intermediateX1 + pixelWidth / 2;
-          let y = (svgPaddings$3.top + vSpaceAroundGap$3) / 2 - 5;
+          let y = (svgPaddings$3.top) / 2 + 5;
           return `translate(${x}, ${y})`;
         })
         .attr('class', 'layer-detailed-label')
@@ -17868,8 +17870,8 @@ var app = (function () {
           scroll.animateScroll(anchor);
         });
       
-      detailedLabelGroup.append('title')
-        .text('Move to article section');
+      // detailedLabelGroup.append('title')
+      //   .text('Move to article section');
 
       let detailedLabelText = detailedLabelGroup.append('text')
         .style('text-anchor', 'middle')
@@ -17877,11 +17879,11 @@ var app = (function () {
         .style('opacity', '0.7')
         .style('font-weight', 800)
         .append('tspan')
-        .text('flatten');
+        .text('Flatten');
       
-      let dimension = cnn$2[layerIndexDict['max_pooling2d_9']].length * 
-        cnn$2[layerIndexDict['max_pooling2d_9']][0].output.length *
-        cnn$2[layerIndexDict['max_pooling2d_9']][0].output[0].length;
+      let dimension = cnn$2[layerIndexDict['max_pooling2d_22']].length * 
+        cnn$2[layerIndexDict['max_pooling2d_22']][0].output.length *
+        cnn$2[layerIndexDict['max_pooling2d_22']][0].output[0].length;
       
 
       detailedLabelText.append('tspan')
@@ -17928,7 +17930,7 @@ var app = (function () {
         group: intermediateLayer,
         width: intermediateGap + nodeLength$5 - 3,
         x: leftX,
-        y: svgPaddings$3.top + vSpaceAroundGap$3 * (10) + vSpaceAroundGap$3 + 
+        y: svgPaddings$3.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
           nodeLength$5 * 15
       });
 
@@ -17943,7 +17945,7 @@ var app = (function () {
         gradientGap: 0.1,
         colorScale: layerColorScales$5.weight,
         x: leftX + intermediateGap + nodeLength$5 + pixelWidth + 3,
-        y: svgPaddings$3.top + vSpaceAroundGap$3 * (10) + vSpaceAroundGap$3 + 
+        y: svgPaddings$3.top + vSpaceAroundGap$2 * (10) + vSpaceAroundGap$2 + 
           nodeLength$5 * 15
       });
 
@@ -17980,7 +17982,7 @@ var app = (function () {
       
       plusText.append('tspan')
         .style('dominant-baseline', 'hanging')
-        .text('Add up all products');
+        .text('将所有乘积相加');
       
       plusText.append('tspan')
         .attr('x', textX)
@@ -17991,7 +17993,7 @@ var app = (function () {
       plusText.append('tspan')
         .style('fill', '#66a3c8')
         .style('dominant-baseline', 'hanging')
-        .text('element');
+        .text('输出');
 
       plusText.append('tspan')
         .style('dominant-baseline', 'hanging')
@@ -18000,7 +18002,7 @@ var app = (function () {
       plusText.append('tspan')
         .style('dominant-baseline', 'hanging')
         .style('fill', '#b58946')
-        .text('weight');
+        .text('权重');
 
       plusText.append('tspan')
         .style('dominant-baseline', 'hanging')
@@ -18010,12 +18012,12 @@ var app = (function () {
         .attr('x', textX)
         .attr('dy', '1em')
         .style('dominant-baseline', 'hanging')
-        .text('and then ');
+        .text('之后再加上 ');
 
       plusText.append('tspan')
         .style('dominant-baseline', 'hanging')
         .style('fill', '#479d94')
-        .text('bias');
+        .text('偏移量');
       
       drawArrow({
         group: plusAnnotation,
@@ -18084,25 +18086,25 @@ var app = (function () {
       let tempTspan = flattenText.append('tspan')
         .style('dominant-baseline', 'hanging')
         .style('font-weight', 700)
-        .text('Hover over ');
+        .text('悬停 ');
       
       tempTspan.append('tspan')
         .attr('dx', 1)
         .style('font-weight', 400)
         .style('dominant-baseline', 'hanging')
-        .text('matrix to');
+        .text('在矩阵上');
       
       flattenText.append('tspan')
         .style('dominant-baseline', 'hanging')
         .attr('x', textX)
         .attr('dy', '1em')
-        .text('see how it is flattened');
+        .text('可以看到在拉平为一维向量后');
       
       flattenText.append('tspan')
         .style('dominant-baseline', 'hanging')
         .attr('x', textX)
         .attr('dy', '1em')
-        .text('into a 1D array!');
+        .text('对应的值');
 
       drawArrow({
         group: flattenAnnotation,
@@ -18126,19 +18128,19 @@ var app = (function () {
 
       middleText.append('tspan')
         .style('dominant-baseline', 'hanging')
-        .text('Same flattening');
+        .text('对所有的节点');
       
       middleText.append('tspan')
         .style('dominant-baseline', 'hanging')
         .attr('x', textX)
         .attr('dy', '1em')
-        .text('operation for');
+        .text('都重复一遍');
 
       middleText.append('tspan')
         .style('dominant-baseline', 'hanging')
         .attr('x', textX)
         .attr('dy', '1em')
-        .text('each neuron');
+        .text('拉平操作');
 
       drawArrow({
         group: flattenAnnotation,
@@ -18208,12 +18210,12 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[84] = list[i];
-    	child_ctx[86] = i;
+    	child_ctx[83] = list[i];
+    	child_ctx[85] = i;
     	return child_ctx;
     }
 
-    // (1517:6) {#each imageOptions as image, i}
+    // (1511:6) {#each imageOptions as image, i}
     function create_each_block$1(ctx) {
     	let div;
     	let img;
@@ -18230,17 +18232,17 @@ var app = (function () {
     			div = element("div");
     			img = element("img");
     			t = space();
-    			if (img.src !== (img_src_value = "/assets/img/" + /*image*/ ctx[84].file)) attr_dev(img, "src", img_src_value);
+    			if (img.src !== (img_src_value = "/assets/img/" + /*image*/ ctx[83].file)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "image option");
-    			attr_dev(img, "title", img_title_value = /*image*/ ctx[84].class);
-    			attr_dev(img, "data-imagename", img_data_imagename_value = /*image*/ ctx[84].file);
+    			attr_dev(img, "title", img_title_value = /*image*/ ctx[83].class);
+    			attr_dev(img, "data-imagename", img_data_imagename_value = /*image*/ ctx[83].file);
     			attr_dev(img, "class", "svelte-1t9jxuh");
-    			add_location(img, file$l, 1522, 10, 50349);
+    			add_location(img, file$l, 1516, 10, 50009);
     			attr_dev(div, "class", "image-container svelte-1t9jxuh");
-    			attr_dev(div, "data-imagename", div_data_imagename_value = /*image*/ ctx[84].file);
-    			toggle_class(div, "inactive", /*selectedImage*/ ctx[7] !== /*image*/ ctx[84].file);
-    			toggle_class(div, "disabled", /*disableControl*/ ctx[6]);
-    			add_location(div, file$l, 1517, 8, 50100);
+    			attr_dev(div, "data-imagename", div_data_imagename_value = /*image*/ ctx[83].file);
+    			toggle_class(div, "inactive", /*selectedImage*/ ctx[5] !== /*image*/ ctx[83].file);
+    			toggle_class(div, "disabled", /*disableControl*/ ctx[4]);
+    			add_location(div, file$l, 1511, 8, 49760);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -18252,11 +18254,11 @@ var app = (function () {
     					div,
     					"click",
     					function () {
-    						if (is_function(/*disableControl*/ ctx[6]
+    						if (is_function(/*disableControl*/ ctx[4]
     						? click_handler
-    						: /*imageOptionClicked*/ ctx[16])) (/*disableControl*/ ctx[6]
+    						: /*imageOptionClicked*/ ctx[13])) (/*disableControl*/ ctx[4]
     						? click_handler
-    						: /*imageOptionClicked*/ ctx[16]).apply(this, arguments);
+    						: /*imageOptionClicked*/ ctx[13]).apply(this, arguments);
     					},
     					false,
     					false,
@@ -18269,12 +18271,12 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty[0] & /*selectedImage, imageOptions*/ 16512) {
-    				toggle_class(div, "inactive", /*selectedImage*/ ctx[7] !== /*image*/ ctx[84].file);
+    			if (dirty[0] & /*selectedImage, imageOptions*/ 4128) {
+    				toggle_class(div, "inactive", /*selectedImage*/ ctx[5] !== /*image*/ ctx[83].file);
     			}
 
-    			if (dirty[0] & /*disableControl*/ 64) {
-    				toggle_class(div, "disabled", /*disableControl*/ ctx[6]);
+    			if (dirty[0] & /*disableControl*/ 16) {
+    				toggle_class(div, "disabled", /*disableControl*/ ctx[4]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -18288,31 +18290,31 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(1517:6) {#each imageOptions as image, i}",
+    		source: "(1511:6) {#each imageOptions as image, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (1624:39) 
+    // (1618:39) 
     function create_if_block_3(ctx) {
     	let current;
 
     	const softmaxview = new Softmaxview({
     			props: {
-    				logits: /*softmaxDetailViewInfo*/ ctx[3].logits,
-    				logitColors: /*softmaxDetailViewInfo*/ ctx[3].logitColors,
-    				selectedI: /*softmaxDetailViewInfo*/ ctx[3].selectedI,
-    				highlightI: /*softmaxDetailViewInfo*/ ctx[3].highlightI,
-    				outputName: /*softmaxDetailViewInfo*/ ctx[3].outputName,
-    				outputValue: /*softmaxDetailViewInfo*/ ctx[3].outputValue,
-    				startAnimation: /*softmaxDetailViewInfo*/ ctx[3].startAnimation
+    				logits: /*softmaxDetailViewInfo*/ ctx[1].logits,
+    				logitColors: /*softmaxDetailViewInfo*/ ctx[1].logitColors,
+    				selectedI: /*softmaxDetailViewInfo*/ ctx[1].selectedI,
+    				highlightI: /*softmaxDetailViewInfo*/ ctx[1].highlightI,
+    				outputName: /*softmaxDetailViewInfo*/ ctx[1].outputName,
+    				outputValue: /*softmaxDetailViewInfo*/ ctx[1].outputValue,
+    				startAnimation: /*softmaxDetailViewInfo*/ ctx[1].startAnimation
     			},
     			$$inline: true
     		});
 
-    	softmaxview.$on("xClicked", /*handleExitFromDetiledSoftmaxView*/ ctx[23]);
+    	softmaxview.$on("xClicked", /*handleExitFromDetiledSoftmaxView*/ ctx[20]);
     	softmaxview.$on("mouseOver", softmaxDetailViewMouseOverHandler);
     	softmaxview.$on("mouseLeave", softmaxDetailViewMouseLeaveHandler);
 
@@ -18326,13 +18328,13 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const softmaxview_changes = {};
-    			if (dirty[0] & /*softmaxDetailViewInfo*/ 8) softmaxview_changes.logits = /*softmaxDetailViewInfo*/ ctx[3].logits;
-    			if (dirty[0] & /*softmaxDetailViewInfo*/ 8) softmaxview_changes.logitColors = /*softmaxDetailViewInfo*/ ctx[3].logitColors;
-    			if (dirty[0] & /*softmaxDetailViewInfo*/ 8) softmaxview_changes.selectedI = /*softmaxDetailViewInfo*/ ctx[3].selectedI;
-    			if (dirty[0] & /*softmaxDetailViewInfo*/ 8) softmaxview_changes.highlightI = /*softmaxDetailViewInfo*/ ctx[3].highlightI;
-    			if (dirty[0] & /*softmaxDetailViewInfo*/ 8) softmaxview_changes.outputName = /*softmaxDetailViewInfo*/ ctx[3].outputName;
-    			if (dirty[0] & /*softmaxDetailViewInfo*/ 8) softmaxview_changes.outputValue = /*softmaxDetailViewInfo*/ ctx[3].outputValue;
-    			if (dirty[0] & /*softmaxDetailViewInfo*/ 8) softmaxview_changes.startAnimation = /*softmaxDetailViewInfo*/ ctx[3].startAnimation;
+    			if (dirty[0] & /*softmaxDetailViewInfo*/ 2) softmaxview_changes.logits = /*softmaxDetailViewInfo*/ ctx[1].logits;
+    			if (dirty[0] & /*softmaxDetailViewInfo*/ 2) softmaxview_changes.logitColors = /*softmaxDetailViewInfo*/ ctx[1].logitColors;
+    			if (dirty[0] & /*softmaxDetailViewInfo*/ 2) softmaxview_changes.selectedI = /*softmaxDetailViewInfo*/ ctx[1].selectedI;
+    			if (dirty[0] & /*softmaxDetailViewInfo*/ 2) softmaxview_changes.highlightI = /*softmaxDetailViewInfo*/ ctx[1].highlightI;
+    			if (dirty[0] & /*softmaxDetailViewInfo*/ 2) softmaxview_changes.outputName = /*softmaxDetailViewInfo*/ ctx[1].outputName;
+    			if (dirty[0] & /*softmaxDetailViewInfo*/ 2) softmaxview_changes.outputValue = /*softmaxDetailViewInfo*/ ctx[1].outputValue;
+    			if (dirty[0] & /*softmaxDetailViewInfo*/ 2) softmaxview_changes.startAnimation = /*softmaxDetailViewInfo*/ ctx[1].startAnimation;
     			softmaxview.$set(softmaxview_changes);
     		},
     		i: function intro(local) {
@@ -18353,28 +18355,28 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(1624:39) ",
+    		source: "(1618:39) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (1619:67) 
+    // (1613:67) 
     function create_if_block_2(ctx) {
     	let current;
 
     	const poolview = new Poolview({
     			props: {
-    				input: /*nodeData*/ ctx[8][0].input,
+    				input: /*nodeData*/ ctx[6][0].input,
     				kernelLength: 2,
-    				dataRange: /*nodeData*/ ctx[8].colorRange,
-    				isExited: /*isExitedFromDetailedView*/ ctx[10]
+    				dataRange: /*nodeData*/ ctx[6].colorRange,
+    				isExited: /*isExitedFromDetailedView*/ ctx[8]
     			},
     			$$inline: true
     		});
 
-    	poolview.$on("message", /*handleExitFromDetiledPoolView*/ ctx[21]);
+    	poolview.$on("message", /*handleExitFromDetiledPoolView*/ ctx[18]);
 
     	const block = {
     		c: function create() {
@@ -18386,9 +18388,9 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const poolview_changes = {};
-    			if (dirty[0] & /*nodeData*/ 256) poolview_changes.input = /*nodeData*/ ctx[8][0].input;
-    			if (dirty[0] & /*nodeData*/ 256) poolview_changes.dataRange = /*nodeData*/ ctx[8].colorRange;
-    			if (dirty[0] & /*isExitedFromDetailedView*/ 1024) poolview_changes.isExited = /*isExitedFromDetailedView*/ ctx[10];
+    			if (dirty[0] & /*nodeData*/ 64) poolview_changes.input = /*nodeData*/ ctx[6][0].input;
+    			if (dirty[0] & /*nodeData*/ 64) poolview_changes.dataRange = /*nodeData*/ ctx[6].colorRange;
+    			if (dirty[0] & /*isExitedFromDetailedView*/ 256) poolview_changes.isExited = /*isExitedFromDetailedView*/ ctx[8];
     			poolview.$set(poolview_changes);
     		},
     		i: function intro(local) {
@@ -18409,28 +18411,28 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(1619:67) ",
+    		source: "(1613:67) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (1614:67) 
+    // (1608:67) 
     function create_if_block_1(ctx) {
     	let current;
 
     	const activationview = new Activationview({
     			props: {
-    				input: /*nodeData*/ ctx[8][0].input,
-    				output: /*nodeData*/ ctx[8][0].output,
-    				dataRange: /*nodeData*/ ctx[8].colorRange,
-    				isExited: /*isExitedFromDetailedView*/ ctx[10]
+    				input: /*nodeData*/ ctx[6][0].input,
+    				output: /*nodeData*/ ctx[6][0].output,
+    				dataRange: /*nodeData*/ ctx[6].colorRange,
+    				isExited: /*isExitedFromDetailedView*/ ctx[8]
     			},
     			$$inline: true
     		});
 
-    	activationview.$on("message", /*handleExitFromDetiledActivationView*/ ctx[22]);
+    	activationview.$on("message", /*handleExitFromDetiledActivationView*/ ctx[19]);
 
     	const block = {
     		c: function create() {
@@ -18442,10 +18444,10 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const activationview_changes = {};
-    			if (dirty[0] & /*nodeData*/ 256) activationview_changes.input = /*nodeData*/ ctx[8][0].input;
-    			if (dirty[0] & /*nodeData*/ 256) activationview_changes.output = /*nodeData*/ ctx[8][0].output;
-    			if (dirty[0] & /*nodeData*/ 256) activationview_changes.dataRange = /*nodeData*/ ctx[8].colorRange;
-    			if (dirty[0] & /*isExitedFromDetailedView*/ 1024) activationview_changes.isExited = /*isExitedFromDetailedView*/ ctx[10];
+    			if (dirty[0] & /*nodeData*/ 64) activationview_changes.input = /*nodeData*/ ctx[6][0].input;
+    			if (dirty[0] & /*nodeData*/ 64) activationview_changes.output = /*nodeData*/ ctx[6][0].output;
+    			if (dirty[0] & /*nodeData*/ 64) activationview_changes.dataRange = /*nodeData*/ ctx[6].colorRange;
+    			if (dirty[0] & /*isExitedFromDetailedView*/ 256) activationview_changes.isExited = /*isExitedFromDetailedView*/ ctx[8];
     			activationview.$set(activationview_changes);
     		},
     		i: function intro(local) {
@@ -18466,32 +18468,32 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(1614:67) ",
+    		source: "(1608:67) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (1606:2) {#if selectedNode.data && selectedNode.data.type === 'conv' && selectedNodeIndex != -1}
+    // (1600:2) {#if selectedNode.data && selectedNode.data.type === 'conv' && selectedNodeIndex != -1}
     function create_if_block$4(ctx) {
     	let current;
 
     	const convolutionview = new Convolutionview({
     			props: {
-    				input: /*nodeData*/ ctx[8][/*selectedNodeIndex*/ ctx[9]].input,
-    				kernel: /*nodeData*/ ctx[8][/*selectedNodeIndex*/ ctx[9]].kernel,
-    				dataRange: /*nodeData*/ ctx[8].colorRange,
-    				colorScale: /*nodeData*/ ctx[8].inputIsInputLayer
-    				? /*layerColorScales*/ ctx[13].input[0]
-    				: /*layerColorScales*/ ctx[13].conv,
-    				isInputInputLayer: /*nodeData*/ ctx[8].inputIsInputLayer,
-    				isExited: /*isExitedFromCollapse*/ ctx[11]
+    				input: /*nodeData*/ ctx[6][/*selectedNodeIndex*/ ctx[7]].input,
+    				kernel: /*nodeData*/ ctx[6][/*selectedNodeIndex*/ ctx[7]].kernel,
+    				dataRange: /*nodeData*/ ctx[6].colorRange,
+    				colorScale: /*nodeData*/ ctx[6].inputIsInputLayer
+    				? /*layerColorScales*/ ctx[11].input[0]
+    				: /*layerColorScales*/ ctx[11].conv,
+    				isInputInputLayer: /*nodeData*/ ctx[6].inputIsInputLayer,
+    				isExited: /*isExitedFromCollapse*/ ctx[9]
     			},
     			$$inline: true
     		});
 
-    	convolutionview.$on("message", /*handleExitFromDetiledConvView*/ ctx[20]);
+    	convolutionview.$on("message", /*handleExitFromDetiledConvView*/ ctx[17]);
 
     	const block = {
     		c: function create() {
@@ -18503,16 +18505,16 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const convolutionview_changes = {};
-    			if (dirty[0] & /*nodeData, selectedNodeIndex*/ 768) convolutionview_changes.input = /*nodeData*/ ctx[8][/*selectedNodeIndex*/ ctx[9]].input;
-    			if (dirty[0] & /*nodeData, selectedNodeIndex*/ 768) convolutionview_changes.kernel = /*nodeData*/ ctx[8][/*selectedNodeIndex*/ ctx[9]].kernel;
-    			if (dirty[0] & /*nodeData*/ 256) convolutionview_changes.dataRange = /*nodeData*/ ctx[8].colorRange;
+    			if (dirty[0] & /*nodeData, selectedNodeIndex*/ 192) convolutionview_changes.input = /*nodeData*/ ctx[6][/*selectedNodeIndex*/ ctx[7]].input;
+    			if (dirty[0] & /*nodeData, selectedNodeIndex*/ 192) convolutionview_changes.kernel = /*nodeData*/ ctx[6][/*selectedNodeIndex*/ ctx[7]].kernel;
+    			if (dirty[0] & /*nodeData*/ 64) convolutionview_changes.dataRange = /*nodeData*/ ctx[6].colorRange;
 
-    			if (dirty[0] & /*nodeData*/ 256) convolutionview_changes.colorScale = /*nodeData*/ ctx[8].inputIsInputLayer
-    			? /*layerColorScales*/ ctx[13].input[0]
-    			: /*layerColorScales*/ ctx[13].conv;
+    			if (dirty[0] & /*nodeData*/ 64) convolutionview_changes.colorScale = /*nodeData*/ ctx[6].inputIsInputLayer
+    			? /*layerColorScales*/ ctx[11].input[0]
+    			: /*layerColorScales*/ ctx[11].conv;
 
-    			if (dirty[0] & /*nodeData*/ 256) convolutionview_changes.isInputInputLayer = /*nodeData*/ ctx[8].inputIsInputLayer;
-    			if (dirty[0] & /*isExitedFromCollapse*/ 2048) convolutionview_changes.isExited = /*isExitedFromCollapse*/ ctx[11];
+    			if (dirty[0] & /*nodeData*/ 64) convolutionview_changes.isInputInputLayer = /*nodeData*/ ctx[6].inputIsInputLayer;
+    			if (dirty[0] & /*isExitedFromCollapse*/ 512) convolutionview_changes.isExited = /*isExitedFromCollapse*/ ctx[9];
     			convolutionview.$set(convolutionview_changes);
     		},
     		i: function intro(local) {
@@ -18533,7 +18535,7 @@ var app = (function () {
     		block,
     		id: create_if_block$4.name,
     		type: "if",
-    		source: "(1606:2) {#if selectedNode.data && selectedNode.data.type === 'conv' && selectedNodeIndex != -1}",
+    		source: "(1600:2) {#if selectedNode.data && selectedNode.data.type === 'conv' && selectedNodeIndex != -1}",
     		ctx
     	});
 
@@ -18541,8 +18543,8 @@ var app = (function () {
     }
 
     function create_fragment$m(ctx) {
-    	let div7;
-    	let div5;
+    	let div4;
+    	let div2;
     	let div1;
     	let t0;
     	let div0;
@@ -18555,42 +18557,25 @@ var app = (function () {
     	let i1;
     	let div0_data_imagename_value;
     	let t3;
-    	let button0;
+    	let button;
     	let span1;
     	let i2;
     	let t4;
     	let span2;
-    	let t5_value = /*hoverInfo*/ ctx[4].text + "";
+    	let t5_value = /*hoverInfo*/ ctx[2].text + "";
     	let t5;
     	let t6;
-    	let div4;
-    	let button1;
-    	let span3;
-    	let i3;
-    	let t7;
-    	let span4;
-    	let t9;
     	let div3;
-    	let span5;
-    	let i4;
-    	let t10;
-    	let div2;
-    	let select;
-    	let option0;
-    	let option1;
-    	let option2;
-    	let t14;
-    	let div6;
     	let svg_1;
-    	let t15;
-    	let div8;
+    	let t7;
+    	let div5;
     	let current_block_type_index;
     	let if_block;
-    	let t16;
+    	let t8;
     	let current;
     	let mounted;
     	let dispose;
-    	let each_value = /*imageOptions*/ ctx[14];
+    	let each_value = /*imageOptions*/ ctx[12];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -18602,10 +18587,10 @@ var app = (function () {
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*selectedNode*/ ctx[5].data && /*selectedNode*/ ctx[5].data.type === "conv" && /*selectedNodeIndex*/ ctx[9] != -1) return 0;
-    		if (/*selectedNode*/ ctx[5].data && /*selectedNode*/ ctx[5].data.type === "relu") return 1;
-    		if (/*selectedNode*/ ctx[5].data && /*selectedNode*/ ctx[5].data.type === "pool") return 2;
-    		if (/*softmaxDetailViewInfo*/ ctx[3].show) return 3;
+    		if (/*selectedNode*/ ctx[3].data && /*selectedNode*/ ctx[3].data.type === "conv" && /*selectedNodeIndex*/ ctx[7] != -1) return 0;
+    		if (/*selectedNode*/ ctx[3].data && /*selectedNode*/ ctx[3].data.type === "relu") return 1;
+    		if (/*selectedNode*/ ctx[3].data && /*selectedNode*/ ctx[3].data.type === "pool") return 2;
+    		if (/*softmaxDetailViewInfo*/ ctx[1].show) return 3;
     		return -1;
     	}
 
@@ -18614,13 +18599,13 @@ var app = (function () {
     	}
 
     	const modal = new Modal({ $$inline: true });
-    	modal.$on("xClicked", /*handleModalCanceled*/ ctx[18]);
-    	modal.$on("urlTyped", /*handleCustomImage*/ ctx[19]);
+    	modal.$on("xClicked", /*handleModalCanceled*/ ctx[15]);
+    	modal.$on("urlTyped", /*handleCustomImage*/ ctx[16]);
 
     	const block = {
     		c: function create() {
-    			div7 = element("div");
-    			div5 = element("div");
+    			div4 = element("div");
+    			div2 = element("div");
     			div1 = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -18636,127 +18621,70 @@ var app = (function () {
     			t2 = space();
     			i1 = element("i");
     			t3 = space();
-    			button0 = element("button");
+    			button = element("button");
     			span1 = element("span");
     			i2 = element("i");
     			t4 = space();
     			span2 = element("span");
     			t5 = text(t5_value);
     			t6 = space();
-    			div4 = element("div");
-    			button1 = element("button");
-    			span3 = element("span");
-    			i3 = element("i");
-    			t7 = space();
-    			span4 = element("span");
-    			span4.textContent = "Show detail";
-    			t9 = space();
     			div3 = element("div");
-    			span5 = element("span");
-    			i4 = element("i");
-    			t10 = space();
-    			div2 = element("div");
-    			select = element("select");
-    			option0 = element("option");
-    			option0.textContent = "Unit";
-    			option1 = element("option");
-    			option1.textContent = "Module";
-    			option2 = element("option");
-    			option2.textContent = "Global";
-    			t14 = space();
-    			div6 = element("div");
     			svg_1 = svg_element("svg");
-    			t15 = space();
-    			div8 = element("div");
+    			t7 = space();
+    			div5 = element("div");
     			if (if_block) if_block.c();
-    			t16 = space();
+    			t8 = space();
     			create_component(modal.$$.fragment);
     			attr_dev(img, "class", "custom-image svelte-1t9jxuh");
     			if (img.src !== (img_src_value = "/assets/img/plus.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "plus button");
     			attr_dev(img, "title", "Add new input image");
     			attr_dev(img, "data-imagename", "custom");
-    			add_location(img, file$l, 1536, 10, 50826);
+    			add_location(img, file$l, 1530, 10, 50486);
     			attr_dev(i0, "class", "fas fa-circle fa-stack-2x");
-    			add_location(i0, file$l, 1544, 12, 51125);
+    			add_location(i0, file$l, 1538, 12, 50785);
     			attr_dev(i1, "class", "fas fa-pen fa-stack-1x fa-inverse");
-    			add_location(i1, file$l, 1545, 12, 51180);
+    			add_location(i1, file$l, 1539, 12, 50840);
     			attr_dev(span0, "class", "fa-stack edit-icon svelte-1t9jxuh");
-    			toggle_class(span0, "hidden", /*customImageURL*/ ctx[12] === null);
-    			add_location(span0, file$l, 1542, 10, 51026);
+    			toggle_class(span0, "hidden", /*customImageURL*/ ctx[10] === null);
+    			add_location(span0, file$l, 1536, 10, 50686);
     			attr_dev(div0, "class", "image-container svelte-1t9jxuh");
     			attr_dev(div0, "data-imagename", div0_data_imagename_value = "custom");
-    			toggle_class(div0, "inactive", /*selectedImage*/ ctx[7] !== "custom");
-    			toggle_class(div0, "disabled", /*disableControl*/ ctx[6]);
-    			add_location(div0, file$l, 1530, 8, 50579);
+    			toggle_class(div0, "inactive", /*selectedImage*/ ctx[5] !== "custom");
+    			toggle_class(div0, "disabled", /*disableControl*/ ctx[4]);
+    			add_location(div0, file$l, 1524, 8, 50239);
     			attr_dev(i2, "class", "fas fa-crosshairs ");
-    			add_location(i2, file$l, 1554, 10, 51474);
+    			add_location(i2, file$l, 1548, 10, 51134);
     			attr_dev(span1, "class", "icon");
     			set_style(span1, "margin-right", "5px");
-    			add_location(span1, file$l, 1553, 8, 51416);
+    			add_location(span1, file$l, 1547, 8, 51076);
     			attr_dev(span2, "id", "hover-label-text");
-    			add_location(span2, file$l, 1556, 8, 51535);
-    			attr_dev(button0, "class", "button is-very-small is-link is-light svelte-1t9jxuh");
-    			attr_dev(button0, "id", "hover-label");
-    			set_style(button0, "opacity", /*hoverInfo*/ ctx[4].show ? 1 : 0);
-    			add_location(button0, file$l, 1550, 6, 51276);
+    			add_location(span2, file$l, 1550, 8, 51195);
+    			attr_dev(button, "class", "button is-very-small is-link is-light svelte-1t9jxuh");
+    			attr_dev(button, "id", "hover-label");
+    			set_style(button, "opacity", /*hoverInfo*/ ctx[2].show ? 1 : 0);
+    			add_location(button, file$l, 1544, 6, 50936);
     			attr_dev(div1, "class", "left-control svelte-1t9jxuh");
-    			add_location(div1, file$l, 1515, 4, 50024);
-    			attr_dev(i3, "class", "fas fa-eye");
-    			add_location(i3, file$l, 1570, 10, 51910);
-    			attr_dev(span3, "class", "icon");
-    			add_location(span3, file$l, 1569, 8, 51879);
-    			attr_dev(span4, "id", "hover-label-text");
-    			add_location(span4, file$l, 1572, 8, 51963);
-    			attr_dev(button1, "class", "button is-very-small svelte-1t9jxuh");
-    			attr_dev(button1, "id", "detailed-button");
-    			button1.disabled = /*disableControl*/ ctx[6];
-    			toggle_class(button1, "is-activated", /*detailedMode*/ ctx[2]);
-    			add_location(button1, file$l, 1564, 6, 51682);
-    			attr_dev(i4, "class", "fas fa-palette");
-    			add_location(i4, file$l, 1580, 10, 52199);
-    			attr_dev(span5, "class", "icon is-left");
-    			add_location(span5, file$l, 1579, 8, 52160);
-    			option0.__value = "local";
-    			option0.value = option0.__value;
-    			add_location(option0, file$l, 1586, 12, 52401);
-    			option1.__value = "module";
-    			option1.value = option1.__value;
-    			add_location(option1, file$l, 1587, 12, 52450);
-    			option2.__value = "global";
-    			option2.value = option2.__value;
-    			add_location(option2, file$l, 1588, 12, 52502);
-    			attr_dev(select, "id", "level-select");
-    			select.disabled = /*disableControl*/ ctx[6];
-    			attr_dev(select, "class", "svelte-1t9jxuh");
-    			if (/*selectedScaleLevel*/ ctx[1] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[24].call(select));
-    			add_location(select, file$l, 1584, 10, 52290);
-    			attr_dev(div2, "class", "select svelte-1t9jxuh");
-    			add_location(div2, file$l, 1583, 8, 52258);
-    			attr_dev(div3, "class", "control is-very-small has-icons-left svelte-1t9jxuh");
-    			attr_dev(div3, "title", "Change color scale range");
-    			add_location(div3, file$l, 1577, 6, 52058);
-    			attr_dev(div4, "class", "right-control svelte-1t9jxuh");
-    			add_location(div4, file$l, 1562, 4, 51645);
-    			attr_dev(div5, "class", "control-container svelte-1t9jxuh");
-    			add_location(div5, file$l, 1513, 2, 49985);
+    			add_location(div1, file$l, 1509, 4, 49684);
+    			attr_dev(div2, "class", "control-container svelte-1t9jxuh");
+    			add_location(div2, file$l, 1507, 2, 49645);
     			attr_dev(svg_1, "id", "cnn-svg");
     			attr_dev(svg_1, "class", "svelte-1t9jxuh");
-    			add_location(svg_1, file$l, 1598, 4, 52650);
-    			attr_dev(div6, "class", "cnn svelte-1t9jxuh");
-    			add_location(div6, file$l, 1597, 2, 52627);
-    			attr_dev(div7, "class", "overview svelte-1t9jxuh");
-    			add_location(div7, file$l, 1510, 0, 49924);
-    			attr_dev(div8, "id", "detailview");
-    			add_location(div8, file$l, 1604, 0, 52719);
+    			add_location(svg_1, file$l, 1592, 4, 52319);
+    			attr_dev(div3, "class", "cnn svelte-1t9jxuh");
+    			add_location(div3, file$l, 1591, 2, 52296);
+    			attr_dev(div4, "class", "overview svelte-1t9jxuh");
+    			add_location(div4, file$l, 1504, 0, 49584);
+    			attr_dev(div5, "id", "detailview");
+    			add_location(div5, file$l, 1598, 0, 52388);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div7, anchor);
-    			append_dev(div7, div5);
-    			append_dev(div5, div1);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div2);
+    			append_dev(div2, div1);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div1, null);
@@ -18771,64 +18699,42 @@ var app = (function () {
     			append_dev(span0, t2);
     			append_dev(span0, i1);
     			append_dev(div1, t3);
-    			append_dev(div1, button0);
-    			append_dev(button0, span1);
+    			append_dev(div1, button);
+    			append_dev(button, span1);
     			append_dev(span1, i2);
-    			append_dev(button0, t4);
-    			append_dev(button0, span2);
+    			append_dev(button, t4);
+    			append_dev(button, span2);
     			append_dev(span2, t5);
-    			append_dev(div5, t6);
-    			append_dev(div5, div4);
-    			append_dev(div4, button1);
-    			append_dev(button1, span3);
-    			append_dev(span3, i3);
-    			append_dev(button1, t7);
-    			append_dev(button1, span4);
-    			append_dev(div4, t9);
+    			append_dev(div4, t6);
     			append_dev(div4, div3);
-    			append_dev(div3, span5);
-    			append_dev(span5, i4);
-    			append_dev(div3, t10);
-    			append_dev(div3, div2);
-    			append_dev(div2, select);
-    			append_dev(select, option0);
-    			append_dev(select, option1);
-    			append_dev(select, option2);
-    			select_option(select, /*selectedScaleLevel*/ ctx[1]);
-    			append_dev(div7, t14);
-    			append_dev(div7, div6);
-    			append_dev(div6, svg_1);
-    			/*div7_binding*/ ctx[25](div7);
-    			insert_dev(target, t15, anchor);
-    			insert_dev(target, div8, anchor);
+    			append_dev(div3, svg_1);
+    			/*div4_binding*/ ctx[21](div4);
+    			insert_dev(target, t7, anchor);
+    			insert_dev(target, div5, anchor);
 
     			if (~current_block_type_index) {
-    				if_blocks[current_block_type_index].m(div8, null);
+    				if_blocks[current_block_type_index].m(div5, null);
     			}
 
-    			insert_dev(target, t16, anchor);
+    			insert_dev(target, t8, anchor);
     			mount_component(modal, target, anchor);
     			current = true;
 
     			if (!mounted) {
-    				dispose = [
-    					listen_dev(
-    						div0,
-    						"click",
-    						function () {
-    							if (is_function(/*disableControl*/ ctx[6]
-    							? click_handler_1
-    							: /*customImageClicked*/ ctx[17])) (/*disableControl*/ ctx[6]
-    							? click_handler_1
-    							: /*customImageClicked*/ ctx[17]).apply(this, arguments);
-    						},
-    						false,
-    						false,
-    						false
-    					),
-    					listen_dev(button1, "click", /*detailedButtonClicked*/ ctx[15], false, false, false),
-    					listen_dev(select, "change", /*select_change_handler*/ ctx[24])
-    				];
+    				dispose = listen_dev(
+    					div0,
+    					"click",
+    					function () {
+    						if (is_function(/*disableControl*/ ctx[4]
+    						? click_handler_1
+    						: /*customImageClicked*/ ctx[14])) (/*disableControl*/ ctx[4]
+    						? click_handler_1
+    						: /*customImageClicked*/ ctx[14]).apply(this, arguments);
+    					},
+    					false,
+    					false,
+    					false
+    				);
 
     				mounted = true;
     			}
@@ -18836,8 +18742,8 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty[0] & /*imageOptions, selectedImage, disableControl, imageOptionClicked*/ 82112) {
-    				each_value = /*imageOptions*/ ctx[14];
+    			if (dirty[0] & /*imageOptions, selectedImage, disableControl, imageOptionClicked*/ 12336) {
+    				each_value = /*imageOptions*/ ctx[12];
     				validate_each_argument(each_value);
     				let i;
 
@@ -18860,38 +18766,22 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty[0] & /*customImageURL*/ 4096) {
-    				toggle_class(span0, "hidden", /*customImageURL*/ ctx[12] === null);
+    			if (dirty[0] & /*customImageURL*/ 1024) {
+    				toggle_class(span0, "hidden", /*customImageURL*/ ctx[10] === null);
     			}
 
-    			if (dirty[0] & /*selectedImage*/ 128) {
-    				toggle_class(div0, "inactive", /*selectedImage*/ ctx[7] !== "custom");
+    			if (dirty[0] & /*selectedImage*/ 32) {
+    				toggle_class(div0, "inactive", /*selectedImage*/ ctx[5] !== "custom");
     			}
 
-    			if (dirty[0] & /*disableControl*/ 64) {
-    				toggle_class(div0, "disabled", /*disableControl*/ ctx[6]);
+    			if (dirty[0] & /*disableControl*/ 16) {
+    				toggle_class(div0, "disabled", /*disableControl*/ ctx[4]);
     			}
 
-    			if ((!current || dirty[0] & /*hoverInfo*/ 16) && t5_value !== (t5_value = /*hoverInfo*/ ctx[4].text + "")) set_data_dev(t5, t5_value);
+    			if ((!current || dirty[0] & /*hoverInfo*/ 4) && t5_value !== (t5_value = /*hoverInfo*/ ctx[2].text + "")) set_data_dev(t5, t5_value);
 
-    			if (!current || dirty[0] & /*hoverInfo*/ 16) {
-    				set_style(button0, "opacity", /*hoverInfo*/ ctx[4].show ? 1 : 0);
-    			}
-
-    			if (!current || dirty[0] & /*disableControl*/ 64) {
-    				prop_dev(button1, "disabled", /*disableControl*/ ctx[6]);
-    			}
-
-    			if (dirty[0] & /*detailedMode*/ 4) {
-    				toggle_class(button1, "is-activated", /*detailedMode*/ ctx[2]);
-    			}
-
-    			if (!current || dirty[0] & /*disableControl*/ 64) {
-    				prop_dev(select, "disabled", /*disableControl*/ ctx[6]);
-    			}
-
-    			if (dirty[0] & /*selectedScaleLevel*/ 2) {
-    				select_option(select, /*selectedScaleLevel*/ ctx[1]);
+    			if (!current || dirty[0] & /*hoverInfo*/ 4) {
+    				set_style(button, "opacity", /*hoverInfo*/ ctx[2].show ? 1 : 0);
     			}
 
     			let previous_block_index = current_block_type_index;
@@ -18921,7 +18811,7 @@ var app = (function () {
     					}
 
     					transition_in(if_block, 1);
-    					if_block.m(div8, null);
+    					if_block.m(div5, null);
     				} else {
     					if_block = null;
     				}
@@ -18939,20 +18829,20 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div7);
+    			if (detaching) detach_dev(div4);
     			destroy_each(each_blocks, detaching);
-    			/*div7_binding*/ ctx[25](null);
-    			if (detaching) detach_dev(t15);
-    			if (detaching) detach_dev(div8);
+    			/*div4_binding*/ ctx[21](null);
+    			if (detaching) detach_dev(t7);
+    			if (detaching) detach_dev(div5);
 
     			if (~current_block_type_index) {
     				if_blocks[current_block_type_index].d();
     			}
 
-    			if (detaching) detach_dev(t16);
+    			if (detaching) detach_dev(t8);
     			destroy_component(modal, detaching);
     			mounted = false;
-    			run_all(dispose);
+    			dispose();
     		}
     	};
 
@@ -19030,7 +18920,7 @@ var app = (function () {
     	let detailedMode = undefined;
 
     	detailedModeStore.subscribe(value => {
-    		$$invalidate(2, detailedMode = value);
+    		detailedMode = value;
     	});
 
     	let shouldIntermediateAnimate = undefined;
@@ -19060,7 +18950,7 @@ var app = (function () {
     	let softmaxDetailViewInfo = undefined;
 
     	softmaxDetailViewStore.subscribe(value => {
-    		$$invalidate(3, softmaxDetailViewInfo = value);
+    		$$invalidate(1, softmaxDetailViewInfo = value);
     	});
 
     	let modalInfo = undefined;
@@ -19072,7 +18962,7 @@ var app = (function () {
     	let hoverInfo = undefined;
 
     	hoverInfoStore.subscribe(value => {
-    		$$invalidate(4, hoverInfo = value);
+    		$$invalidate(2, hoverInfo = value);
     	});
 
     	let intermediateLayerPosition = undefined;
@@ -19125,11 +19015,11 @@ var app = (function () {
 
     	const layerIndexDict = {
     		"input": 0,
-    		"conv2d_8": 1,
-    		"max_pooling2d_8": 2,
-    		"conv2d_9": 3,
-    		"max_pooling2d_9": 4,
-    		"dense_8": 5,
+    		"conv2d_22": 1,
+    		"max_pooling2d_21": 2,
+    		"conv2d_23": 3,
+    		"max_pooling2d_22": 4,
+    		"dense_22": 5,
     		"output": 6
     	};
 
@@ -19197,25 +19087,12 @@ var app = (function () {
     	};
 
     	let imageOptions = [
-    		{ file: "boat_1.jpeg", class: "lifeboat" },
-    		{ file: "bug_1.jpeg", class: "ladybug" },
-    		{ file: "pizza_1.jpeg", class: "pizza" },
-    		{
-    			file: "pepper_1.jpeg",
-    			class: "bell pepper"
-    		},
-    		{ file: "bus_1.jpeg", class: "bus" },
-    		{ file: "koala_1.jpeg", class: "koala" },
-    		{
-    			file: "espresso_1.jpeg",
-    			class: "espresso"
-    		},
-    		{ file: "panda_1.jpeg", class: "red panda" },
-    		{ file: "orange_1.jpeg", class: "orange" },
-    		{ file: "car_1.jpeg", class: "sport car" }
+    		{ file: "IS2.jpg", class: "山鸢尾" },
+    		{ file: "IV1.jpg", class: "杂色鸢尾" },
+    		{ file: "IVA5.jpg", class: "维吉尼亚鸢尾" }
     	];
 
-    	let selectedImage = imageOptions[6].file;
+    	let selectedImage = imageOptions[0].file;
     	let nodeData;
     	let selectedNodeIndex = -1;
     	let isExitedFromDetailedView = true;
@@ -19286,12 +19163,12 @@ var app = (function () {
 
     	const intermediateNodeClicked = (d, i, g, selectedI, curLayerIndex) => {
     		d3.event.stopPropagation();
-    		$$invalidate(11, isExitedFromCollapse = false);
+    		$$invalidate(9, isExitedFromCollapse = false);
 
     		// Use this event to trigger the detailed view
     		if (detailedViewNum === d.index) {
     			// Setting this for testing purposes currently.
-    			$$invalidate(9, selectedNodeIndex = -1);
+    			$$invalidate(7, selectedNodeIndex = -1);
 
     			// User clicks this node again -> rewind
     			detailedViewNum = undefined;
@@ -19301,7 +19178,7 @@ var app = (function () {
     		// old detailed view or not)
     		{
     			// Setting this for testing purposes currently.
-    			$$invalidate(9, selectedNodeIndex = d.index);
+    			$$invalidate(7, selectedNodeIndex = d.index);
 
     			let inputMatrix = d.output;
     			let kernelMatrix = d.outputLinks[selectedI].weight;
@@ -19347,9 +19224,9 @@ var app = (function () {
     			detailedViewNum = d.index;
 
     			// Send the currently used color range to detailed view
-    			$$invalidate(8, nodeData.colorRange = range, nodeData);
+    			$$invalidate(6, nodeData.colorRange = range, nodeData);
 
-    			$$invalidate(8, nodeData.inputIsInputLayer = curLayerIndex <= 1, nodeData);
+    			$$invalidate(6, nodeData.inputIsInputLayer = curLayerIndex <= 1, nodeData);
     		}
     	};
 
@@ -19358,7 +19235,7 @@ var app = (function () {
     		// If detail view -> rewind to intermediate view
     		if (detailedViewNum !== undefined) {
     			// Setting this for testing purposes currently.
-    			$$invalidate(9, selectedNodeIndex = -1);
+    			$$invalidate(7, selectedNodeIndex = -1);
 
     			// User clicks this node again -> rewind
     			svg.select(`rect#underneath-gateway-${detailedViewNum}`).style("opacity", 0);
@@ -19400,7 +19277,7 @@ var app = (function () {
     		// d3.selectAll('.image-container')
     		//   .style('cursor', 'not-allowed')
     		//   .on('mouseclick', () => {});
-    		$$invalidate(6, disableControl = true);
+    		$$invalidate(4, disableControl = true);
 
     		// Allow infinite animation loop
     		shouldIntermediateAnimateStore.set(true);
@@ -19438,7 +19315,7 @@ var app = (function () {
     		}).style("visibility", null);
 
     		// Recover control UI
-    		$$invalidate(6, disableControl = false);
+    		$$invalidate(4, disableControl = false);
 
     		// Show legends if in detailed mode
     		svg.selectAll(`.${selectedScaleLevel}-legend`).classed("hidden", !detailedMode);
@@ -19469,10 +19346,10 @@ var app = (function () {
     		});
 
     		// Deselect the node
-    		$$invalidate(5, selectedNode.layerName = "", selectedNode);
+    		$$invalidate(3, selectedNode.layerName = "", selectedNode);
 
-    		$$invalidate(5, selectedNode.index = -1, selectedNode);
-    		$$invalidate(5, selectedNode.data = null, selectedNode);
+    		$$invalidate(3, selectedNode.index = -1, selectedNode);
+    		$$invalidate(3, selectedNode.data = null, selectedNode);
     		actPoolDetailViewLayerIndex = -1;
     	};
 
@@ -19559,7 +19436,7 @@ var app = (function () {
     		}).style("visibility", "hidden");
 
     		// Disable UI
-    		$$invalidate(6, disableControl = true);
+    		$$invalidate(4, disableControl = true);
 
     		// Hide input annotaitons
     		svg.select(".input-annotation").classed("hidden", true);
@@ -19704,7 +19581,7 @@ var app = (function () {
     		svg.selectAll(".output-legend").classed("hidden", !detailedMode);
 
     		// Recover control panel UI
-    		$$invalidate(6, disableControl = false);
+    		$$invalidate(4, disableControl = false);
 
     		// Recover the input layer node's event
     		for (let n = 0; n < cnn[curLayerIndex - 1].length; n++) {
@@ -19729,11 +19606,11 @@ var app = (function () {
 
     		// Also unclick the node
     		// Record the current clicked node
-    		$$invalidate(5, selectedNode.layerName = "", selectedNode);
+    		$$invalidate(3, selectedNode.layerName = "", selectedNode);
 
-    		$$invalidate(5, selectedNode.index = -1, selectedNode);
-    		$$invalidate(5, selectedNode.data = null, selectedNode);
-    		$$invalidate(11, isExitedFromCollapse = true);
+    		$$invalidate(3, selectedNode.index = -1, selectedNode);
+    		$$invalidate(3, selectedNode.data = null, selectedNode);
+    		$$invalidate(9, isExitedFromCollapse = true);
 
     		// Remove the intermediate layer
     		let intermediateLayer = svg.select("g.intermediate-layer");
@@ -19797,12 +19674,12 @@ var app = (function () {
     		let nodeIndex = d.index;
 
     		// Record the current clicked node
-    		$$invalidate(5, selectedNode.layerName = d.layerName, selectedNode);
+    		$$invalidate(3, selectedNode.layerName = d.layerName, selectedNode);
 
-    		$$invalidate(5, selectedNode.index = d.index, selectedNode);
-    		$$invalidate(5, selectedNode.data = d, selectedNode);
-    		$$invalidate(5, selectedNode.domI = i, selectedNode);
-    		$$invalidate(5, selectedNode.domG = g, selectedNode);
+    		$$invalidate(3, selectedNode.index = d.index, selectedNode);
+    		$$invalidate(3, selectedNode.data = d, selectedNode);
+    		$$invalidate(3, selectedNode.domI = i, selectedNode);
+    		$$invalidate(3, selectedNode.domG = g, selectedNode);
 
     		// Record data for detailed view.
     		if (d.type === "conv" || d.type === "relu" || d.type === "pool") {
@@ -19819,13 +19696,13 @@ var app = (function () {
     			let curLayerIndex = layerIndexDict[d.layerName];
     			data.colorRange = cnnLayerRanges[selectedScaleLevel][curLayerIndex];
     			data.isInputInputLayer = curLayerIndex <= 1;
-    			$$invalidate(8, nodeData = data);
+    			$$invalidate(6, nodeData = data);
     		}
 
     		let curLayerIndex = layerIndexDict[d.layerName];
 
     		if (d.type == "relu" || d.type == "pool") {
-    			$$invalidate(10, isExitedFromDetailedView = false);
+    			$$invalidate(8, isExitedFromDetailedView = false);
 
     			if (!isInActPoolDetailView) {
     				// Enter the act pool detail view
@@ -19860,15 +19737,15 @@ var app = (function () {
     		if ((d.type === "conv" || d.layerName === "output" || d.type === "fc") && !isInIntermediateView) {
     			prepareToEnterIntermediateView(d, g, nodeIndex, curLayerIndex);
 
-    			if (d.layerName === "conv2d_8") {
+    			if (d.layerName === "conv2d_22") {
     				drawConv1(curLayerIndex, d, nodeIndex, width, height, intermediateNodeMouseOverHandler, intermediateNodeMouseLeaveHandler, intermediateNodeClicked);
     			} else if (d.layerName === "conv_1_2") {
     				drawConv2(curLayerIndex, d, nodeIndex, width, height, intermediateNodeMouseOverHandler, intermediateNodeMouseLeaveHandler, intermediateNodeClicked);
-    			} else if (d.layerName === "conv2d_9") {
+    			} else if (d.layerName === "conv2d_23") {
     				drawConv3(curLayerIndex, d, nodeIndex, width, height, intermediateNodeMouseOverHandler, intermediateNodeMouseLeaveHandler, intermediateNodeClicked);
     			} else if (d.layerName === "conv_2_2") {
     				drawConv4(curLayerIndex, d, nodeIndex, width, height, intermediateNodeMouseOverHandler, intermediateNodeMouseLeaveHandler, intermediateNodeClicked);
-    			} else if (d.layerName === "dense_8") {
+    			} else if (d.layerName === "dense_22") {
     				drawFlatten(curLayerIndex, d, nodeIndex, width, height);
     			} else if (d.layerName === "output") {
     				drawOutFlatten(curLayerIndex, d, nodeIndex, width, height);
@@ -20018,7 +19895,7 @@ var app = (function () {
     	});
 
     	const detailedButtonClicked = () => {
-    		$$invalidate(2, detailedMode = !detailedMode);
+    		detailedMode = !detailedMode;
     		detailedModeStore.set(detailedMode);
 
     		if (!isInIntermediateView) {
@@ -20039,15 +19916,15 @@ var app = (function () {
     		let newImageName = d3.select(e.target).attr("data-imageName");
 
     		if (newImageName !== selectedImage) {
-    			$$invalidate(7, selectedImage = newImageName);
+    			$$invalidate(5, selectedImage = newImageName);
 
     			// Re-compute the CNN using the new input image
     			cnn = await constructCNN(`/assets/img/${selectedImage}`, model);
 
     			// Ignore the flatten layer for now
-    			let flatten = cnn[cnn.length - 2];
+    			let flatten = cnn[cnn.length - 3];
 
-    			cnn.splice(cnn.length - 2, 1);
+    			cnn.splice(cnn.length - 3, 1);
     			cnn.flatten = flatten;
     			cnnStore.set(cnn);
 
@@ -20077,19 +19954,19 @@ var app = (function () {
     		}
 
     		if (selectedImage !== "custom") {
-    			$$invalidate(7, selectedImage = "custom");
+    			$$invalidate(5, selectedImage = "custom");
     		}
     	};
 
     	const handleModalCanceled = event => {
     		// User cancels the modal without a successful image, so we restore the
     		// previous selected image as input
-    		$$invalidate(7, selectedImage = event.detail.preImage);
+    		$$invalidate(5, selectedImage = event.detail.preImage);
     	};
 
     	const handleCustomImage = async event => {
     		// User gives a valid image URL
-    		$$invalidate(12, customImageURL = event.detail.url);
+    		$$invalidate(10, customImageURL = event.detail.url);
 
     		// Re-compute the CNN using the new input image
     		cnn = await constructCNN(customImageURL, model);
@@ -20116,26 +19993,26 @@ var app = (function () {
     		if (event.detail.text) {
     			detailedViewNum = undefined;
     			svg.select(`rect#underneath-gateway-${selectedNodeIndex}`).style("opacity", 0);
-    			$$invalidate(9, selectedNodeIndex = -1);
+    			$$invalidate(7, selectedNodeIndex = -1);
     		}
     	}
 
     	function handleExitFromDetiledPoolView(event) {
     		if (event.detail.text) {
     			quitActPoolDetailView();
-    			$$invalidate(10, isExitedFromDetailedView = true);
+    			$$invalidate(8, isExitedFromDetailedView = true);
     		}
     	}
 
     	function handleExitFromDetiledActivationView(event) {
     		if (event.detail.text) {
     			quitActPoolDetailView();
-    			$$invalidate(10, isExitedFromDetailedView = true);
+    			$$invalidate(8, isExitedFromDetailedView = true);
     		}
     	}
 
     	function handleExitFromDetiledSoftmaxView(event) {
-    		$$invalidate(3, softmaxDetailViewInfo.show = false, softmaxDetailViewInfo);
+    		$$invalidate(1, softmaxDetailViewInfo.show = false, softmaxDetailViewInfo);
     		softmaxDetailViewStore.set(softmaxDetailViewInfo);
     	}
 
@@ -20148,12 +20025,7 @@ var app = (function () {
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("Overview", $$slots, []);
 
-    	function select_change_handler() {
-    		selectedScaleLevel = select_value(this);
-    		$$invalidate(1, selectedScaleLevel);
-    	}
-
-    	function div7_binding($$value) {
+    	function div4_binding($$value) {
     		binding_callbacks[$$value ? "unshift" : "push"](() => {
     			overviewComponent = $$value;
     			$$invalidate(0, overviewComponent);
@@ -20291,7 +20163,7 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ("overviewComponent" in $$props) $$invalidate(0, overviewComponent = $$props.overviewComponent);
     		if ("scaleLevelSet" in $$props) scaleLevelSet = $$props.scaleLevelSet;
-    		if ("selectedScaleLevel" in $$props) $$invalidate(1, selectedScaleLevel = $$props.selectedScaleLevel);
+    		if ("selectedScaleLevel" in $$props) $$invalidate(47, selectedScaleLevel = $$props.selectedScaleLevel);
     		if ("previousSelectedScaleLevel" in $$props) previousSelectedScaleLevel = $$props.previousSelectedScaleLevel;
     		if ("wholeSvg" in $$props) wholeSvg = $$props.wholeSvg;
     		if ("svg" in $$props) svg = $$props.svg;
@@ -20299,34 +20171,34 @@ var app = (function () {
     		if ("nodeCoordinate" in $$props) nodeCoordinate = $$props.nodeCoordinate;
     		if ("cnnLayerRanges" in $$props) cnnLayerRanges = $$props.cnnLayerRanges;
     		if ("cnnLayerMinMax" in $$props) cnnLayerMinMax = $$props.cnnLayerMinMax;
-    		if ("detailedMode" in $$props) $$invalidate(2, detailedMode = $$props.detailedMode);
+    		if ("detailedMode" in $$props) detailedMode = $$props.detailedMode;
     		if ("shouldIntermediateAnimate" in $$props) shouldIntermediateAnimate = $$props.shouldIntermediateAnimate;
     		if ("vSpaceAroundGap" in $$props) vSpaceAroundGap = $$props.vSpaceAroundGap;
     		if ("hSpaceAroundGap" in $$props) hSpaceAroundGap = $$props.hSpaceAroundGap;
     		if ("isInSoftmax" in $$props) isInSoftmax = $$props.isInSoftmax;
-    		if ("softmaxDetailViewInfo" in $$props) $$invalidate(3, softmaxDetailViewInfo = $$props.softmaxDetailViewInfo);
+    		if ("softmaxDetailViewInfo" in $$props) $$invalidate(1, softmaxDetailViewInfo = $$props.softmaxDetailViewInfo);
     		if ("modalInfo" in $$props) modalInfo = $$props.modalInfo;
-    		if ("hoverInfo" in $$props) $$invalidate(4, hoverInfo = $$props.hoverInfo);
+    		if ("hoverInfo" in $$props) $$invalidate(2, hoverInfo = $$props.hoverInfo);
     		if ("intermediateLayerPosition" in $$props) intermediateLayerPosition = $$props.intermediateLayerPosition;
     		if ("width" in $$props) width = $$props.width;
     		if ("height" in $$props) height = $$props.height;
     		if ("model" in $$props) model = $$props.model;
-    		if ("selectedNode" in $$props) $$invalidate(5, selectedNode = $$props.selectedNode);
+    		if ("selectedNode" in $$props) $$invalidate(3, selectedNode = $$props.selectedNode);
     		if ("isInIntermediateView" in $$props) isInIntermediateView = $$props.isInIntermediateView;
     		if ("isInActPoolDetailView" in $$props) isInActPoolDetailView = $$props.isInActPoolDetailView;
     		if ("actPoolDetailViewNodeIndex" in $$props) actPoolDetailViewNodeIndex = $$props.actPoolDetailViewNodeIndex;
     		if ("actPoolDetailViewLayerIndex" in $$props) actPoolDetailViewLayerIndex = $$props.actPoolDetailViewLayerIndex;
     		if ("detailedViewNum" in $$props) detailedViewNum = $$props.detailedViewNum;
-    		if ("disableControl" in $$props) $$invalidate(6, disableControl = $$props.disableControl);
+    		if ("disableControl" in $$props) $$invalidate(4, disableControl = $$props.disableControl);
     		if ("cnn" in $$props) cnn = $$props.cnn;
     		if ("detailedViewAbsCoords" in $$props) detailedViewAbsCoords = $$props.detailedViewAbsCoords;
-    		if ("imageOptions" in $$props) $$invalidate(14, imageOptions = $$props.imageOptions);
-    		if ("selectedImage" in $$props) $$invalidate(7, selectedImage = $$props.selectedImage);
-    		if ("nodeData" in $$props) $$invalidate(8, nodeData = $$props.nodeData);
-    		if ("selectedNodeIndex" in $$props) $$invalidate(9, selectedNodeIndex = $$props.selectedNodeIndex);
-    		if ("isExitedFromDetailedView" in $$props) $$invalidate(10, isExitedFromDetailedView = $$props.isExitedFromDetailedView);
-    		if ("isExitedFromCollapse" in $$props) $$invalidate(11, isExitedFromCollapse = $$props.isExitedFromCollapse);
-    		if ("customImageURL" in $$props) $$invalidate(12, customImageURL = $$props.customImageURL);
+    		if ("imageOptions" in $$props) $$invalidate(12, imageOptions = $$props.imageOptions);
+    		if ("selectedImage" in $$props) $$invalidate(5, selectedImage = $$props.selectedImage);
+    		if ("nodeData" in $$props) $$invalidate(6, nodeData = $$props.nodeData);
+    		if ("selectedNodeIndex" in $$props) $$invalidate(7, selectedNodeIndex = $$props.selectedNodeIndex);
+    		if ("isExitedFromDetailedView" in $$props) $$invalidate(8, isExitedFromDetailedView = $$props.isExitedFromDetailedView);
+    		if ("isExitedFromCollapse" in $$props) $$invalidate(9, isExitedFromCollapse = $$props.isExitedFromCollapse);
+    		if ("customImageURL" in $$props) $$invalidate(10, customImageURL = $$props.customImageURL);
     		if ("logits" in $$props) logits = $$props.logits;
     		if ("selectedI" in $$props) selectedI = $$props.selectedI;
     	};
@@ -20335,16 +20207,10 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*selectedScaleLevel*/ 2) {
-    			 (selectedScaleLevelChanged());
-    		}
-    	};
+    	 (selectedScaleLevelChanged());
 
     	return [
     		overviewComponent,
-    		selectedScaleLevel,
-    		detailedMode,
     		softmaxDetailViewInfo,
     		hoverInfo,
     		selectedNode,
@@ -20357,7 +20223,6 @@ var app = (function () {
     		customImageURL,
     		layerColorScales,
     		imageOptions,
-    		detailedButtonClicked,
     		imageOptionClicked,
     		customImageClicked,
     		handleModalCanceled,
@@ -20366,8 +20231,7 @@ var app = (function () {
     		handleExitFromDetiledPoolView,
     		handleExitFromDetiledActivationView,
     		handleExitFromDetiledSoftmaxView,
-    		select_change_handler,
-    		div7_binding
+    		div4_binding
     	];
     }
 

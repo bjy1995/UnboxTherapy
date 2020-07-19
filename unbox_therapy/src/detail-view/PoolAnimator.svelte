@@ -98,7 +98,7 @@
 
 <div class="column has-text-centered">
   <div class="header-text">
-    Input ({testImage.length}, {testImage[0].length})
+    输入 ({testImage.length}, {testImage[0].length})
   </div>
 
   <Dataview on:message={handleMouseover} data={testImage} highlights={inputHighlights} outputLength={output.length}
@@ -117,7 +117,7 @@
 </div>
 <div class="column has-text-centered">
   <div class="header-text">
-    Output ({testOutput.length}, {testOutput[0].length})
+    输出 ({testOutput.length}, {testOutput[0].length})
   </div>
   <Dataview on:message={handleMouseover} data={testOutput} highlights={outputHighlights} isKernelMath={false} 
       outputLength={output.length} constraint={getVisualizationSizeConstraint(output.length)} dataRange={dataRange} stride={stride}/>

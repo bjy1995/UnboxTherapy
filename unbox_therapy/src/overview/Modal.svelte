@@ -153,7 +153,7 @@
 
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title">Add Input Image</p>
+        <p class="modal-card-title">自定义输入图片</p>
         <button class="delete" aria-label="close" on:click={crossClicked}></button>
       </header>
 
@@ -164,7 +164,7 @@
 
             <input class="input small-font" type="url"
               bind:value={inputValue}
-              placeholder="Paste URL of image...">
+              placeholder="输入图片的网址链接...">
 
             <span class="icon small-font is-left">
               <i class="fas fa-link"></i>
@@ -185,7 +185,7 @@
                   <i class="fas fa-upload"></i>
                 </span>
                 <span class="file-label">
-                  Upload
+                  上传图片
                 </span>
               </span>
             </label>
@@ -205,12 +205,12 @@
         <div class="button-container">
           <button class="button is-smaller"
             on:click={crossClicked}>
-            Cancel
+            取消
           </button>
 
           <button class="button is-success is-smaller"
             on:click={addClicked}>
-            Add
+            确定
           </button>
         </div>
 

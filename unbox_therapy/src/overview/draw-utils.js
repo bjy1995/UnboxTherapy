@@ -101,7 +101,7 @@ export const getLinkData = (nodeCoordinate, cnn) => {
   // Create links backward (starting for the first conv layer)
   for (let l = 1; l < cnn.length; l++) {
     for (let n = 0; n < cnn[l].length; n++) {
-      let isOutput = cnn[l][n].layerName === 'dense_8';
+      let isOutput = cnn[l][n].layerName === 'dense_22';
       let curTarget = getInputKnot(nodeCoordinate[l][n]);
       for (let p = 0; p < cnn[l][n].inputLinks.length; p++) {
         // Specially handle output layer (since we are ignoring the flatten)

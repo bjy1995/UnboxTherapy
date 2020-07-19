@@ -27,6 +27,7 @@ export const overviewConfig = {
   kernelRectLength: 8/3,
   gapRatio: 4,
   overlayRectOffset: 12,
-  classLists: ['1', '2', '3', '4', '5',
-    '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+  // classLists: ['1', '2', '3', '4', '5',
+  //   '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+  classLists: ["山鸢尾", "杂色鸢尾", "维吉尼亚鸢尾"]
 };

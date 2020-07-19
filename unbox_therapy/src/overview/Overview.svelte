@@ -154,11 +154,11 @@
   }
   const layerIndexDict = {
     'input': 0,
-    'conv2d_8': 1,
-    'max_pooling2d_8': 2,
-    'conv2d_9': 3,
-    'max_pooling2d_9': 4,
-    'dense_8': 5,
+    'conv2d_22': 1,
+    'max_pooling2d_21': 2,
+    'conv2d_23': 3,
+    'max_pooling2d_22': 4,
+    'dense_22': 5,
     'output': 6,
   }
   const layerLegendDict = {
@@ -177,18 +177,11 @@
   }
 
   let imageOptions = [
-    {file: 'boat_1.jpeg', class: 'lifeboat'},
-    {file: 'bug_1.jpeg', class: 'ladybug'},
-    {file: 'pizza_1.jpeg', class: 'pizza'},
-    {file: 'pepper_1.jpeg', class: 'bell pepper'},
-    {file: 'bus_1.jpeg', class: 'bus'},
-    {file: 'koala_1.jpeg', class: 'koala'},
-    {file: 'espresso_1.jpeg', class: 'espresso'},
-    {file: 'panda_1.jpeg', class: 'red panda'},
-    {file: 'orange_1.jpeg', class: 'orange'},
-    {file: 'car_1.jpeg', class: 'sport car'}
+    {file: 'IS2.jpg', class: '山鸢尾'},
+    {file: 'IV1.jpg', class: '杂色鸢尾'},
+    {file: 'IVA5.jpg', class: '维吉尼亚鸢尾'}
   ];
-  let selectedImage = imageOptions[6].file;
+  let selectedImage = imageOptions[0].file;
 
   let nodeData;
   let selectedNodeIndex = -1;
@@ -902,7 +895,7 @@
     if ((d.type === 'conv' || d.layerName === 'output'  || d.type === 'fc') && !isInIntermediateView) {
       prepareToEnterIntermediateView(d, g, nodeIndex, curLayerIndex);
 
-      if (d.layerName === 'conv2d_8') {
+      if (d.layerName === 'conv2d_22') {
         drawConv1(curLayerIndex, d, nodeIndex, width, height,
           intermediateNodeMouseOverHandler, intermediateNodeMouseLeaveHandler,
           intermediateNodeClicked);
@@ -914,7 +907,7 @@
           intermediateNodeClicked);
       }
 
-      else if (d.layerName === 'conv2d_9') {
+      else if (d.layerName === 'conv2d_23') {
         drawConv3(curLayerIndex, d, nodeIndex, width, height,
           intermediateNodeMouseOverHandler, intermediateNodeMouseLeaveHandler,
           intermediateNodeClicked);
@@ -926,7 +919,7 @@
           intermediateNodeClicked);
       }
 
-      else if (d.layerName === 'dense_8') {
+      else if (d.layerName === 'dense_22') {
         drawFlatten(curLayerIndex, d, nodeIndex, width, height);
       }
 
@@ -1191,9 +1184,10 @@
       // Re-compute the CNN using the new input image
       cnn = await constructCNN(`PUBLIC_URL/assets/img/${selectedImage}`, model);
 
+
       // Ignore the flatten layer for now
-      let flatten = cnn[cnn.length - 2];
-      cnn.splice(cnn.length - 2, 1);
+      let flatten = cnn[cnn.length - 3];
+      cnn.splice(cnn.length - 3, 1);
       cnn.flatten = flatten;
       cnnStore.set(cnn);
 
@@ -1560,7 +1554,7 @@
       </button>
     </div>
 
-    <div class="right-control">
+    <!-- <div class="right-control">
 
       <button class="button is-very-small"
         id="detailed-button"
@@ -1591,7 +1585,7 @@
         </div>
       </div>
 
-    </div>
+    </div> -->
     
   </div>
 

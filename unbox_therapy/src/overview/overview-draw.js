@@ -21,6 +21,17 @@ const svgPaddings = overviewConfig.svgPaddings;
 const gapRatio = overviewConfig.gapRatio;
 const classLists = overviewConfig.classLists;
 const formater = d3.format('.4f');
+const layernameDict = {
+  'input': '输入层',
+  'conv2d_22': '卷积层',
+  'max_pooling2d_21': '池化层',
+  'conv2d_23': '卷积层',
+  'max_pooling2d_22': '池化层',
+  'dense_22': '全连接层',
+  'output': '输出层',
+}
+
+
 
 // Shared variables
 let svg = undefined;
@@ -495,7 +506,7 @@ export const drawCNN = (width, height, cnnGroup, nodeMouseOverHandler,
         //   .attr('x', left)
         //   .attr('y', (d, i) => nodeCoordinate[l][i].y + 10)
         //   .text(d => `(${d3.format('.4f')(d.output)})`);
-    } else if(curLayer[0].layerName === 'dense_8'){
+    } else if(curLayer[0].layerName === 'dense_22'){
         let colorScale = layerColorScales.conv;
         nodeGroups.append('circle')
         .attr('class', 'dense-circle')
@@ -560,14 +571,14 @@ export const drawCNN = (width, height, cnnGroup, nodeMouseOverHandler,
 
   // Add layer label
   let layerNames = cnn.map(d => {
-    if (d[0].layerName === 'output' || d[0].layerName === 'dense_8') {
+    if (d[0].layerName === 'output' || d[0].layerName === 'dense_22') {
       return {
-        name: d[0].layerName,
+        name: layernameDict[d[0].layerName],
         dimension: `(${d.length})`
       }
     } else {
       return {
-        name: d[0].layerName,
+        name: layernameDict[d[0].layerName],
         dimension: `(${d[0].output.length}, ${d[0].output.length}, ${d.length})`
       }
     }
@@ -585,7 +596,7 @@ export const drawCNN = (width, height, cnnGroup, nodeMouseOverHandler,
     .classed('hidden', !detailedMode)
     .attr('transform', (d, i) => {
       let x = nodeCoordinate[i][0].x + nodeLength / 2;
-      let y = (svgPaddings.top + vSpaceAroundGap) / 2 - 6;
+      let y = (svgPaddings.top) / 2;
       return `translate(${x}, ${y})`;
     })
     .style('cursor', d => d.name.includes('output') ? 'default' : 'help')
@@ -704,32 +715,32 @@ export const drawCNN = (width, height, cnnGroup, nodeMouseOverHandler,
     .style('dominant-baseline', 'hanging')
     .style('text-anchor', 'middle');
   
-  // redChannel.append('tspan')
-  //   .style('dominant-baseline', 'hanging')
-  //   .style('fill', '#C95E67')
-  //   .text('Red');
-  
   redChannel.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text(' Input');
-
-  // inputAnnotation.append('text')
-  //   .attr('x', nodeCoordinate[0][1].x + nodeLength / 2)
-  //   .attr('y', nodeCoordinate[0][1].y + nodeLength + 5)
-  //   .attr('class', 'annotation-text')
+    .style('fill', '#C95E67')
+    .text('Red');
+  
+  // redChannel.append('tspan')
   //   .style('dominant-baseline', 'hanging')
-  //   .style('text-anchor', 'middle')
-  //   .style('fill', '#3DB665')
-  //   .text('Green');
+  //   .text(' Input');
 
-  // inputAnnotation.append('text')
-  //   .attr('x', nodeCoordinate[0][2].x + nodeLength / 2)
-  //   .attr('y', nodeCoordinate[0][2].y + nodeLength + 5)
-  //   .attr('class', 'annotation-text')
-  //   .style('dominant-baseline', 'hanging')
-  //   .style('text-anchor', 'middle')
-  //   .style('fill', '#3F7FBC')
-  //   .text('Blue');
+  inputAnnotation.append('text')
+    .attr('x', nodeCoordinate[0][1].x + nodeLength / 2)
+    .attr('y', nodeCoordinate[0][1].y + nodeLength + 5)
+    .attr('class', 'annotation-text')
+    .style('dominant-baseline', 'hanging')
+    .style('text-anchor', 'middle')
+    .style('fill', '#3DB665')
+    .text('Green');
+
+  inputAnnotation.append('text')
+    .attr('x', nodeCoordinate[0][2].x + nodeLength / 2)
+    .attr('y', nodeCoordinate[0][2].y + nodeLength + 5)
+    .attr('class', 'annotation-text')
+    .style('dominant-baseline', 'hanging')
+    .style('text-anchor', 'middle')
+    .style('fill', '#3F7FBC')
+    .text('Blue');
 }
 
 /**
