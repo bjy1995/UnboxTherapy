@@ -1,58 +1,45 @@
 <script type="text/javascript">
     import { onMount } from 'svelte';
+    import { link } from "svelte-spa-router";
     var m = [20, 120, 20, 120],
-        w = 1000 - m[1] - m[3],
-        h = 800 - m[0] - m[2],
+        w = 1500 ,
+        h = 500 ,
         i = 0,
-        rect_width = 80,
+        rect_width = 100,
         rect_height = 20,
         max_link_width = 20,
         min_link_width = 1.5,
         char_to_pxl = 8,
         root;
 
+    const irislabel = ["花萼长度", "花萼宽度", "花瓣长度", "花瓣宽度"];
+    const iristype = ["山鸢尾", "杂色鸢尾", "维吉尼亚鸢尾"];
     var tree;
     var diagonal;
     var vis;
     var gLink;
     var gNode;
+    var gtext, plusText;
     var link_stoke_scale;
     var color_map;
-    // stroke style of link - either color or function
     var stroke_callback = "#ccc";
 
     onMount(async () =>{
-        // Add datasets dropdown
-        d3.select("#datasets")
-            .on("change", function() {
-            if (this.value !== '-') {
-                d3.json(this.value + ".json", load_dataset);
-            }
-            })
-        .selectAll("option")
-            .data([
-            "-",
-            "iris",
-            "boston",
-            "test",
-            ])
-        .enter().append("option")
-            .attr("value", String)
-            .text(String);
+
+        window.scrollTo(0,0);
+
+        const jdata =await d3.json("PUBLIC_URL/assets/data/iris.json");
+
 
         tree = d3.tree()
-            .size([h, w]);
+            .size([1000, 1500]);
 
         diagonal = d3.linkHorizontal()
             .x(d => d.x)
             .y(d => d.y);
 
-        // vis = d3.select("#body").append("svg")
-        //     .attr("viewBox", [0, 0, w + m[1] + m[3], h + m[0] + m[2] + 1000])
-        //     .append("g")
-        //     .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
         vis = d3.select("#tree-svg")
-                .attr("viewBox", [0, 0, w + m[1] + m[3], h + m[0] + m[2] + 1000]);
+                .attr("viewBox", [-200, -20, w , h]);
 
         gLink = vis.append("g")
                 .attr("fill", "none")
@@ -60,22 +47,47 @@
                 .attr("stroke-opacity", 0.4);
 
         gNode = vis.append("g")
-                .attr("cursor", "pointer")
                 .attr("pointer-events", "all");
 
+        gtext = vis.append("g")
+                    .attr('class', 'root-text');
+        plusText = gtext.append('text')
+            .attr('x', 350)
+            .attr('y', 0)
+            .attr('class', 'annotation-text')
+            .style('dominant-baseline', 'hanging')
+            .style('text-anchor', 'middle');
+        plusText.append('tspan')
+            .style('dominant-baseline', 'hanging')
+            .text('点击结点展开');
+        plusText.append('tspan')
+            .attr('x', 350)
+            .attr('dy', '1.5em')
+            .style('dominant-baseline', 'hanging')
+            .text('决策树');
+        drawArrow({
+            group: gtext,
+            sx: 380,
+            sy: 15,
+            tx: 440,
+            ty: 0,
+            dr: 50,
+            hFlip: 0,
+        });
+
+    
         color_map = d3.scaleOrdinal(d3.schemeCategory10);
+
+        load_dataset(jdata);
     })
 
 
 
     function load_dataset(json) {
-        // root = json;
         root = d3.hierarchy(json);
-        root.x0 = 0;
-        root.y0 = 50;
+        root.x0 = 500;
+        root.y0 = 1000;
 
-        // var n_samples = root.samples;
-        // var n_labels = root.value.length;
         var n_samples = json.samples;
         var n_labels = json.value.length;
 
@@ -89,15 +101,6 @@
                                     .domain([0, n_samples])
                                     .rangeRound([min_link_width, max_link_width]);
 
-        function toggleAll(d) {
-            if (d && d.children) {
-            d.children.forEach(toggleAll);
-            toggle(d);
-            }
-        }
-
-        // Initialize the display to show a few nodes.
-        // root.children.forEach(toggleAll);
         root.descendants().forEach((d, i) => {
             d.id = i;
             d._children = d.children;
@@ -113,26 +116,27 @@
         const nodes = root.descendants().reverse();
         const links = root.links();
 
-        // Compute the new tree layout.
+        // d3计算树的结构
         tree(root);
-        // const treeRoot = d3.hierarchy(root);
-        // tree(treeRoot)
-        // var nodes = treeRoot.descendants();
 
-        // Normalize for fixed-depth.
-        nodes.forEach(function(d) { d.y = d.depth * 180; });
 
-        // Update the nodes…
-        // var node = vis.selectAll("g.node")
-        //     .data(nodes, function(d) { return d.id || (d.id = ++i); });
+        // 设置固定深度
+        let ntop = root;
+        let nbottom = root;
+        nodes.forEach(function(d) { 
+            d.y = d.depth * 180;
+            if(d.y < ntop.y) ntop = d;
+            if(d.y > nbottom.y) nbottom = d;   
+        });
+
+        const transition = vis.transition()
+            .duration(duration)
+            .attr("viewBox", [-200, -20, w , Math.max(300, nbottom.y - ntop.y + 100)])
+            .tween("resize", window.ResizeObserver ? null : () => () => vis.dispatch("toggle"));
+
         const node = gNode.selectAll("g")
                         .data(nodes, d => d.id)
 
-        // Enter any new nodes at the parent's previous position.
-        // var nodeEnter = node.enter().append("g")
-        //     .attr("class", "node")
-        //     .attr("transform", function(d) { return `translate(${source.x0}, ${source.y0})`})
-        //     .on("click", function(d) { toggle(d.data); update(d.data); });
         const nodeEnter = node.enter().append("g")
             .attr("class", "node")
             .attr("transform", d => `translate(${source.y0},${source.x0})`)
@@ -141,89 +145,66 @@
             .on("click", d => {
                 d.children = d.children ? null : d._children;
                 update(d);
+                d3.select('.root-text')
+                .transition()
+                .duration(200)
+                .attr("transform", d => `translate(-150, 0)`)
             });
                 
 
         nodeEnter.append("rect")
+            .attr("class", d => {return d.data.type === "split" ? "cursor" : "no"})
             .attr("x", function(d) {
                 var label = node_label(d);
                 var text_len = label.length * char_to_pxl;
                 var width = d3.max([rect_width, text_len])
                 return -width / 2;
             })
-            .attr("width", 1e-6)
-            .attr("height", 1e-6)
             .attr("rx", function(d) { return d.data.type === "split" ? 2 : 0;})
             .attr("ry", function(d) { return d.data.type === "split" ? 2 : 0;})
             .style("stroke", function(d) { return d.data.type === "split" ? "steelblue" : "olivedrab";})
-            .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+            .style("fill", function(d) { return d._children ? "#f7f7f8" : "#fff"; });
 
         nodeEnter.append("text")
-            .attr("dy", "12px")
+            .attr("class", d => { return d._children ? 'cursor': 'no'})
+            .attr("dy", "14px") 
+            .attr("font-size", "12px")
             .attr("text-anchor", "middle")
-            .text(node_label)
-            .style("fill-opacity", 1e-6);
+            .append('tspan')
+            .style('fill', d => { return d._children ? 'red': 'steelblue'})
+            .text(node_label);
 
-        // Transition nodes to their new position.
-        // var nodeUpdate = node.transition()
-        //     .duration(duration)
-        //     .attr("transform", function(d) { return `translate(${d.x}, ${d.y})` });
+        // 更新结点位置
+
         const nodeUpdate = node.merge(nodeEnter).transition()
             .duration(duration)
-            .attr("transform", d => `translate(${d.x},${d.y})`)
+            .attr("transform", d => `translate(${d.x},${d.y - 5})`)
             .attr("fill-opacity", 1)
             .attr("stroke-opacity", 1);
 
 
-        nodeUpdate.select("rect")
-            .attr("width", function(d) {
-                var label = node_label(d);
-                var text_len = label.length * char_to_pxl;
-                var width = d3.max([rect_width, text_len])
-                return width;
-            })
+        nodeUpdate.selectAll("rect")
+            .attr("width", rect_width)
             .attr("height", rect_height)
-            .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+            .attr("fill", function(d) { return d._children ? "#fff" : "#fff"; })
+            .style("stroke-width", "1.5px");
+        
+        d3.selectAll(".cursor")
+            .style("cursor", "pointer");
 
         nodeUpdate.select("text")
             .style("fill-opacity", 1);
 
-        // Transition exiting nodes to the parent's new position.
-        // var nodeExit = node.exit().transition()
-        //     .duration(duration)
-        //     .attr("transform", function(d) { return `translate(${source.x0}, ${source.y0})` })
-        //     .remove();
-
-        // nodeExit.select("rect")
-        //     .attr("width", 1e-6)
-        //     .attr("height", 1e-6);
-
-        // nodeExit.select("text")
-        //     .style("fill-opacity", 1e-6);
         const nodeExit = node.exit().transition().remove()
             .attr("transform", d => `translate(${source.x},${source.y})`)
             .attr("fill-opacity", 0)
             .attr("stroke-opacity", 0);
 
-        // Update the links
-        // const links = treeRoot.links();
-        // var link = vis.selectAll("path.link")
-        //     .data(links, function(d) { return d.target.id; });
+        // 更新连线
         let link = gLink.selectAll("path")
             .data(links, d => d.target.id);
 
-        // Enter any new links at the parent's previous position.
-        // link.enter().insert("path", "g")
-        //     .attr("class", "link")
-        //     .attr("d", function(d) {
-        //         var o = {x: source.x0, y: source.y0};
-        //         return diagonal({source: o, target: o});
-        //     })
-        //     .transition()
-        //     .duration(duration)
-        //     .attr("d", diagonal)
-        //     .style("stroke-width", function(d) {return link_stoke_scale(d.target.data.samples);})
-        //     .style("stroke", stroke_callback);
+
         const linkEnter = link.enter().append("path")
             .attr("class", "link")
             .attr("d", d => {
@@ -231,26 +212,12 @@
             return diagonal({source: o, target: o});
             });
 
-        // link = gLink.selectAll("path");
-        // Transition links to their new position.
-        // link.transition()
-        //     .duration(duration)
-        //     .attr("d", diagonal)
-        //     .style("stroke-width", function(d) {return link_stoke_scale(d.target.data.samples);})
-        //     .style("stroke", stroke_callback);
+
         link.merge(linkEnter).transition()
             .attr("d", diagonal)          
             .style("stroke", stroke_callback)
             .style("stroke-width", "5");
 
-        // Transition exiting nodes to the parent's new position.
-        // link.exit().transition()
-        //     .duration(duration)
-        //     .attr("d", function(d) {
-        //         var o = {x: source.x0, y: source.y0};
-        //         return diagonal({source: o, target: o});
-        //     })
-        //     .remove();
         
         link.exit().transition()
             .attr("d", d => {
@@ -259,44 +226,36 @@
             }).remove();
 
 
-        // Stash the old positions for transition.
         nodes.forEach(function(d) {
             d.x0 = d.x;
             d.y0 = d.y;
         });
     }
 
-    // Toggle children.
-    function toggle(d) {
-        if (d.children) {
-            d._children = d.children;
-            d.children = null;
-        } else {
-            d.children = d._children;
-            d._children = null;
-        }
-    }
-
-    // Node labels
+    // 结点标签
     function node_label(d) {
         d = d.data;
         if (d.type === "leaf") {
-            // leaf
+            // 叶子
             var formatter = d3.format(".2f");
             var vals = [];
             d.value.forEach(function(v) {
-                vals.push(formatter(v));
+                vals.push(v);
             });
-            return "[" + vals.join(", ") + "]";
+            var maxvalue = Math.max(...vals);
+            var index = vals.indexOf(maxvalue);
+            return iristype[vals.indexOf(Math.max(...vals))];
         } else {
-            // split node
-            return d.label;
+            // 非叶结点
+            var label = d.label;
+            label = label.replace("X[0]", irislabel[0]);
+            label = label.replace("X[1]", irislabel[1]);
+            label = label.replace("X[2]", irislabel[2]);
+            label = label.replace("X[3]", irislabel[3]);
+            return label;
         }
     }
 
-    /**
-     * Mixes colors according to the relative frequency of classes.
-     */
     function mix_colors(d) {
         var value = d.target.data.value;
         var sum = d3.sum(value);
@@ -313,9 +272,7 @@
 
 
     /**
-     * A linear interpolator for value[0].
-     *
-     * Useful for link coloring in regression trees.
+     设置线段颜色.
      */
     function mean_interpolation(root) {
 
@@ -347,79 +304,135 @@
         return interpolator;
     }
 
-    /*
-    * Function to load json file from file system
-    **/
-    function loadFile() {
-        var input, file, fr;
+    const drawArrow = (arg) => {
+        let group = arg.group,
+            sx = arg.sx,
+            sy = arg.sy,
+            tx = arg.tx,
+            ty = arg.ty,
+            dr = arg.dr,
+            hFlip = arg.hFlip,
+            marker = arg.marker === undefined ? 'marker' : arg.marker;
+        
+        let arrow = group.append('g')
+            .attr('class', 'arrow-group');
 
-        if (typeof window.FileReader !== 'function') {
-        alert("The file API isn't supported on this browser yet.");
-        return;
-        }
-
-        input = document.getElementById('fileinput');
-        if (!input) {
-        alert("Um, couldn't find the fileinput element.");
-        }
-        else if (!input.files) {
-        alert("This browser doesn't seem to support the `files` property of file inputs.");
-        }
-        else if (!input.files[0]) {
-        alert("Please select a file before clicking 'Load'");
-        }
-        else {
-        file = input.files[0];
-        fr = new FileReader();
-        fr.onload = receivedText;
-        fr.readAsText(file);
-        }
-
-        function receivedText(e) {
-        var lines = e.target.result;
-        var newArr = JSON.parse(lines); 
-            load_dataset(newArr);
-        }
+        arrow.append('path')
+            .attr("d", `M${sx},${sy}A${dr},${dr} 0 0,${hFlip ? 0 : 1} ${tx},${ty}`)
+            .attr('marker-end', 'url(#markerArrow)')
+            .style('stroke', 'gray')
+            .style('fill', 'none');
     }
+
 </script>
 
 
 <style type="text/css">
 
-    #body {
+    #article{
+        margin-top:60px;
+        margin-bottom: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 78ch;
+    }
+    #treebody{
+        position:relative;
         width: 100%;
-        padding: 0;
+        /* height: 680px; */
+        margin-bottom: 10px;
+        font-family: "Helvetica", "Arial", sans-serif;
+        background-color: #f7f7f7;
+    }
+    #foot{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 78ch;
+        position:relative;
+        border-top: solid 1px #eee;
+        padding: 20px 20px;
+    }
+    #foot p{
+        padding-top: 20px;
+    }
+    #foot .lasttext{
+        font-style: italic;
+        font-size: 20px;
+        color: rgb(226, 195, 90);
+    }
+    #treebody {
+        width: 100%;
         margin: auto;
         font-family: "Helvetica Neue", Helvetica;
     }
 
-    .node rect {
-    cursor: pointer;
-    fill: #fff;
-    stroke-width: 1.5px;
+    .return {
+        position: absolute;
+        right: -300px;
+        top: 80%;
+        font-size: 20px;
+        font-style: italic;
+        color: steelblue;
     }
-
-    .node text {
-    font-size: 11px;
+    .title{
+        font-style: italic;
+        color: steelblue;
     }
-
-    path.link {
-    fill: none;
-    stroke: #ccc;
+    .l--body h2{
+        padding-top: 20px;
     }
-
+    .l--body p{
+        font-size: 18px;
+    }
 </style>
 
-<div id="body">
-    <div id="footer">
-        <h1>Decision Tree viewer</h1>
-        <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post">
-            <fieldset>
-                <h2>Json File</h2>
-                <input type='file' id='fileinput'>
-                <input type='button' id='btnLoad' value='Load' on:click={loadFile}>
-            </fieldset>
-         </form>
+<div id="article">
+    <div id="One"><h1>Section: 决策树</h1></div>
+    <div>
+        <h5>
+            你想起之前有一个学园艺的哥哥，你问他：“这是哪一类的鸢尾花？”他向你询问更多的细节：你先看“它的花萼长吗？”，如果是“长花萼”，我们再看“它的花瓣是怎样的形态？”，是“窄花瓣”，那我们得到最终决策：这是山鸢尾花。 
+        </h5>
     </div>
+    <div class="l--body">
+      <h2 class='title'>决策树模型</h2>
+        <ul> 
+            <li>每个“非叶结点”对应于某属性上的一次决策</li> 
+            <li>每个结点之后分支对应于该决策的一种可能结果</li>
+            <li>每个“叶结点”对应于一个预测结果</li> 
+        </ul>
+      <p>决策树的学习过程即通过对训练样本的分析来确定“划分属性”（即内部结点所对应的属性），而预测过程就是将测试示例从根结点开始，沿着划分属性所构成的“判定测试序列”下行，直到叶结点</p>
+    </div>
+
+    <div class="l--body">
+      <h2 class='title'>再来看看这棵树</h2>
+        <p>当你在选取判断的时候，你可能像之前那样判断鸢尾花花瓣的长宽。花瓣的长度和宽度是两个不同的“特征”。</p>
+        <p>这个特征能否很好的区分鸢尾花的类型呢？你要如何衡量这个判断指标呢？</p>
+        <p>统计学里有几种算法可以帮助我们寻找好的切分点，通过划分算法来找到当前最佳的结点划分方式。简单来讲，每一个特征针对训练数据集的前后信息变化的影响是不一样的，当这些衡量参数在划分前后变化越大，即代表这种影响越大。而影响越大，就表明该特征更加重要。</p>
+    </div>
+
+    <div class="l--body">
+      <h2 class='title'>决策树生长</h2>
+      <p>当你点开各个分节点，更多的分支会给决策树增加新的信息，从而增强决策树的预测准确性。加多一层，决策树的准确性增加到84%。再加几层，准确性增加到96%。我们甚至可以继续加分支直到决策树的分类正确率达到100%，这所有决策树末梢的分类结果会是纯粹山鸢尾花或者变色鸢尾，即将两类鸢尾花完全分开。</p>
+      <p>决策树的末节通常又叫做叶节点(leaf nodes)。决策树的预测取决于叶节点内哪一类的样本相对较多。</p>
+    </div>
+    <div class="l--body">
+      <h2 class='title'>尝试一下</h2>
+      <p>小明现在已经训练好了一个决策树的分类模型了，你要如何帮助他来使用这个模型呢？如果你再测量一朵鸢尾花的值，决策树是怎样做出预测的呢？这一朵新的鸢尾花，从根节点开始，跟着决策树分支的分叉顺序走到叶节点。叶节点是那一类，就预测那一类。每条路径构成了做出预测的规则。这样走到最后便能对这朵鸢尾花的类别做出预测。</p>
+    </div>
+</div>
+<div id="treebody">
     <svg id="tree-svg"></svg>
 </div>
+
+<footer id="foot">
+    <div class="l--body">
+      <h3 class='title'>扩展与补充</h3>
+      <p>决策树算法广泛应用于：语音识别、医疗诊断、客户关系管理、模式识别、专家系统等，在实际工作中，必须根据数据类型的特点及数据集的大小，选择合适的算法。想了解更多的相关知识，可以在机器学习相关的书籍中更详细的决策树原理。</p>
+    </div>
+    <div class="lasttext">
+      <p>小明是一个想法很多的同学，他觉得决策树的分类结果并不能够让他十分满意，让我们看看他又尝试了那些方法吧！</p>
+    </div>
+    <a href="/" use:link rel="prefetch">
+        <div class="return">返回</div>
+    </a>
+</footer>

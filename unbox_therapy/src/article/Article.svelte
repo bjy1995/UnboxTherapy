@@ -1,6 +1,5 @@
 <script>
 	import HyperparameterView from '../detail-view/Hyperparameterview.svelte';
-  // import Youtube from './Youtube.svelte';
 
 	let softmaxEquation = `$$\\text{Softmax}(x_{i}) = \\frac{\\exp(x_i)}{\\sum_j \\exp(x_j)}$$`;
 	let reluEquation = `$$\\text{ReLU}(x) = \\max(0,x)$$`;
@@ -73,31 +72,6 @@
     vertical-align: middle;
   }
 
-  #description .video-link {
-    color: #3273DC;
-    cursor: pointer;
-    font-weight: normal;
-    text-decoration: none;
-  }
-
-  #description ul {
-      list-style-type: disc;
-      margin-top: -10px;
-      margin-left: 40px;
-      margin-bottom: 15px;
-  }
-    
-  #description a:hover, 
-  #description .video-link:hover {
-    text-decoration: underline;
-  }
-
-  .figure, .video {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 </style>
 
 <body>
@@ -227,63 +201,5 @@
       <li><strong>Learn layer functions</strong> by clicking <img class="icon is-rounded" src="PUBLIC_URL/assets/figures/info_button.png" alt="info icon"/> from the <em>Interactive Formula View</em> to read layer details from the article.</li>
     </ol> 
 
-    <h2>Video Tutorial</h2>
-    <ul>
-      <li class="video-link" on:click={currentPlayer.play(0)}>
-        CNN Explainer Introduction
-        <small>(0:00-0:22)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(27)}>
-        <em>Overview</em>
-        <small>(0:27-0:37)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(37)}>
-        Convolutional <em>Elastic Explanation View</em>
-        <small>(0:37-0:46)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(46)}>
-        Convolutional, ReLU, and Pooling <em>Interactive Formula Views</em>
-        <small>(0:46-1:21)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(82)}>
-        Flatten <em>Elastic Explanation View</em>
-        <small>(1:22-1:41)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(101)}>
-        Softmax <em>Interactive Formula View</em>
-        <small>(1:41-2:02)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(126)}>
-        Engaging Learning Experience: Understanding Classification
-        <small>(2:06-2:28)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(149)}>
-        Interactive Tutorial Article
-        <small>(2:29-2:54)</small>
-      </li>
-    </ul>
-    <!-- <div class="video">
-      <Youtube videoId="HnWIHWFbuUQ" playerId="demo_video" bind:this={currentPlayer}/>
-    </div> -->
-
-    <h2>How is CNN Explainer implemented?</h2>
-    <p>
-      CNN Explainer uses <a href="https://js.tensorflow.org/"><em>TensorFlow.js</em></a>, an in-browser GPU-accelerated deep learning library to load the pretrained model for visualization.  The entire interactive system is written in Javascript using <a href="https://svelte.dev/"><em>Svelte</em></a> as a framework and <a href="https://d3js.org/"><em>D3.js</em></a> for visualizations. You only need a web browser to get started learning CNNs today!
-    </p>
-
-    <h2>Who developed CNN Explainer?</h2>
-    <p>
-      CNN Explainer was created by 
-      <a href="https://zijie.wang/">Jay Wang</a>,
-      <a href="https://www.linkedin.com/in/robert-turko/">Robert Turko</a>, 
-      <a href="http://oshaikh.com/">Omar Shaikh</a>,
-      <a href="https://haekyu.com/">Haekyu Park</a>,
-      <a href="http://nilakshdas.com/">Nilaksh Das</a>,
-      <a href="https://fredhohman.com/">Fred Hohman</a>,
-      <a href="http://minsuk.com">Minsuk Kahng</a>, and
-      <a href="https://www.cc.gatech.edu/~dchau/">Polo Chau</a>,
-      which was the result of a research collaboration between 
-      Georgia Tech and Oregon State.  We thank Anmol Chhabria, Kaan Sancak, Kantwon Rogers, and the Georgia Tech Visualization Lab for their support and constructive feedback.  This work was supported in part by NSF grants IIS-1563816, CNS-1704701, NASA NSTRF, DARPA GARD, gifts from Intel, NVIDIA, Google, Amazon.
-    </p>
   </div>
 </body>

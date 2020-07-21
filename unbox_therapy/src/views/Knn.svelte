@@ -16,6 +16,7 @@
     let testlabel = "";
     let k = 15;
     let svg;
+    let gtext, plusText;
     let xAxis;
     let yAxis;
     let y, ry;
@@ -26,6 +27,8 @@
 
     
     onMount(async () => {
+        // window.location.hash = "#article";
+        window.scrollTo(0,0);
         strlegend = swatches({
             color: d3.scaleOrdinal(labels, arrcolor)
         })
@@ -67,12 +70,30 @@
         svg = d3.select('#knn-svg')
         .attr("viewBox", [0, 0, width, height]);
 
+        // gtext = svg.append("g")
+        //             .attr('class', 'root-text');
+        // plusText = gtext.append('text')
+        //     .attr('x', -100)
+        //     .attr('y', 0)
+        //     .attr('class', 'annotation-text')
+        //     .style('dominant-baseline', 'hanging')
+        //     .style('text-anchor', 'middle');
+        // plusText.append('tspan')
+        //     .style('dominant-baseline', 'hanging')
+        //     .text('拖动黄点');
+        // plusText.append('tspan')
+        //     .attr('x', 0)
+        //     .attr('dy', '1.5em')
+        //     .style('dominant-baseline', 'hanging')
+        //     .text('试试吧');
 
         svg.append("g")
             .call(xAxis);
-        svg.append("text")
+
+        plusText = svg.append("text")
             .attr("transform", `translate(${5},${height - 10})`)
             .style("font-size", "10px")
+            .attr('class', 'annotation-text')
             .text("花萼长度（mm)");   
         
         svg.append("g")
@@ -80,6 +101,7 @@
 
         svg.append("text")
             .attr("transform", `translate(${width - 80},${margin.top + 10})`)
+            .attr('class', 'annotation-text')
             .style("font-size", "10px")
             .text("花瓣长度（mm)");   
 
@@ -271,6 +293,8 @@
         display: inline-flex;
         align-items: center;
         margin-right: 2em;
+        font-style: italic;
+        fill: gray;
         }
 
         .${id}::before {
@@ -288,7 +312,7 @@
 </script>
 
 <style>
-    #article{
+    #knnarticle{
         margin-top:60px;
         margin-bottom: 60px;
         margin-left: auto;
@@ -364,10 +388,15 @@
         font-size: 20px;
         color: steelblue;
     }
+    #num-k{
+        font-style: italic;
+        fill: gray;
+    }
+
 
 </style>
 
-<article id="article">
+<article id="knnarticle">
     <div id="One"><h1>Section: KNN</h1></div>
     <div>
         <h5>
@@ -417,9 +446,9 @@
         </div>
         <div class="box" style="position: relative;">
             <slot>
-                <p style="font-size: 25px;">{testlabel} </p>
+                <p style="font-size: 25px; font-style: italic; fill: gray;">{testlabel} </p>
                 {#each labels as label, i}
-                    <p>{label} : {counts[label]}</p>
+                    <p style="font-style: italic;fill: gray;">{label} : {counts[label]}</p>
                 {/each}
             </slot>
         </div>
