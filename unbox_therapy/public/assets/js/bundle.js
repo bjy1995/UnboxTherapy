@@ -1362,7 +1362,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (450:16) {#each labels as label, i}
+    // (464:16) {#each labels as label, i}
     function create_each_block(ctx) {
     	let p;
     	let t0_value = /*label*/ ctx[30] + "";
@@ -1379,7 +1379,7 @@ var app = (function () {
     			t2 = text(t2_value);
     			set_style(p, "font-style", "italic");
     			set_style(p, "fill", "gray");
-    			add_location(p, file, 450, 20, 14486);
+    			add_location(p, file, 464, 20, 14620);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1399,14 +1399,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(450:16) {#each labels as label, i}",
+    		source: "(464:16) {#each labels as label, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (448:18)                   
+    // (462:18)                   
     function fallback_block(ctx) {
     	let p;
     	let t0;
@@ -1433,8 +1433,8 @@ var app = (function () {
     			each_1_anchor = empty();
     			set_style(p, "font-size", "25px");
     			set_style(p, "font-style", "italic");
-    			set_style(p, "fill", "gray");
-    			add_location(p, file, 448, 16, 14344);
+    			set_style(p, "color", "steelblue");
+    			add_location(p, file, 462, 16, 14472);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1486,7 +1486,7 @@ var app = (function () {
     		block,
     		id: fallback_block.name,
     		type: "fallback",
-    		source: "(448:18)                   ",
+    		source: "(462:18)                   ",
     		ctx
     	});
 
@@ -1501,52 +1501,61 @@ var app = (function () {
     	let div1;
     	let h5;
     	let t3;
-    	let div3;
+    	let div2;
     	let h20;
     	let t5;
     	let p0;
     	let t7;
-    	let div2;
-    	let t8;
-    	let div5;
+    	let div3;
     	let h21;
-    	let t10;
+    	let t9;
     	let p1;
-    	let t12;
+    	let t11;
     	let p2;
-    	let t14;
+    	let t13;
     	let div4;
-    	let t15;
-    	let div6;
     	let h22;
-    	let t17;
+    	let t15;
     	let p3;
-    	let t19;
+    	let t17;
     	let p4;
-    	let t21;
-    	let div13;
-    	let div9;
-    	let div8;
+    	let t19;
+    	let div12;
     	let div7;
+    	let div6;
+    	let div5;
     	let button0;
     	let i0;
-    	let t23;
+    	let t21;
     	let button1;
     	let i1;
-    	let t25;
+    	let t23;
     	let span;
-    	let t26;
+    	let t24;
     	let html_tag;
-    	let t27;
-    	let div12;
+    	let t25;
     	let div10;
+    	let div8;
     	let svg_1;
-    	let t28;
+    	let t26;
+    	let div9;
+    	let t27;
     	let div11;
+    	let p5;
     	let t29;
+    	let p6;
+    	let t31;
     	let footer;
-    	let a;
+    	let div13;
+    	let h3;
+    	let t33;
+    	let p7;
+    	let t35;
     	let div14;
+    	let p8;
+    	let t37;
+    	let a;
+    	let div15;
     	let link_action;
     	let current;
     	let mounted;
@@ -1566,136 +1575,170 @@ var app = (function () {
     			h5 = element("h5");
     			h5.textContent = "故事内容（待补充）";
     			t3 = space();
-    			div3 = element("div");
+    			div2 = element("div");
     			h20 = element("h2");
     			h20.textContent = "什么是KNN?";
     			t5 = space();
     			p0 = element("p");
     			p0.textContent = "KNN 为K最近邻算法（K-Nearest Neighbor）的英文简称, 它的算法思想简单来说就是如果一个样本在特征空间中的K个最相似（即特征空间中最邻近）的样本中的大多数属于某一个类别，则该样本也属于这个类别。在这里我们用欧式距离定义特征之间的相似度，距离越近，两个样本的相似度越高。";
     			t7 = space();
-    			div2 = element("div");
-    			t8 = space();
-    			div5 = element("div");
+    			div3 = element("div");
     			h21 = element("h2");
     			h21.textContent = "KNN算法的可视化";
-    			t10 = space();
+    			t9 = space();
     			p1 = element("p");
     			p1.textContent = "将鸢尾花数据根据花萼长度及花瓣长度绘制在坐标轴中，其中每一点都代表一个已知的样本，且图像中两点之间的距离便代表了它们之间的相似度。";
-    			t12 = space();
+    			t11 = space();
     			p2 = element("p");
     			p2.textContent = "当有一个未知品种的鸢尾花时，根据它的两个特征将之绘制在图中，便可以找到它的K个最近邻。";
-    			t14 = space();
+    			t13 = space();
     			div4 = element("div");
-    			t15 = space();
-    			div6 = element("div");
     			h22 = element("h2");
     			h22.textContent = "尝试一下";
-    			t17 = space();
+    			t15 = space();
     			p3 = element("p");
     			p3.textContent = "小明根据要求绘制好了可视化图像，并将未知品种的鸢尾花以黄点标注在了图中。";
-    			t19 = space();
+    			t17 = space();
     			p4 = element("p");
     			p4.textContent = "拖动黄点试试吧，右上角会显示此时样本的预测类别，以及距离最近的K个样本的种类数目。";
-    			t21 = space();
-    			div13 = element("div");
-    			div9 = element("div");
-    			div8 = element("div");
+    			t19 = space();
+    			div12 = element("div");
     			div7 = element("div");
+    			div6 = element("div");
+    			div5 = element("div");
     			button0 = element("button");
     			i0 = element("i");
     			i0.textContent = "add";
-    			t23 = space();
+    			t21 = space();
     			button1 = element("button");
     			i1 = element("i");
     			i1.textContent = "remove";
-    			t25 = space();
+    			t23 = space();
     			span = element("span");
-    			t26 = space();
-    			t27 = space();
-    			div12 = element("div");
+    			t24 = space();
+    			t25 = space();
     			div10 = element("div");
+    			div8 = element("div");
     			svg_1 = svg_element("svg");
-    			t28 = space();
-    			div11 = element("div");
+    			t26 = space();
+    			div9 = element("div");
     			if (default_slot_or_fallback) default_slot_or_fallback.c();
+    			t27 = space();
+    			div11 = element("div");
+    			p5 = element("p");
+    			p5.textContent = "黄点为未知的鸢尾花样本它的预测类别以及它邻近样本的类别会在上方显示";
     			t29 = space();
+    			p6 = element("p");
+    			p6.textContent = "接着再拖动它试试吧 !";
+    			t31 = space();
     			footer = element("footer");
-    			a = element("a");
+    			div13 = element("div");
+    			h3 = element("h3");
+    			h3.textContent = "扩展与补充";
+    			t33 = space();
+    			p7 = element("p");
+    			p7.textContent = "待补充";
+    			t35 = space();
     			div14 = element("div");
-    			div14.textContent = "返回";
-    			add_location(h1, file, 399, 18, 12576);
+    			p8 = element("p");
+    			p8.textContent = "待补充";
+    			t37 = space();
+    			a = element("a");
+    			div15 = element("div");
+    			div15.textContent = "返回";
+    			add_location(h1, file, 415, 18, 12744);
     			attr_dev(div0, "id", "One");
-    			add_location(div0, file, 399, 4, 12562);
-    			add_location(h5, file, 401, 8, 12624);
-    			add_location(div1, file, 400, 4, 12609);
-    			add_location(h20, file, 406, 6, 12715);
-    			add_location(p0, file, 407, 6, 12739);
-    			attr_dev(div2, "class", "hide-controls");
-    			add_location(div2, file, 408, 6, 12898);
-    			attr_dev(div3, "class", "l--body");
-    			add_location(div3, file, 405, 4, 12686);
-    			add_location(h21, file, 412, 6, 12980);
-    			add_location(p1, file, 413, 6, 13006);
-    			add_location(p2, file, 414, 6, 13086);
-    			attr_dev(div4, "class", "hide-controls");
-    			add_location(div4, file, 415, 6, 13144);
-    			attr_dev(div5, "class", "l--body");
-    			add_location(div5, file, 411, 4, 12951);
-    			add_location(h22, file, 419, 6, 13226);
-    			add_location(p3, file, 420, 6, 13247);
-    			add_location(p4, file, 421, 6, 13298);
-    			attr_dev(div6, "class", "l--body");
-    			add_location(div6, file, 418, 4, 13197);
+    			add_location(div0, file, 415, 4, 12730);
+    			add_location(h5, file, 417, 8, 12792);
+    			add_location(div1, file, 416, 4, 12777);
+    			attr_dev(h20, "class", "title svelte-c8ipky");
+    			add_location(h20, file, 422, 6, 12883);
+    			attr_dev(p0, "class", "svelte-c8ipky");
+    			add_location(p0, file, 423, 6, 12921);
+    			attr_dev(div2, "class", "l--body svelte-c8ipky");
+    			add_location(div2, file, 421, 4, 12854);
+    			attr_dev(h21, "class", "title svelte-c8ipky");
+    			add_location(h21, file, 427, 6, 13121);
+    			attr_dev(p1, "class", "svelte-c8ipky");
+    			add_location(p1, file, 428, 6, 13161);
+    			attr_dev(p2, "class", "svelte-c8ipky");
+    			add_location(p2, file, 429, 6, 13241);
+    			attr_dev(div3, "class", "l--body svelte-c8ipky");
+    			add_location(div3, file, 426, 4, 13092);
+    			attr_dev(h22, "class", "title svelte-c8ipky");
+    			add_location(h22, file, 433, 6, 13340);
+    			attr_dev(p3, "class", "svelte-c8ipky");
+    			add_location(p3, file, 434, 6, 13375);
+    			attr_dev(p4, "class", "svelte-c8ipky");
+    			add_location(p4, file, 435, 6, 13426);
+    			attr_dev(div4, "class", "l--body svelte-c8ipky");
+    			add_location(div4, file, 432, 4, 13311);
     			attr_dev(article, "id", "knnarticle");
-    			attr_dev(article, "class", "svelte-189x855");
-    			add_location(article, file, 398, 0, 12531);
+    			attr_dev(article, "class", "svelte-c8ipky");
+    			add_location(article, file, 414, 0, 12699);
     			attr_dev(i0, "class", "material-icons");
-    			add_location(i0, file, 431, 20, 13711);
+    			add_location(i0, file, 445, 20, 13839);
     			attr_dev(button0, "id", "add-layers");
     			attr_dev(button0, "class", "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab");
-    			add_location(button0, file, 430, 16, 13595);
+    			add_location(button0, file, 444, 16, 13723);
     			attr_dev(i1, "class", "material-icons");
-    			add_location(i1, file, 434, 20, 13908);
+    			add_location(i1, file, 448, 20, 14036);
     			attr_dev(button1, "id", "remove-layers");
     			attr_dev(button1, "class", "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab");
-    			add_location(button1, file, 433, 16, 13789);
-    			attr_dev(div7, "class", "ui-numHiddenLayers");
-    			set_style(div7, "float", "left");
-    			set_style(div7, "margin-right", "15px");
-    			add_location(div7, file, 429, 12, 13504);
+    			add_location(button1, file, 447, 16, 13917);
+    			attr_dev(div5, "class", "ui-numHiddenLayers");
+    			set_style(div5, "float", "left");
+    			set_style(div5, "margin-right", "15px");
+    			add_location(div5, file, 443, 12, 13632);
     			attr_dev(span, "id", "num-k");
     			set_style(span, "float", "left");
     			set_style(span, "margin-right", "5px");
     			set_style(span, "font-size", "25px");
-    			attr_dev(span, "class", "svelte-189x855");
-    			add_location(span, file, 437, 12, 14005);
-    			set_style(div8, "float", "left");
-    			set_style(div8, "margin-right", "5px");
-    			add_location(div8, file, 428, 8, 13445);
+    			attr_dev(span, "class", "svelte-c8ipky");
+    			add_location(span, file, 451, 12, 14133);
+    			set_style(div6, "float", "left");
+    			set_style(div6, "margin-right", "5px");
+    			add_location(div6, file, 442, 8, 13573);
     			html_tag = new HtmlTag(null);
-    			attr_dev(div9, "id", "top-legends");
-    			attr_dev(div9, "class", "clearfix svelte-189x855");
-    			add_location(div9, file, 427, 4, 13396);
+    			attr_dev(div7, "id", "top-legends");
+    			attr_dev(div7, "class", "clearfix svelte-c8ipky");
+    			add_location(div7, file, 441, 4, 13524);
     			attr_dev(svg_1, "id", "knn-svg");
-    			add_location(svg_1, file, 444, 12, 14211);
-    			attr_dev(div10, "class", "box1 svelte-189x855");
-    			add_location(div10, file, 443, 8, 14178);
-    			attr_dev(div11, "class", "box svelte-189x855");
-    			set_style(div11, "position", "relative");
-    			add_location(div11, file, 446, 8, 14261);
-    			attr_dev(div12, "id", "knn-graph");
-    			add_location(div12, file, 442, 4, 14148);
-    			attr_dev(div13, "id", "knn");
-    			attr_dev(div13, "class", "svelte-189x855");
-    			add_location(div13, file, 426, 0, 13376);
-    			attr_dev(div14, "class", "return svelte-189x855");
-    			add_location(div14, file, 459, 8, 14713);
+    			add_location(svg_1, file, 458, 12, 14339);
+    			attr_dev(div8, "class", "box1 svelte-c8ipky");
+    			add_location(div8, file, 457, 8, 14306);
+    			attr_dev(div9, "class", "box svelte-c8ipky");
+    			set_style(div9, "position", "relative");
+    			add_location(div9, file, 460, 8, 14389);
+    			attr_dev(div10, "id", "knn-graph");
+    			add_location(div10, file, 456, 4, 14276);
+    			attr_dev(p5, "class", "svelte-c8ipky");
+    			add_location(p5, file, 470, 8, 14799);
+    			attr_dev(p6, "class", "svelte-c8ipky");
+    			add_location(p6, file, 471, 8, 14849);
+    			attr_dev(div11, "id", "explain");
+    			attr_dev(div11, "class", "svelte-c8ipky");
+    			add_location(div11, file, 469, 4, 14771);
+    			attr_dev(div12, "id", "knn");
+    			attr_dev(div12, "class", "svelte-c8ipky");
+    			add_location(div12, file, 440, 0, 13504);
+    			attr_dev(h3, "class", "title svelte-c8ipky");
+    			add_location(h3, file, 477, 6, 14944);
+    			attr_dev(p7, "class", "svelte-c8ipky");
+    			add_location(p7, file, 478, 6, 14980);
+    			attr_dev(div13, "class", "l--body svelte-c8ipky");
+    			add_location(div13, file, 476, 4, 14915);
+    			add_location(p8, file, 481, 6, 15038);
+    			attr_dev(div14, "class", "lasttext svelte-c8ipky");
+    			add_location(div14, file, 480, 4, 15008);
+    			attr_dev(div15, "class", "return svelte-c8ipky");
+    			add_location(div15, file, 484, 8, 15112);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "rel", "prefetch");
-    			add_location(a, file, 458, 4, 14667);
+    			add_location(a, file, 483, 4, 15066);
     			attr_dev(footer, "id", "foot");
-    			attr_dev(footer, "class", "svelte-189x855");
-    			add_location(footer, file, 457, 0, 14643);
+    			attr_dev(footer, "class", "svelte-c8ipky");
+    			add_location(footer, file, 475, 0, 14891);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1708,57 +1751,66 @@ var app = (function () {
     			append_dev(article, div1);
     			append_dev(div1, h5);
     			append_dev(article, t3);
+    			append_dev(article, div2);
+    			append_dev(div2, h20);
+    			append_dev(div2, t5);
+    			append_dev(div2, p0);
+    			append_dev(article, t7);
     			append_dev(article, div3);
-    			append_dev(div3, h20);
-    			append_dev(div3, t5);
-    			append_dev(div3, p0);
-    			append_dev(div3, t7);
-    			append_dev(div3, div2);
-    			append_dev(article, t8);
-    			append_dev(article, div5);
-    			append_dev(div5, h21);
-    			append_dev(div5, t10);
-    			append_dev(div5, p1);
-    			append_dev(div5, t12);
-    			append_dev(div5, p2);
-    			append_dev(div5, t14);
-    			append_dev(div5, div4);
-    			append_dev(article, t15);
-    			append_dev(article, div6);
-    			append_dev(div6, h22);
-    			append_dev(div6, t17);
-    			append_dev(div6, p3);
-    			append_dev(div6, t19);
-    			append_dev(div6, p4);
-    			insert_dev(target, t21, anchor);
-    			insert_dev(target, div13, anchor);
-    			append_dev(div13, div9);
-    			append_dev(div9, div8);
-    			append_dev(div8, div7);
-    			append_dev(div7, button0);
+    			append_dev(div3, h21);
+    			append_dev(div3, t9);
+    			append_dev(div3, p1);
+    			append_dev(div3, t11);
+    			append_dev(div3, p2);
+    			append_dev(article, t13);
+    			append_dev(article, div4);
+    			append_dev(div4, h22);
+    			append_dev(div4, t15);
+    			append_dev(div4, p3);
+    			append_dev(div4, t17);
+    			append_dev(div4, p4);
+    			insert_dev(target, t19, anchor);
+    			insert_dev(target, div12, anchor);
+    			append_dev(div12, div7);
+    			append_dev(div7, div6);
+    			append_dev(div6, div5);
+    			append_dev(div5, button0);
     			append_dev(button0, i0);
-    			append_dev(div7, t23);
-    			append_dev(div7, button1);
+    			append_dev(div5, t21);
+    			append_dev(div5, button1);
     			append_dev(button1, i1);
-    			append_dev(div8, t25);
-    			append_dev(div8, span);
-    			append_dev(div9, t26);
-    			html_tag.m(/*strlegend*/ ctx[2], div9);
-    			append_dev(div13, t27);
-    			append_dev(div13, div12);
+    			append_dev(div6, t23);
+    			append_dev(div6, span);
+    			append_dev(div7, t24);
+    			html_tag.m(/*strlegend*/ ctx[2], div7);
+    			append_dev(div12, t25);
     			append_dev(div12, div10);
-    			append_dev(div10, svg_1);
-    			append_dev(div12, t28);
-    			append_dev(div12, div11);
+    			append_dev(div10, div8);
+    			append_dev(div8, svg_1);
+    			append_dev(div10, t26);
+    			append_dev(div10, div9);
 
     			if (default_slot_or_fallback) {
-    				default_slot_or_fallback.m(div11, null);
+    				default_slot_or_fallback.m(div9, null);
     			}
 
-    			insert_dev(target, t29, anchor);
+    			append_dev(div12, t27);
+    			append_dev(div12, div11);
+    			append_dev(div11, p5);
+    			append_dev(div11, t29);
+    			append_dev(div11, p6);
+    			insert_dev(target, t31, anchor);
     			insert_dev(target, footer, anchor);
+    			append_dev(footer, div13);
+    			append_dev(div13, h3);
+    			append_dev(div13, t33);
+    			append_dev(div13, p7);
+    			append_dev(footer, t35);
+    			append_dev(footer, div14);
+    			append_dev(div14, p8);
+    			append_dev(footer, t37);
     			append_dev(footer, a);
-    			append_dev(a, div14);
+    			append_dev(a, div15);
     			current = true;
 
     			if (!mounted) {
@@ -1790,10 +1842,10 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(article);
-    			if (detaching) detach_dev(t21);
-    			if (detaching) detach_dev(div13);
+    			if (detaching) detach_dev(t19);
+    			if (detaching) detach_dev(div12);
     			if (default_slot_or_fallback) default_slot_or_fallback.d(detaching);
-    			if (detaching) detach_dev(t29);
+    			if (detaching) detach_dev(t31);
     			if (detaching) detach_dev(footer);
     			mounted = false;
     			dispose();
@@ -1820,12 +1872,13 @@ var app = (function () {
     ) {
     	const id = "color-legend2";
 
-    	return `<div style="display: flex; align-items: center; min-height: 33px; margin-left: ${+marginLeft}px; font: 10px sans-serif; float: right">
+    	return `<div style="display: flex; align-items: center; min-height: 33px; margin-left: ${+marginLeft}px; font: 12px sans-serif; float: right">
         <style>
 
         .${id} {
+        pointer-events: none;
         display: inline-flex;
-        align-items: center;
+        align-items: flex-end;
         margin-right: 2em;
         font-style: italic;
         fill: gray;
@@ -1836,6 +1889,7 @@ var app = (function () {
         width: ${+swatchWidth}px;
         height: ${+swatchHeight}px;
         margin-right: 0.5em;
+        margin-top: 10px;
         background: var(--color);
         }
 
@@ -1902,33 +1956,15 @@ var app = (function () {
     		yAxis = g => g.attr("transform", `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(10)).call(g => g.selectAll(".tick line").clone().attr("stroke-opacity", 0.1).attr("x2", width - margin.right - margin.left)).call(g => g.selectAll(".domain").remove());
     		xAxis = g => g.attr("transform", `translate(0,${margin.top})`).call(d3.axisTop(x).ticks(20)).call(g => g.selectAll(".tick line").clone().attr("stroke-opacity", 0.1).attr("y2", height - margin.bottom - margin.top)).call(g => g.selectAll(".domain").remove());
     		svg = d3.select("#knn-svg").attr("viewBox", [0, 0, width, height]);
-
-    		// gtext = svg.append("g")
-    		//             .attr('class', 'root-text');
-    		// plusText = gtext.append('text')
-    		//     .attr('x', -100)
-    		//     .attr('y', 0)
-    		//     .attr('class', 'annotation-text')
-    		//     .style('dominant-baseline', 'hanging')
-    		//     .style('text-anchor', 'middle');
-    		// plusText.append('tspan')
-    		//     .style('dominant-baseline', 'hanging')
-    		//     .text('拖动黄点');
-    		// plusText.append('tspan')
-    		//     .attr('x', 0)
-    		//     .attr('dy', '1.5em')
-    		//     .style('dominant-baseline', 'hanging')
-    		//     .text('试试吧');
-    		svg.append("g").call(xAxis);
-
-    		plusText = svg.append("text").attr("transform", `translate(${5},${height - 10})`).style("font-size", "10px").attr("class", "annotation-text").text("花萼长度（mm)");
-    		svg.append("g").call(yAxis);
-    		svg.append("text").attr("transform", `translate(${width - 80},${margin.top + 10})`).attr("class", "annotation-text").style("font-size", "10px").text("花瓣长度（mm)");
+    		svg.append("g").style("pointer-events", "none").call(xAxis);
+    		svg.append("text").attr("transform", `translate(${5},${height - 10})`).style("font-size", "10px").attr("class", "annotation-text").text("花瓣长度（mm)");
+    		svg.append("g").style("pointer-events", "none").call(yAxis);
+    		svg.append("text").attr("transform", `translate(${width - 80},${margin.top + 10})`).attr("class", "annotation-text").style("font-size", "10px").text("花萼长度（mm)");
     		svg.append("g").attr("class", "tcircles").attr("fill", "none").attr("pointer-events", "all").selectAll("circle").data(outdata).join("circle").attr("stroke", d => color[d.label]).attr("r", r).attr("cx", d => x(d.x)).attr("cy", d => y(d.y)).append("title").text(d => `品种: ${d.label}  位置:(${d.x},  ${d.y})`);
     		const circles = d3.range(1).map(i => ({ x: 56, y: 25 }));
     		point.x = 56;
     		point.y = 25;
-    		svg.append("g").selectAll("circle").data(circles).join("circle").attr("fill", "yellow").attr("stroke", "#C4C400").attr("r", r).attr("cx", d => x(d.x)).attr("cy", d => y(d.y)).call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
+    		svg.append("g").selectAll("circle").data(circles).join("circle").attr("fill", "yellow").attr("stroke", "#C4C400").attr("r", r).attr("cx", d => x(d.x)).attr("cy", d => y(d.y)).style("cursor", "move").call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
     		sortdata = outdata;
 
     		sortdata.sort((a, b) => {
@@ -3460,71 +3496,71 @@ var app = (function () {
     			a = element("a");
     			div10 = element("div");
     			div10.textContent = "返回";
-    			add_location(h1, file$5, 389, 18, 11278);
+    			add_location(h1, file$5, 403, 18, 11785);
     			attr_dev(div0, "id", "One");
-    			add_location(div0, file$5, 389, 4, 11264);
-    			add_location(h5, file$5, 391, 8, 11326);
-    			add_location(div1, file$5, 390, 4, 11311);
+    			add_location(div0, file$5, 403, 4, 11771);
+    			add_location(h5, file$5, 405, 8, 11833);
+    			add_location(div1, file$5, 404, 4, 11818);
     			attr_dev(h20, "class", "title svelte-1r9ksag");
-    			add_location(h20, file$5, 396, 6, 11513);
-    			add_location(li0, file$5, 398, 12, 11570);
-    			add_location(li1, file$5, 399, 12, 11614);
-    			add_location(li2, file$5, 400, 12, 11658);
-    			add_location(ul, file$5, 397, 8, 11551);
+    			add_location(h20, file$5, 410, 6, 12020);
+    			add_location(li0, file$5, 412, 12, 12077);
+    			add_location(li1, file$5, 413, 12, 12121);
+    			add_location(li2, file$5, 414, 12, 12165);
+    			add_location(ul, file$5, 411, 8, 12058);
     			attr_dev(p0, "class", "svelte-1r9ksag");
-    			add_location(p0, file$5, 402, 6, 11707);
+    			add_location(p0, file$5, 416, 6, 12214);
     			attr_dev(div2, "class", "l--body svelte-1r9ksag");
-    			add_location(div2, file$5, 395, 4, 11484);
+    			add_location(div2, file$5, 409, 4, 11991);
     			attr_dev(h21, "class", "title svelte-1r9ksag");
-    			add_location(h21, file$5, 406, 6, 11850);
+    			add_location(h21, file$5, 420, 6, 12357);
     			attr_dev(p1, "class", "svelte-1r9ksag");
-    			add_location(p1, file$5, 407, 8, 11890);
+    			add_location(p1, file$5, 421, 8, 12397);
     			attr_dev(p2, "class", "svelte-1r9ksag");
-    			add_location(p2, file$5, 408, 8, 11956);
+    			add_location(p2, file$5, 422, 8, 12463);
     			attr_dev(p3, "class", "svelte-1r9ksag");
-    			add_location(p3, file$5, 409, 8, 12006);
+    			add_location(p3, file$5, 423, 8, 12513);
     			attr_dev(div3, "class", "l--body svelte-1r9ksag");
-    			add_location(div3, file$5, 405, 4, 11821);
+    			add_location(div3, file$5, 419, 4, 12328);
     			attr_dev(h22, "class", "title svelte-1r9ksag");
-    			add_location(h22, file$5, 413, 6, 12183);
+    			add_location(h22, file$5, 427, 6, 12690);
     			attr_dev(p4, "class", "svelte-1r9ksag");
-    			add_location(p4, file$5, 414, 6, 12219);
+    			add_location(p4, file$5, 428, 6, 12726);
     			attr_dev(p5, "class", "svelte-1r9ksag");
-    			add_location(p5, file$5, 415, 6, 12378);
+    			add_location(p5, file$5, 429, 6, 12885);
     			attr_dev(div4, "class", "l--body svelte-1r9ksag");
-    			add_location(div4, file$5, 412, 4, 12154);
+    			add_location(div4, file$5, 426, 4, 12661);
     			attr_dev(h23, "class", "title svelte-1r9ksag");
-    			add_location(h23, file$5, 418, 6, 12483);
+    			add_location(h23, file$5, 432, 6, 12990);
     			attr_dev(p6, "class", "svelte-1r9ksag");
-    			add_location(p6, file$5, 419, 6, 12518);
+    			add_location(p6, file$5, 433, 6, 13025);
     			attr_dev(div5, "class", "l--body svelte-1r9ksag");
-    			add_location(div5, file$5, 417, 4, 12454);
+    			add_location(div5, file$5, 431, 4, 12961);
     			attr_dev(div6, "id", "article");
     			attr_dev(div6, "class", "svelte-1r9ksag");
-    			add_location(div6, file$5, 388, 0, 11240);
+    			add_location(div6, file$5, 402, 0, 11747);
     			attr_dev(svg, "id", "tree-svg");
-    			add_location(svg, file$5, 423, 4, 12723);
+    			add_location(svg, file$5, 437, 4, 13230);
     			attr_dev(div7, "id", "treebody");
     			attr_dev(div7, "class", "svelte-1r9ksag");
-    			add_location(div7, file$5, 422, 0, 12698);
+    			add_location(div7, file$5, 436, 0, 13205);
     			attr_dev(h3, "class", "title svelte-1r9ksag");
-    			add_location(h3, file$5, 428, 6, 12813);
+    			add_location(h3, file$5, 442, 6, 13320);
     			attr_dev(p7, "class", "svelte-1r9ksag");
-    			add_location(p7, file$5, 429, 6, 12849);
+    			add_location(p7, file$5, 443, 6, 13356);
     			attr_dev(div8, "class", "l--body svelte-1r9ksag");
-    			add_location(div8, file$5, 427, 4, 12784);
+    			add_location(div8, file$5, 441, 4, 13291);
     			attr_dev(p8, "class", "svelte-1r9ksag");
-    			add_location(p8, file$5, 432, 6, 13011);
+    			add_location(p8, file$5, 446, 6, 13518);
     			attr_dev(div9, "class", "lasttext svelte-1r9ksag");
-    			add_location(div9, file$5, 431, 4, 12981);
+    			add_location(div9, file$5, 445, 4, 13488);
     			attr_dev(div10, "class", "return svelte-1r9ksag");
-    			add_location(div10, file$5, 435, 8, 13133);
+    			add_location(div10, file$5, 449, 8, 13640);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "rel", "prefetch");
-    			add_location(a, file$5, 434, 4, 13087);
+    			add_location(a, file$5, 448, 4, 13594);
     			attr_dev(footer, "id", "foot");
     			attr_dev(footer, "class", "svelte-1r9ksag");
-    			add_location(footer, file$5, 426, 0, 12760);
+    			add_location(footer, file$5, 440, 0, 13267);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3678,6 +3714,9 @@ var app = (function () {
     		plusText = gtext.append("text").attr("x", 350).attr("y", 0).attr("class", "annotation-text").style("dominant-baseline", "hanging").style("text-anchor", "middle");
     		plusText.append("tspan").style("dominant-baseline", "hanging").text("点击结点展开");
     		plusText.append("tspan").attr("x", 350).attr("dy", "1.5em").style("dominant-baseline", "hanging").text("决策树");
+    		plusText.append("tspan").attr("x", 350).attr("dy", "1.5em").style("dominant-baseline", "hanging").text("当满足结点条件时");
+    		plusText.append("tspan").attr("x", 350).attr("dy", "1.5em").style("dominant-baseline", "hanging").text("决策前往");
+    		plusText.append("tspan").attr("fill", "green").style("dominant-baseline", "hanging").text("左分支");
 
     		drawArrow({
     			group: gtext,

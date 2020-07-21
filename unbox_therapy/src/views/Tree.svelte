@@ -65,6 +65,20 @@
             .attr('dy', '1.5em')
             .style('dominant-baseline', 'hanging')
             .text('决策树');
+        plusText.append('tspan')
+            .attr('x', 350)
+            .attr('dy', '1.5em')
+            .style('dominant-baseline', 'hanging')
+            .text('当满足结点条件时');
+        plusText.append('tspan')
+            .attr('x', 350)
+            .attr('dy', '1.5em')
+            .style('dominant-baseline', 'hanging')
+            .text('决策前往');
+        plusText.append('tspan')
+            .attr('fill', 'green')
+            .style('dominant-baseline', 'hanging')
+            .text('左分支');
         drawArrow({
             group: gtext,
             sx: 380,

@@ -70,40 +70,25 @@
         svg = d3.select('#knn-svg')
         .attr("viewBox", [0, 0, width, height]);
 
-        // gtext = svg.append("g")
-        //             .attr('class', 'root-text');
-        // plusText = gtext.append('text')
-        //     .attr('x', -100)
-        //     .attr('y', 0)
-        //     .attr('class', 'annotation-text')
-        //     .style('dominant-baseline', 'hanging')
-        //     .style('text-anchor', 'middle');
-        // plusText.append('tspan')
-        //     .style('dominant-baseline', 'hanging')
-        //     .text('拖动黄点');
-        // plusText.append('tspan')
-        //     .attr('x', 0)
-        //     .attr('dy', '1.5em')
-        //     .style('dominant-baseline', 'hanging')
-        //     .text('试试吧');
-
         svg.append("g")
+            .style("pointer-events", "none")
             .call(xAxis);
 
-        plusText = svg.append("text")
+        svg.append("text")
             .attr("transform", `translate(${5},${height - 10})`)
             .style("font-size", "10px")
             .attr('class', 'annotation-text')
-            .text("花萼长度（mm)");   
+            .text("花瓣长度（mm)");   
         
         svg.append("g")
+            .style("pointer-events", "none")
             .call(yAxis);
 
         svg.append("text")
             .attr("transform", `translate(${width - 80},${margin.top + 10})`)
             .attr('class', 'annotation-text')
             .style("font-size", "10px")
-            .text("花瓣长度（mm)");   
+            .text("花萼长度（mm)");   
 
         svg.append("g")
             .attr("class", "tcircles")
@@ -134,6 +119,7 @@
             .attr("r", r)
             .attr("cx", d => x(d.x))
             .attr("cy", d => y(d.y))
+            .style("cursor", "move")
             .call(d3.drag()
                     .on("start", dragstarted)
                     .on("drag", dragged)
@@ -286,12 +272,13 @@
     }) {
         const id = 'color-legend2';
     
-        return `<div style="display: flex; align-items: center; min-height: 33px; margin-left: ${+marginLeft}px; font: 10px sans-serif; float: right">
+        return `<div style="display: flex; align-items: center; min-height: 33px; margin-left: ${+marginLeft}px; font: 12px sans-serif; float: right">
         <style>
 
         .${id} {
+        pointer-events: none;
         display: inline-flex;
-        align-items: center;
+        align-items: flex-end;
         margin-right: 2em;
         font-style: italic;
         fill: gray;
@@ -302,6 +289,7 @@
         width: ${+swatchWidth}px;
         height: ${+swatchHeight}px;
         margin-right: 0.5em;
+        margin-top: 10px;
         background: var(--color);
         }
 
@@ -328,15 +316,21 @@
         background-color: #f7f7f7;
     }
     #foot{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 78ch;
         position:relative;
         border-top: solid 1px #eee;
-        color: #ccc;
-        font-weight: 300;
-        padding: 20px 0;
-        height: 10px;
+        padding: 20px 20px;
+    }
+    #foot .lasttext{
+        font-style: italic;
+        font-size: 20px;
+        color: rgb(226, 195, 90);
     }
 
 	.box {
+        pointer-events: none;
 		width: 150px;
 		border: 1px solid #aaa;
 		border-radius: 2px;
@@ -381,19 +375,41 @@
         clear: both;
         visibility: hidden;
     }
-    .return {
-        position: absolute;
-        right: 5%;
-        top: 50%;
-        font-size: 20px;
-        color: steelblue;
-    }
     #num-k{
         font-style: italic;
         fill: gray;
+        pointer-events: none;
     }
-
-
+    .return {
+        position: absolute;
+        right: -300px;
+        top: 80%;
+        font-size: 20px;
+        font-style: italic;
+        color: steelblue;
+    }
+    .title{
+        font-style: italic;
+        color: steelblue;
+    }
+    .l--body h2{
+        padding-top: 20px;
+    }
+    .l--body p{
+        font-size: 18px;
+    }
+    #explain{
+        position: relative;
+        left: 74%;
+        top: -554px;
+    }
+    #explain p{
+        max-width: 20ch;
+        pointer-events: none;
+        font-size: 10px;
+        font-style: italic;
+        fill: gray;
+    }
 </style>
 
 <article id="knnarticle">
@@ -404,20 +420,18 @@
         </h5>
     </div>
     <div class="l--body">
-      <h2>什么是KNN?</h2>
+      <h2 class="title">什么是KNN?</h2>
       <p>KNN 为K最近邻算法（K-Nearest Neighbor）的英文简称, 它的算法思想简单来说就是如果一个样本在特征空间中的K个最相似（即特征空间中最邻近）的样本中的大多数属于某一个类别，则该样本也属于这个类别。在这里我们用欧式距离定义特征之间的相似度，距离越近，两个样本的相似度越高。</p>
-      <div class="hide-controls"></div>
     </div>
 
     <div class="l--body">
-      <h2>KNN算法的可视化</h2>
+      <h2 class="title">KNN算法的可视化</h2>
       <p>将鸢尾花数据根据花萼长度及花瓣长度绘制在坐标轴中，其中每一点都代表一个已知的样本，且图像中两点之间的距离便代表了它们之间的相似度。</p>
       <p>当有一个未知品种的鸢尾花时，根据它的两个特征将之绘制在图中，便可以找到它的K个最近邻。</p>
-      <div class="hide-controls"></div>
     </div>
 
     <div class="l--body">
-      <h2>尝试一下</h2>
+      <h2 class="title">尝试一下</h2>
       <p>小明根据要求绘制好了可视化图像，并将未知品种的鸢尾花以黄点标注在了图中。</p>
       <p>拖动黄点试试吧，右上角会显示此时样本的预测类别，以及距离最近的K个样本的种类数目。</p>
     </div>
@@ -446,16 +460,27 @@
         </div>
         <div class="box" style="position: relative;">
             <slot>
-                <p style="font-size: 25px; font-style: italic; fill: gray;">{testlabel} </p>
+                <p style="font-size: 25px; font-style: italic; color: steelblue;">{testlabel} </p>
                 {#each labels as label, i}
                     <p style="font-style: italic;fill: gray;">{label} : {counts[label]}</p>
                 {/each}
             </slot>
         </div>
     </div>
+    <div id="explain">
+        <p>黄点为未知的鸢尾花样本它的预测类别以及它邻近样本的类别会在上方显示</p>
+        <p>接着再拖动它试试吧 !</p>
+    </div>
 </div>
 
 <footer id="foot">
+    <div class="l--body">
+      <h3 class='title'>扩展与补充</h3>
+      <p>待补充</p>
+    </div>
+    <div class="lasttext">
+      <p>待补充</p>
+    </div>
     <a href="/" use:link rel="prefetch">
         <div class="return">返回</div>
     </a>
