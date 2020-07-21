@@ -51,30 +51,54 @@
 </script>
 
 <style>
-  #begin{
-    margin-top:60px;
+  #begin {
+    margin-top: 60px;
     margin-bottom: 60px;
     margin-left: auto;
     margin-right: auto;
     max-width: 78ch;
   }
-  .t{
+  .t {
     font-size: 20px;
   }
-  .flower{
+  .flower {
     color: steelblue;
   }
 </style>
 
-
-<div id='begin'>
-  <div id="one"><h1>序言</h1></div>
-  <div id='article'>
-      <p class="t">学校组织去植物园春游，一片特别好看的蓝紫色的花海映入你眼帘，像一只只穿梭在绿草中的美丽蝴蝶。</p>
-      <p class="t">你看到牌上的介绍说：这是鸢尾花，常见的有三大类:<b class='flower'>山鸢尾</b >(Iris-setosa)，<b class='flower'>变色鸢尾</b>(Iris-versicolor)和<b class='flower'>维吉尼亚鸢尾</b>(Iris-virginica)。</p>
-      <p class="t">它们有着形状与色彩相似的花瓣和萼片。你观察到有一块集中的部分的鸢尾有较大的花瓣，而它旁边的一块的花瓣却很小。你想搞清楚它们究竟属于哪一类鸢尾花。</p>
-      <p class="t">于是你上网搜索，发现网上说可以根据一些特征值来刻画事物的某些方面的特点，比如通过花萼的长、花萼的宽、花瓣的长和花瓣的宽来辨别他们。</p>
-      <p class="t"><b>让我们从section1开始吧！</b></p>
+<div id="begin">
+  <p>
+    “UnboxAI打造了一个全套的教学生态系统来辅助智慧校园中开设的人工智能的课程，可以脱离纸质书籍教学，所有的内容均在电脑或者平板上完成。UnboxAI以第一人称的角色，通过算法可视化，用户可交互性带给同学们更强的体验感，有助于更好地理解人工智能算法背后的原理并激发同学们继续深入学习机器学习、深度学习的相关数学、编程知识。”
+  </p>
+  <br/>
+  <h1 style="color: peru;">欢迎来到UnboxAI，在这里我们将以情节的方式，在不同的故事线中，由浅入深地带你学习人工智能的相关知识。</h1>
+  <br/>
+  <br/>
+  <div id="one">
+    <h1 style="font-weight:500 ">故事线——植物园（分类任务）</h1>
+  </div>
+  <div id="article">
+    <p class="t">
+      学校组织去植物园春游，一片特别好看的蓝紫色的花海映入你眼帘，像一只只穿梭在绿草中的美丽蝴蝶。
+    </p>
+    <p class="t">
+      你看到牌上的介绍说：这是鸢尾花，常见的有三大类:
+      <b class="flower">山鸢尾</b>
+      (Iris-setosa)，
+      <b class="flower">变色鸢尾</b>
+      (Iris-versicolor)和
+      <b class="flower">维吉尼亚鸢尾</b>
+      (Iris-virginica)。
+    </p>
+    <p class="t">
+      它们有着形状与色彩相似的花瓣和萼片。你观察到有一块集中的部分的鸢尾有较大的花瓣，而它旁边的一块的花瓣却很小。你想搞清楚它们究竟属于哪一类鸢尾花。
+    </p>
+    <p class="t">
+      于是你上网搜索，发现网上说可以根据一些特征值来刻画事物的某些方面的特点，比如通过花萼的长、花萼的宽、花瓣的长和花瓣的宽来辨别他们。
+    </p>
+    <p class="t">
+      <b>让我们从section1开始吧！</b>
+    </p>
   </div>
 </div>
 
@@ -87,7 +111,7 @@
         <div class="el__inner">
           <div class="el__bg" />
           <div class="el__preview-cont">
-            <h2 class="el__heading">Section 1</h2>
+            <h2 class="el__heading" style="color:#f6f6f6">Section 1</h2>
           </div>
           <div class="el__content">
             <a href="/old" use:link rel="prefetch">
@@ -111,7 +135,7 @@
         <div class="el__inner">
           <div class="el__bg" />
           <div class="el__preview-cont">
-            <h2 class="el__heading">Section 2</h2>
+            <h2 class="el__heading" style="color:#f6f6f6">Section 2</h2>
           </div>
           <div class="el__content">
             <a href="/knn" use:link rel="prefetch">
@@ -135,7 +159,7 @@
         <div class="el__inner">
           <div class="el__bg" />
           <div class="el__preview-cont">
-            <h2 class="el__heading">Section 3</h2>
+            <h2 class="el__heading" style="color:#f6f6f6">Section 3</h2>
           </div>
           <div class="el__content">
             <a href="/tree" use:link rel="prefetch">
@@ -159,7 +183,7 @@
         <div class="el__inner">
           <div class="el__bg" />
           <div class="el__preview-cont">
-            <h2 class="el__heading">Section 4</h2>
+            <h2 class="el__heading" style="color:#f6f6f6">Section 4</h2>
           </div>
           <div class="el__content">
             <a href="/cnn" use:link rel="prefetch">
@@ -183,7 +207,7 @@
         <div class="el__inner">
           <div class="el__bg" />
           <div class="el__preview-cont">
-            <h2 class="el__heading">Section 5</h2>
+            <h2 class="el__heading" style="color:#f6f6f6">Section 5</h2>
           </div>
           <div class="el__content">
             <a href="/" use:link rel="prefetch">
@@ -205,5 +229,8 @@
   <!-- cont inner end -->
 </div>
 <footer style="background-color: #37474f">
-<span style="text-align: right;color: #f6f6f6;font-weight:300;;font-size: 13px">Deecamp2020 4-2 UnboxTherapy </span>
+  <span
+    style="text-align: right;color: #f6f6f6;font-weight:300;;font-size: 13px">
+    Deecamp2020 4-2 UnboxTherapy
+  </span>
 </footer>
