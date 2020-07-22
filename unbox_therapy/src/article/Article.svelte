@@ -76,129 +76,114 @@
 
 <body>
   <div id="description">
-    <h2>What is a Convolutional Neural Network?</h2>
+    <h2><strong>什么是卷积神经网络？</strong></h2>
     <p>
-		In machine learning, a classifier assigns a class label to a data point.  For example, an <em>image classifier</em> produces a class label (e.g, bird, plane) for what objects exist within an image.  A <em>convolutional neural network</em>, or CNN for short, is a type of classifier, which excels at solving this problem!
+		在机器学习中，分类器将类别标签分配给数据点。例如，一个 <em>图像分类器</em> 针对图像中存在哪些对象产生类别标签（例如：鸟，飞机）。一个 <em>卷积神经网络</em>，或CNN作简称，是一种非常适合解决这种问题类型的分类器！
 	 </p>
   	<p>
-  		A CNN is a neural network: an algorithm used to recognize patterns in data. Neural Networks in general are composed of a collection of neurons that are organized in layers, each with their own learnable weights and biases.  Let’s break down a CNN into its basic building blocks.
+  		CNN是神经网络: 一种用于识别数据模式的算法。通常，神经网络由神经元组成，这些神经元分层组织，每个神经元都有自己可通过学习获的权重和误差。 让我们将CNN进一步分解为更基本的构建：
   	</p>
   	<ol>
-  		<li>A <strong>tensor</strong> can be thought of as an n-dimensional matrix.  In the CNN above, tensors will be 3-dimensional with the exception of the output layer.</li>
-  		<li>A <strong>neuron</strong> can be thought of as a function that takes in multiple inputs and yields a single output.  The outputs of neurons are represented above as the <span style="color:#FF7577;">red</span> &rarr; <span style="color:#60A7D7;">blue</span> <strong>activation maps</strong>.</li>
-  		<li>A <strong>layer</strong> is simply a collection of neurons with the same operation, including the same hyperparameters.</li>
-  		<li><strong>Kernel weights and biases</strong>, while unique to each neuron, are tuned during the training phase, and allow the classifier to adapt to the problem and dataset provided.  They are encoded in the visualization with a <span style="color:#BC8435;">yellow</span> &rarr; <span style="color:#39988F;">green</span> diverging colorscale.  The specific values can be viewed in the <em>Interactive Formula View</em> by clicking a neuron or by hovering over the kernel/bias in the <em>Convolutional Elastic Explanation View</em>.</li>
-  		<li>A CNN conveys a <strong>differentiable score function</strong>, which is represented as <strong>class scores</strong> in the visualization on the output layer.</li>
+  		<li><strong>张量：</strong> 可以被认为是一个n维矩阵。在上面的CNN中，张量将是3维的，输出层除外。</li>
+  		<li><strong>神经元：</strong> 可以被看作是发生在多个输入并且产生一个输出的功能。神经元的输出在上面表示为 <span style="color:#FF7577;">红色</span> &rarr; <span style="color:#60A7D7;">蓝色</span> <strong> 蓝色激活图</strong>。</li>
+  		<li><strong>层：</strong> 是简单地用相同的操作的神经元，包括相同超参数的集合。</li>
+  		<li><strong>内核权重和偏差：</strong>虽然对于每个神经元而言都是唯一的， 它们在训练阶段进行了调整，来使分类器适应所提供的问题和数据集。它们在可视化中以 <span style="color:#BC8435;">黄色</span> &rarr; <span style="color:#39988F;">绿色</span> 的发散色标来进行编码。通过单击神经元或将鼠标悬停在 <em>卷积弹性解释视图</em>中的内核/偏差上，可以在 <em>交互式公式视图</em> 中查看特定值。</li>
+  		<li>CNN 传达了一个 <strong>微分函数</strong>，该函数在输出层的可视化中表示为 <strong>类分数</strong>。</li>
   	</ol> 
   	<p>
-  		If you have studied neural networks before, these terms may sound familiar to you.  So what makes a CNN different? CNNs utilize a special type of layer, aptly named a convolutional layer, that makes them well-positioned to learn from image and image-like data.  Regarding image data, CNNs can be used for many different computer vision tasks, such as <a href="http://ijcsit.com/docs/Volume%207/vol7issue5/ijcsit20160705014.pdf" title="CNN Applications">image processing, classification, segmentation, and object detection</a>.
+  		如果您以前学习过神经网络，那么您可能会觉得这些术语很熟悉。那么，什么使CNN与众不同？CNN利用一种特殊类型的层，恰当地称为卷积层，使它们处于适当的位置以从图像和类似图像的数据中学习。关于图像数据，CNN可以用于许多不同的计算机视觉任务，例如 <a href="http://ijcsit.com/docs/Volume%207/vol7issue5/ijcsit20160705014.pdf" title="CNN Applications">图像处理，分类，分割和对象检测</a>。
   	</p>  
   	<p>
-  		In CNN Explainer, you can see how a simple CNN can be used for image classification.  Because of the network’s simplicity, its performance isn’t perfect, but that’s okay! The network architecture, <a href="http://cs231n.stanford.edu/" title="Tiny VGG Net presented by Stanford's CS231n">Tiny VGG</a>, used in CNN Explainer contains many of the same layers and operations used in state-of-the-art CNNs today, but on a smaller scale.  This way, it will be easier to understand getting started.
+  		在CNN Explainer中，您可以看到如何使用简单的CNN进行图像分类。由于网络的简单性，它的性能并不理想，但这没关系！CNN Explainer中使用的网络架构， <a href="http://cs231n.stanford.edu/" title="Tiny VGG Net presented by Stanford's CS231n">Tiny VGG</a>包含了当今最先进的CNN所使用的许多相同的层和操作，但是规模较小。这样，将更容易理解入门。
       </p>     
 
-      <h2>What does each layer of the network do?</h2>
+      <h2><strong>这个网络的每一层做什么？</strong></h2>
       <p>
-  		Let’s walk through each layer in the network.  Feel free to interact with the visualization above by clicking and hovering over various parts of it as you read. 
+      让我们遍历网络中的每一层。在阅读时，单击并悬停在上面的可视化中，即可与上面的可视化进行交互。
       </p>
-      <h4 id='article-input'>Input Layer</h4>
+      <h4 id='article-input'> <strong>输入层</strong></h4>
       <p>
-      	The input layer (leftmost layer) represents the input image into the CNN.  Because we use RGB images as input, the input layer has three channels, corresponding to the red, green, and blue channels, respectively, which are shown in this layer. Use the color scale when you click on the <img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/network_details.png" alt="network details icon"/> icon above to display detailed information (on this layer, and others).
+      输入层（最左边的层）代表输入到CNN中的图像。因为我们使用RGB图像作为输入，所以输入层具有三个通道，分别对应于该层中显示的红色，绿色和蓝色通道。单击 <img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/network_details.png" alt="network details icon"/> 上方的图标以显示详细信息（在此层以及其他层上）。
       </p>
-      <h4 id='article-convolution'>Convolutional Layers</h4>
+      <h4 id='article-convolution'> <strong>卷积层</strong></h4>
       <p>
-  		The convolutional layers are the foundation of CNN, as they contain the learned kernels (weights), which extract features that distinguish different images from one another&mdash;this is what we want for classification!  As you interact with the convolutional layer, you will notice links between the previous layers and the convolutional layers.  Each link represents a unique kernel, which is used for the convolution operation to produce the current convolutional neuron’s output or activation map.  
+      卷积层是CNN的基础，因为它们包含学习的内核（权重），这些内核提取出可将不同图像彼此区分开的特征-这就是我们想要的分类！与卷积层交互时，您会注意到先前各层与卷积层之间的链接。每个链接代表一个唯一的内核，该内核用于卷积操作以生成当前卷积神经元的输出或激活图。
+      </p>
+  	<p>
+  		卷积神经元执行具有唯一内核和上一层相应神经元输出的元素点积。这将产生与唯一内核一样多的中间结果。卷积神经元是所有中间结果的总和与学习偏差的总和。
   	</p>
   	<p>
-  		The convolutional neuron performs an elementwise dot product with a unique kernel and the output of the previous layer’s corresponding neuron.  This will yield as many intermediate results as there are unique kernels.  The convolutional neuron is the result of all of the intermediate results summed together with the learned bias.
-  	</p>
-  	<p>
-  		For example, let’s look at the first convolutional layer in the Tiny VGG architecture above.  Notice that there are 10 neurons in this layer, but only 3 neurons in the previous layer.  In the Tiny VGG architecture, convolutional layers are fully-connected, meaning each neuron is connected to every other neuron in the previous layer.  Focusing on the output of the topmost convolutional neuron from the first convolutional layer, we see that there are 3 unique kernels when we hover over the activation map.  
+      例如，让我们看一下上面的Tiny VGG架构中的第一个卷积层。请注意，此层中有10个神经元，但上一层中只有3个神经元。在Tiny VGG架构中，卷积层是完全连接的，这意味着每个神经元都与上一层中的每个其他神经元相连。着眼于第一卷积层最顶部的卷积神经元的输出，当我们将鼠标悬停在激活图上时，我们将看到有3个唯一的内核。
   	</p>
     <div class="figure">
       <img src="PUBLIC_URL/assets/figures/convlayer_overview_demo.gif" alt="clicking on topmost first conv. layer activation map" width=60% height=60% align="middle"/>
       <div class="figure-caption">
-  		  Figure 1.  As you hover over the activation map of the topmost node from the first convolutional layer, you can see that 3 kernels were applied to yield this activation map.  After clicking this activation map, you can see the convolution operation occuring with each unique kernel.
-  	  </div>
+        图1: 将鼠标悬停在第一个卷积层上最顶层节点的激活图上时，您会看到已应用3个内核来生成此激活图。单击此激活图后，您可以看到每个唯一内核发生的卷积操作。
+      </div>
     </div>
 
   	<p>
-  		The size of these kernels is a hyper-parameter specified by the designers of the network architecture.  In order to produce the output of the convolutional neuron (activation map), we must perform an elementwise dot product with the output of the previous layer and the unique kernel learned by the network.  In TinyVGG, the dot product operation uses a stride of 1, which means that the kernel is shifted over 1 pixel per dot product, but this is a hyperparameter that the network architecture designer can adjust to better fit their dataset.  We must do this for all 3 kernels, which will yield 3 intermediate results.  
+      这些内核的大小是由网络体系结构的设计人员指定的超参数。为了产生卷积神经元（激活图）的输出，我们必须与上一层的输出以及网络学习到的唯一内核一起执行元素逐点积。在TinyVGG中，点积运算使用的跨度为1，这意味着内核将每个点积移出1个像素，但这是网络架构设计人员可以调整以使其更适合其数据集的超参数。我们必须对所有3个内核执行此操作，这将产生3个中间结果。
   	</p>
     <div class="figure">
       <img src="PUBLIC_URL/assets/figures/convlayer_detailedview_demo.gif" alt="clicking on topmost first conv. layer activation map" />
       <div class="figure-caption">
-        Figure 2. The kernel being applied to yield the topmost intermediate result for the discussed activation map.
+        图2:内核用于生成上述激活图的最高中间结果。
       </div>
     </div>
   	<p>
-  		Then, an elementwise sum is performed containing all 3 intermediate results along with the bias the network has learned.  After this, the resulting 2-dimensional tensor will be the activation map viewable on the interface above for the topmost neuron in the first convolutional layer.  This same operation must be applied to produce each neuron’s activation map.
+  		然后，执行元素和，包含所有3个中间结果以及网络已获悉的偏差。此后，生成的二维张量将是在第一卷积层中最顶层神经元的上方界面上可见的激活图。必须应用相同的操作来生成每个神经元的激活图。
   	</p>
   	<p>
-  		With some simple math, we are able to deduce that there are 3 x 10 = 30 unique kernels, each of size 3x3, applied in the first convolutional layer.  The connectivity between the convolutional layer and the previous layer is a design decision when building a network architecture, which will affect the number of kernels per convolutional layer.  Click around the visualization to better understand the operations behind the convolutional layer.  See if you can follow the example above!
+      通过一些简单的数学运算，我们可以推断出在第一个卷积层中应用了3 x 10 = 30个唯一的内核，每个内核的大小为3x3。卷积层与上一层之间的连通性是构建网络体系结构时的设计决策，它将影响每个卷积层的内核数量。单击可视化文件以更好地了解卷积层背后的操作。看看你是否可以理解上面的示例！
     </p>
-    <h6>Understanding Hyperparameters</h6>
+    
+    <h4><strong>激活层函数</strong></h4>
+    <h6 id='article-relu'><strong>ReLU函数</strong></h6>
     <p>
-    	<HyperparameterView/>
-    </p>
-    <ol>
-    	<li><strong>Padding</strong> is often necessary when the kernel extends beyond the activation map.  Padding conserves data at the borders of activation maps, which leads to better performance, and it can help <a href="https://arxiv.org/pdf/1603.07285.pdf" title="See page 13">preserve the input's spatial size</a>, which allows an architecture designer to build depper, higher performing networks.  There exist <a href="https://arxiv.org/pdf/1811.11718.pdf" title="Outlines major padding techniques">many padding techniques</a>, but the most commonly used approach is zero-padding because of its performance, simplicity, and computational efficiency.  The technique involves adding zeros symmetrically around the edges of an input.  This approach is adopted by many high-performing CNNs such as <a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf" title="AlexNet">AlexNet</a>.</li>
-    	<li><strong>Kernel size</strong>, often also referred to as filter size, refers to the dimensions of the sliding window over the input.  Choosing this hyperparameter has a massive impact on the image classification task.  For example, small kernel sizes are able to extract a much larger amount of information containing highly local features from the input.  As you can see on the visualization above, a smaller kernel size also leads to a smaller reduction in layer dimensions, which allows for a deeper architecture.  Conversely, a large kernel size extracts less information, which leads to a faster reduction in layer dimensions, often leading to worse performance.  Large kernels are better suited to extract features that are larger.  At the end of the day, choosing an appropriate kernel size will be dependent on your task and dataset, but generally, smaller kernel sizes lead to better performance for the image classification task because an architecture designer is able to stack <a href="https://arxiv.org/pdf/1409.1556.pdf" title="Learn why deeper networks perform better!">more and more layers together to learn more and more complex features</a>!</li>
-    	<li><strong>Stride</strong> indicates how many pixels the kernel should be shifted over at a time.  For example, as described in the convolutional layer example above, Tiny VGG uses a stride of 1 for its convolutional layers, which means that the dot product is performed on a 3x3 window of the input to yield an output value, then is shifted to the right by one pixel for every subsequent operation.  The impact stride has on a CNN is similar to kernel size.  As stride is decreased, more features are learned because more data is extracted, which also leads to larger output layers.  On the contrary, as stride is increased, this leads to more limited feature extraction and smaller output layer dimensions.  One responsibility of the architecture designer is to ensure that the kernel slides across the input symmetrically when implementing a CNN.  Use the hyperparameter visualization above to alter stride on various input/kernel dimensions to understand this constraint!</li>
-    </ol>
-    <h4>Activation Functions</h4>
-    <h6 id='article-relu'>ReLU</h6>
-    <p>
-    	Neural networks are extremely prevalent in modern technology&mdash;because they are so accurate!  The highest performing CNNs today consist of an absurd amount of layers, which are able to learn more and more features.  Part of the reason these groundbreaking CNNs are able to achieve such <a href="https://arxiv.org/pdf/1512.03385.pdf" title="ResNet">tremendous accuracies</a> is because of their non-linearity.  ReLU applies much-needed non-linearity into the model.  Non-linearity is necessary to produce non-linear decision boundaries, so that the output cannot be written as a linear combination of the inputs.  If a non-linear activation function was not present, deep CNN architectures would devolve into a single, equivalent convolutional layer, which would not perform nearly as well.  The ReLU activation function is specifically used as a non-linear activation function, as opposed to other non-linear functions such as <em>Sigmoid</em> because it has been <a href="https://arxiv.org/pdf/1906.01975.pdf" title="See page 29">empirically observed</a> that CNNs using ReLU are faster to train than their counterparts.
+      神经网络在现代技术中极为盛行-因为它们是如此的精确！当今性能最高的CNN包含大量荒谬的图层，可以学习越来越多的功能。这些突破性的CNN能够实现如此 <a href="https://arxiv.org/pdf/1512.03385.pdf" title="ResNet">强大的准确性</a> 是因为它们的非线性。  ReLU将急需的非线性应用到模型中。非线性是产生非线性决策边界所必需的，因此输出不能写成输入的线性组合。与其他非线性函数（例如Sigmoid）相反，ReLU激活函数专门用作非线性激活函数，因为从经验上已经观察到，使用ReLU的CNN的训练速度要快于它们的对应函数。
     </p>
     <p>
-  	The ReLU activation function is a one-to-one mathematical operation: {reluEquation}
+      ReLU激活函数是一对一的数学运算
     </p>
     <div class="figure">
     <img src="PUBLIC_URL/assets/figures/relu_graph.svg" alt="relu graph" width="30%" height="30%"/>
       <div class="figure-caption">
-        Figure 3. The ReLU activation function graphed, which disregards all negative data.
+        图3: 绘制的ReLU激活函数，该函数忽略了所有负面数据。
       </div>
     </div>
+    
+    <h6 id='article-softmax'><strong>Softmax函数</strong></h6>
     <p>
-  	This activation function is applied elementwise on every value from the input tensor.  For example, if applied ReLU on the value 2.24, the result would be 2.24, since 2.24 is larger than 0.  You can observe how this activation function is applied by clicking a ReLU neuron in the network above.  The Rectified Linear Activation function (ReLU) is performed after every convolutional layer in the network architecture outlined above.  Notice the impact this layer has on the activation map of various neurons throughout the network!
-    </p>
-    <h6 id='article-softmax'>Softmax</h6>
-    <p>
-    	{softmaxEquation}
-    	A softmax operation serves a key purpose: making sure the CNN outputs sum to 1.  Because of this, softmax operations are useful to scale model outputs into probabilities.  Clicking on the last layer reveals the softmax operation in the network. Notice how the logits after flatten aren’t scaled between zero to one.  For a visual indication of the impact of each logit (unscaled scalar value), they are encoded using a <span style="color:#FFC385;">light orange</span> &rarr; <span style="color:#C44103;">dark orange</span> color scale.  After passing through the softmax function, each class now corresponds to an appropriate probability! 
-    </p>
-    <p>
-    	You might be thinking what the difference between standard normalization and softmax is&mdash;after all, both rescale the logits between 0 and 1.  Remember that backpropagation is a key aspect of training neural networks&mdash;we want the correct answer to have the largest “signal.” By using softmax, we are effectively “approximating” argmax while gaining differentiability.  Rescaling doesn’t weigh the max significantly higher than other logits, whereas softmax does.  Simply put, softmax is a “softer” argmax&mdash;see what we did there?
+      softmax操作的主要作用是：确保CNN输出总和为1。因此，softmax操作可用于将模型输出缩放为概率。单击最后一层将显示网络中的softmax操作。通过softmax函数后，每个类现在对应一个适当的概率！
     </p>
     <div class="figure">
     <img src="PUBLIC_URL/assets/figures/softmax_animation.gif" alt="softmax interactive formula view"/>
       <div class="figure-caption">
-        Figure 4. The <em>Softmax Interactive Formula View</em> allows a user to interact with both the color encoded logits and formula to understand how the prediction scores after the flatten layer are normalized to yield classification scores.
-      </div>
+        图4：Softmax交互式公式视图允许用户与颜色编码的logit和公式进行交互，以了解在将扁平层之后的预测分数如何归一化以产生分类分数。</div>
     </div>
-    <h4 id='article-pooling'>Pooling Layers</h4>
+    <h4 id='article-pooling'><strong>池化层</strong></h4>
     <p>
-    	There are many types of pooling layers in different CNN architectures, but they all have the purpose of gradually decreasing the spatial extent of the network, which reduces the parameters and overall computation of the network.  The type of pooling used in the Tiny VGG architecture above is Max-Pooling.
+      在不同的CNN架构中，池化层的类型很多，但是它们的目的都是要逐渐减小网络的空间范围，从而减少网络的参数和总体计算。上面的Tiny VGG架构中使用的池类型为Max-Pooling。
     </p>
     <p>
-    	The Max-Pooling operation requires selecting a kernel size and a stride length during architecture design.  Once selected, the operation slides the kernel with the specified stride over the input while only selecting the largest value at each kernel slice from the input to yield a value for the output.  This process can be viewed by clicking a pooling neuron in the network above.
+      最大池操作需要在体系结构设计期间选择内核大小和步幅长度。选择后，该操作将以指定的步幅在输入上滑动内核，同时仅从输入中选择每个内核切片上的最大值以产生输出值。通过单击上方网络中的合并神经元，可以查看此过程。
     </p>
     <p>
-    	In the Tiny VGG architecture above, the pooling layers use a 2x2 kernel and a stride of 2.  This operation with these specifications results in the discarding of 75% of activations.  By discarding so many values, Tiny VGG is more computationally efficient and avoids overfitting.
+      在上面的Tiny VGG体系结构中，池化层使用的是2x2内核，步幅为2。使用这些规范进行此操作将导致75％的激活被丢弃。通过丢弃这么多值，Tiny VGG的计算效率更高，并且避免了过拟合。
     </p>
-    <h4 id='article-flatten'>Flatten Layer</h4>
+    <h4 id='article-flatten'><strong>展平层</strong></h4>
     <p>      
-      This layer converts a three-dimensional layer in the network into a one-dimensional vector to fit the  input of a fully-connected layer for classification.  For example, a 5x5x2 tensor would be converted into a vector of size 50.  The previous convolutional layers of the network extracted the features from the input image, but now it is time to classify the features.  We use the softmax function to classify these features, which requires a 1-dimensional input.  This is why the flatten layer is necessary.  This layer can be viewed by clicking any output class.  
+      该层将网络中的三维层转换为一维向量，以适合全连接层的输入以进行分类。例如，将一个5x5x2张量转换为大小为50的向量。网络的先前卷积层从输入图像中提取了特征，但是现在该对这些特征进行分类了。我们使用softmax函数对这些功能进行分类，这需要一维输入。这就是为什么需要平坦层的原因。可以通过单击任何输出类来查看此层。
     </p>
 
-    <h2>Interactive features</h2>
+    <h2><strong>互动功能</strong></h2>
     <ol>
-    	<li><strong>Upload your own image</strong> by selecting <img class="icon is-rounded" src="PUBLIC_URL/assets/figures/upload_image_icon.png" alt="upload image icon"/> to understand how your image is classified into the 10 classes.  By analyzing the neurons throughout the network, you can understand the activations maps and extracted features.</li>
-    	<li><strong>Change the activation map colorscale</strong> to better understand the impact of activations at different levels of abstraction by adjusting <img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/heatmap_scale.png" alt="heatmap"/>.</li>
-    	<li><strong>Understand network details</strong> such as layer dimensions and colorscales by clicking the <img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/network_details.png" alt="network details icon"/> icon.</li>
-    	<li><strong>Simulate network operations</strong> by clicking the <img class="icon is-rounded" src="PUBLIC_URL/assets/figures/play_button.png" alt="play icon"/> button or interact with the layer slice in the <em>Interactive Formula View</em> by hovering over portions of the input or output to understand the mappings and underlying operations.</li>
-      <li><strong>Learn layer functions</strong> by clicking <img class="icon is-rounded" src="PUBLIC_URL/assets/figures/info_button.png" alt="info icon"/> from the <em>Interactive Formula View</em> to read layer details from the article.</li>
+    	<li><strong>上传自己的图像：</strong> 通过选择 <img class="icon is-rounded" src="PUBLIC_URL/assets/figures/upload_image_icon.png" alt="upload image icon"/> 了解您的图像如何分为10类。通过分析整个网络中的神经元，您可以了解激活图和提取的特征。</li>
+    	<li><strong>更改激活图色标：</strong> to better understand the impact of activations at different levels of abstraction by adjusting <img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/heatmap_scale.png" alt="heatmap"/>.</li>
+    	<li><strong>了解网络详细信息：</strong> 单击 <img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/network_details.png" alt="network details icon"/> 图标，来进一步了解图层尺寸和色标。 </li>
+    	<li><strong>模拟网络操作：</strong> 通过点击 <img class="icon is-rounded" src="PUBLIC_URL/assets/figures/play_button.png" alt="play icon"/> 按钮，或通过将鼠标悬停在输入或输出的各个部分上 <em>交互式公式窗口</em> 来了解映射和基础操作</li>
+      <li><strong>了解图层功能：</strong> 通过单击 <img class="icon is-rounded" src="PUBLIC_URL/assets/figures/info_button.png" alt="info icon"/> 按钮，并从 <em>交互式公式窗口</em> 了解层的详细信息。</li>
     </ol> 
 
   </div>
