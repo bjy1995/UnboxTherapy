@@ -561,12 +561,12 @@ const drawLogitLayer = (arg) => {
   let detailViewTop = 100 + svgYMid - 192 / 2;
 
   const detailview = document.getElementById('detailview');
-  detailview.style.top = `${detailViewTop}px`;
-  detailview.style.left = `${pos.left - 490 - 50}px`;
+  detailview.style.top = `${detailViewTop + 8200}px`;
+  detailview.style.left = `${pos.left - 990 - 50}px`;
   detailview.style.position = 'absolute';
 
   softmaxDetailViewStore.set({
-    show: true,
+    show: true, 
     logits: logits,
     logitColors: logits.map(d => layerColorScales.logit(logitColorScale(d))),
     selectedI: selectedI,

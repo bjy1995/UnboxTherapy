@@ -291,22 +291,22 @@
       let wholeSvg = d3.select('#cnn-svg');
       let svgYMid = +wholeSvg.style('height').replace('px', '') / 2;
       let svgWidth = +wholeSvg.style('width').replace('px', '');
-      let detailViewTop = 100 + svgYMid - 250 / 2;
+      let detailViewTop = -svgYMid - 250 / 2;
       let positionX = intermediateLayerPosition[Object.keys(layerIndexDict)[curLayerIndex]];
 
       let posX = 0;
       if (curLayerIndex > 6) {
         posX = (positionX - svgPaddings.left) / 2;
-        posX = svgPaddings.left + posX - 486 / 2;
+        posX = svgPaddings.left + posX - 800 / 2;
       } else {
         posX = (svgWidth + svgPaddings.right - positionX) / 2;
-        posX = positionX + posX - 486 / 2;
+        posX = positionX + posX - 800 / 2;
       }
 
       const detailview = document.getElementById('detailview');
       detailview.style.top = `${detailViewTop}px`;
       detailview.style.left = `${posX}px`;
-      detailview.style.position = 'absolute';
+      detailview.style.position = 'relative';
 
       detailedViewNum = d.index;
 
@@ -560,22 +560,22 @@
     let wholeSvg = d3.select('#cnn-svg');
     let svgYMid = +wholeSvg.style('height').replace('px', '') / 2;
     let svgWidth = +wholeSvg.style('width').replace('px', '');
-    let detailViewTop = 100 + svgYMid - 260 / 2;
+    let detailViewTop = -svgYMid - 260 / 2;
 
     let posX = 0;
     if (curLayerIndex > 5) {
       posX = nodeCoordinate[curLayerIndex - 1][0].x + 50;
-      posX = posX / 2 - 500 / 2;
+      posX = posX / 2 - 800 / 2;
     } else {
       posX = (svgWidth - nodeCoordinate[curLayerIndex][0].x - nodeLength) / 2;
-      posX = nodeCoordinate[curLayerIndex][0].x + nodeLength + posX - 500 / 2;
+      posX = nodeCoordinate[curLayerIndex][0].x + nodeLength + posX - 800 / 2;
 
     }
 
     const detailview = document.getElementById('detailview');
     detailview.style.top = `${detailViewTop}px`;
     detailview.style.left = `${posX}px`;
-    detailview.style.position = 'absolute';
+    detailview.style.position = 'relative';
 
     // Hide all edges
     let unimportantEdges = svg.select('g.edge-group')

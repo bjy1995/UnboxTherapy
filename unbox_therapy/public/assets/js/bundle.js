@@ -1362,7 +1362,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (466:16) {#each labels as label, i}
+    // (467:16) {#each labels as label, i}
     function create_each_block(ctx) {
     	let p;
     	let t0_value = /*label*/ ctx[30] + "";
@@ -1379,7 +1379,7 @@ var app = (function () {
     			t2 = text(t2_value);
     			set_style(p, "font-style", "italic");
     			set_style(p, "fill", "gray");
-    			add_location(p, file, 466, 20, 14729);
+    			add_location(p, file, 467, 20, 14740);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1399,14 +1399,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(466:16) {#each labels as label, i}",
+    		source: "(467:16) {#each labels as label, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (464:18)                   
+    // (465:18)                   
     function fallback_block(ctx) {
     	let p;
     	let t0;
@@ -1434,7 +1434,7 @@ var app = (function () {
     			set_style(p, "font-size", "25px");
     			set_style(p, "font-style", "italic");
     			set_style(p, "color", "steelblue");
-    			add_location(p, file, 464, 16, 14581);
+    			add_location(p, file, 465, 16, 14592);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1486,7 +1486,7 @@ var app = (function () {
     		block,
     		id: fallback_block.name,
     		type: "fallback",
-    		source: "(464:18)                   ",
+    		source: "(465:18)                   ",
     		ctx
     	});
 
@@ -1580,7 +1580,7 @@ var app = (function () {
     			h20.textContent = "什么是KNN?";
     			t5 = space();
     			p0 = element("p");
-    			p0.textContent = "KNN 为K最近邻算法（K-Nearest Neighbor）的英文简称, 它的算法思想简单来说就是如果一个样本在特征空间中的K个最相似（即特征空间中最邻近）的样本中的大多数属于某一个类别，则该样本也属于这个类别。在这里我们用欧式距离定义特征之间的相似度，距离越近，两个样本的相似度越高。";
+    			p0.textContent = "KNN的基本思想有点类似“物以类聚，人以群分”，打个通俗的比方就是“如果你要了解一个人，可以从他最亲近的几个朋友去推测他是什么样的人”。\r\n      在分类领域，对于一个未知点，选取K个距离（可以是欧氏距离，也可以是其他相似度度量指标）最近的点，然后统计这K个点，在这K个点中频数最多的那一类就作为分类结果。";
     			t7 = space();
     			div3 = element("div");
     			h21 = element("h2");
@@ -1658,87 +1658,87 @@ var app = (function () {
     			attr_dev(div2, "class", "l--body svelte-c8ipky");
     			add_location(div2, file, 423, 4, 12963);
     			attr_dev(h21, "class", "title svelte-c8ipky");
-    			add_location(h21, file, 429, 6, 13230);
+    			add_location(h21, file, 430, 6, 13241);
     			attr_dev(p1, "class", "svelte-c8ipky");
-    			add_location(p1, file, 430, 6, 13270);
+    			add_location(p1, file, 431, 6, 13281);
     			attr_dev(p2, "class", "svelte-c8ipky");
-    			add_location(p2, file, 431, 6, 13350);
+    			add_location(p2, file, 432, 6, 13361);
     			attr_dev(div3, "class", "l--body svelte-c8ipky");
-    			add_location(div3, file, 428, 4, 13201);
+    			add_location(div3, file, 429, 4, 13212);
     			attr_dev(h22, "class", "title svelte-c8ipky");
-    			add_location(h22, file, 435, 6, 13449);
+    			add_location(h22, file, 436, 6, 13460);
     			attr_dev(p3, "class", "svelte-c8ipky");
-    			add_location(p3, file, 436, 6, 13484);
+    			add_location(p3, file, 437, 6, 13495);
     			attr_dev(p4, "class", "svelte-c8ipky");
-    			add_location(p4, file, 437, 6, 13535);
+    			add_location(p4, file, 438, 6, 13546);
     			attr_dev(div4, "class", "l--body svelte-c8ipky");
-    			add_location(div4, file, 434, 4, 13420);
+    			add_location(div4, file, 435, 4, 13431);
     			attr_dev(article, "id", "knnarticle");
     			attr_dev(article, "class", "svelte-c8ipky");
     			add_location(article, file, 414, 0, 12699);
     			attr_dev(i0, "class", "material-icons");
-    			add_location(i0, file, 447, 20, 13948);
+    			add_location(i0, file, 448, 20, 13959);
     			attr_dev(button0, "id", "add-layers");
     			attr_dev(button0, "class", "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab");
-    			add_location(button0, file, 446, 16, 13832);
+    			add_location(button0, file, 447, 16, 13843);
     			attr_dev(i1, "class", "material-icons");
-    			add_location(i1, file, 450, 20, 14145);
+    			add_location(i1, file, 451, 20, 14156);
     			attr_dev(button1, "id", "remove-layers");
     			attr_dev(button1, "class", "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab");
-    			add_location(button1, file, 449, 16, 14026);
+    			add_location(button1, file, 450, 16, 14037);
     			attr_dev(div5, "class", "ui-numHiddenLayers");
     			set_style(div5, "float", "left");
     			set_style(div5, "margin-right", "15px");
-    			add_location(div5, file, 445, 12, 13741);
+    			add_location(div5, file, 446, 12, 13752);
     			attr_dev(span, "id", "num-k");
     			set_style(span, "float", "left");
     			set_style(span, "margin-right", "5px");
     			set_style(span, "font-size", "25px");
     			attr_dev(span, "class", "svelte-c8ipky");
-    			add_location(span, file, 453, 12, 14242);
+    			add_location(span, file, 454, 12, 14253);
     			set_style(div6, "float", "left");
     			set_style(div6, "margin-right", "5px");
-    			add_location(div6, file, 444, 8, 13682);
+    			add_location(div6, file, 445, 8, 13693);
     			html_tag = new HtmlTag(null);
     			attr_dev(div7, "id", "top-legends");
     			attr_dev(div7, "class", "clearfix svelte-c8ipky");
-    			add_location(div7, file, 443, 4, 13633);
+    			add_location(div7, file, 444, 4, 13644);
     			attr_dev(svg_1, "id", "knn-svg");
-    			add_location(svg_1, file, 460, 12, 14448);
+    			add_location(svg_1, file, 461, 12, 14459);
     			attr_dev(div8, "class", "box1 svelte-c8ipky");
-    			add_location(div8, file, 459, 8, 14415);
+    			add_location(div8, file, 460, 8, 14426);
     			attr_dev(div9, "class", "box svelte-c8ipky");
     			set_style(div9, "position", "relative");
-    			add_location(div9, file, 462, 8, 14498);
+    			add_location(div9, file, 463, 8, 14509);
     			attr_dev(div10, "id", "knn-graph");
-    			add_location(div10, file, 458, 4, 14385);
+    			add_location(div10, file, 459, 4, 14396);
     			attr_dev(p5, "class", "svelte-c8ipky");
-    			add_location(p5, file, 472, 8, 14908);
+    			add_location(p5, file, 473, 8, 14919);
     			attr_dev(p6, "class", "svelte-c8ipky");
-    			add_location(p6, file, 473, 8, 14958);
+    			add_location(p6, file, 474, 8, 14969);
     			attr_dev(div11, "id", "explain");
     			attr_dev(div11, "class", "svelte-c8ipky");
-    			add_location(div11, file, 471, 4, 14880);
+    			add_location(div11, file, 472, 4, 14891);
     			attr_dev(div12, "id", "knn");
     			attr_dev(div12, "class", "svelte-c8ipky");
-    			add_location(div12, file, 442, 0, 13613);
+    			add_location(div12, file, 443, 0, 13624);
     			attr_dev(h3, "class", "title svelte-c8ipky");
-    			add_location(h3, file, 479, 6, 15053);
+    			add_location(h3, file, 480, 6, 15064);
     			attr_dev(p7, "class", "svelte-c8ipky");
-    			add_location(p7, file, 480, 6, 15089);
+    			add_location(p7, file, 481, 6, 15100);
     			attr_dev(div13, "class", "l--body svelte-c8ipky");
-    			add_location(div13, file, 478, 4, 15024);
-    			add_location(p8, file, 483, 6, 15147);
+    			add_location(div13, file, 479, 4, 15035);
+    			add_location(p8, file, 484, 6, 15158);
     			attr_dev(div14, "class", "lasttext svelte-c8ipky");
-    			add_location(div14, file, 482, 4, 15117);
+    			add_location(div14, file, 483, 4, 15128);
     			attr_dev(div15, "class", "return svelte-c8ipky");
-    			add_location(div15, file, 486, 8, 15221);
+    			add_location(div15, file, 487, 8, 15232);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "rel", "prefetch");
-    			add_location(a, file, 485, 4, 15175);
+    			add_location(a, file, 486, 4, 15186);
     			attr_dev(footer, "id", "foot");
     			attr_dev(footer, "class", "svelte-c8ipky");
-    			add_location(footer, file, 477, 0, 15000);
+    			add_location(footer, file, 478, 0, 15011);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13212,7 +13212,7 @@ var app = (function () {
       hSpaceAroundGap = (width - nodeLength$2 * numLayers) / (6 + 3 * gapRatio);
       hSpaceAroundGapStore.set(hSpaceAroundGap);
       let leftAccuumulatedSpace = 0;
-
+      nodeCoordinate = [];
       // Iterate through the cnn to draw nodes in each layer
       for (let l = 0; l < cnn.length; l++) {
         let curLayer = cnn[l];
@@ -16230,12 +16230,12 @@ var app = (function () {
       let detailViewTop = 100 + svgYMid - 192 / 2;
 
       const detailview = document.getElementById('detailview');
-      detailview.style.top = `${detailViewTop}px`;
-      detailview.style.left = `${pos.left - 490 - 50}px`;
+      detailview.style.top = `${detailViewTop + 8200}px`;
+      detailview.style.left = `${pos.left - 990 - 50}px`;
       detailview.style.position = 'absolute';
 
       softmaxDetailViewStore.set({
-        show: true,
+        show: true, 
         logits: logits,
         logitColors: logits.map(d => layerColorScales$5.logit(logitColorScale(d))),
         selectedI: selectedI,
@@ -18223,12 +18223,12 @@ var app = (function () {
     			attr_dev(img, "title", img_title_value = /*image*/ ctx[83].class);
     			attr_dev(img, "data-imagename", img_data_imagename_value = /*image*/ ctx[83].file);
     			attr_dev(img, "class", "svelte-1t9jxuh");
-    			add_location(img, file$l, 1516, 10, 50009);
+    			add_location(img, file$l, 1516, 10, 49999);
     			attr_dev(div, "class", "image-container svelte-1t9jxuh");
     			attr_dev(div, "data-imagename", div_data_imagename_value = /*image*/ ctx[83].file);
     			toggle_class(div, "inactive", /*selectedImage*/ ctx[5] !== /*image*/ ctx[83].file);
     			toggle_class(div, "disabled", /*disableControl*/ ctx[4]);
-    			add_location(div, file$l, 1511, 8, 49760);
+    			add_location(div, file$l, 1511, 8, 49750);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -18626,43 +18626,43 @@ var app = (function () {
     			attr_dev(img, "alt", "plus button");
     			attr_dev(img, "title", "Add new input image");
     			attr_dev(img, "data-imagename", "custom");
-    			add_location(img, file$l, 1530, 10, 50486);
+    			add_location(img, file$l, 1530, 10, 50476);
     			attr_dev(i0, "class", "fas fa-circle fa-stack-2x");
-    			add_location(i0, file$l, 1538, 12, 50785);
+    			add_location(i0, file$l, 1538, 12, 50775);
     			attr_dev(i1, "class", "fas fa-pen fa-stack-1x fa-inverse");
-    			add_location(i1, file$l, 1539, 12, 50840);
+    			add_location(i1, file$l, 1539, 12, 50830);
     			attr_dev(span0, "class", "fa-stack edit-icon svelte-1t9jxuh");
     			toggle_class(span0, "hidden", /*customImageURL*/ ctx[10] === null);
-    			add_location(span0, file$l, 1536, 10, 50686);
+    			add_location(span0, file$l, 1536, 10, 50676);
     			attr_dev(div0, "class", "image-container svelte-1t9jxuh");
     			attr_dev(div0, "data-imagename", div0_data_imagename_value = "custom");
     			toggle_class(div0, "inactive", /*selectedImage*/ ctx[5] !== "custom");
     			toggle_class(div0, "disabled", /*disableControl*/ ctx[4]);
-    			add_location(div0, file$l, 1524, 8, 50239);
+    			add_location(div0, file$l, 1524, 8, 50229);
     			attr_dev(i2, "class", "fas fa-crosshairs ");
-    			add_location(i2, file$l, 1548, 10, 51134);
+    			add_location(i2, file$l, 1548, 10, 51124);
     			attr_dev(span1, "class", "icon");
     			set_style(span1, "margin-right", "5px");
-    			add_location(span1, file$l, 1547, 8, 51076);
+    			add_location(span1, file$l, 1547, 8, 51066);
     			attr_dev(span2, "id", "hover-label-text");
-    			add_location(span2, file$l, 1550, 8, 51195);
+    			add_location(span2, file$l, 1550, 8, 51185);
     			attr_dev(button, "class", "button is-very-small is-link is-light svelte-1t9jxuh");
     			attr_dev(button, "id", "hover-label");
     			set_style(button, "opacity", /*hoverInfo*/ ctx[2].show ? 1 : 0);
-    			add_location(button, file$l, 1544, 6, 50936);
+    			add_location(button, file$l, 1544, 6, 50926);
     			attr_dev(div1, "class", "left-control svelte-1t9jxuh");
-    			add_location(div1, file$l, 1509, 4, 49684);
+    			add_location(div1, file$l, 1509, 4, 49674);
     			attr_dev(div2, "class", "control-container svelte-1t9jxuh");
-    			add_location(div2, file$l, 1507, 2, 49645);
+    			add_location(div2, file$l, 1507, 2, 49635);
     			attr_dev(svg_1, "id", "cnn-svg");
     			attr_dev(svg_1, "class", "svelte-1t9jxuh");
-    			add_location(svg_1, file$l, 1592, 4, 52319);
+    			add_location(svg_1, file$l, 1592, 4, 52309);
     			attr_dev(div3, "class", "cnn svelte-1t9jxuh");
-    			add_location(div3, file$l, 1591, 2, 52296);
+    			add_location(div3, file$l, 1591, 2, 52286);
     			attr_dev(div4, "class", "overview svelte-1t9jxuh");
-    			add_location(div4, file$l, 1504, 0, 49584);
+    			add_location(div4, file$l, 1504, 0, 49574);
     			attr_dev(div5, "id", "detailview");
-    			add_location(div5, file$l, 1598, 0, 52388);
+    			add_location(div5, file$l, 1598, 0, 52378);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -19191,22 +19191,22 @@ var app = (function () {
 
     			let svgYMid = +wholeSvg.style("height").replace("px", "") / 2;
     			let svgWidth = +wholeSvg.style("width").replace("px", "");
-    			let detailViewTop = 100 + svgYMid - 250 / 2;
+    			let detailViewTop = -svgYMid - 250 / 2;
     			let positionX = intermediateLayerPosition[Object.keys(layerIndexDict)[curLayerIndex]];
     			let posX = 0;
 
     			if (curLayerIndex > 6) {
     				posX = (positionX - svgPaddings.left) / 2;
-    				posX = svgPaddings.left + posX - 486 / 2;
+    				posX = svgPaddings.left + posX - 800 / 2;
     			} else {
     				posX = (svgWidth + svgPaddings.right - positionX) / 2;
-    				posX = positionX + posX - 486 / 2;
+    				posX = positionX + posX - 800 / 2;
     			}
 
     			const detailview = document.getElementById("detailview");
     			detailview.style.top = `${detailViewTop}px`;
     			detailview.style.left = `${posX}px`;
-    			detailview.style.position = "absolute";
+    			detailview.style.position = "relative";
     			detailedViewNum = d.index;
 
     			// Send the currently used color range to detailed view
@@ -19400,21 +19400,21 @@ var app = (function () {
 
     		let svgYMid = +wholeSvg.style("height").replace("px", "") / 2;
     		let svgWidth = +wholeSvg.style("width").replace("px", "");
-    		let detailViewTop = 100 + svgYMid - 260 / 2;
+    		let detailViewTop = -svgYMid - 260 / 2;
     		let posX = 0;
 
     		if (curLayerIndex > 5) {
     			posX = nodeCoordinate[curLayerIndex - 1][0].x + 50;
-    			posX = posX / 2 - 500 / 2;
+    			posX = posX / 2 - 800 / 2;
     		} else {
     			posX = (svgWidth - nodeCoordinate[curLayerIndex][0].x - nodeLength) / 2;
-    			posX = nodeCoordinate[curLayerIndex][0].x + nodeLength + posX - 500 / 2;
+    			posX = nodeCoordinate[curLayerIndex][0].x + nodeLength + posX - 800 / 2;
     		}
 
     		const detailview = document.getElementById("detailview");
     		detailview.style.top = `${detailViewTop}px`;
     		detailview.style.left = `${posX}px`;
-    		detailview.style.position = "absolute";
+    		detailview.style.position = "relative";
 
     		// Hide all edges
     		let unimportantEdges = svg.select("g.edge-group").selectAll(".edge").filter(d => {

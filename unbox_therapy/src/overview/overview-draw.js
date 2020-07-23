@@ -421,7 +421,7 @@ export const drawCNN = (width, height, cnnGroup, nodeMouseOverHandler,
   hSpaceAroundGap = (width - nodeLength * numLayers) / (6 + 3 * gapRatio);
   hSpaceAroundGapStore.set(hSpaceAroundGap);
   let leftAccuumulatedSpace = 0;
-
+  nodeCoordinate = [];
   // Iterate through the cnn to draw nodes in each layer
   for (let l = 0; l < cnn.length; l++) {
     let curLayer = cnn[l];
