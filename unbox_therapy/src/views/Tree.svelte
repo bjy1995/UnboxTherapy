@@ -350,6 +350,12 @@
         margin-right: auto;
         max-width: 78ch;
     }
+    #article p{
+        margin: 16px 0;
+        color: #555;
+        font-size: 17px;
+        line-height: 1.6;
+    }
     #treebody{
         position:relative;
         width: 100%;
@@ -366,20 +372,15 @@
         border-top: solid 1px #eee;
         padding: 20px 20px;
     }
-    #foot p{
-        padding-top: 20px;
-    }
     #foot .lasttext{
         font-style: italic;
         font-size: 20px;
-        color: rgb(226, 195, 90);
+        color: peru;
     }
     #treebody {
         width: 100%;
         margin: auto;
-        font-family: "Helvetica Neue", Helvetica;
     }
-
     .return {
         position: absolute;
         right: -300px;
@@ -391,22 +392,28 @@
     .title{
         font-style: italic;
         color: steelblue;
+        font-size: 24px;
+        font-weight: 450;
+        margin-bottom: 8px;
+        margin-top: 44px;
     }
-    .l--body h2{
-        padding-top: 20px;
-    }
-    .l--body p{
-        font-size: 18px;
+    .footbody p{
+        margin: 16px 0;
+        color: #555;
+        font-size: 17px;
+        line-height: 1.6;
     }
 </style>
 
 <div id="article">
     <div id="One"><h1>Section: 决策树</h1></div>
-    <div>
-        <h5>
-            你想起之前有一个学园艺的哥哥，你问他：“这是哪一类的鸢尾花？”他向你询问更多的细节：你先看“它的花萼长吗？”，如果是“长花萼”，我们再看“它的花瓣是怎样的形态？”，是“窄花瓣”，那我们得到最终决策：这是山鸢尾花。 
-        </h5>
-    </div>
+    <p>
+        <strong>
+            第二天，你在网上看到了一个叫做决策树的分类模型，看到了决策树的基本原理之时，你想起了之前询问一个学园艺的哥哥的经历，你问他：“这是哪一类的鸢尾花？”他向你询问更多的细节：“你先看它的花萼长吗？，如果是长花萼，我们再看看它的花瓣是怎样的形态？哦，是窄花瓣，那这应该是山鸢尾花。” 
+            结合之前的经历，你于是明白了这就是一个决策的过程。在理解了什么是决策的过程之后，你对决策树是如何进行具体决策的过程愈发感兴趣，于是你开始了进一步的学习。
+        </strong>
+    </p>
+
     <div class="l--body">
       <h2 class='title'>决策树模型</h2>
         <ul> 
@@ -431,7 +438,7 @@
     </div>
     <div class="l--body">
       <h2 class='title'>尝试一下</h2>
-      <p>小明现在已经训练好了一个决策树的分类模型了，你要如何帮助他来使用这个模型呢？如果你再测量一朵鸢尾花的值，决策树是怎样做出预测的呢？这一朵新的鸢尾花，从根节点开始，跟着决策树分支的分叉顺序走到叶节点。叶节点是那一类，就预测那一类。每条路径构成了做出预测的规则。这样走到最后便能对这朵鸢尾花的类别做出预测。</p>
+      <p>在经过一番研究之后，你终于利用现有的数据训练好了一个决策树的分类模型了。这时候如果你得到了一个新的鸢尾花的数据，决策树会如何做出决策呢？根据下方的决策树模型，来看看它是如何做出决策的吧！</p>
     </div>
 </div>
 <div id="treebody">
@@ -439,12 +446,12 @@
 </div>
 
 <footer id="foot">
-    <div class="l--body">
+    <div class="footbody">
       <h3 class='title'>扩展与补充</h3>
       <p>决策树算法广泛应用于：语音识别、医疗诊断、客户关系管理、模式识别、专家系统等，在实际工作中，必须根据数据类型的特点及数据集的大小，选择合适的算法。想了解更多的相关知识，可以在机器学习相关的书籍中更详细的决策树原理。</p>
     </div>
     <div class="lasttext">
-      <p>小明是一个想法很多的同学，他觉得决策树的分类结果并不能够让他十分满意，让我们看看他又尝试了那些方法吧！</p>
+      <p>决策树是模仿一个人进行决策的过程，这让你想起了查阅资料过程中无意中看到的一个叫神经网络的模型，它好像是根据模仿人脑神经结构所提出来的一种模型，那么这种更加深入的模仿人脑神经运作的网络是不是能够更为有效的识别出鸢尾花的品种呢？你又带着更大的好奇心开始了新一轮的探索。。。</p>
     </div>
     <a href="/" use:link rel="prefetch">
         <div class="return">返回</div>

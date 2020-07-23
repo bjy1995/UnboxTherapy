@@ -323,10 +323,16 @@
         border-top: solid 1px #eee;
         padding: 20px 20px;
     }
+    .footbody p{
+        margin: 16px 0;
+        color: #555;
+        font-size: 17px;
+        line-height: 1.6;
+    }
     #foot .lasttext{
         font-style: italic;
         font-size: 20px;
-        color: rgb(226, 195, 90);
+        color: peru;
     }
 
 	.box {
@@ -391,12 +397,17 @@
     .title{
         font-style: italic;
         color: steelblue;
+        font-size: 24px;
+        font-weight: 450;
+        margin-bottom: 8px;
+        margin-top: 44px;
     }
-    .l--body h2{
-        padding-top: 20px;
-    }
-    .l--body p{
-        font-size: 18px;
+
+    #knnarticle p{
+        margin: 16px 0;
+        color: #555;
+        font-size: 17px;
+        line-height: 1.6;
     }
     #explain{
         position: relative;
@@ -414,13 +425,13 @@
 
 <article id="knnarticle">
     <div id="One"><h1>Section: KNN</h1></div>
-    <div>
-        <h5>
+    <p>
+        <strong>
             你将之前测量的花瓣的长度x1，花萼的长度x2，在坐标轴上画出了他们的分布（x1,
 			x2）。你发现了从这个二维的坐标平面上似乎比之前的用“树”的结构来表示判断条件更为直观。
 			那在这个坐标平面上要如何对鸢尾花进行分类预测呢？  
-        </h5>
-    </div>
+        </strong>
+    </p>
     <div class="l--body">
       <h2 class="title">什么是KNN?</h2>
       <p>KNN的基本思想有点类似“物以类聚，人以群分”，打个通俗的比方就是“如果你要了解一个人，可以从他最亲近的几个朋友去推测他是什么样的人”。
@@ -435,7 +446,7 @@
 
     <div class="l--body">
       <h2 class="title">尝试一下</h2>
-      <p>小明根据要求绘制好了可视化图像，并将未知品种的鸢尾花以黄点标注在了图中。</p>
+      <p>你根据要求绘制好了可视化图像，并将未知品种的鸢尾花以黄点标注在了图中。</p>
       <p>拖动黄点试试吧，右上角会显示此时样本的预测类别，以及距离最近的K个样本的种类数目。</p>
     </div>
 </article>
@@ -477,12 +488,13 @@
 </div>
 
 <footer id="foot">
-    <div class="l--body">
+    <div class="footbody">
       <h3 class='title'>扩展与补充</h3>
-      <p>待补充</p>
+      <p>KNN方法思路简单，易于理解，易于实现，无需估计参数，无需训练, 是一个理论上比较成熟的方法，也是最简单的机器学习算法之一，比较适用于比较大的类域的自动分类。但KNN也有自己的不足之处，它的计算量比较大，同时在不同类别的样本数量差距较大时，结果容易受到大样本的影响。</p>
+      <p>目前针对KNN也有着许多的改进方法，值得你的进一步的探索了解。</p>
     </div>
     <div class="lasttext">
-      <p>待补充</p>
+      <p>尝试过KNN的你发现虽然这个方法简单直观，但效果并没有想象中那么好，同时k值的设定也是一个难题，因此你开始寻找有没有更好的方法来识别鸢尾花的品种。</p>
     </div>
     <a href="/" use:link rel="prefetch">
         <div class="return">返回</div>

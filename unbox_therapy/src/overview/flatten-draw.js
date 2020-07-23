@@ -561,7 +561,7 @@ const drawLogitLayer = (arg) => {
   let detailViewTop = 100 + svgYMid - 192 / 2;
 
   const detailview = document.getElementById('detailview');
-  detailview.style.top = `${detailViewTop + 8200}px`;
+  detailview.style.top = `${detailViewTop + 2300}px`;
   detailview.style.left = `${pos.left - 990 - 50}px`;
   detailview.style.position = 'absolute';
 
@@ -760,21 +760,16 @@ const softmaxClicked = (arg) => {
           .attr('class', 'annotation-text softmax-detail-text')
           .style('dominant-baseline', 'baseline')
           .style('text-anchor', 'middle')
-          .text('Normalize ');
-        
-        text.append('tspan') 
-          .attr('dx', 1)
-          .style('fill', '#E56014')
-          .text('logits');
+          .text('SoftMax将Logit的值');
         
         text.append('tspan')
           .attr('dx', 1)
-          .text(' into');
+          .text(' 转化为');
 
         text.append('tspan')
           .attr('x', textX)
           .attr('dy', '1.1em')
-          .text('class probabilities');
+          .text('类别概率');
 
         if (selectedI === 0) {
           drawArrow({
@@ -831,50 +826,6 @@ const softmaxClicked = (arg) => {
           .attr('dy', '1.5em')
           .text('(10)');
 
-        softmaxDetailAnnotation.append('text')
-          .attr('class', 'annotation-text')
-          .attr('x', textX)
-          .attr('y', (svgPaddings.top + vSpaceAroundGap) / 2 + 3)
-          .style('text-anchor', 'start')
-          .text('Before')
-          .append('tspan')
-          .attr('x', textX)
-          .attr('dy', '1em')
-          .text('normalization')
-
-
-        drawArrow({
-          group: softmaxDetailAnnotation,
-          tx: arrowTX,
-          ty: arrowTY,
-          sx: textX - 6,
-          sy: textY + 2,
-          dr: 60,
-          hFlip: false,
-          marker: 'marker-alt'
-        });
-
-        softmaxDetailAnnotation.append('text')
-          .attr('class', 'annotation-text')
-          .attr('x', nodeCoordinate[layerIndexDict['output']][0].x - 35)
-          .attr('y', (svgPaddings.top + vSpaceAroundGap) / 2 + 3)
-          .style('text-anchor', 'end')
-          .text('After')
-          .append('tspan')
-          .attr('x', nodeCoordinate[layerIndexDict['output']][0].x - 35)
-          .attr('dy', '1em')
-          .text('normalization')
-
-        drawArrow({
-          group: softmaxDetailAnnotation,
-          tx: nodeCoordinate[layerIndexDict['output']][0].x - 8,
-          ty: arrowTY,
-          sx: nodeCoordinate[layerIndexDict['output']][0].x - 27,
-          sy: textY + 2,
-          dr: 60,
-          hFlip: true,
-          marker: 'marker-alt'
-        });
 
         // Add annotation for the logit circle
         for (let i = 0; i < 15; i++) {

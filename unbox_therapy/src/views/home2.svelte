@@ -114,7 +114,7 @@
             <h2 class="el__heading" style="color:#f6f6f6">Section 1</h2>
           </div>
           <div class="el__content">
-            <a href="/old" use:link rel="prefetch">
+            <a href="/knn" use:link rel="prefetch">
               <div class="el__text">Enter Section 1</div>
             </a>
             <div class="el__close-btn" />
@@ -138,7 +138,7 @@
             <h2 class="el__heading" style="color:#f6f6f6">Section 2</h2>
           </div>
           <div class="el__content">
-            <a href="/knn" use:link rel="prefetch">
+            <a href="/tree" use:link rel="prefetch">
               <div class="el__text">Enter Section 2</div>
             </a>
             <div class="el__close-btn" />
@@ -162,7 +162,7 @@
             <h2 class="el__heading" style="color:#f6f6f6">Section 3</h2>
           </div>
           <div class="el__content">
-            <a href="/tree" use:link rel="prefetch">
+            <a href="/" use:link rel="prefetch">
               <div class="el__text">Enter Section 3</div>
             </a>
             <div class="el__close-btn" />
@@ -211,7 +211,7 @@
           </div>
           <div class="el__content">
             <a href="/" use:link rel="prefetch">
-              <div class="el__text">Enter Section 5</div>
+              <div class="el__text">Continue...</div>
             </a>
             <div class="el__close-btn" />
           </div>

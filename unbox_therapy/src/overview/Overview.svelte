@@ -1070,6 +1070,7 @@
   let selectedI = 4;
 
   onMount(async () => {
+    window.scrollTo(0,0);
     // Create SVG
     wholeSvg = d3.select(overviewComponent)
       .select('#cnn-svg');

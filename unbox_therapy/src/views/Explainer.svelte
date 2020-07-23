@@ -44,8 +44,9 @@
     color: rgb(226, 195, 90);
   }
   #foot .addition p{
-    padding-top: 0px;
-    font-size: 20px;
+    color: #555;
+    font-size: 17px;
+    line-height: 1.6;
   }
   .return {
     position: absolute;
@@ -56,11 +57,12 @@
     color: steelblue;
   }
   .title{
-    padding-top: 20px;
-    padding-bottom: 0px;
     font-style: italic;
     color: steelblue;
-    font-size: 30px;
+    font-size: 24px;
+    font-weight: 450;
+    margin-bottom: 8px;
+    margin-top: 44px;
   }
 </style>
 <div id="article">
@@ -70,12 +72,9 @@
   <Overview />
 </div>
 <footer id="foot">
-    <p class='title'><b>扩展与补充</b></p>
+    <p class='title'>扩展与补充</p>
     <div class="addition">
-      <p>待补充</p>
-    </div>
-    <div class="lasttext">
-      <p>待补充</p>
+      <p>CNN除了能够进行图像分类任务之外，还能够用于图像分割、目标检测等一些更加复杂的任务。同时，由于它的参数共享机制，使得相比于神经网络而已有着更少的网络参数量。在研究者们的努力之下，各种更新更有效的网络设计以及卷积方式得以被提出。CNN还有许多有趣的地方等待着你的探索。</p>
     </div>
     <a href="/" use:link rel="prefetch">
         <div class="return">返回</div>
