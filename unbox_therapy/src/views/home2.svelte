@@ -162,7 +162,7 @@
             <h2 class="el__heading" style="color:#f6f6f6">Section 3</h2>
           </div>
           <div class="el__content">
-            <a href="/" use:link rel="prefetch">
+            <a a target="_blank" href="/dist/index.html" >
               <div class="el__text">Enter Section 3</div>
             </a>
             <div class="el__close-btn" />
