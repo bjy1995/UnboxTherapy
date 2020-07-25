@@ -9,9 +9,10 @@
     height: 100%;
   }
   #app-page .content {
-    padding-top: 90px;
+    padding-top: 62px;
     height: 100%;
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font: "Dosis", sans-serif;
   }
   #app-page .page_header {
     position: fixed;
@@ -26,7 +27,7 @@
     background: white;
     z-index: 100;
     box-shadow: 0 -0.4rem 0.9rem 0.2rem rgba(0, 0, 0, 0.5);
-    background-color: #37474f;
+    background-color: rgb(29, 29, 48);
   }
   #app-page .page_header a {
     text-decoration: none;
@@ -34,12 +35,6 @@
     color: #f6f6f6;
     font-size: 15px;
     font-weight: 500;
-  }
-  .menu_ul {
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
 </style>
 

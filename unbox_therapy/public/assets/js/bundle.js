@@ -128,6 +128,14 @@ var app = (function () {
         else if (node.getAttribute(attribute) !== value)
             node.setAttribute(attribute, value);
     }
+    function set_custom_element_data(node, prop, value) {
+        if (prop in node) {
+            node[prop] = value;
+        }
+        else {
+            attr(node, prop, value);
+        }
+    }
     function to_number(value) {
         return value === '' ? undefined : +value;
     }
@@ -1379,7 +1387,7 @@ var app = (function () {
     			t2 = text(t2_value);
     			set_style(p, "font-style", "italic");
     			set_style(p, "fill", "gray");
-    			add_location(p, file, 478, 20, 14990);
+    			add_location(p, file, 478, 20, 14991);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1434,7 +1442,7 @@ var app = (function () {
     			set_style(p, "font-size", "25px");
     			set_style(p, "font-style", "italic");
     			set_style(p, "color", "steelblue");
-    			add_location(p, file, 476, 16, 14842);
+    			add_location(p, file, 476, 16, 14843);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1557,7 +1565,7 @@ var app = (function () {
     	let p10;
     	let t39;
     	let a;
-    	let div14;
+    	let ion_icon;
     	let link_action;
     	let current;
     	let mounted;
@@ -1649,104 +1657,105 @@ var app = (function () {
     			p10.textContent = "尝试过KNN的你发现虽然这个方法简单直观，但效果并没有想象中那么好，同时k值的设定也是一个难题，因此你开始寻找有没有更好的方法来识别鸢尾花的品种。";
     			t39 = space();
     			a = element("a");
-    			div14 = element("div");
-    			div14.textContent = "返回";
-    			add_location(h1, file, 426, 18, 12991);
+    			ion_icon = element("ion-icon");
+    			add_location(h1, file, 426, 18, 12992);
     			attr_dev(div0, "id", "One");
-    			add_location(div0, file, 426, 4, 12977);
-    			add_location(strong, file, 428, 8, 13037);
-    			attr_dev(p0, "class", "svelte-60aox3");
-    			add_location(p0, file, 427, 4, 13024);
-    			attr_dev(h20, "class", "title svelte-60aox3");
-    			add_location(h20, file, 435, 6, 13243);
-    			attr_dev(p1, "class", "svelte-60aox3");
-    			add_location(p1, file, 436, 6, 13281);
+    			add_location(div0, file, 426, 4, 12978);
+    			add_location(strong, file, 428, 8, 13038);
+    			attr_dev(p0, "class", "svelte-yydznf");
+    			add_location(p0, file, 427, 4, 13025);
+    			attr_dev(h20, "class", "title svelte-yydznf");
+    			add_location(h20, file, 435, 6, 13244);
+    			attr_dev(p1, "class", "svelte-yydznf");
+    			add_location(p1, file, 436, 6, 13282);
     			attr_dev(div1, "class", "l--body");
-    			add_location(div1, file, 434, 4, 13214);
-    			attr_dev(h21, "class", "title svelte-60aox3");
-    			add_location(h21, file, 441, 6, 13492);
-    			attr_dev(p2, "class", "svelte-60aox3");
-    			add_location(p2, file, 442, 6, 13532);
-    			attr_dev(p3, "class", "svelte-60aox3");
-    			add_location(p3, file, 443, 6, 13612);
+    			add_location(div1, file, 434, 4, 13215);
+    			attr_dev(h21, "class", "title svelte-yydznf");
+    			add_location(h21, file, 441, 6, 13493);
+    			attr_dev(p2, "class", "svelte-yydznf");
+    			add_location(p2, file, 442, 6, 13533);
+    			attr_dev(p3, "class", "svelte-yydznf");
+    			add_location(p3, file, 443, 6, 13613);
     			attr_dev(div2, "class", "l--body");
-    			add_location(div2, file, 440, 4, 13463);
-    			attr_dev(h22, "class", "title svelte-60aox3");
-    			add_location(h22, file, 447, 6, 13711);
-    			attr_dev(p4, "class", "svelte-60aox3");
-    			add_location(p4, file, 448, 6, 13746);
-    			attr_dev(p5, "class", "svelte-60aox3");
-    			add_location(p5, file, 449, 6, 13796);
+    			add_location(div2, file, 440, 4, 13464);
+    			attr_dev(h22, "class", "title svelte-yydznf");
+    			add_location(h22, file, 447, 6, 13712);
+    			attr_dev(p4, "class", "svelte-yydznf");
+    			add_location(p4, file, 448, 6, 13747);
+    			attr_dev(p5, "class", "svelte-yydznf");
+    			add_location(p5, file, 449, 6, 13797);
     			attr_dev(div3, "class", "l--body");
-    			add_location(div3, file, 446, 4, 13682);
+    			add_location(div3, file, 446, 4, 13683);
     			attr_dev(article, "id", "knnarticle");
-    			attr_dev(article, "class", "svelte-60aox3");
-    			add_location(article, file, 425, 0, 12946);
+    			attr_dev(article, "class", "svelte-yydznf");
+    			add_location(article, file, 425, 0, 12947);
     			attr_dev(i0, "class", "material-icons");
-    			add_location(i0, file, 459, 20, 14209);
+    			add_location(i0, file, 459, 20, 14210);
     			attr_dev(button0, "id", "add-layers");
     			attr_dev(button0, "class", "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab");
-    			add_location(button0, file, 458, 16, 14093);
+    			add_location(button0, file, 458, 16, 14094);
     			attr_dev(i1, "class", "material-icons");
-    			add_location(i1, file, 462, 20, 14406);
+    			add_location(i1, file, 462, 20, 14407);
     			attr_dev(button1, "id", "remove-layers");
     			attr_dev(button1, "class", "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab");
-    			add_location(button1, file, 461, 16, 14287);
+    			add_location(button1, file, 461, 16, 14288);
     			attr_dev(div4, "class", "ui-numHiddenLayers");
     			set_style(div4, "float", "left");
     			set_style(div4, "margin-right", "15px");
-    			add_location(div4, file, 457, 12, 14002);
+    			add_location(div4, file, 457, 12, 14003);
     			attr_dev(span, "id", "num-k");
     			set_style(span, "float", "left");
     			set_style(span, "margin-right", "5px");
     			set_style(span, "font-size", "25px");
-    			attr_dev(span, "class", "svelte-60aox3");
-    			add_location(span, file, 465, 12, 14503);
+    			attr_dev(span, "class", "svelte-yydznf");
+    			add_location(span, file, 465, 12, 14504);
     			set_style(div5, "float", "left");
     			set_style(div5, "margin-right", "5px");
-    			add_location(div5, file, 456, 8, 13943);
+    			add_location(div5, file, 456, 8, 13944);
     			html_tag = new HtmlTag(null);
     			attr_dev(div6, "id", "top-legends");
-    			attr_dev(div6, "class", "clearfix svelte-60aox3");
-    			add_location(div6, file, 455, 4, 13894);
+    			attr_dev(div6, "class", "clearfix svelte-yydznf");
+    			add_location(div6, file, 455, 4, 13895);
     			attr_dev(svg_1, "id", "knn-svg");
-    			add_location(svg_1, file, 472, 12, 14709);
-    			attr_dev(div7, "class", "box1 svelte-60aox3");
-    			add_location(div7, file, 471, 8, 14676);
-    			attr_dev(div8, "class", "box svelte-60aox3");
+    			add_location(svg_1, file, 472, 12, 14710);
+    			attr_dev(div7, "class", "box1 svelte-yydznf");
+    			add_location(div7, file, 471, 8, 14677);
+    			attr_dev(div8, "class", "box svelte-yydznf");
     			set_style(div8, "position", "relative");
-    			add_location(div8, file, 474, 8, 14759);
+    			add_location(div8, file, 474, 8, 14760);
     			attr_dev(div9, "id", "knn-graph");
-    			add_location(div9, file, 470, 4, 14646);
-    			attr_dev(p6, "class", "svelte-60aox3");
-    			add_location(p6, file, 484, 8, 15169);
-    			attr_dev(p7, "class", "svelte-60aox3");
-    			add_location(p7, file, 485, 8, 15219);
+    			add_location(div9, file, 470, 4, 14647);
+    			attr_dev(p6, "class", "svelte-yydznf");
+    			add_location(p6, file, 484, 8, 15170);
+    			attr_dev(p7, "class", "svelte-yydznf");
+    			add_location(p7, file, 485, 8, 15220);
     			attr_dev(div10, "id", "explain");
-    			attr_dev(div10, "class", "svelte-60aox3");
-    			add_location(div10, file, 483, 4, 15141);
+    			attr_dev(div10, "class", "svelte-yydznf");
+    			add_location(div10, file, 483, 4, 15142);
     			attr_dev(div11, "id", "knn");
-    			attr_dev(div11, "class", "svelte-60aox3");
-    			add_location(div11, file, 454, 0, 13874);
-    			attr_dev(h3, "class", "title svelte-60aox3");
-    			add_location(h3, file, 491, 6, 15315);
-    			attr_dev(p8, "class", "svelte-60aox3");
-    			add_location(p8, file, 492, 6, 15351);
-    			attr_dev(p9, "class", "svelte-60aox3");
-    			add_location(p9, file, 493, 6, 15499);
-    			attr_dev(div12, "class", "footbody svelte-60aox3");
-    			add_location(div12, file, 490, 4, 15285);
-    			add_location(p10, file, 496, 6, 15585);
-    			attr_dev(div13, "class", "lasttext svelte-60aox3");
-    			add_location(div13, file, 495, 4, 15555);
-    			attr_dev(div14, "class", "return svelte-60aox3");
-    			add_location(div14, file, 499, 8, 15729);
-    			attr_dev(a, "href", "/");
+    			attr_dev(div11, "class", "svelte-yydznf");
+    			add_location(div11, file, 454, 0, 13875);
+    			attr_dev(h3, "class", "title svelte-yydznf");
+    			add_location(h3, file, 491, 6, 15316);
+    			attr_dev(p8, "class", "svelte-yydznf");
+    			add_location(p8, file, 492, 6, 15352);
+    			attr_dev(p9, "class", "svelte-yydznf");
+    			add_location(p9, file, 493, 6, 15500);
+    			attr_dev(div12, "class", "footbody svelte-yydznf");
+    			add_location(div12, file, 490, 4, 15286);
+    			add_location(p10, file, 496, 6, 15586);
+    			attr_dev(div13, "class", "lasttext svelte-yydznf");
+    			add_location(div13, file, 495, 4, 15556);
+    			set_custom_element_data(ion_icon, "class", "return svelte-yydznf");
+    			set_custom_element_data(ion_icon, "name", "arrow-back-circle-outline");
+    			set_custom_element_data(ion_icon, "size", "large");
+    			add_location(ion_icon, file, 500, 8, 15740);
+    			attr_dev(a, "href", "/home");
     			attr_dev(a, "rel", "prefetch");
-    			add_location(a, file, 498, 4, 15683);
+    			add_location(a, file, 499, 4, 15690);
     			attr_dev(footer, "id", "foot");
-    			attr_dev(footer, "class", "svelte-60aox3");
-    			add_location(footer, file, 489, 0, 15261);
+    			attr_dev(footer, "class", "svelte-yydznf");
+    			add_location(footer, file, 489, 0, 15262);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1820,7 +1829,7 @@ var app = (function () {
     			append_dev(div13, p10);
     			append_dev(footer, t39);
     			append_dev(footer, a);
-    			append_dev(a, div14);
+    			append_dev(a, ion_icon);
     			current = true;
 
     			if (!mounted) {
@@ -3425,7 +3434,7 @@ var app = (function () {
     	let p9;
     	let t38;
     	let a;
-    	let div9;
+    	let ion_icon;
     	let link_action;
     	let mounted;
     	let dispose;
@@ -3504,73 +3513,74 @@ var app = (function () {
     			p9.textContent = "决策树是模仿一个人进行决策的过程，这让你想起了查阅资料过程中无意中看到的一个叫神经网络的模型，它好像是根据模仿人脑神经结构所提出来的一种模型，那么这种更加深入的模仿人脑神经运作的网络是不是能够更为有效的识别出鸢尾花的品种呢？你又带着更大的好奇心开始了新一轮的探索。。。";
     			t38 = space();
     			a = element("a");
-    			div9 = element("div");
-    			div9.textContent = "返回";
-    			add_location(h1, file$5, 408, 18, 11925);
+    			ion_icon = element("ion-icon");
+    			add_location(h1, file$5, 408, 18, 11923);
     			attr_dev(div0, "id", "One");
-    			add_location(div0, file$5, 408, 4, 11911);
-    			add_location(strong, file$5, 410, 8, 11971);
-    			attr_dev(p0, "class", "svelte-34ye4z");
-    			add_location(p0, file$5, 409, 4, 11958);
-    			attr_dev(h20, "class", "title svelte-34ye4z");
-    			add_location(h20, file$5, 417, 6, 12288);
-    			add_location(li0, file$5, 419, 12, 12345);
-    			add_location(li1, file$5, 420, 12, 12389);
-    			add_location(li2, file$5, 421, 12, 12433);
-    			add_location(ul, file$5, 418, 8, 12326);
-    			attr_dev(p1, "class", "svelte-34ye4z");
-    			add_location(p1, file$5, 423, 6, 12482);
+    			add_location(div0, file$5, 408, 4, 11909);
+    			add_location(strong, file$5, 410, 8, 11969);
+    			attr_dev(p0, "class", "svelte-wuycpk");
+    			add_location(p0, file$5, 409, 4, 11956);
+    			attr_dev(h20, "class", "title svelte-wuycpk");
+    			add_location(h20, file$5, 417, 6, 12286);
+    			add_location(li0, file$5, 419, 12, 12343);
+    			add_location(li1, file$5, 420, 12, 12387);
+    			add_location(li2, file$5, 421, 12, 12431);
+    			add_location(ul, file$5, 418, 8, 12324);
+    			attr_dev(p1, "class", "svelte-wuycpk");
+    			add_location(p1, file$5, 423, 6, 12480);
     			attr_dev(div1, "class", "l--body");
-    			add_location(div1, file$5, 416, 4, 12259);
-    			attr_dev(h21, "class", "title svelte-34ye4z");
-    			add_location(h21, file$5, 427, 6, 12625);
-    			attr_dev(p2, "class", "svelte-34ye4z");
-    			add_location(p2, file$5, 428, 8, 12665);
-    			attr_dev(p3, "class", "svelte-34ye4z");
-    			add_location(p3, file$5, 429, 8, 12731);
-    			attr_dev(p4, "class", "svelte-34ye4z");
-    			add_location(p4, file$5, 430, 8, 12781);
+    			add_location(div1, file$5, 416, 4, 12257);
+    			attr_dev(h21, "class", "title svelte-wuycpk");
+    			add_location(h21, file$5, 427, 6, 12623);
+    			attr_dev(p2, "class", "svelte-wuycpk");
+    			add_location(p2, file$5, 428, 8, 12663);
+    			attr_dev(p3, "class", "svelte-wuycpk");
+    			add_location(p3, file$5, 429, 8, 12729);
+    			attr_dev(p4, "class", "svelte-wuycpk");
+    			add_location(p4, file$5, 430, 8, 12779);
     			attr_dev(div2, "class", "l--body");
-    			add_location(div2, file$5, 426, 4, 12596);
-    			attr_dev(h22, "class", "title svelte-34ye4z");
-    			add_location(h22, file$5, 434, 6, 12958);
-    			attr_dev(p5, "class", "svelte-34ye4z");
-    			add_location(p5, file$5, 435, 6, 12994);
-    			attr_dev(p6, "class", "svelte-34ye4z");
-    			add_location(p6, file$5, 436, 6, 13153);
+    			add_location(div2, file$5, 426, 4, 12594);
+    			attr_dev(h22, "class", "title svelte-wuycpk");
+    			add_location(h22, file$5, 434, 6, 12956);
+    			attr_dev(p5, "class", "svelte-wuycpk");
+    			add_location(p5, file$5, 435, 6, 12992);
+    			attr_dev(p6, "class", "svelte-wuycpk");
+    			add_location(p6, file$5, 436, 6, 13151);
     			attr_dev(div3, "class", "l--body");
-    			add_location(div3, file$5, 433, 4, 12929);
-    			attr_dev(h23, "class", "title svelte-34ye4z");
-    			add_location(h23, file$5, 439, 6, 13258);
-    			attr_dev(p7, "class", "svelte-34ye4z");
-    			add_location(p7, file$5, 440, 6, 13293);
+    			add_location(div3, file$5, 433, 4, 12927);
+    			attr_dev(h23, "class", "title svelte-wuycpk");
+    			add_location(h23, file$5, 439, 6, 13256);
+    			attr_dev(p7, "class", "svelte-wuycpk");
+    			add_location(p7, file$5, 440, 6, 13291);
     			attr_dev(div4, "class", "l--body");
-    			add_location(div4, file$5, 438, 4, 13229);
+    			add_location(div4, file$5, 438, 4, 13227);
     			attr_dev(div5, "id", "article");
-    			attr_dev(div5, "class", "svelte-34ye4z");
-    			add_location(div5, file$5, 407, 0, 11887);
+    			attr_dev(div5, "class", "svelte-wuycpk");
+    			add_location(div5, file$5, 407, 0, 11885);
     			attr_dev(svg, "id", "tree-svg");
-    			add_location(svg, file$5, 444, 4, 13440);
+    			add_location(svg, file$5, 444, 4, 13438);
     			attr_dev(div6, "id", "treebody");
-    			attr_dev(div6, "class", "svelte-34ye4z");
-    			add_location(div6, file$5, 443, 0, 13415);
-    			attr_dev(h3, "class", "title svelte-34ye4z");
-    			add_location(h3, file$5, 449, 6, 13531);
-    			attr_dev(p8, "class", "svelte-34ye4z");
-    			add_location(p8, file$5, 450, 6, 13567);
-    			attr_dev(div7, "class", "footbody svelte-34ye4z");
-    			add_location(div7, file$5, 448, 4, 13501);
-    			add_location(p9, file$5, 453, 6, 13729);
-    			attr_dev(div8, "class", "lasttext svelte-34ye4z");
-    			add_location(div8, file$5, 452, 4, 13699);
-    			attr_dev(div9, "class", "return svelte-34ye4z");
-    			add_location(div9, file$5, 456, 8, 13934);
-    			attr_dev(a, "href", "/");
+    			attr_dev(div6, "class", "svelte-wuycpk");
+    			add_location(div6, file$5, 443, 0, 13413);
+    			attr_dev(h3, "class", "title svelte-wuycpk");
+    			add_location(h3, file$5, 449, 6, 13529);
+    			attr_dev(p8, "class", "svelte-wuycpk");
+    			add_location(p8, file$5, 450, 6, 13565);
+    			attr_dev(div7, "class", "footbody svelte-wuycpk");
+    			add_location(div7, file$5, 448, 4, 13499);
+    			add_location(p9, file$5, 453, 6, 13727);
+    			attr_dev(div8, "class", "lasttext svelte-wuycpk");
+    			add_location(div8, file$5, 452, 4, 13697);
+    			set_custom_element_data(ion_icon, "class", "return svelte-wuycpk");
+    			set_custom_element_data(ion_icon, "name", "arrow-back-circle-outline");
+    			set_custom_element_data(ion_icon, "size", "large");
+    			add_location(ion_icon, file$5, 456, 8, 13936);
+    			attr_dev(a, "href", "/home");
     			attr_dev(a, "rel", "prefetch");
-    			add_location(a, file$5, 455, 4, 13888);
+    			add_location(a, file$5, 455, 4, 13886);
     			attr_dev(footer, "id", "foot");
-    			attr_dev(footer, "class", "svelte-34ye4z");
-    			add_location(footer, file$5, 447, 0, 13477);
+    			attr_dev(footer, "class", "svelte-wuycpk");
+    			add_location(footer, file$5, 447, 0, 13475);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3629,7 +3639,7 @@ var app = (function () {
     			append_dev(div8, p9);
     			append_dev(footer, t38);
     			append_dev(footer, a);
-    			append_dev(a, div9);
+    			append_dev(a, ion_icon);
 
     			if (!mounted) {
     				dispose = action_destroyer(link_action = link.call(null, a));
@@ -4323,208 +4333,208 @@ var app = (function () {
     			footer = element("footer");
     			span = element("span");
     			span.textContent = "Deecamp2020 4-2 UnboxTherapy";
-    			add_location(p0, file$6, 69, 2, 1663);
-    			add_location(br0, file$6, 72, 2, 1847);
+    			add_location(p0, file$6, 70, 2, 1690);
+    			add_location(br0, file$6, 73, 2, 1874);
     			set_style(h10, "color", "peru");
-    			add_location(h10, file$6, 73, 2, 1856);
-    			add_location(br1, file$6, 74, 2, 1943);
-    			add_location(br2, file$6, 75, 2, 1952);
+    			add_location(h10, file$6, 74, 2, 1883);
+    			add_location(br1, file$6, 75, 2, 1970);
+    			add_location(br2, file$6, 76, 2, 1979);
     			set_style(h11, "font-weight", "500 ");
-    			add_location(h11, file$6, 77, 4, 1981);
+    			add_location(h11, file$6, 78, 4, 2008);
     			attr_dev(div0, "id", "one");
-    			add_location(div0, file$6, 76, 2, 1961);
+    			add_location(div0, file$6, 77, 2, 1988);
     			attr_dev(p1, "class", "t svelte-tfryk");
-    			add_location(p1, file$6, 80, 4, 2067);
+    			add_location(p1, file$6, 81, 4, 2094);
     			attr_dev(b0, "class", "flower svelte-tfryk");
-    			add_location(b0, file$6, 85, 6, 2203);
+    			add_location(b0, file$6, 86, 6, 2230);
     			attr_dev(b1, "class", "flower svelte-tfryk");
-    			add_location(b1, file$6, 87, 6, 2258);
+    			add_location(b1, file$6, 88, 6, 2285);
     			attr_dev(b2, "class", "flower svelte-tfryk");
-    			add_location(b2, file$6, 89, 6, 2318);
+    			add_location(b2, file$6, 90, 6, 2345);
     			attr_dev(p2, "class", "t svelte-tfryk");
-    			add_location(p2, file$6, 83, 4, 2150);
+    			add_location(p2, file$6, 84, 4, 2177);
     			attr_dev(p3, "class", "t svelte-tfryk");
-    			add_location(p3, file$6, 92, 4, 2387);
+    			add_location(p3, file$6, 93, 4, 2414);
     			attr_dev(p4, "class", "t svelte-tfryk");
-    			add_location(p4, file$6, 95, 4, 2496);
-    			add_location(b3, file$6, 99, 6, 2619);
+    			add_location(p4, file$6, 96, 4, 2523);
+    			add_location(b3, file$6, 100, 6, 2646);
     			attr_dev(p5, "class", "t svelte-tfryk");
-    			add_location(p5, file$6, 98, 4, 2598);
+    			add_location(p5, file$6, 99, 4, 2625);
     			attr_dev(div1, "id", "article");
-    			add_location(div1, file$6, 79, 2, 2043);
+    			add_location(div1, file$6, 80, 2, 2070);
     			attr_dev(div2, "id", "begin");
     			attr_dev(div2, "class", "svelte-tfryk");
-    			add_location(div2, file$6, 68, 0, 1643);
+    			add_location(div2, file$6, 69, 0, 1670);
     			attr_dev(div3, "class", "el__bg");
-    			add_location(div3, file$6, 111, 10, 2953);
+    			add_location(div3, file$6, 112, 10, 2980);
     			attr_dev(h20, "class", "el__heading");
     			set_style(h20, "color", "#f6f6f6");
-    			add_location(h20, file$6, 113, 12, 3031);
+    			add_location(h20, file$6, 114, 12, 3058);
     			attr_dev(div4, "class", "el__preview-cont");
-    			add_location(div4, file$6, 112, 10, 2987);
+    			add_location(div4, file$6, 113, 10, 3014);
     			attr_dev(div5, "class", "el__text");
-    			add_location(div5, file$6, 117, 14, 3215);
+    			add_location(div5, file$6, 118, 14, 3242);
     			attr_dev(a0, "href", "/knn");
     			attr_dev(a0, "rel", "prefetch");
-    			add_location(a0, file$6, 116, 12, 3160);
+    			add_location(a0, file$6, 117, 12, 3187);
     			attr_dev(div6, "class", "el__close-btn");
-    			add_location(div6, file$6, 119, 12, 3290);
+    			add_location(div6, file$6, 120, 12, 3317);
     			attr_dev(div7, "class", "el__content");
-    			add_location(div7, file$6, 115, 10, 3121);
+    			add_location(div7, file$6, 116, 10, 3148);
     			attr_dev(div8, "class", "el__inner");
-    			add_location(div8, file$6, 110, 8, 2918);
+    			add_location(div8, file$6, 111, 8, 2945);
     			attr_dev(div9, "class", "el__overflow");
-    			add_location(div9, file$6, 109, 6, 2882);
+    			add_location(div9, file$6, 110, 6, 2909);
     			attr_dev(div10, "class", "el__index-back");
-    			add_location(div10, file$6, 124, 8, 3408);
+    			add_location(div10, file$6, 125, 8, 3435);
     			attr_dev(div11, "class", "el__index-overlay");
     			attr_dev(div11, "data-index", "1");
-    			add_location(div11, file$6, 126, 10, 3494);
+    			add_location(div11, file$6, 127, 10, 3521);
     			attr_dev(div12, "class", "el__index-front");
-    			add_location(div12, file$6, 125, 8, 3453);
+    			add_location(div12, file$6, 126, 8, 3480);
     			attr_dev(div13, "class", "el__index");
-    			add_location(div13, file$6, 123, 6, 3375);
+    			add_location(div13, file$6, 124, 6, 3402);
     			attr_dev(div14, "class", div14_class_value = /*selected*/ ctx[0] === 1 ? "el s--active" : "el");
-    			add_location(div14, file$6, 108, 4, 2822);
+    			add_location(div14, file$6, 109, 4, 2849);
     			attr_dev(div15, "class", "el__bg");
-    			add_location(div15, file$6, 135, 10, 3770);
+    			add_location(div15, file$6, 136, 10, 3797);
     			attr_dev(h21, "class", "el__heading");
     			set_style(h21, "color", "#f6f6f6");
-    			add_location(h21, file$6, 137, 12, 3848);
+    			add_location(h21, file$6, 138, 12, 3875);
     			attr_dev(div16, "class", "el__preview-cont");
-    			add_location(div16, file$6, 136, 10, 3804);
+    			add_location(div16, file$6, 137, 10, 3831);
     			attr_dev(div17, "class", "el__text");
-    			add_location(div17, file$6, 141, 14, 4033);
+    			add_location(div17, file$6, 142, 14, 4060);
     			attr_dev(a1, "href", "/tree");
     			attr_dev(a1, "rel", "prefetch");
-    			add_location(a1, file$6, 140, 12, 3977);
+    			add_location(a1, file$6, 141, 12, 4004);
     			attr_dev(div18, "class", "el__close-btn");
-    			add_location(div18, file$6, 143, 12, 4108);
+    			add_location(div18, file$6, 144, 12, 4135);
     			attr_dev(div19, "class", "el__content");
-    			add_location(div19, file$6, 139, 10, 3938);
+    			add_location(div19, file$6, 140, 10, 3965);
     			attr_dev(div20, "class", "el__inner");
-    			add_location(div20, file$6, 134, 8, 3735);
+    			add_location(div20, file$6, 135, 8, 3762);
     			attr_dev(div21, "class", "el__overflow");
-    			add_location(div21, file$6, 133, 6, 3699);
+    			add_location(div21, file$6, 134, 6, 3726);
     			attr_dev(div22, "class", "el__index-back");
-    			add_location(div22, file$6, 148, 8, 4226);
+    			add_location(div22, file$6, 149, 8, 4253);
     			attr_dev(div23, "class", "el__index-overlay");
     			attr_dev(div23, "data-index", "2");
-    			add_location(div23, file$6, 150, 10, 4312);
+    			add_location(div23, file$6, 151, 10, 4339);
     			attr_dev(div24, "class", "el__index-front");
-    			add_location(div24, file$6, 149, 8, 4271);
+    			add_location(div24, file$6, 150, 8, 4298);
     			attr_dev(div25, "class", "el__index");
-    			add_location(div25, file$6, 147, 6, 4193);
+    			add_location(div25, file$6, 148, 6, 4220);
     			attr_dev(div26, "class", div26_class_value = /*selected*/ ctx[0] === 2 ? "el s--active" : "el");
-    			add_location(div26, file$6, 132, 4, 3639);
+    			add_location(div26, file$6, 133, 4, 3666);
     			attr_dev(div27, "class", "el__bg");
-    			add_location(div27, file$6, 159, 10, 4588);
+    			add_location(div27, file$6, 160, 10, 4615);
     			attr_dev(h22, "class", "el__heading");
     			set_style(h22, "color", "#f6f6f6");
-    			add_location(h22, file$6, 161, 12, 4666);
+    			add_location(h22, file$6, 162, 12, 4693);
     			attr_dev(div28, "class", "el__preview-cont");
-    			add_location(div28, file$6, 160, 10, 4622);
+    			add_location(div28, file$6, 161, 10, 4649);
     			attr_dev(div29, "class", "el__text");
-    			add_location(div29, file$6, 165, 14, 4847);
+    			add_location(div29, file$6, 166, 14, 4874);
     			attr_dev(a2, "href", "/");
     			attr_dev(a2, "rel", "prefetch");
-    			add_location(a2, file$6, 164, 12, 4795);
+    			add_location(a2, file$6, 165, 12, 4822);
     			attr_dev(div30, "class", "el__close-btn");
-    			add_location(div30, file$6, 167, 12, 4922);
+    			add_location(div30, file$6, 168, 12, 4949);
     			attr_dev(div31, "class", "el__content");
-    			add_location(div31, file$6, 163, 10, 4756);
+    			add_location(div31, file$6, 164, 10, 4783);
     			attr_dev(div32, "class", "el__inner");
-    			add_location(div32, file$6, 158, 8, 4553);
+    			add_location(div32, file$6, 159, 8, 4580);
     			attr_dev(div33, "class", "el__overflow");
-    			add_location(div33, file$6, 157, 6, 4517);
+    			add_location(div33, file$6, 158, 6, 4544);
     			attr_dev(div34, "class", "el__index-back");
-    			add_location(div34, file$6, 172, 8, 5040);
+    			add_location(div34, file$6, 173, 8, 5067);
     			attr_dev(div35, "class", "el__index-overlay");
     			attr_dev(div35, "data-index", "3");
-    			add_location(div35, file$6, 174, 10, 5126);
+    			add_location(div35, file$6, 175, 10, 5153);
     			attr_dev(div36, "class", "el__index-front");
-    			add_location(div36, file$6, 173, 8, 5085);
+    			add_location(div36, file$6, 174, 8, 5112);
     			attr_dev(div37, "class", "el__index");
-    			add_location(div37, file$6, 171, 6, 5007);
+    			add_location(div37, file$6, 172, 6, 5034);
     			attr_dev(div38, "class", div38_class_value = /*selected*/ ctx[0] === 3 ? "el s--active" : "el");
-    			add_location(div38, file$6, 156, 4, 4457);
+    			add_location(div38, file$6, 157, 4, 4484);
     			attr_dev(div39, "class", "el__bg");
-    			add_location(div39, file$6, 183, 10, 5402);
+    			add_location(div39, file$6, 184, 10, 5429);
     			attr_dev(h23, "class", "el__heading");
     			set_style(h23, "color", "#f6f6f6");
-    			add_location(h23, file$6, 185, 12, 5480);
+    			add_location(h23, file$6, 186, 12, 5507);
     			attr_dev(div40, "class", "el__preview-cont");
-    			add_location(div40, file$6, 184, 10, 5436);
+    			add_location(div40, file$6, 185, 10, 5463);
     			attr_dev(div41, "class", "el__text");
-    			add_location(div41, file$6, 189, 14, 5664);
+    			add_location(div41, file$6, 190, 14, 5691);
     			attr_dev(a3, "href", "/cnn");
     			attr_dev(a3, "rel", "prefetch");
-    			add_location(a3, file$6, 188, 12, 5609);
+    			add_location(a3, file$6, 189, 12, 5636);
     			attr_dev(div42, "class", "el__close-btn");
-    			add_location(div42, file$6, 191, 12, 5739);
+    			add_location(div42, file$6, 192, 12, 5766);
     			attr_dev(div43, "class", "el__content");
-    			add_location(div43, file$6, 187, 10, 5570);
+    			add_location(div43, file$6, 188, 10, 5597);
     			attr_dev(div44, "class", "el__inner");
-    			add_location(div44, file$6, 182, 8, 5367);
+    			add_location(div44, file$6, 183, 8, 5394);
     			attr_dev(div45, "class", "el__overflow");
-    			add_location(div45, file$6, 181, 6, 5331);
+    			add_location(div45, file$6, 182, 6, 5358);
     			attr_dev(div46, "class", "el__index-back");
-    			add_location(div46, file$6, 196, 8, 5857);
+    			add_location(div46, file$6, 197, 8, 5884);
     			attr_dev(div47, "class", "el__index-overlay");
     			attr_dev(div47, "data-index", "4");
-    			add_location(div47, file$6, 198, 10, 5943);
+    			add_location(div47, file$6, 199, 10, 5970);
     			attr_dev(div48, "class", "el__index-front");
-    			add_location(div48, file$6, 197, 8, 5902);
+    			add_location(div48, file$6, 198, 8, 5929);
     			attr_dev(div49, "class", "el__index");
-    			add_location(div49, file$6, 195, 6, 5824);
+    			add_location(div49, file$6, 196, 6, 5851);
     			attr_dev(div50, "class", div50_class_value = /*selected*/ ctx[0] === 4 ? "el s--active" : "el");
-    			add_location(div50, file$6, 180, 4, 5271);
+    			add_location(div50, file$6, 181, 4, 5298);
     			attr_dev(div51, "class", "el__bg");
-    			add_location(div51, file$6, 207, 10, 6219);
+    			add_location(div51, file$6, 208, 10, 6246);
     			attr_dev(h24, "class", "el__heading");
     			set_style(h24, "color", "#f6f6f6");
-    			add_location(h24, file$6, 209, 12, 6297);
+    			add_location(h24, file$6, 210, 12, 6324);
     			attr_dev(div52, "class", "el__preview-cont");
-    			add_location(div52, file$6, 208, 10, 6253);
+    			add_location(div52, file$6, 209, 10, 6280);
     			attr_dev(div53, "class", "el__text");
-    			add_location(div53, file$6, 213, 14, 6478);
-    			attr_dev(a4, "href", "/");
+    			add_location(div53, file$6, 214, 14, 6509);
+    			attr_dev(a4, "href", "/home");
     			attr_dev(a4, "rel", "prefetch");
-    			add_location(a4, file$6, 212, 12, 6426);
+    			add_location(a4, file$6, 213, 12, 6453);
     			attr_dev(div54, "class", "el__close-btn");
-    			add_location(div54, file$6, 215, 12, 6549);
+    			add_location(div54, file$6, 216, 12, 6580);
     			attr_dev(div55, "class", "el__content");
-    			add_location(div55, file$6, 211, 10, 6387);
+    			add_location(div55, file$6, 212, 10, 6414);
     			attr_dev(div56, "class", "el__inner");
-    			add_location(div56, file$6, 206, 8, 6184);
+    			add_location(div56, file$6, 207, 8, 6211);
     			attr_dev(div57, "class", "el__overflow");
-    			add_location(div57, file$6, 205, 6, 6148);
+    			add_location(div57, file$6, 206, 6, 6175);
     			attr_dev(div58, "class", "el__index-back");
-    			add_location(div58, file$6, 220, 8, 6667);
+    			add_location(div58, file$6, 221, 8, 6698);
     			attr_dev(div59, "class", "el__index-overlay");
     			attr_dev(div59, "data-index", "5");
-    			add_location(div59, file$6, 222, 10, 6753);
+    			add_location(div59, file$6, 223, 10, 6784);
     			attr_dev(div60, "class", "el__index-front");
-    			add_location(div60, file$6, 221, 8, 6712);
+    			add_location(div60, file$6, 222, 8, 6743);
     			attr_dev(div61, "class", "el__index");
-    			add_location(div61, file$6, 219, 6, 6634);
+    			add_location(div61, file$6, 220, 6, 6665);
     			attr_dev(div62, "class", div62_class_value = /*selected*/ ctx[0] === 5 ? "el s--active" : "el");
-    			add_location(div62, file$6, 204, 4, 6088);
+    			add_location(div62, file$6, 205, 4, 6115);
     			attr_dev(div63, "class", "cont__inner");
-    			add_location(div63, file$6, 106, 2, 2768);
+    			add_location(div63, file$6, 107, 2, 2795);
 
     			attr_dev(div64, "class", div64_class_value = "" + (null_to_empty(/*selected*/ ctx[0] > 0
     			? "cont s--el-active"
     			: /*dynamiccss*/ ctx[1]) + " svelte-tfryk"));
 
-    			add_location(div64, file$6, 104, 0, 2674);
+    			add_location(div64, file$6, 105, 0, 2701);
     			set_style(span, "text-align", "right");
     			set_style(span, "color", "#f6f6f6");
     			set_style(span, "font-weight", "300");
     			set_style(span, "font-size", "13px");
-    			add_location(span, file$6, 231, 2, 6962);
+    			add_location(span, file$6, 232, 2, 6993);
     			set_style(footer, "background-color", "#37474f");
-    			add_location(footer, file$6, 230, 0, 6916);
+    			add_location(footer, file$6, 231, 0, 6947);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4741,6 +4751,7 @@ var app = (function () {
 
     	// 不加onMount  cont取不到值
     	onMount(async () => {
+    		window.scrollTo(0, 0);
     		cont = document.querySelector(".cont");
     		elsArr = [].slice.call(document.querySelectorAll(".el"));
     		closeBtnsArr = [].slice.call(document.querySelectorAll(".el__close-btn"));
@@ -14094,7 +14105,7 @@ var app = (function () {
 
       const detailview = document.getElementById('detailview');
       detailview.style.top = `${detailViewTop + 2300}px`;
-      detailview.style.left = `${pos.left - 990 - 50}px`;
+      detailview.style.left = `${pos.left - 900 - 50}px`;
       detailview.style.position = 'absolute';
 
       softmaxDetailViewStore.set({
@@ -18438,7 +18449,7 @@ var app = (function () {
     	let p1;
     	let t5;
     	let a;
-    	let div3;
+    	let ion_icon;
     	let link_action;
     	let current;
     	let mounted;
@@ -18463,28 +18474,29 @@ var app = (function () {
     			p1.textContent = "CNN除了能够进行图像分类任务之外，还能够用于图像分割、目标检测等一些更加复杂的任务。同时，由于它的参数共享机制，使得相比于神经网络而已有着更少的网络参数量。在研究者们的努力之下，各种更新更有效的网络设计以及卷积方式得以被提出。CNN还有许多有趣的地方等待着你的探索。";
     			t5 = space();
     			a = element("a");
-    			div3 = element("div");
-    			div3.textContent = "返回";
+    			ion_icon = element("ion-icon");
     			attr_dev(div0, "id", "article");
-    			attr_dev(div0, "class", "svelte-1x27wso");
-    			add_location(div0, file$k, 67, 0, 1419);
+    			attr_dev(div0, "class", "svelte-1uam8oe");
+    			add_location(div0, file$k, 68, 0, 1444);
     			attr_dev(div1, "id", "explainer");
-    			attr_dev(div1, "class", "svelte-1x27wso");
-    			add_location(div1, file$k, 70, 0, 1462);
-    			attr_dev(p0, "class", "title svelte-1x27wso");
-    			add_location(p0, file$k, 74, 4, 1532);
-    			attr_dev(p1, "class", "svelte-1x27wso");
-    			add_location(p1, file$k, 76, 6, 1594);
+    			attr_dev(div1, "class", "svelte-1uam8oe");
+    			add_location(div1, file$k, 71, 0, 1487);
+    			attr_dev(p0, "class", "title svelte-1uam8oe");
+    			add_location(p0, file$k, 75, 4, 1557);
+    			attr_dev(p1, "class", "svelte-1uam8oe");
+    			add_location(p1, file$k, 77, 6, 1619);
     			attr_dev(div2, "class", "addition");
-    			add_location(div2, file$k, 75, 4, 1564);
-    			attr_dev(div3, "class", "return svelte-1x27wso");
-    			add_location(div3, file$k, 79, 8, 1799);
-    			attr_dev(a, "href", "/");
+    			add_location(div2, file$k, 76, 4, 1589);
+    			set_custom_element_data(ion_icon, "class", "return svelte-1uam8oe");
+    			set_custom_element_data(ion_icon, "name", "arrow-back-circle-outline");
+    			set_custom_element_data(ion_icon, "size", "large");
+    			add_location(ion_icon, file$k, 80, 8, 1828);
+    			attr_dev(a, "href", "/home");
     			attr_dev(a, "rel", "prefetch");
-    			add_location(a, file$k, 78, 4, 1753);
+    			add_location(a, file$k, 79, 4, 1778);
     			attr_dev(footer, "id", "foot");
-    			attr_dev(footer, "class", "svelte-1x27wso");
-    			add_location(footer, file$k, 73, 0, 1508);
+    			attr_dev(footer, "class", "svelte-1uam8oe");
+    			add_location(footer, file$k, 74, 0, 1533);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -18503,7 +18515,7 @@ var app = (function () {
     			append_dev(div2, p1);
     			append_dev(footer, t5);
     			append_dev(footer, a);
-    			append_dev(a, div3);
+    			append_dev(a, ion_icon);
     			current = true;
 
     			if (!mounted) {
@@ -18598,8 +18610,185 @@ var app = (function () {
     	}
     }
 
+    /* src\views\startpage.svelte generated by Svelte v3.23.1 */
+    const file$l = "src\\views\\startpage.svelte";
+
+    function create_fragment$m(ctx) {
+    	let div1;
+    	let main;
+    	let div0;
+    	let h1;
+    	let t1;
+    	let p;
+    	let t3;
+    	let button;
+    	let a0;
+    	let link_action;
+    	let t5;
+    	let footer;
+    	let small;
+    	let t7;
+    	let ul;
+    	let li0;
+    	let a1;
+    	let ion_icon0;
+    	let t8;
+    	let li1;
+    	let a2;
+    	let ion_icon1;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			main = element("main");
+    			div0 = element("div");
+    			h1 = element("h1");
+    			h1.textContent = "UnboxAI";
+    			t1 = space();
+    			p = element("p");
+    			p.textContent = "一个可视化的人工智能算法学习平台";
+    			t3 = space();
+    			button = element("button");
+    			a0 = element("a");
+    			a0.textContent = "Get Started";
+    			t5 = space();
+    			footer = element("footer");
+    			small = element("small");
+    			small.textContent = "Deecamp 2020.";
+    			t7 = space();
+    			ul = element("ul");
+    			li0 = element("li");
+    			a1 = element("a");
+    			ion_icon0 = element("ion-icon");
+    			t8 = space();
+    			li1 = element("li");
+    			a2 = element("a");
+    			ion_icon1 = element("ion-icon");
+    			attr_dev(h1, "class", "svelte-7qw2wo");
+    			add_location(h1, file$l, 142, 6, 2404);
+    			attr_dev(p, "class", "svelte-7qw2wo");
+    			add_location(p, file$l, 143, 6, 2428);
+    			attr_dev(a0, "href", "/home");
+    			attr_dev(a0, "rel", "prefetch");
+    			attr_dev(a0, "class", "svelte-7qw2wo");
+    			add_location(a0, file$l, 144, 34, 2487);
+    			attr_dev(button, "class", "cta-contact svelte-7qw2wo");
+    			add_location(button, file$l, 144, 6, 2459);
+    			attr_dev(div0, "class", "svelte-7qw2wo");
+    			add_location(div0, file$l, 141, 4, 2391);
+    			attr_dev(main, "class", "page-main svelte-7qw2wo");
+    			add_location(main, file$l, 140, 2, 2361);
+    			attr_dev(small, "class", "svelte-7qw2wo");
+    			add_location(small, file$l, 148, 4, 2612);
+    			set_custom_element_data(ion_icon0, "name", "mail-outline");
+    			set_custom_element_data(ion_icon0, "class", "svelte-7qw2wo");
+    			add_location(ion_icon0, file$l, 152, 10, 2712);
+    			attr_dev(a1, "href", "");
+    			attr_dev(a1, "target", "_blank");
+    			attr_dev(a1, "class", "svelte-7qw2wo");
+    			add_location(a1, file$l, 151, 8, 2673);
+    			attr_dev(li0, "class", "svelte-7qw2wo");
+    			add_location(li0, file$l, 150, 6, 2659);
+    			set_custom_element_data(ion_icon1, "name", "logo-github");
+    			set_custom_element_data(ion_icon1, "class", "svelte-7qw2wo");
+    			add_location(ion_icon1, file$l, 157, 10, 2841);
+    			attr_dev(a2, "href", "");
+    			attr_dev(a2, "target", "_blank");
+    			attr_dev(a2, "class", "svelte-7qw2wo");
+    			add_location(a2, file$l, 156, 8, 2802);
+    			attr_dev(li1, "class", "svelte-7qw2wo");
+    			add_location(li1, file$l, 155, 6, 2788);
+    			attr_dev(ul, "class", "svelte-7qw2wo");
+    			add_location(ul, file$l, 149, 4, 2647);
+    			attr_dev(footer, "class", "page-footer svelte-7qw2wo");
+    			add_location(footer, file$l, 147, 2, 2578);
+    			attr_dev(div1, "class", "wrapper svelte-7qw2wo");
+    			add_location(div1, file$l, 139, 0, 2336);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, main);
+    			append_dev(main, div0);
+    			append_dev(div0, h1);
+    			append_dev(div0, t1);
+    			append_dev(div0, p);
+    			append_dev(div0, t3);
+    			append_dev(div0, button);
+    			append_dev(button, a0);
+    			append_dev(div1, t5);
+    			append_dev(div1, footer);
+    			append_dev(footer, small);
+    			append_dev(footer, t7);
+    			append_dev(footer, ul);
+    			append_dev(ul, li0);
+    			append_dev(li0, a1);
+    			append_dev(a1, ion_icon0);
+    			append_dev(ul, t8);
+    			append_dev(ul, li1);
+    			append_dev(li1, a2);
+    			append_dev(a2, ion_icon1);
+
+    			if (!mounted) {
+    				dispose = action_destroyer(link_action = link.call(null, a0));
+    				mounted = true;
+    			}
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$m.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$m($$self, $$props, $$invalidate) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Startpage> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Startpage", $$slots, []);
+    	$$self.$capture_state = () => ({ link });
+    	return [];
+    }
+
+    class Startpage extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$m, create_fragment$m, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Startpage",
+    			options,
+    			id: create_fragment$m.name
+    		});
+    	}
+    }
+
     const routes = {
-      '/': Home2,
+      '/': Startpage,
+      '/home': Home2,
       '/cnn': Explainer,
       '/knn': Knn,
       '/tree': Tree,
@@ -18607,9 +18796,9 @@ var app = (function () {
     };
 
     /* src\App.svelte generated by Svelte v3.23.1 */
-    const file$l = "src\\App.svelte";
+    const file$m = "src\\App.svelte";
 
-    function create_fragment$m(ctx) {
+    function create_fragment$n(ctx) {
     	let div2;
     	let div0;
     	let a;
@@ -18633,15 +18822,15 @@ var app = (function () {
     			attr_dev(a, "href", "/");
     			attr_dev(a, "rel", "prefetch");
     			set_style(a, "font-size", "50px");
-    			attr_dev(a, "class", "svelte-gdw08m");
-    			add_location(a, file$l, 47, 4, 1026);
-    			attr_dev(div0, "class", "page_header svelte-gdw08m");
-    			add_location(div0, file$l, 46, 2, 995);
-    			attr_dev(div1, "class", "content svelte-gdw08m");
-    			add_location(div1, file$l, 65, 2, 1491);
+    			attr_dev(a, "class", "svelte-1ifm5rx");
+    			add_location(a, file$m, 42, 4, 945);
+    			attr_dev(div0, "class", "page_header svelte-1ifm5rx");
+    			add_location(div0, file$m, 41, 2, 914);
+    			attr_dev(div1, "class", "content svelte-1ifm5rx");
+    			add_location(div1, file$m, 60, 2, 1410);
     			attr_dev(div2, "id", "app-page");
-    			attr_dev(div2, "class", "svelte-gdw08m");
-    			add_location(div2, file$l, 45, 0, 972);
+    			attr_dev(div2, "class", "svelte-1ifm5rx");
+    			add_location(div2, file$m, 40, 0, 891);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -18680,7 +18869,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$m.name,
+    		id: create_fragment$n.name,
     		type: "component",
     		source: "",
     		ctx
@@ -18689,7 +18878,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$m($$self, $$props, $$invalidate) {
+    function instance$n($$self, $$props, $$invalidate) {
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -18705,13 +18894,13 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$m, create_fragment$m, safe_not_equal, {});
+    		init(this, options, instance$n, create_fragment$n, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "App",
     			options,
-    			id: create_fragment$m.name
+    			id: create_fragment$n.name
     		});
     	}
     }

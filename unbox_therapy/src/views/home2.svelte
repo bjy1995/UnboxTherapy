@@ -13,6 +13,7 @@
   var dynamiccss = "cont s--inactive";
   // 不加onMount  cont取不到值
   onMount(async () => {
+    window.scrollTo(0,0);
     cont = document.querySelector(".cont");
     elsArr = [].slice.call(document.querySelectorAll(".el"));
     closeBtnsArr = [].slice.call(document.querySelectorAll(".el__close-btn"));
@@ -210,7 +211,7 @@
             <h2 class="el__heading" style="color:#f6f6f6">Section 5</h2>
           </div>
           <div class="el__content">
-            <a href="/" use:link rel="prefetch">
+            <a href="/home" use:link rel="prefetch">
               <div class="el__text">Continue...</div>
             </a>
             <div class="el__close-btn" />

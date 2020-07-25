@@ -562,7 +562,7 @@ const drawLogitLayer = (arg) => {
 
   const detailview = document.getElementById('detailview');
   detailview.style.top = `${detailViewTop + 2300}px`;
-  detailview.style.left = `${pos.left - 990 - 50}px`;
+  detailview.style.left = `${pos.left - 900 - 50}px`;
   detailview.style.position = 'absolute';
 
   softmaxDetailViewStore.set({

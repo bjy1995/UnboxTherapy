@@ -383,7 +383,7 @@
     }
     .return {
         position: absolute;
-        right: -300px;
+        right: -30%;
         top: 80%;
         font-size: 20px;
         font-style: italic;
@@ -453,7 +453,7 @@
     <div class="lasttext">
       <p>决策树是模仿一个人进行决策的过程，这让你想起了查阅资料过程中无意中看到的一个叫神经网络的模型，它好像是根据模仿人脑神经结构所提出来的一种模型，那么这种更加深入的模仿人脑神经运作的网络是不是能够更为有效的识别出鸢尾花的品种呢？你又带着更大的好奇心开始了新一轮的探索。。。</p>
     </div>
-    <a href="/" use:link rel="prefetch">
-        <div class="return">返回</div>
+    <a href="/home" use:link rel="prefetch">
+        <ion-icon class="return" name="arrow-back-circle-outline" size="large"></ion-icon>
     </a>
 </footer>

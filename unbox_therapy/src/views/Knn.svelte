@@ -388,7 +388,7 @@
     }
     .return {
         position: absolute;
-        right: -300px;
+        right: -30%;
         top: 80%;
         font-size: 20px;
         font-style: italic;
@@ -411,7 +411,7 @@
     }
     #explain{
         position: relative;
-        left: 74%;
+        left: 1235px;
         top: -554px;
     }
     #explain p{
@@ -496,7 +496,10 @@
     <div class="lasttext">
       <p>尝试过KNN的你发现虽然这个方法简单直观，但效果并没有想象中那么好，同时k值的设定也是一个难题，因此你开始寻找有没有更好的方法来识别鸢尾花的品种。</p>
     </div>
-    <a href="/" use:link rel="prefetch">
-        <div class="return">返回</div>
+    
+    <a href="/home" use:link rel="prefetch">
+        <ion-icon class="return" name="arrow-back-circle-outline" size="large"></ion-icon>
     </a>
+    
+
 </footer>

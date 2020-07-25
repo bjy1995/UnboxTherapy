@@ -3,9 +3,11 @@ import home2 from '../views/home2.svelte'
 import Explainer from '../views/Explainer.svelte'
 import Knn from '../views/Knn.svelte'
 import Tree from '../views/Tree.svelte'
+import startpage from '../views/startpage.svelte'
 
 export const routes = {
-  '/': home2,
+  '/': startpage,
+  '/home': home2,
   '/cnn': Explainer,
   '/knn': Knn,
   '/tree': Tree,
