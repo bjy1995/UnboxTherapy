@@ -451,7 +451,7 @@
 .el:nth-child(3) .el__bg:before {
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
-    background-image: url(../img/cartoon5.jpg);
+    background-image: url(../img/cartoon4.jpg);
 }
 
 .el:nth-child(4) {
