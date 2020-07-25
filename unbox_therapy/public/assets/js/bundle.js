@@ -4102,7 +4102,6 @@ var app = (function () {
     	let div31;
     	let a2;
     	let div29;
-    	let link_action_2;
     	let t49;
     	let div30;
     	let t50;
@@ -4124,7 +4123,7 @@ var app = (function () {
     	let div43;
     	let a3;
     	let div41;
-    	let link_action_3;
+    	let link_action_2;
     	let t59;
     	let div42;
     	let t60;
@@ -4146,7 +4145,7 @@ var app = (function () {
     	let div55;
     	let a4;
     	let div53;
-    	let link_action_4;
+    	let link_action_3;
     	let t69;
     	let div54;
     	let t70;
@@ -4435,12 +4434,12 @@ var app = (function () {
     			attr_dev(div28, "class", "el__preview-cont");
     			add_location(div28, file$6, 161, 10, 4649);
     			attr_dev(div29, "class", "el__text");
-    			add_location(div29, file$6, 166, 14, 4874);
-    			attr_dev(a2, "href", "/");
-    			attr_dev(a2, "rel", "prefetch");
+    			add_location(div29, file$6, 166, 14, 4882);
+    			attr_dev(a2, "target", "_blank");
+    			attr_dev(a2, "href", "/dist/index.html");
     			add_location(a2, file$6, 165, 12, 4822);
     			attr_dev(div30, "class", "el__close-btn");
-    			add_location(div30, file$6, 168, 12, 4949);
+    			add_location(div30, file$6, 168, 12, 4957);
     			attr_dev(div31, "class", "el__content");
     			add_location(div31, file$6, 164, 10, 4783);
     			attr_dev(div32, "class", "el__inner");
@@ -4448,78 +4447,78 @@ var app = (function () {
     			attr_dev(div33, "class", "el__overflow");
     			add_location(div33, file$6, 158, 6, 4544);
     			attr_dev(div34, "class", "el__index-back");
-    			add_location(div34, file$6, 173, 8, 5067);
+    			add_location(div34, file$6, 173, 8, 5075);
     			attr_dev(div35, "class", "el__index-overlay");
     			attr_dev(div35, "data-index", "3");
-    			add_location(div35, file$6, 175, 10, 5153);
+    			add_location(div35, file$6, 175, 10, 5161);
     			attr_dev(div36, "class", "el__index-front");
-    			add_location(div36, file$6, 174, 8, 5112);
+    			add_location(div36, file$6, 174, 8, 5120);
     			attr_dev(div37, "class", "el__index");
-    			add_location(div37, file$6, 172, 6, 5034);
+    			add_location(div37, file$6, 172, 6, 5042);
     			attr_dev(div38, "class", div38_class_value = /*selected*/ ctx[0] === 3 ? "el s--active" : "el");
     			add_location(div38, file$6, 157, 4, 4484);
     			attr_dev(div39, "class", "el__bg");
-    			add_location(div39, file$6, 184, 10, 5429);
+    			add_location(div39, file$6, 184, 10, 5437);
     			attr_dev(h23, "class", "el__heading");
     			set_style(h23, "color", "#f6f6f6");
-    			add_location(h23, file$6, 186, 12, 5507);
+    			add_location(h23, file$6, 186, 12, 5515);
     			attr_dev(div40, "class", "el__preview-cont");
-    			add_location(div40, file$6, 185, 10, 5463);
+    			add_location(div40, file$6, 185, 10, 5471);
     			attr_dev(div41, "class", "el__text");
-    			add_location(div41, file$6, 190, 14, 5691);
+    			add_location(div41, file$6, 190, 14, 5699);
     			attr_dev(a3, "href", "/cnn");
     			attr_dev(a3, "rel", "prefetch");
-    			add_location(a3, file$6, 189, 12, 5636);
+    			add_location(a3, file$6, 189, 12, 5644);
     			attr_dev(div42, "class", "el__close-btn");
-    			add_location(div42, file$6, 192, 12, 5766);
+    			add_location(div42, file$6, 192, 12, 5774);
     			attr_dev(div43, "class", "el__content");
-    			add_location(div43, file$6, 188, 10, 5597);
+    			add_location(div43, file$6, 188, 10, 5605);
     			attr_dev(div44, "class", "el__inner");
-    			add_location(div44, file$6, 183, 8, 5394);
+    			add_location(div44, file$6, 183, 8, 5402);
     			attr_dev(div45, "class", "el__overflow");
-    			add_location(div45, file$6, 182, 6, 5358);
+    			add_location(div45, file$6, 182, 6, 5366);
     			attr_dev(div46, "class", "el__index-back");
-    			add_location(div46, file$6, 197, 8, 5884);
+    			add_location(div46, file$6, 197, 8, 5892);
     			attr_dev(div47, "class", "el__index-overlay");
     			attr_dev(div47, "data-index", "4");
-    			add_location(div47, file$6, 199, 10, 5970);
+    			add_location(div47, file$6, 199, 10, 5978);
     			attr_dev(div48, "class", "el__index-front");
-    			add_location(div48, file$6, 198, 8, 5929);
+    			add_location(div48, file$6, 198, 8, 5937);
     			attr_dev(div49, "class", "el__index");
-    			add_location(div49, file$6, 196, 6, 5851);
+    			add_location(div49, file$6, 196, 6, 5859);
     			attr_dev(div50, "class", div50_class_value = /*selected*/ ctx[0] === 4 ? "el s--active" : "el");
-    			add_location(div50, file$6, 181, 4, 5298);
+    			add_location(div50, file$6, 181, 4, 5306);
     			attr_dev(div51, "class", "el__bg");
-    			add_location(div51, file$6, 208, 10, 6246);
+    			add_location(div51, file$6, 208, 10, 6254);
     			attr_dev(h24, "class", "el__heading");
     			set_style(h24, "color", "#f6f6f6");
-    			add_location(h24, file$6, 210, 12, 6324);
+    			add_location(h24, file$6, 210, 12, 6332);
     			attr_dev(div52, "class", "el__preview-cont");
-    			add_location(div52, file$6, 209, 10, 6280);
+    			add_location(div52, file$6, 209, 10, 6288);
     			attr_dev(div53, "class", "el__text");
-    			add_location(div53, file$6, 214, 14, 6509);
+    			add_location(div53, file$6, 214, 14, 6517);
     			attr_dev(a4, "href", "/home");
     			attr_dev(a4, "rel", "prefetch");
-    			add_location(a4, file$6, 213, 12, 6453);
+    			add_location(a4, file$6, 213, 12, 6461);
     			attr_dev(div54, "class", "el__close-btn");
-    			add_location(div54, file$6, 216, 12, 6580);
+    			add_location(div54, file$6, 216, 12, 6588);
     			attr_dev(div55, "class", "el__content");
-    			add_location(div55, file$6, 212, 10, 6414);
+    			add_location(div55, file$6, 212, 10, 6422);
     			attr_dev(div56, "class", "el__inner");
-    			add_location(div56, file$6, 207, 8, 6211);
+    			add_location(div56, file$6, 207, 8, 6219);
     			attr_dev(div57, "class", "el__overflow");
-    			add_location(div57, file$6, 206, 6, 6175);
+    			add_location(div57, file$6, 206, 6, 6183);
     			attr_dev(div58, "class", "el__index-back");
-    			add_location(div58, file$6, 221, 8, 6698);
+    			add_location(div58, file$6, 221, 8, 6706);
     			attr_dev(div59, "class", "el__index-overlay");
     			attr_dev(div59, "data-index", "5");
-    			add_location(div59, file$6, 223, 10, 6784);
+    			add_location(div59, file$6, 223, 10, 6792);
     			attr_dev(div60, "class", "el__index-front");
-    			add_location(div60, file$6, 222, 8, 6743);
+    			add_location(div60, file$6, 222, 8, 6751);
     			attr_dev(div61, "class", "el__index");
-    			add_location(div61, file$6, 220, 6, 6665);
+    			add_location(div61, file$6, 220, 6, 6673);
     			attr_dev(div62, "class", div62_class_value = /*selected*/ ctx[0] === 5 ? "el s--active" : "el");
-    			add_location(div62, file$6, 205, 4, 6115);
+    			add_location(div62, file$6, 205, 4, 6123);
     			attr_dev(div63, "class", "cont__inner");
     			add_location(div63, file$6, 107, 2, 2795);
 
@@ -4532,9 +4531,9 @@ var app = (function () {
     			set_style(span, "color", "#f6f6f6");
     			set_style(span, "font-weight", "300");
     			set_style(span, "font-size", "13px");
-    			add_location(span, file$6, 232, 2, 6993);
+    			add_location(span, file$6, 232, 2, 7001);
     			set_style(footer, "background-color", "#37474f");
-    			add_location(footer, file$6, 231, 0, 6947);
+    			add_location(footer, file$6, 231, 0, 6955);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4682,9 +4681,8 @@ var app = (function () {
     				dispose = [
     					action_destroyer(link_action = link.call(null, a0)),
     					action_destroyer(link_action_1 = link.call(null, a1)),
-    					action_destroyer(link_action_2 = link.call(null, a2)),
-    					action_destroyer(link_action_3 = link.call(null, a3)),
-    					action_destroyer(link_action_4 = link.call(null, a4))
+    					action_destroyer(link_action_2 = link.call(null, a3)),
+    					action_destroyer(link_action_3 = link.call(null, a4))
     				];
 
     				mounted = true;

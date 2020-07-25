@@ -1,0 +1,615 @@
+<!doctype html>
+<!-- Copyright 2016 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================-->
+<html>
+<head lang="en">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1024">
+  <meta name="keywords" content="neural networks,machine learning,javascript">
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Tensorflow — Neural Network Playground"/>
+  <meta property="og:description" content="Tinker with a real neural network right here in your browser.">
+  <meta property="og:url" content="http://playground.tensorflow.org"/>
+  <meta property="og:image" content="http://playground.tensorflow.org/preview.png"/>
+
+  <meta name="twitter:card" value="summary_large_image">
+  <meta name="twitter:title" content="Tensorflow — Neural Network Playground">
+  <meta name="twitter:description" content="Tinker with a real neural network right here in your browser.">
+  <meta name="twitter:url" content="http://playground.tensorflow.org">
+  <meta name="twitter:image" content="http://playground.tensorflow.org/preview.png">
+  <meta name="twitter:image:width" content="560">
+  <meta name="twitter:image:height" content="295">
+
+  <meta name="author" content="Daniel Smilkov and Shan Carter">
+  <title>A Neural Network Playground</title>
+  <link rel="stylesheet" href="bundle.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons" rel="stylesheet" type="text/css">
+  <script src="lib.js"></script>
+</head>
+<body>
+  <!-- GitHub link -->
+  <a class="github-link" href="https://github.com/tensorflow/playground" title="Source on GitHub" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60.5 60.5" width="60" height="60">
+      <polygon class="bg" points="60.5,60.5 0,0 60.5,0 "/>
+      <path class="icon" d="M43.1,5.8c-6.6,0-12,5.4-12,12c0,5.3,3.4,9.8,8.2,11.4c0.6,0.1,0.8-0.3,0.8-0.6c0-0.3,0-1,0-2c-3.3,0.7-4-1.6-4-1.6c-0.5-1.4-1.3-1.8-1.3-1.8c-1.1-0.7,0.1-0.7,0.1-0.7c1.2,0.1,1.8,1.2,1.8,1.2c1.1,1.8,2.8,1.3,3.5,1c0.1-0.8,0.4-1.3,0.8-1.6c-2.7-0.3-5.5-1.3-5.5-5.9c0-1.3,0.5-2.4,1.2-3.2c-0.1-0.3-0.5-1.5,0.1-3.2c0,0,1-0.3,3.3,1.2c1-0.3,2-0.4,3-0.4c1,0,2,0.1,3,0.4c2.3-1.6,3.3-1.2,3.3-1.2c0.7,1.7,0.2,2.9,0.1,3.2c0.8,0.8,1.2,1.9,1.2,3.2c0,4.6-2.8,5.6-5.5,5.9c0.4,0.4,0.8,1.1,0.8,2.2c0,1.6,0,2.9,0,3.3c0,0.3,0.2,0.7,0.8,0.6c4.8-1.6,8.2-6.1,8.2-11.4C55.1,11.2,49.7,5.8,43.1,5.8z"/>
+    </svg>
+  </a>
+  <!-- Header -->
+  <header>
+    <h1 class="l--page">尝试下用神经网络来分类吧</h1>
+  </header>
+
+  <div>
+    <h1 class="l--page">先学习下什么是神经网络吧</h1>
+  </div>
+
+  <!-- Article -->
+
+  <article id="article-text">
+    <div class="l--page">
+      <h2>“嗯...什么是神经网络?”</h2>
+      <p>这是一种构建计算机程序的技术，用于从数据中学习。它不是严格地基于我们所认为人脑的工作方式。首先，创建一整套“神经元”的软件系统，并将其连接在一起，从而使它们能够相互传递消息。接下来，这个神经元网络被要求来重复地解决一个问题，每次尝试加强导致其成功的连接并减少导致其失败的连接。有关神经网络的更详细介绍，请见Michael Nielsen的 <a href="http://neuralnetworksanddeeplearning.com/index.html">神经网络和深度学习</a> ，这是一个很好的入门。如要了解更偏技术的归纳概括, 请尝试Ian Goodfellow，Yoshua Bengio, 以及 Aaron Courville的： <a href="http://www.deeplearningbook.org/">深度学习</a> 。</p>
+    </div>
+
+    <div class="l--page">
+      <h2>“这很酷，我可以重新利用它吗？”</h2>
+      <p>没问题！ 我们将其在 <a href="https://github.com/tensorflow/playground">GitHub</a> 上进行开源， 并希望它可以使神经网络更可让人们接受，且易于学习。你可以按照在 <a href="https://github.com/tensorflow/playground/blob/master/LICENSE">Apache License</a> 的规定下以任意方式使用它。 若你有其他建议，请在这里 <a href="https://github.com/tensorflow/playground/issues">告知我们</a>。</p>
+      <p>我们还在下面提供了一些控件，使你可以根据特定的主题或课程，来定制这个交互平台。只需要在下面选择你想显示的功能，然后保存 <a class="hide-controls-link" href="#">这个链接</a>，或者 <a href="javascript:location.reload();">刷新</a> 该页面。</p>
+      <div class="hide-controls"></div>
+    </div>
+
+    <div class="l--page">
+      <h2>“这些颜色都代表什么？”</h2>
+      <p>在整个可视化过程中使用橙色和蓝色的方式略有不同，但是通常橙色显示负值，而蓝色显示正值。</p>
+      <p>数据点（用小圆圈表示）最初被定义为橙色或蓝色，分别对应于正数1和负数1。</p>
+      <p>在隐藏层中，这些线由神经元之间相连的权重来着色。蓝色显示正权重，这意味着网络正在使用给定的神经元输出。橙色线表示网络给定了一个负的权重。</p>
+      <p>在输出层中，根据点的原始值将其染成橙色或蓝色。背景颜色显示网络对特定区域的预测。颜色的强度表明预测的可信度。</p>
+    </div>
+
+    <div class="l--page">
+      <h2>“请问你们使用的是什么代码库？”</h2>
+      <p>我们事先写了一个比较小的神经网络 <a href="https://github.com/tensorflow/playground/blob/master/src/nn.ts">代码库</a>
+        来满足这种教育可视化的要求。 对于真实落地的应用，请考虑使用
+      <a href="https://www.tensorflow.org/">TensorFlow</a> 的库。
+      </p>
+    </div>
+
+    <div class="l--page">
+      <h2>致谢</h2>
+      <p>
+        此项目主要由 Daniel Smilkov 与 Shan Carter共同创建。
+        这是先前诸多专家工作的延续 — 尤其感谢 Andrej Karpathy的 <a href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html">convnet.js 的 demo</a>
+        以及 Chris Olah 基于神经网络的 <a href="http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/">相关文章</a> 。
+        非常感谢 D. Sculley对项目最初想法的帮助，以及FernandaViégas，Martin Wattenberg 和其他来自
+        <a href="https://research.google.com/bigpicture/">Big Picture</a> 成员的帮助，以及 <a href="https://research.google.com/teams/brain/">谷歌大脑</a> 团队给予项目的反馈与指导。
+      </p>
+    </div>
+  </article>
+
+
+  <div>
+    <h1 class="l--page">动手试一试吧</h1>
+  </div>
+
+  <!-- Top Controls -->
+  <div id="top-controls">
+    <div class="container l--page">
+      <div class="timeline-controls">
+        <button class="mdl-button mdl-js-button mdl-button--icon ui-resetButton" id="reset-button" title="Reset the network">
+          <i class="material-icons">replay</i>
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored ui-playButton" id="play-pause-button" title="Run/Pause">
+          <i class="material-icons">play_arrow</i>
+          <i class="material-icons">pause</i>
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--icon ui-stepButton" id="next-step-button" title="Step">
+          <i class="material-icons">skip_next</i>
+        </button>
+      </div>
+      <div class="control">
+        <span class="label">Epoch</span>
+        <span class="value" id="iter-number"></span>
+      </div>
+      <div class="control ui-learningRate">
+        <label for="learningRate">Learning rate</label>
+        <div class="select">
+          <select id="learningRate">
+            <option value="0.00001">0.00001</option>
+            <option value="0.0001">0.0001</option>
+            <option value="0.001">0.001</option>
+            <option value="0.003">0.003</option>
+            <option value="0.01">0.01</option>
+            <option value="0.03">0.03</option>
+            <option value="0.1">0.1</option>
+            <option value="0.3">0.3</option>
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div class="control ui-activation">
+        <label for="activations">Activation</label>
+        <div class="select">
+          <select id="activations">
+            <option value="relu">ReLU</option>
+            <option value="tanh">Tanh</option>
+            <option value="sigmoid">Sigmoid</option>
+            <option value="linear">Linear</option>
+          </select>
+        </div>
+      </div>
+      <div class="control ui-regularization">
+        <label for="regularizations">Regularization</label>
+        <div class="select">
+          <select id="regularizations">
+            <option value="none">None</option>
+            <option value="L1">L1</option>
+            <option value="L2">L2</option>
+          </select>
+        </div>
+      </div>
+      <div class="control ui-regularizationRate">
+        <label for="regularRate">Regularization rate</label>
+        <div class="select">
+          <select id="regularRate">
+            <option value="0">0</option>
+            <option value="0.001">0.001</option>
+            <option value="0.003">0.003</option>
+            <option value="0.01">0.01</option>
+            <option value="0.03">0.03</option>
+            <option value="0.1">0.1</option>
+            <option value="0.3">0.3</option>
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div class="control ui-problem">
+        <label for="problem">Problem type</label>
+        <div class="select">
+          <select id="problem">
+            <option value="classification">Classification</option>
+            <option value="regression">Regression</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Part -->
+  <div id="main-part" class="l--page">
+
+    <!--  Data Column-->
+    <div class="column data">
+      <h4>
+        <span>Data</span>
+      </h4>
+      <div class="ui-dataset">
+        <p>先尝试下不同的数据训练吧</p>
+        <div class="dataset-list">
+          <div class="dataset" title="Circle">
+            <canvas class="data-thumbnail" data-dataset="circle"></canvas>
+          </div>
+          <div class="dataset" title="Exclusive or">
+            <canvas class="data-thumbnail" data-dataset="xor"></canvas>
+          </div>
+          <div class="dataset" title="Gaussian">
+            <canvas class="data-thumbnail" data-dataset="gauss"></canvas>
+          </div>
+          <div class="dataset" title="Spiral">
+            <canvas class="data-thumbnail" data-dataset="spiral"></canvas>
+          </div>
+          <div class="dataset" title="Plane">
+            <canvas class="data-thumbnail" data-regDataset="reg-plane"></canvas>
+          </div>
+          <div class="dataset" title="Multi gaussian">
+            <canvas class="data-thumbnail" data-regDataset="reg-gauss"></canvas>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="ui-percTrainData">
+          <label for="percTrainData">训练测试数据比例:&nbsp;&nbsp;<span class="value">XX</span>%</label>
+          <p class="slider">
+            <input class="mdl-slider mdl-js-slider" type="range" id="percTrainData" min="10" max="90" step="10">
+          </p>
+        </div>
+        <div class="ui-noise">
+          <label for="noise">噪声比:&nbsp;&nbsp;<span class="value">XX</span></label>
+          <p class="slider">
+            <input class="mdl-slider mdl-js-slider" type="range" id="noise" min="0" max="50" step="5">
+          </p>
+        </div>
+        <div class="ui-batchSize">
+          <label for="batchSize">每次迭代样本数:&nbsp;&nbsp;<span class="value">XX</span></label>
+          <p class="slider">
+            <input class="mdl-slider mdl-js-slider" type="range" id="batchSize" min="1" max="30" step="1">
+          </p>
+        </div>
+          <button class="basic-button" id="data-regen-button" title="Regenerate data">
+            重新产生数据
+          </button>
+      </div>
+    </div>
+
+    <!-- Features Column -->
+    <div class="column features">
+      <h4>特征</h4>
+      <p>像选用哪一个特征</p>
+      <div id="network">
+        <svg id="svg" width="510" height="450">
+          <defs>
+            <marker id="markerArrow" markerWidth="7" markerHeight="13" refX="1" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M2,11 L7,6 L2,2" />
+            </marker>
+          </defs>
+        </svg>
+        <!-- Hover card -->
+        <div id="hovercard">
+          <div style="font-size:10px">Click anywhere to edit.</div>
+          <div><span class="type">Weight/Bias</span> is <span class="value">0.2</span><span><input type="number"/></span>.</div>
+        </div>
+        <div class="callout thumbnail">
+          <svg viewBox="0 0 30 30">
+            <defs>
+              <marker id="arrow" markerWidth="5" markerHeight="5" refx="5" refy="2.5" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M0,0 L5,2.5 L0,5 z"/>
+              </marker>
+            </defs>
+            <path d="M12,30C5,20 2,15 12,0" marker-end="url(#arrow)">
+          </svg>
+          <div class="label">
+            This is the output from one <b>neuron</b>. Hover to see it larger.
+          </div>
+        </div>
+        <div class="callout weights">
+          <svg viewBox="0 0 30 30">
+            <defs>
+              <marker id="arrow" markerWidth="5" markerHeight="5" refx="5" refy="2.5" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M0,0 L5,2.5 L0,5 z"/>
+              </marker>
+            </defs>
+            <path d="M12,30C5,20 2,15 12,0" marker-end="url(#arrow)">
+          </svg>
+          <div class="label">
+            The outputs are mixed with varying <b>weights</b>, shown by the thickness of the lines.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Layers Column -->
+    <div class="column hidden-layers">
+      <h4>
+        <div class="ui-numHiddenLayers">
+          <button id="add-layers" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">add</i>
+          </button>
+          <button id="remove-layers" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">remove</i>
+          </button>
+        </div>
+        <span id="num-layers"></span>
+        <span id="layers-label"></span>
+      </h4>
+      <div class="bracket"></div>
+    </div>
+
+    <!-- Output Column -->
+    <div class="column output">
+      <h4>输出</h4>
+      <div class="metrics">
+        <div class="output-stats ui-percTrainData">
+          <span>测试样本误差</span>
+          <div class="value" id="loss-test"></div>
+        </div>
+        <div class="output-stats train">
+          <span>训练样本误差</span>
+          <div class="value" id="loss-train"></div>
+        </div>
+        <div id="linechart"></div>
+      </div>
+      <div id="heatmap"></div>
+      <div style="float:left;margin-top:20px">
+        <div style="display:flex; align-items:center;">
+
+          <!-- Gradient color scale -->
+          <div class="label" style="width:105px; margin-right: 10px">
+            Colors shows data, neuron and weight values.
+          </div>
+          <svg width="150" height="30" id="colormap">
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f59322" stop-opacity="1"></stop>
+                <stop offset="50%" stop-color="#e8eaeb" stop-opacity="1"></stop>
+                <stop offset="100%" stop-color="#0877bd" stop-opacity="1"></stop>
+              </linearGradient>
+            </defs>
+            <g class="core" transform="translate(3, 0)">
+              <rect width="144" height="10" style="fill: url('#gradient');"></rect>
+            </g>
+          </svg>
+        </div>
+        <br/>
+        <div style="display:flex;">
+          <label class="ui-showTestData mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="show-test-data">
+            <input type="checkbox" id="show-test-data" class="mdl-checkbox__input" checked>
+            <span class="mdl-checkbox__label label">Show test data</span>
+          </label>
+          <label class="ui-discretize mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="discretize">
+            <input type="checkbox" id="discretize" class="mdl-checkbox__input" checked>
+            <span class="mdl-checkbox__label label">Discretize output</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--iris part-->
+  <div>
+    <h1 class="l--page">尝试下鸢尾花吧</h1>
+  </div>
+
+  <!-- Top Controls2 -->
+  <div id="top-controls2">
+    <div class="container l--page">
+      <div class="timeline-controls">
+        <button class="mdl-button mdl-js-button mdl-button--icon ui-resetButton" id="reset-button2" title="Reset the network">
+          <i class="material-icons">replay</i>
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored ui-playButton" id="play-pause-button2" title="Run/Pause">
+          <i class="material-icons">play_arrow</i>
+          <i class="material-icons">pause</i>
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--icon ui-stepButton" id="next-step-button2" title="Step">
+          <i class="material-icons">skip_next</i>
+        </button>
+      </div>
+      <div class="control">
+        <span class="label">Epoch</span>
+        <span class="value" id="iter-number2"></span>
+      </div>
+      <div class="control ui-learningRate">
+        <label for="learningRate">Learning rate</label>
+        <div class="select">
+          <select id="learningRate2">
+            <option value="0.00001">0.00001</option>
+            <option value="0.0001">0.0001</option>
+            <option value="0.001">0.001</option>
+            <option value="0.003">0.003</option>
+            <option value="0.01">0.01</option>
+            <option value="0.03">0.03</option>
+            <option value="0.1">0.1</option>
+            <option value="0.3">0.3</option>
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div class="control ui-activation">
+        <label for="activations">Activation</label>
+        <div class="select">
+          <select id="activations2">
+            <option value="relu">ReLU</option>
+            <option value="tanh">Tanh</option>
+            <option value="sigmoid">Sigmoid</option>
+            <option value="linear">Linear</option>
+          </select>
+        </div>
+      </div>
+      <div class="control ui-regularization">
+        <label for="regularizations">Regularization</label>
+        <div class="select">
+          <select id="regularizations2">
+            <option value="none">None</option>
+            <option value="L1">L1</option>
+            <option value="L2">L2</option>
+          </select>
+        </div>
+      </div>
+      <div class="control ui-regularizationRate">
+        <label for="regularRate">Regularization rate</label>
+        <div class="select">
+          <select id="regularRate2">
+            <option value="0">0</option>
+            <option value="0.001">0.001</option>
+            <option value="0.003">0.003</option>
+            <option value="0.01">0.01</option>
+            <option value="0.03">0.03</option>
+            <option value="0.1">0.1</option>
+            <option value="0.3">0.3</option>
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Part2 -->
+  <div id="main-part2" class="l--page">
+
+    <!--  Data Column-->
+    <div class="column data">
+      <div class="ui-dataset">
+        <div class="dataset-list">
+          <div class="dataset" title="Circle">
+            <canvas class="data-thumbnail" data-dataset="circle"></canvas>
+          </div>
+          <div class="dataset" title="Exclusive or">
+            <canvas class="data-thumbnail" data-dataset="xor"></canvas>
+          </div>
+          <div class="dataset" title="Gaussian">
+            <canvas class="data-thumbnail" data-dataset="gauss"></canvas>
+          </div>
+          <div class="dataset" title="Spiral">
+            <canvas class="data-thumbnail" data-dataset="spiral"></canvas>
+          </div>
+          <div class="dataset" title="irisData">
+            <canvas class="data-thumbnail" data-dataset="iris"></canvas>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="ui-percTrainData">
+          <label for="percTrainData">训练测试数据比例:&nbsp;&nbsp;<span class="value">XX</span>%</label>
+          <p class="slider">
+            <input class="mdl-slider mdl-js-slider" type="range" id="percTrainData2" min="10" max="90" step="10">
+          </p>
+        </div>
+        <div class="ui-noise">
+          <label for="noise">噪声比:&nbsp;&nbsp;<span class="value">XX</span></label>
+          <p class="slider">
+            <input class="mdl-slider mdl-js-slider" type="range" id="noise2" min="0" max="50" step="5">
+          </p>
+        </div>
+        <div class="ui-batchSize">
+          <label for="batchSize">每次迭代样本数:&nbsp;&nbsp;<span class="value">XX</span></label>
+          <p class="slider">
+            <input class="mdl-slider mdl-js-slider" type="range" id="batchSize2" min="1" max="30" step="1">
+          </p>
+        </div>
+          <button class="basic-button" id="data-regen-button2" title="Regenerate data">
+            重新产生数据
+          </button>
+      </div>
+    </div>
+
+    <!-- Features Column -->
+    <div class="column features">
+      <h4>特征</h4>
+      <p>鸢尾花一共有四个特征，花瓣长度、花萼长度、花瓣宽度、花萼宽度，所以我们这里选择4个输入节点</p>
+      <div id="network2">
+        <svg id="svg2" width="510" height="450">
+          <defs>
+            <marker id="markerArrow2" markerWidth="7" markerHeight="13" refX="1" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M2,11 L7,6 L2,2" />
+            </marker>
+          </defs>
+        </svg>
+        <!-- Hover card -->
+        <div id="hovercard2">
+          <div style="font-size:10px">Click anywhere to edit.</div>
+          <div><span class="type">Weight/Bias</span> is <span class="value">0.2</span><span><input type="number"/></span>.</div>
+        </div>
+
+        <div class="callout thumbnail">
+          <svg viewBox="0 0 30 30">
+            <defs>
+              <marker id="arrow2" markerWidth="5" markerHeight="5" refx="5" refy="2.5" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M0,0 L5,2.5 L0,5 z"/>
+              </marker>
+            </defs>
+            <path d="M12,30C5,20 2,15 12,0" marker-end="url(#arrow2)">
+          </svg>
+          <div class="label">
+            This is the output from one <b>neuron</b>. Hover to see it larger.
+          </div>
+        </div>
+        <div class="callout weights">
+          <svg viewBox="0 0 30 30">
+            <defs>
+              <marker id="arrow2" markerWidth="5" markerHeight="5" refx="5" refy="2.5" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M0,0 L5,2.5 L0,5 z"/>
+              </marker>
+            </defs>
+            <path d="M12,30C5,20 2,15 12,0" marker-end="url(#arrow2)">
+          </svg>
+          <div class="label">
+            The outputs are mixed with varying <b>weights</b>, shown by the thickness of the lines.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Layers Column -->
+    <div class="column hidden-layers">
+      <h4>
+        <div class="ui-numHiddenLayers">
+          <button id="add-layers2" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">add</i>
+          </button>
+          <button id="remove-layers2" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">remove</i>
+          </button>
+        </div>
+        <span id="num-layers2"></span>
+        <span id="layers-label2"></span>
+      </h4>
+      <div class="bracket"></div>
+    </div>
+
+    <!-- Output Column -->
+    <div class="column output">
+      <h4>输出</h4>
+      <div class="metrics">
+        <div class="output-stats ui-percTrainData">
+          <span>测试样本误差</span>
+          <div class="value" id="loss-test2"></div>
+        </div>
+        <div class="output-stats train">
+          <span>训练样本误差</span>
+          <div class="value" id="loss-train2"></div>
+        </div>
+      </div>
+      <div id="heatmap2"></div>
+      <div style="float:left;margin-top:20px">
+        <div style="display:flex; align-items:center;">
+
+          <!-- Gradient color scale -->
+          <div class="label" style="width:105px; margin-right: 10px">
+            Colors shows data, neuron and weight values.
+          </div>
+          <svg width="150" height="30" id="colormap">
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f59322" stop-opacity="1"></stop>
+                <stop offset="50%" stop-color="#e8eaeb" stop-opacity="1"></stop>
+                <stop offset="100%" stop-color="#0877bd" stop-opacity="1"></stop>
+              </linearGradient>
+            </defs>
+            <g class="core" transform="translate(3, 0)">
+              <rect width="144" height="10" style="fill: url('#gradient');"></rect>
+            </g>
+          </svg>
+        </div>
+        <br/>
+        <div style="display:flex;">
+          <label class="ui-showTestData mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="show-test-data">
+            <input type="checkbox" id="show-test-data" class="mdl-checkbox__input" checked>
+            <span class="mdl-checkbox__label label">Show test data</span>
+          </label>
+          <label class="ui-discretize mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="discretize">
+            <input type="checkbox" id="discretize" class="mdl-checkbox__input" checked>
+            <span class="mdl-checkbox__label label">Discretize output</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+  <script src="bundle.js"></script>
+  <!-- Google analytics -->
+  <script src="analytics.js"></script>
+</body>
+</html>
