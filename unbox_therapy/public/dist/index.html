@@ -39,7 +39,12 @@ limitations under the License.
   <link rel="stylesheet" href="bundle.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons" rel="stylesheet" type="text/css">
   <script src="lib.js"></script>
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </head>
+
+<script>
+  import { link } from "svelte-spa-router";
+</script>
 <body>
   <!-- Header -->
   <header>
@@ -552,7 +557,9 @@ limitations under the License.
     </div>
   
   </div>
-
+  <a href="/#/home" use:link rel="prefetch">
+    <ion-icon class="return" name="arrow-back-circle-outline" size="large" style="float: right; margin-right: 20px; margin-bottom: 20px;"></ion-icon>
+  </a>
   <script src="bundle.js"></script>
   <!-- Google analytics -->
   <script src="analytics.js"></script>
