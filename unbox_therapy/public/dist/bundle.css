@@ -76,6 +76,14 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.l--page .title{
+  font-style: italic;
+  color: steelblue;
+  font-size: 24px;
+  font-weight: 450;
+  margin-bottom: 8px;
+  margin-top: 44px;
+}
 
 @media (min-width: 1180px) {
   .l--page {
