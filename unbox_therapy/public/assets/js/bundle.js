@@ -4570,8 +4570,8 @@ var app = (function () {
     			set_style(span, "color", "#f6f6f6");
     			set_style(span, "font-weight", "300");
     			set_style(span, "font-size", "13px");
-    			add_location(span, file$6, 232, 2, 6985);
-    			set_style(footer, "background-color", "#37474f");
+    			add_location(span, file$6, 232, 2, 6993);
+    			set_style(footer, "background-color", "rgb(29, 29, 48)");
     			add_location(footer, file$6, 231, 0, 6939);
     		},
     		l: function claim(nodes) {

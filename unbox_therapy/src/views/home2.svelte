@@ -229,7 +229,7 @@
   </div>
   <!-- cont inner end -->
 </div>
-<footer style="background-color: #37474f">
+<footer style="background-color: rgb(29, 29, 48)">
   <span
     style="text-align: right;color: #f6f6f6;font-weight:300;;font-size: 13px">
     Deecamp2020 4-2 UnboxTherapy
