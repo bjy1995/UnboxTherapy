@@ -10,7 +10,7 @@ Install the dependencies:
 npm install
 ```
 
-Then run CNN Explainer:
+Then run:
 
 ```
 npm run dev
